@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANIFESTO // PINK CODING CLUB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #000000;
+            --text-white: #ffffff;
+            --border-gray: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #facee2;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navigation - Minimal & Wide */
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 4%;
+            border-bottom: 1px solid var(--border-gray);
+            position: fixed;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        /* Navbar Links & Hovers */
+        .nav-links a {
+            color: #facee2;
+            text-decoration: none;
+            font-size: 0.7rem;
+            margin-left: 30px;
+            letter-spacing: 2px;
+            font-weight: 900;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        /* The Gradient Hover you wanted */
+        .nav-links a:hover {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateY(-1px);
+            text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
+        }
+
+        /* The "Active" State for Manifesto */
+        .nav-links a.active {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Manifesto Hero */
+        .manifesto-hero {
+            padding: 180px 4% 60px 4%;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .manifesto-hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.85;
+            letter-spacing: -4px;
+        }
+
+        /* Mission Grid */
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            width: 100%;
+        }
+
+        .grid-item {
+            border-right: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 60px 40px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .grid-item h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .grid-item p {
+            text-transform: none; /* Reading long lorem ipsum is easier in normal case */
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        /* Original Copyright Footer Style */
+        .copyright-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 4% 80px 4%;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--border-gray);
+            border-top: 1px solid var(--border-gray);
+            background-color: var(--bg-black);
+        }
+
+        /*  Original Ticker Style */
+        .ticker {
+            width: 100%;
+            background: white;
+            color: black;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            z-index: 101;
+        }
+
+        .ticker-wrap {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+            .copyright-footer { flex-direction: column; gap: 10px; text-align: center; }
+            .manifesto-hero h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">P.C.C.</a></div>
+        <div class="nav-links">
+            <a href="manifesto.html" class="active">MANIFESTO</a>
+            <a href="#">CURRICULUM</a>
+            <a href="#">JOIN</a>
+        </div>
+    </nav>
+
+    <section class="manifesto-hero">
+        <p style="font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 10px;">MISSION // V.01</p>
+        <h1>Any girl<br>can code</h1>
+    </section>
+
+    <div class="grid-section">
+        <div class="grid-item">
+            <h2>01 // Why P.C.C was Made</h2>
+            <p>Coding programs, even ones dedicated to girls only, have always appealed to the stereotypical tomboy. After hearing many anecdotes where girls have changed themselves to be less traditionally feminine to fit into tech spaces, the founder of P.C.C. said enough was enough and created a space where the girly girl is embraced and can be her full amazing and empowered self.   </p>
+        </div>
+        <div class="grid-item">
+            <h2>02 // THE MISSION</h2>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit.</p>
+        </div>
+        <div class="grid-item">
+            <h2>03 // THE CODE</h2>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+        <div class="grid-item">
+            <h2>04 // THE FUTURE</h2>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+        </div>
+    </div>
+
+    <footer class="copyright-footer">
+        <div class="footer-left">
+            © 2026 PINK CODING CLUB. ALL RIGHTS RESERVED.
+        </div>
+        <div class="footer-right">
+            EST. 2026 // V.01 "RECODING FEMININITY"
+        </div>
+    </footer>
+
+    <div class="ticker">
+        <div class="ticker-wrap">
+            <span>✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+        <div class="ticker-wrap">
+            <span> I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+    </div>
+
+</body>
+</html>
