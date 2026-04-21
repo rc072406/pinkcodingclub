@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.C.C. // PINK CODING CLUB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #000000;
+            --text-white: #ffffff;
+            --border-gray: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #facee2;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navigation - Minimal & Wide */
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 4%;
+            border-bottom: 1px solid var(--border-gray);
+            position: fixed;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        .nav-links a {
+            color: #facee2;
+            text-decoration: none;
+            font-size: 0.7rem;
+            margin-left: 30px;
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+
+        /* Hero - Heavy Typography */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4%;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.85;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+        }
+
+        .hero-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            max-width: 400px;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+
+        /* Updated Button - Pink Ombre Gradient */
+        .cta-btn {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            background-size: 200% auto; /* For the hover shimmer effect */
+            color: black;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            transition: 0.5s ease;
+            border: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-position: right center; /* Moves the gradient on hover */
+            color: white;
+            box-shadow: 0 0 20px rgba(228, 30, 129, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* Grid - "Product" Style Display for Workshops */
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            width: 100%;
+        }
+
+        .grid-item {
+            border-right: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 40px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .grid-item h2 {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .grid-item .code-snip {
+            font-family: monospace;
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: none;
+        }
+
+        /* Footer Ticker */
+        .ticker {
+            width: 100%;
+            background:  white;
+            color: black;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+        }
+
+        .ticker-wrap {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 5rem; letter-spacing: -2px; }
+            .hero-sub { flex-direction: column; align-items: flex-start; gap: 20px; }
+        }
+        .copyright-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 4% 80px 4%; /* Extra bottom padding so it's not hidden by the ticker */
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--border-gray);
+            border-top: 1px solid var(--border-gray);
+            background-color: var(--bg-black);
+        }
+
+        @media (max-width: 768px) {
+            .copyright-footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+        /* Navbar Gradient Hover Effect */
+        .nav-links a {
+            color: #facee2;
+            text-decoration: none;
+            font-size: 0.7rem;
+            margin-left: 30px;
+            letter-spacing: 2px;
+            font-weight: 900;
+            transition: all 0.4s ease; /* Smooth transition */
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            /* This creates the gradient text effect */
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Slight lift effect */
+            transform: translateY(-1px);
+            text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
+        }
+       
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">P.C.C.</div>
+        <div class="nav-links">
+            <a href="#">MANIFESTO</a>
+            <a href="#">CURRICULUM</a>
+            <a href="#">JOIN</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <p style="font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 10px;">V.01 // RECODING FEMININITY</p>
+        <h1>PINK<br>CODING<br>CLUB</h1>
+        <div class="hero-sub">
+            <p class="tagline">Hyper-technical education for the girls and non-binary icons who lead the culture. No compromises.</p>
+            <a href="#" class="cta-btn">ENTER CLUB</a>
+        </div>
+    </section>
+
+    <div class="grid-section">
+        <div class="grid-item">
+            <span class="code-snip">function deploy() {</span>
+            <h2>SYSTEM ARCHITECTURE</h2>
+            <p>Mastering the backend of the future.</p>
+        </div>
+        <div class="grid-item">
+            <span class="code-snip">import { GLAM } from 'pcc';</span>
+            <h2>CYBER STYLING</h2>
+            <p>UI/UX design with a high-fashion lens.</p>
+        </div>
+    </div>
+    <footer class="copyright-footer">
+        <div class="footer-left">
+            © 2026 PINK CODING CLUB. ALL RIGHTS RESERVED.
+        </div>
+        <div class="footer-right">
+            EST. 2026 // V.01 "RECODING FEMININITY"
+        </div>
+    </footer>
+
+   <div class="ticker">
+        <div class="ticker-wrap">
+            <span>✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+        <div class="ticker-wrap">
+            <span> I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+    </div>
+
+</body>
+</html>
