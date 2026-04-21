@@ -205,6 +205,117 @@
             transform: translateY(-1px);
             text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
         }
+        /* Mobile Toggle Styles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #facee2;
+    transition: 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+/* Overlay Styles */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.mobile-overlay.active {
+    transform: translateY(0);
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 3rem;
+    color: #facee2;
+    text-decoration: none;
+    letter-spacing: -2px;
+}
+
+/* Gradient Effect on Hover */
+.mobile-nav-links a:hover {
+    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animation to 'X' */
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: #e41e81; }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -7px); background: #e41e81; }
+
+/* Show toggle on mobile */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
+}
+ 
+.menu-toggle {
+    position: relative;
+    z-index: 2000; /* Higher than the overlay */
+}
+
+/
+.menu-toggle.active span:nth-child(1) { 
+    transform: rotate(45deg) translate(5px, 6px); 
+    background: #e41e81; 
+}
+
+.menu-toggle.active span:nth-child(2) { 
+    opacity: 0; 
+}
+
+.menu-toggle.active span:nth-child(3) { 
+    transform: rotate(-45deg) translate(5px, -7px); 
+    background: #e41e81; 
+}
+.close-menu {
+    position: absolute;
+    top: 25px;
+    right: 4%;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #facee2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-menu:hover {
+    color: #e41e81;
+    transform: scale(1.1);
+}
+
+
+.menu-toggle.active {
+    opacity: 0;
+    pointer-events: none;
+}
        
     </style>
 </head>
@@ -217,7 +328,22 @@
             <a href="#">CURRICULUM</a>
             <a href="#">JOIN</a>
         </div>
-    </nav>
+    
+    <div class="menu-toggle" id="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="mobile-overlay" id="mobile-overlay">
+    <div class="close-menu" id="close-menu-btn">CLOSE</div>
+    <div class="mobile-nav-links">
+        <a href="manifesto.html">MANIFESTO</a>
+        <a href="#">CURRICULUM</a>
+        <a href="#">JOIN</a>
+    </div>
+</div>
 
     <section class="hero">
         <p style="font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 10px;">V.01 // RECODING FEMININITY</p>
@@ -247,7 +373,7 @@
         <div class="footer-right">
             EST. 2026 // V.01 "RECODING FEMININITY"
         </div>
-    </footer>
+    </footer> 
 
    <div class="ticker">
         <div class="ticker-wrap">
@@ -257,6 +383,33 @@
             <span> I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
         </div>
     </div>
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const overlay = document.getElementById('mobile-overlay');
+
+    // Function to close the menu
+    const closeMenu = () => {
+        menuBtn.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'initial';
+    };
+
+    // Open/Toggle via Hamburger
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'initial';
+    });
+
+    // Close via 'CLOSE' button
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Close via clicking any link
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+</script>
 
 </body>
 </html>
