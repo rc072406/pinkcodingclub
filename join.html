@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN // PINK CODING CLUB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #000000;
+            --text-white: #ffffff;
+            --border-gray: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #facee2;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navigation - Minimal & Wide */
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 4%;
+            border-bottom: 1px solid var(--border-gray);
+            position: fixed;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        /* Navbar Links & Hovers */
+        .nav-links a {
+            color: #facee2;
+            text-decoration: none;
+            font-size: 0.7rem;
+            margin-left: 30px;
+            letter-spacing: 2px;
+            font-weight: 900;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+      
+        .nav-links a:hover {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateY(-1px);
+            text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
+        }
+
+        /* The "Active" State for Manifesto */
+        .nav-links a.active {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Manifesto Hero */
+        .manifesto-hero {
+            padding: 180px 4% 60px 4%;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .manifesto-hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.85;
+            letter-spacing: -4px;
+        }
+
+        /* Mission Grid */
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            width: 100%;
+        }
+
+        .grid-item {
+            border-right: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 60px 40px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .grid-item h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .grid-item p {
+            text-transform: none; /* Reading long lorem ipsum is easier in normal case */
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        /* Original Copyright Footer Style */
+        .copyright-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 4% 80px 4%;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--border-gray);
+            border-top: 1px solid var(--border-gray);
+            background-color: var(--bg-black);
+        }
+
+        /*  Original Ticker Style */
+        .ticker {
+            width: 100%;
+            background: white;
+            color: black;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            z-index: 101;
+        }
+
+        .ticker-wrap {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+    .copyright-footer { flex-direction: column; gap: 10px; text-align: center; }
+    
+    .manifesto-hero h1 { 
+        font-size: clamp(2.5rem, 12vw, 4rem);  */
+        line-height: 1.1; 
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+         /* Mobile Toggle Styles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #facee2;
+    transition: 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+/* Overlay Styles */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.mobile-overlay.active {
+    transform: translateY(0);
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 3rem;
+    color: #facee2;
+    text-decoration: none;
+    letter-spacing: -2px;
+}
+
+/* Gradient Effect on Hover */
+.mobile-nav-links a:hover {
+    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animation to 'X' */
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: #e41e81; }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -7px); background: #e41e81; }
+
+/* Show toggle on mobile */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
+}
+ 
+.menu-toggle {
+    position: relative;
+    z-index: 2000; /* Higher than the overlay */
+}
+
+/
+.menu-toggle.active span:nth-child(1) { 
+    transform: rotate(45deg) translate(5px, 6px); 
+    background: #e41e81; 
+}
+
+.menu-toggle.active span:nth-child(2) { 
+    opacity: 0; 
+}
+
+.menu-toggle.active span:nth-child(3) { 
+    transform: rotate(-45deg) translate(5px, -7px); 
+    background: #e41e81; 
+}
+.close-menu {
+    position: absolute;
+    top: 25px;
+    right: 4%;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #facee2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-menu:hover {
+    color: #e41e81;
+    transform: scale(1.1);
+}
+
+
+.menu-toggle.active {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mobile-nav-links a.active {
+    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+ .cta-btn {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            background-size: 200% auto; /* For the hover shimmer effect */
+            color: black;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            transition: 0.5s ease;
+            border: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-position: right center; /* Moves the gradient on hover */
+            color: white;
+            box-shadow: 0 0 20px rgba(228, 30, 129, 0.4);
+            transform: scale(1.02);
+        }
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            width: 100%;
+        }
+
+        .grid-item {
+            border-right: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 60px 40px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .grid-item h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .grid-item p {
+            text-transform: none; /* Reading long lorem ipsum is easier in normal case */
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+ /* ---  Locket Hearts --- */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.y2k-locket {
+    position: absolute;
+    filter: drop-shadow(0 4px 10px rgba(228, 30, 129, 0.5)) brightness(1.1); 
+    user-select: none;
+    animation: locketFloat 8s ease-in-out infinite; /* Slower, graceful float */
+    opacity: 0;
+}
+
+@keyframes locketFloat {
+    0% {
+        transform: translateY(120vh) translateX(0) scale(0.6) rotate(5deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(90vh) translateX(25px) scale(1) rotate(-10deg);
+    }
+    50% {
+        transform: translateY(50vh) translateX(-25px) scale(1.1) rotate(10deg);
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(15px) scale(1.3) rotate(-15deg);
+        opacity: 0;
+    }
+}  
+    </style>
+</head>
+<body>
+
+ <nav>
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">P.C.C.</a></div>
+        <div class="nav-links">
+            <a href="manifesto.html" >MANIFESTO</a>
+            <a href="#" >CURRICULUM</a>
+            <a href="#" class="active">JOIN</a>
+        </div>
+    
+    <div class="menu-toggle" id="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="mobile-overlay" id="mobile-overlay">
+    <div class="close-menu" id="close-menu-btn">CLOSE</div>
+    <div class="mobile-nav-links">
+        <a href="manifesto.html" >MANIFESTO</a>
+        <a href="curriculum.html">CURRICULUM</a>
+        <a href="join.html" class="active">JOIN</a>
+    </div>
+</div>
+
+
+  <section class="manifesto-hero" style="position: relative; overflow: hidden; min-height: 80vh;">
+    <div class="heart-container" id="heart-container"></div>
+
+    <p style="font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 10px; position: relative; z-index: 10;">Join // V.01</p>
+    <h1 style="position: relative; z-index: 10;">Welcome to the Pink Coding Club</h1>
+</section>
+ <div class="grid-section">
+        <div class="grid-item">
+          
+            <h2>Philosophy</h2>
+            <p>lorem ipsum random words.</p>
+        </div>
+        <div class="grid-item">
+           
+            <h2>How to Join</h2>
+            <p>lorem ipsum random words</p>
+        </div>
+    </div>
+    
+     
+
+
+    <footer class="copyright-footer">
+        <div class="footer-left">
+            © 2026 PINK CODING CLUB. ALL RIGHTS RESERVED.
+        </div>
+        <div class="footer-right">
+            EST. 2026 // V.01 "RECODING FEMININITY"
+        </div>
+    </footer>
+
+    <div class="ticker">
+        <div class="ticker-wrap">
+            <span>✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+        <div class="ticker-wrap">
+            <span> I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+    </div>
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const overlay = document.getElementById('mobile-overlay');
+
+    // Function to close the menu
+    const closeMenu = () => {
+        menuBtn.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'initial';
+    };
+
+    // Open/Toggle via Hamburger
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'initial';
+    });
+    // Close via 'CLOSE' button
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Close via clicking any link
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+// --- Y2K Locket Generation Logic (NEW) ---
+const heartContainer = document.getElementById('heart-container');
+
+// A function to generate a random delay, making the sequence unpredictable
+const randomDelay = () => Math.random() * 2000;
+
+function createY2KLocket() {
+    const locket = document.createElement('div');
+    locket.classList.add('y2k-locket');
+
+    // Locket sizing (large, visible)
+    const size = Math.random() * 80 + 70; // Hearts between 70px and 150px
+    locket.style.width = `${size}px`;
+    locket.style.height = `${size}px`; // Keep it square to maintain aspect ratio
+    locket.style.left = Math.random() * 100 + "vw";
+    locket.style.animationDuration = Math.random() * 3 + 6 + "s"; // 6-9s float
+    locket.style.animationDelay = `${randomDelay()}ms`;
+
+ 
+    locket.innerHTML = `
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="locketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#facee2;stop-opacity:1" /> 
+                    <stop offset="25%" style="stop-color:#f3a6c9;stop-opacity:1" /> 
+                    <stop offset="60%" style="stop-color:#e41e81;stop-opacity:1" /> 
+                    <stop offset="100%" style="stop-color:#9d0049;stop-opacity:1" /> 
+                </linearGradient>
+                
+                <path id="topTextPath" d="M20,48 Q50,25 80,48" /> 
+                <path id="bottomTextPath" d="M20,62 Q50,90 80,62" />
+            </defs>
+
+            <path d="M50,88 
+                     C 50,88 5,65 5,35 
+                     A 22,22 0 0 1 50,25 
+                     A 22,22 0 0 1 95,35 
+                     C 95,65 50,88 50,88 Z" 
+                fill="url(#locketGrad)" 
+                stroke="#ffb7d5" 
+                stroke-width="1.5" />
+
+            <text font-family="'Inter', sans-serif" font-weight="900" font-size="6.5" fill="black" text-anchor="middle" letter-spacing="0.5">
+                <textPath href="#topTextPath" startOffset="50%">I LOVE PINK</textPath>
+            </text>
+
+            <text font-family="'Inter', sans-serif" font-weight="900" font-size="6.5" fill="black" text-anchor="middle" letter-spacing="0.8">
+                <textPath href="#bottomTextPath" startOffset="50%">I LOVE 2 CODE</textPath>
+            </text>
+        </svg>
+    `;
+    heartContainer.appendChild(locket);
+
+    // Clean up DOM after animation
+    setTimeout(() => {
+        locket.remove();
+    }, 12000); // Wait longer than the max animation duration
+}
+
+// Spawn lockets periodically (slightly slower interval to prevent clutter)
+setInterval(createY2KLocket, 1500);
+
+// Spawn a few immediately on load
+for(let i=0; i<3; i++) { createY2KLocket(); }
+
+
+</script>
+</body>
+</html>
