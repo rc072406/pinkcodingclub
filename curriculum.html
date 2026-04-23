@@ -354,6 +354,65 @@
     border-top: 1px solid #000;
     margin-top: 5px;
 }
+/* Shatter Overlay for the Active Item */
+.shatter-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-shard-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(250, 206, 226, 0.2);
+    backdrop-filter: blur(10px) contrast(1.5);
+    -webkit-backdrop-filter: blur(10px) contrast(1.5);
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none; /* Let clicks pass through to the link */
+}
+
+.shatter-text {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px #e41e81;
+}
+
+/* The Shatter Action */
+.shatter-container:hover .glass-shard-overlay {
+    opacity: 0;
+    transform: scale(1.5); /* Blows the "glass" toward the user */
+    backdrop-filter: blur(0px);
+}
+
+
+.shatter-container:hover .grid-content-wrapper {
+    animation: glitch-text 0.15s 3; /* Quick glitch burst */
+    opacity: 1;
+    filter: none;
+}
+
+/* The Link Button for ready curriculum */
+.view-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid #facee2;
+    color: #facee2;
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #facee2;
+    color: #000;
+    box-shadow: 0 0 20px rgba(250, 206, 226, 0.5);
+}
     </style>
 </head>
 <body>
@@ -397,7 +456,6 @@
                 <span class="barcode">|||| || ||||| ||| || |||</span>
             </div>
         </div>
-        
         <div class="grid-content-wrapper">
             <span class="code-snip">function deploy() {</span>
             <h2>SYSTEM ARCHITECTURE</h2>
@@ -405,11 +463,17 @@
         </div>
     </div>
 
-    <div class="grid-item">
-        <div class="grid-content-wrapper" style="opacity: 1; filter: none;">
+    <div class="grid-item shatter-container">
+        <div class="glass-shard-overlay">
+            <div class="shatter-text">ACCESS GRANTED</div>
+        </div>
+        
+        <div class="grid-content-wrapper" style="opacity: 0.8; filter: blur(1px);">
             <span class="code-snip">import { GLAM } from 'pcc';</span>
             <h2>CYBER STYLING</h2>
             <p>UI/UX design with a high-fashion lens.</p>
+            
+            <a href="" class="view-btn">I'M AN ICON</a>
         </div>
     </div>
 </div>
