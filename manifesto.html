@@ -86,37 +86,7 @@
             letter-spacing: -4px;
         }
 
-        /* Mission Grid */
-        .grid-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            width: 100%;
-        }
-
-        .grid-item {
-            border-right: 1px solid var(--border-gray);
-            border-bottom: 1px solid var(--border-gray);
-            padding: 60px 40px;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            gap: 20px;
-        }
-
-        .grid-item h2 {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .grid-item p {
-            text-transform: none; /* Reading long lorem ipsum is easier in normal case */
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #ffffff;
-            opacity: 0.8;
-        }
+        
 
         /* Original Copyright Footer Style */
         .copyright-footer {
@@ -364,6 +334,97 @@
     .faq-header h2 { font-size: 2rem; }
     .faq-question { font-size: 0.9rem; }
 }
+/* FILM GRAIN */
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3%3C/svg%3%3E");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 9999;
+    }
+    /* GRID SYSTEM - HOT PINK OUTLINE  */
+    .grid-section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        padding-bottom: 150px;
+        position: relative;
+    }
+
+    .grid-item {
+        /* This is the Hot Pink Outline */
+        border: 2px solid #e41e81; 
+        padding: 100px 40px 60px 40px;
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(10px);
+        position: relative;
+        transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        height: auto;
+    }
+
+    .grid-item:hover { 
+        z-index: 50 !important; 
+        transform: scale(1.02); 
+        background: rgba(20, 20, 20, 1);
+        box-shadow: 0 0 20px rgba(228, 30, 129, 0.4);
+    }
+
+    /* Label in the corner */
+    .grid-item::before {
+        content: attr(data-meta);
+        position: absolute;
+        top: 30px; left: 30px;
+        font-size: 10px;
+        color: #e41e81;
+        letter-spacing: 4px;
+        font-weight: 900;
+    }
+
+    .grid-item h2 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: clamp(1.8rem, 4vw, 3.5rem);
+        line-height: 0.9;
+        margin-bottom: 25px;
+        letter-spacing: -2px;
+        color: #facee2; /* Subtle pink text */
+    }
+
+    .grid-item p {
+        text-transform: none;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #ffffff;
+        opacity: 0.9;
+    }
+
+    /* PLACEMENT - Subtle overlapping for the edge */
+    .grid-item:nth-child(1) { grid-column: 1 / 3; margin: 60px 0 0 4%; z-index: 1; }
+    .grid-item:nth-child(2) { grid-column: 2 / 5; margin: -40px 4% 0 0; z-index: 2; }
+    .grid-item:nth-child(3) { grid-column: 1 / 3; margin: -20px 0 0 10%; z-index: 3; }
+    
+    /* THE FUTURE - Solid Hot Pink Block */
+    .grid-item:nth-child(4) { 
+        grid-column: 2 / 5; 
+        margin: -60px 4% 0 0; 
+        z-index: 4; 
+        background: #e41e81; 
+        color: #000; 
+        border: none;
+    }
+    
+    .grid-item:nth-child(4) h2, 
+    .grid-item:nth-child(4) p { color: #000; opacity: 1; }
+    .grid-item:nth-child(4)::before { color: #000; opacity: 0.5; }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .grid-section { display: flex; flex-direction: column; padding: 40px 0 100px 0; }
+        .grid-item { margin: 0 !important; border-left: none; border-right: none; padding: 80px 6% 40px 6%; }
+        .grid-item h2 { font-size: 2.2rem; }
+    }
        
     </style>
 </head>
