@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P.C.C. // PINK CODING CLUB</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-black: #000000;
@@ -316,7 +317,130 @@
     opacity: 0;
     pointer-events: none;
 }
-       
+       /* --- CLEAN FOUNDER SECTION  --- */
+.founder-section {
+    padding: 120px 4%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.analog-container {
+    display: grid;
+    /* Two columns: one for photo (fixed max), one for text (flexible) */
+    grid-template-columns: minmax(300px, 400px) 1fr;
+    gap: 100px;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* THE POLAROID  */
+.polaroid-wrapper {
+    position: relative;
+    width: 100%; /* Fills the grid column */
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+}
+
+.polaroid-frame {
+    background: #fdfdfd;
+    padding: 15px 15px 60px 15px; /* Bottom padding for caption */
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+    border: 1px solid #ddd;
+}
+
+.photo-area {
+    width: 100%;
+    aspect-ratio: 1 / 1; /*  */
+    overflow: hidden;
+    position: relative;
+    background: #222;
+}
+
+.founder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.polaroid-caption {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.8rem; 
+    color: #111;
+    margin-top: 15px;
+    text-transform: none; 
+}
+
+/* TEXT CONTENT */
+.editorial-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem); /* Responsive font sizing */
+    line-height: 0.85;
+    margin-bottom: 25px;
+    color: #facee2;
+}
+
+.manifesto-snippet {
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-transform: none;
+}
+
+.founder-stats {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #e41e81;
+}
+
+/* DECORATIONS (Tape & Leaks) */
+.tape {
+    position: absolute;
+    width: 100px;
+    height: 35px;
+    background: rgba(250, 206, 226, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 5;
+}
+.tape-tl { top: -10px; left: -30px; transform: rotate(-45deg); }
+.tape-br { bottom: -10px; right: -30px; transform: rotate(-45deg); }
+
+.leak {
+    position: absolute;
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #e41e81;
+    opacity: 0;
+    transition: 0.3s;
+}
+.polaroid-wrapper:hover .leak { opacity: 1; }
+.l1 { top: -30px; right: 0; }
+.l2 { bottom: 20%; left: -50px; transform: rotate(-90deg); }
+.l3 { bottom: -30px; left: 100px; }
+
+/* --- RESPONSIVE  --- */
+@media (max-width: 1024px) {
+    .analog-container { gap: 50px; }
+}
+
+@media (max-width: 768px) {
+    .founder-section { padding: 80px 4%; }
+    .analog-container {
+        grid-template-columns: 1fr; /* Stack to one column */
+        text-align: center;
+        gap: 60px;
+    }
+    .polaroid-wrapper {
+        max-width: 320px; /* Limit size on mobile */
+        margin: 0 auto; /* Center the photo */
+    }
+    .manifesto-snippet {
+        margin: 0 auto 30px auto;
+    }
+}
     </style>
 </head>
 <body>
@@ -354,18 +478,37 @@
         </div>
     </section>
 
-    <div class="grid-section">
-        <div class="grid-item">
-            <span class="code-snip">function deploy() {</span>
-            <h2>SYSTEM ARCHITECTURE</h2>
-            <p>Mastering the backend of the future.</p>
+    <section class="founder-section">
+    <div class="analog-container">
+        <div class="polaroid-wrapper">
+            <div class="tape tape-tl"></div>
+            <div class="tape tape-br"></div>
+            
+            <div class="leak l1">you're amazing()</div>
+            <div class="leak l2">0x88FF22</div>
+            <div class="leak l3">&lt;be_yourself&gt;</div>
+
+            <div class="polaroid-frame">
+                <div class="photo-area">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F12466408%2Fpexels-photo-12466408.jpeg%3Fcs%3Dsrgb%26dl%3Dpexels-susanne-jutzeler-sujufoto-12466408.jpg%26fm%3Djpg&f=1&nofb=1&ipt=da2fab47caf9986ecfd60ae81b6387c2afe2e9501b1726abf3b9af55ae946e7a" alt="Founder" class="founder-img">
+                    <div class="glitch-overlay"></div>
+                </div>
+                <div class="polaroid-caption">Rachel Chen // Software Engineer</div>
+            </div>
         </div>
-        <div class="grid-item">
-            <span class="code-snip">import { GLAM } from 'pcc';</span>
-            <h2>CYBER STYLING</h2>
-            <p>UI/UX design with a high-fashion lens.</p>
+
+        <div class="founder-message">
+            <h2 class="editorial-title">MESSAGE<br>FROM THE<br>FOUNDER</h2>
+            <p class="manifesto-snippet">
+                "lorem ipsum stuff"
+            </p>
+            <div class="founder-stats">
+                <span>LOC: IDK // 40.7128° N</span>
+                <span>STATUS: OVERRIDING...</span>
+            </div>
         </div>
     </div>
+</section>
     <footer class="copyright-footer">
         <div class="footer-left">
             © 2026 PINK CODING CLUB. ALL RIGHTS RESERVED.
