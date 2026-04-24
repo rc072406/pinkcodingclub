@@ -425,6 +425,82 @@
         .grid-item { margin: 0 !important; border-left: none; border-right: none; padding: 80px 6% 40px 6%; }
         .grid-item h2 { font-size: 2.2rem; }
     }
+    /*  PREPARE GRID ITEM FOR OVERLAYS */
+.grid-item {
+    overflow: hidden; /* This clips the scanner and burst so they stay inside the box */
+}
+
+
+/* This creates a moving horizontal beam */
+.grid-item::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(228, 30, 129, 0.15), /* Subtle pink tint */
+        #e41e81,                 /* The bright "scanner" edge */
+        transparent
+    );
+    opacity: 0.3;
+    pointer-events: none;
+    animation: scanLine 6s linear infinite;
+    z-index: 1;
+}
+
+@keyframes scanLine {
+    0% { top: -150px; }
+    100% { top: 100%; }
+}
+
+
+.burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    background: radial-gradient(circle, rgba(228, 30, 129, 0.7) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.8s ease-out, height 0.8s ease-out, opacity 0.8s ease-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/*  TRIGGER THE BURST ON HOVER */
+.grid-item:hover .burst {
+    width: 150%; /* Expands the glow bigger than the box */
+    height: 600px;
+    opacity: 1;
+}
+
+
+.grid-item h2, 
+.grid-item p, 
+.grid-item::before {
+    position: relative;
+    z-index: 5;
+}
+
+
+.grid-item:nth-child(4)::after {
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        #ffffff,
+        transparent
+    );
+    opacity: 0.4;
+}
+.grid-item:nth-child(4) .burst {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
        
     </style>
 </head>
@@ -462,19 +538,19 @@
 
     <div class="grid-section">
         <div class="grid-item">
-            <h2>01 // Why P.C.C. was Made</h2>
+           <span class="burst"></span> <h2>01 // Why P.C.C. was Made</h2>
             <p>Growing up, Rachel never liked coding because the tutorials had nothing to do with her personal interests, which are traditionally "girly." Tutorial after tutorial would have nothing to do with design and color, but everything to do with printing out "hello world" (or maybe calculating the amount of cupcakes a fictional character bought?), which Rachel never found fun. Only in adulthood, Rachel found out coding had everything to do with traditionally feminine (and demonized!) hobbies like fashion and design. She realized coding was always marketed towards the tomboy and that "girly girls" were made to feel they didn't belong in the world of tech. This realization was further solidified after she learned that her idol, Misa Chien, stripped herself of her feminine idenity, in order to fit into the tech world. Now, Rachel's mission is to empower the ever so demonized "girly girl" and create a space where the girly girl is embraced and can be her full amazing and empowered self. </p>
         </div>
         <div class="grid-item">
-            <h2>02 // THE MISSION</h2>
+           <span class="burst"></span> <h2>02 // THE MISSION</h2>
             <p>The Pink Coding Club was created for girls (and those who identify as non-binary!) who embrace their femininity and have traditionally feminine interests like design and art. In film/TV, a girl in tech was always potrayed as stereotypically nerdy and masculine, while traditionally feminine girls were often times demonized (or portrayed as stupid). Tech spaces don't encourage femininity and often make a girly girl feel she has to get rid of her true self in order to fit in. At P.C.C., we not only educate, but show the girly girl (and everyone else that doesn't believe in her) that she DOES have a place in tech just like anyone else.  </p>
         </div>
         <div class="grid-item">
-            <h2>03 // THE CODE</h2>
+           <span class="burst"></span> <h2>03 // THE CODE</h2>
             <p>Students will learn responsive web design and other related skills as part of the "Fashion Forward Web Design" certificate offered by P.C.C.. This includes skills in html, cascading style sheets, and even animation! Learning materials are by <a link href= "https://www.freecodecamp.org/" style="text-decoration:none; color:#facee2;">Freecodecamp</a>, but the required certification projects in order to earn the certificate are unique to P.C.C.. There will be a backend development and APIs certification in the future (currently under development).</p>
         </div>
         <div class="grid-item">
-            <h2>04 // THE FUTURE</h2>
+           <span class="burst"></span> <h2>04 // THE FUTURE</h2>
             <p>P.C.C. aims to increase the number of girls in computer science and teach software engineering through a hyper-feminine lens. We give young girls the opportunity to explore the world of coding while appealing to their interests in fashion, art, and design. P.C.C. students are encouraged to stay true to themselves and fully embrace being a girly girl. While tech communities are still learning to make room at the table for the girly girl, she's already beloved here at the Pink Coding Club! </p>
         </div>
     </div>
