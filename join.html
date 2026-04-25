@@ -417,6 +417,83 @@
         opacity: 0;
     }
 }  
+ /*  PREPARE GRID ITEM FOR OVERLAYS */
+.grid-item {
+    overflow: hidden; /* This clips the scanner and burst so they stay inside the box */
+}
+
+
+/* This creates a moving horizontal beam */
+.grid-item::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(228, 30, 129, 0.15), /* Subtle pink tint */
+        #e41e81,                 /* The bright "scanner" edge */
+        transparent
+    );
+    opacity: 0.3;
+    pointer-events: none;
+    animation: scanLine 6s linear infinite;
+    z-index: 1;
+}
+
+@keyframes scanLine {
+    0% { top: -150px; }
+    100% { top: 100%; }
+}
+
+
+.burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    background: radial-gradient(circle, rgba(228, 30, 129, 0.7) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.8s ease-out, height 0.8s ease-out, opacity 0.8s ease-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/*  TRIGGER THE BURST ON HOVER */
+.grid-item:hover .burst {
+    width: 150%; /* Expands the glow bigger than the box */
+    height: 600px;
+    opacity: 1;
+}
+
+
+.grid-item h2, 
+.grid-item p, 
+.grid-item::before {
+    position: relative;
+    z-index: 5;
+}
+
+
+.grid-item:nth-child(4)::after {
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        #ffffff,
+        transparent
+    );
+    opacity: 0.4;
+}
+.grid-item:nth-child(4) .burst {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
+       
     </style>
 </head>
 <body>
@@ -455,13 +532,13 @@
  <div class="grid-section">
         <div class="grid-item">
           
-            <h2>Philosophy</h2>
+           <span class="burst"></span> <h2>Philosophy</h2>
             <p>Just be kind to others, even if they are completely different from you. Sometimes, spaces that try to increase inclusivity and diversity often times miss the mark because they put other groups down to lift themselves up. That's not what we're doing here. The girly girl and the tomboy (and guys!) can coexist in the tech world and work together to create amazing innovations! <a link href="https://www.youtube.com/watch?v=oxotxP8sP44" style="text-decoration:none; color:#facee2;" target="_blank">Twilight Sparkle in the Equestria Girls Cafeteria Song</a> said it best: "I'm gonna be myself, no matter what I do.
 And if we're different, yeah, I want you to be true to you." So, you're a member of the Pink Coding Club as long as you can stay true to yourself AND be kind to others!</p>
         </div>
         <div class="grid-item">
            
-            <h2>How to Join</h2>
+            <span class="burst"></span><h2>How to Join</h2>
             <p>No sign ups required! Just head on over to the <a link href="curriculum.html" style="text-decoration:none; color: #facee2;">curriculum</a> to join the Pink Coding Club revolution! You can start learning by choosing whichever course you would like to start with and follow the instructions once you get there! After you finish the certification projects and required learning documentation, you will get a free certificate with the Pink Coding Club.</p>
             <a href="curriculum.html" class="cta-btn">Take me to Paradise</a>
         </div>
