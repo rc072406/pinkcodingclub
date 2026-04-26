@@ -73,29 +73,50 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Manifesto Hero */
-        .manifesto-hero {
-            padding: 180px 4% 60px 4%;
+.hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4%;
             border-bottom: 1px solid var(--border-gray);
+            /* Glow Animation applied by default */
             animation: neon-pulse 2s infinite alternate;
         }
-        @keyframes neon-pulse {
-    from {
-        text-shadow: 0 0 10px rgba(228, 30, 129, 0.2), 
-                     0 0 20px rgba(228, 30, 129, 0.2);
-    }
-    to {
-        text-shadow: 0 0 20px rgba(228, 30, 129, 0.6), 
-                     0 0 30px rgba(250, 206, 226, 0.4),
-                     0 0 40px rgba(228, 30, 129, 0.8);
-    }
-}
 
-        .manifesto-hero h1 {
+        /* Logic to disable animation on Safari */
+        body.is-safari .hero {
+            animation: none !important;
+        }
+
+        body.is-safari .hero h1 {
+            text-shadow: none !important;
+        }
+
+        .hero h1 {
             font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-size: clamp(4rem, 15vw, 12rem);
             line-height: 0.85;
             letter-spacing: -4px;
+            margin-bottom: 20px;
+        }
+
+        @keyframes neon-pulse {
+            from {
+                text-shadow: 0 0 10px rgba(228, 30, 129, 0.2), 
+                             0 0 20px rgba(228, 30, 129, 0.2);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(228, 30, 129, 0.6), 
+                             0 0 30px rgba(250, 206, 226, 0.4),
+                             0 0 40px rgba(228, 30, 129, 0.8);
+            }
+        }
+
+        .hero-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
         /* Mission Grid */
@@ -509,7 +530,7 @@
 </div>
 
 
-  <section class="manifesto-hero" style="position: relative; overflow: hidden; min-height: 80vh;">
+  <section class="hero" style="position: relative; overflow: hidden; min-height: 80vh;">
       <canvas id="hero-canvas"></canvas>
     
 
@@ -552,81 +573,79 @@ And if we're different, yeah, I want you to be true to you." So, you're a member
         </div>
     </div>
 <script>
+   /* 1. DETECTION FOR SAFARI */
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+        document.body.classList.add('is-safari');
+    }
+
     const menuBtn = document.getElementById('mobile-menu-btn');
     const closeBtn = document.getElementById('close-menu-btn');
     const overlay = document.getElementById('mobile-overlay');
 
-    // Function to close the menu
     const closeMenu = () => {
         menuBtn.classList.remove('active');
         overlay.classList.remove('active');
         document.body.style.overflow = 'initial';
     };
 
-    // Open/Toggle via Hamburger
     menuBtn.addEventListener('click', () => {
         menuBtn.classList.toggle('active');
         overlay.classList.toggle('active');
         document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'initial';
     });
-    // Close via 'CLOSE' button
+
     closeBtn.addEventListener('click', closeMenu);
 
-    // Close via clicking any link
     document.querySelectorAll('.mobile-nav-links a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
-const canvas = document.getElementById('hero-canvas');
-const ctx = canvas.getContext('2d');
-
-
-const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
-const fontSize = 10; // Slightly bigger than 8px for better readability on high-res screens
-
-let columns;
-let drops;
-
-function initCanvas() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
     
-    
-    columns = Math.floor(canvas.width / 50); 
-    drops = Array(columns).fill(1);
-}
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
 
-function draw() {
-   
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
+    const fontSize = 10; 
 
-    // Font style
-    ctx.font = "900 " + fontSize + "px 'Inter'";
-    
-    for (let i = 0; i < drops.length; i++) {
-        // Randomly pick a keyword
-        const text = keywords[Math.floor(Math.random() * keywords.length)];
+    let columns;
+    let drops;
+
+    function initCanvas() {
+        const hero = document.querySelector('.hero');
+        const rect = hero.getBoundingClientRect();
         
+        canvas.width = rect.width;
+        canvas.height = rect.height;
         
-        const colors = ["#facee2", "#f3a6c9", "#e41e81"];
-        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-
-        // Draw the text
-        ctx.fillText(text, i * 60, drops[i] * fontSize);
-
-        // Reset drop to top randomly after it hits bottom
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-
-        drops[i]++;
+        columns = Math.floor(canvas.width / 60); 
+        drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
     }
-}
 
-// Initialize and Start
-initCanvas();
-window.addEventListener('resize', initCanvas);
-setInterval(draw, 50); // Speed of the "rain"
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = "900 " + fontSize + "px 'Inter'";
+        
+        for (let i = 0; i < drops.length; i++) {
+            const text = keywords[Math.floor(Math.random() * keywords.length)];
+            
+            const colors = ["#facee2", "#f3a6c9", "#e41e81"];
+            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+
+            ctx.fillText(text, i * 60, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+
+            drops[i]++;
+        }
+    }
+
+    initCanvas();
+    window.addEventListener('resize', initCanvas);
+    setInterval(draw, 50); 
 
 
 </script>
