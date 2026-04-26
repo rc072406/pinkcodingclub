@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>P.C.C. // PINK CODING CLUB</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
@@ -65,6 +65,7 @@
             padding: 0 4%;
             border-bottom: 1px solid var(--border-gray);
             animation: neon-pulse 2s infinite alternate;
+            
         }
 
         .hero h1 {
@@ -211,12 +212,17 @@
         .nav-links a:hover {
             /* This creates the gradient text effect */
             background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            
             
             /* Slight lift effect */
             transform: translateY(-1px);
-            text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
+           
+            background-clip: text; /* Standard */
+    -webkit-background-clip: text; /* Vendor prefix */
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Extra fallback */
+    display: inline-block; /* Essential for Safari clip */
+    text-shadow: none; /* Safari struggles to clip text and drop shadow simultaneously */
         }
         /* Mobile Toggle Styles */
 .menu-toggle {
@@ -594,12 +600,16 @@ let columns;
 let drops;
 
 function initCanvas() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
+    // Get the exact dimensions of the hero section
+    const hero = document.querySelector('.hero');
+    const rect = hero.getBoundingClientRect();
     
+    canvas.width = rect.width;
+    canvas.height = rect.height;
     
-    columns = Math.floor(canvas.width / 50); 
-    drops = Array(columns).fill(1);
+    // Recalculate columns based on new width
+    columns = Math.floor(canvas.width / 60); 
+    drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
 }
 
 function draw() {
