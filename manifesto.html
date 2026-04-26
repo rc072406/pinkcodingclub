@@ -74,16 +74,53 @@
         }
 
         /* Manifesto Hero */
-        .manifesto-hero {
-            padding: 180px 4% 60px 4%;
+         .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4%;
             border-bottom: 1px solid var(--border-gray);
+            /* Glow Animation applied by default */
+            animation: neon-pulse 2s infinite alternate;
         }
 
-        .manifesto-hero h1 {
+        /* Logic to disable animation on Safari */
+        body.is-safari .hero {
+            animation: none !important;
+        }
+
+        body.is-safari .hero h1 {
+            text-shadow: none !important;
+        }
+
+        .hero h1 {
             font-family: 'Archivo Black', sans-serif;
+            
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+            
             font-size: clamp(3rem, 10vw, 8rem);
             line-height: 0.85;
             letter-spacing: -4px;
+        }
+
+        @keyframes neon-pulse {
+            from {
+                text-shadow: 0 0 10px rgba(228, 30, 129, 0.2), 
+                             0 0 20px rgba(228, 30, 129, 0.2);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(228, 30, 129, 0.6), 
+                             0 0 30px rgba(250, 206, 226, 0.4),
+                             0 0 40px rgba(228, 30, 129, 0.8);
+            }
+        }
+
+        .hero-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
         
@@ -501,7 +538,21 @@
 .grid-item:nth-child(4) .burst {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
 }
-       
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    opacity: 0.4; /* Keep it subtle  */
+    pointer-events: none;
+}
+.hero h1, .hero-sub, .hero p {
+    position: relative;
+    z-index: 2; 
+}
+
     </style>
 </head>
 <body>
@@ -531,7 +582,8 @@
 </div>
 
 
-    <section class="manifesto-hero">
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
         <p style="font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 10px;">MISSION // V.01</p>
         <h1>"Have the confidence to be your own person."<br>-Olivia Hussey</h1>
     </section>
@@ -650,6 +702,57 @@ document.querySelectorAll('.faq-question').forEach(button => {
         faqItem.classList.toggle('active');
     });
 });
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+        document.body.classList.add('is-safari');
+    }
+     const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
+    const fontSize = 10; 
+
+    let columns;
+    let drops;
+
+    function initCanvas() {
+        const hero = document.querySelector('.hero');
+        const rect = hero.getBoundingClientRect();
+        
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        
+        columns = Math.floor(canvas.width / 60); 
+        drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
+    }
+
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = "900 " + fontSize + "px 'Inter'";
+        
+        for (let i = 0; i < drops.length; i++) {
+            const text = keywords[Math.floor(Math.random() * keywords.length)];
+            
+            const colors = ["#facee2", "#f3a6c9", "#e41e81"];
+            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+
+            ctx.fillText(text, i * 60, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+
+            drops[i]++;
+        }
+    }
+
+    initCanvas();
+    window.addEventListener('resize', initCanvas);
+    setInterval(draw, 50); 
+
+
 </script>
 </body>
 </html>
