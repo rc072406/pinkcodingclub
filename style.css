@@ -104,6 +104,14 @@ nav {
     justify-content: space-between;
     align-items: flex-end;
 }
+/* Logic to disable animation on Safari */
+        body.is-safari .hero {
+            animation: none !important;
+        }
+
+        body.is-safari .hero h1 {
+            text-shadow: none !important;
+        }
 
 .tagline {
     font-size: 0.9rem;
