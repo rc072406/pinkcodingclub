@@ -64,6 +64,7 @@
             justify-content: center;
             padding: 0 4%;
             border-bottom: 1px solid var(--border-gray);
+            animation: neon-pulse 2s infinite alternate;
         }
 
         .hero h1 {
@@ -73,6 +74,17 @@
             letter-spacing: -4px;
             margin-bottom: 20px;
         }
+        @keyframes neon-pulse {
+    from {
+        text-shadow: 0 0 10px rgba(228, 30, 129, 0.2), 
+                     0 0 20px rgba(228, 30, 129, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(228, 30, 129, 0.6), 
+                     0 0 30px rgba(250, 206, 226, 0.4),
+                     0 0 40px rgba(228, 30, 129, 0.8);
+    }
+}
 
         .hero-sub {
             display: flex;
@@ -442,6 +454,17 @@
         margin: 0 auto 30px auto;
     }
 }
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    opacity: 0.4; /* Keep it subtle  */
+    pointer-events: none;
+}
+
     </style>
 </head>
 <body>
@@ -471,6 +494,7 @@
 </div>
 
     <section class="hero">
+        <canvas id="hero-canvas"></canvas>
         <p style="font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 10px;">V.01 // RECODING FEMININITY</p>
         <h1>PINK<br>CODING<br>CLUB</h1>
         <div class="hero-sub">
@@ -553,6 +577,60 @@
     document.querySelectorAll('.mobile-nav-links a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
+    
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+
+
+const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
+const fontSize = 10; // Slightly bigger than 8px for better readability on high-res screens
+
+let columns;
+let drops;
+
+function initCanvas() {
+    canvas.width = canvas.parentElement.offsetWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+    
+    
+    columns = Math.floor(canvas.width / 50); 
+    drops = Array(columns).fill(1);
+}
+
+function draw() {
+   
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Font style
+    ctx.font = "900 " + fontSize + "px 'Inter'";
+    
+    for (let i = 0; i < drops.length; i++) {
+        // Randomly pick a keyword
+        const text = keywords[Math.floor(Math.random() * keywords.length)];
+        
+        
+        const colors = ["#facee2", "#f3a6c9", "#e41e81"];
+        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+
+        // Draw the text
+        ctx.fillText(text, i * 60, drops[i] * fontSize);
+
+        // Reset drop to top randomly after it hits bottom
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+// Initialize and Start
+initCanvas();
+window.addEventListener('resize', initCanvas);
+setInterval(draw, 50); // Speed of the "rain"
+
+
 </script>
 
 </body>
