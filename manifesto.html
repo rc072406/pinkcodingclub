@@ -7,72 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --bg-black: #000000;
-            --text-white: #ffffff;
-            --border-gray: #333333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-black);
-            color: #facee2;
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-        }
-
-        /* Navigation - Minimal & Wide */
-        nav {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 4%;
-            border-bottom: 1px solid var(--border-gray);
-            position: fixed;
-            top: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 100;
-            backdrop-filter: blur(5px);
-        }
-
-        .logo {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: -1px;
-        }
-
-        /* Navbar Links & Hovers */
-        .nav-links a {
-            color: #facee2;
-            text-decoration: none;
-            font-size: 0.7rem;
-            margin-left: 30px;
-            letter-spacing: 2px;
-            font-weight: 900;
-            transition: all 0.4s ease;
-            display: inline-block;
-        }
-
-      
-        .nav-links a:hover {
-            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transform: translateY(-1px);
-            text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
-        }
-
-        /* The "Active" State for Manifesto */
-        .nav-links a.active {
-            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+       
 
         /* Manifesto Hero */
          .hero {
@@ -99,23 +34,7 @@
             letter-spacing: -4px;
         }
 
-        @keyframes neon-pulse {
-            from {
-                text-shadow: 0 0 10px rgba(228, 30, 129, 0.2), 
-                             0 0 20px rgba(228, 30, 129, 0.2);
-            }
-            to {
-                text-shadow: 0 0 20px rgba(228, 30, 129, 0.6), 
-                             0 0 30px rgba(250, 206, 226, 0.4),
-                             0 0 40px rgba(228, 30, 129, 0.8);
-            }
-        }
-
-        .hero-sub {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
+       
 
         
 
@@ -125,13 +44,7 @@
 
        
     
-    .manifesto-hero h1 { 
-        font-size: clamp(2.5rem, 12vw, 4rem);  */
-        line-height: 1.1; 
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-}
+ 
  
 /* FAQ Section Styles */
 .faq-section {
