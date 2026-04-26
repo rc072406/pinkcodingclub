@@ -35,9 +35,9 @@
             font-family: 'Archivo Black', sans-serif;
             font-size: 1.2rem;
             letter-spacing: -1px;
-            
         }
 
+        /* Navbar Links & Hovers */
         .nav-links a {
             color: #facee2;
             text-decoration: none;
@@ -45,8 +45,20 @@
             margin-left: 30px;
             letter-spacing: 2px;
             font-weight: 900;
+            transition: all 0.4s ease;
+            display: inline-block;
         }
- /* The "Active" State*/
+
+      
+        .nav-links a:hover {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateY(-1px);
+            text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
+        }
+
+        /* The "Active" State for Manifesto */
         .nav-links a.active {
             background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
             -webkit-background-clip: text;
