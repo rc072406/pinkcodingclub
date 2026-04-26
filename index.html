@@ -24,6 +24,9 @@
             color: #facee2;
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
+            /* Safari font smoothing fix */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Navigation - Minimal & Wide */
@@ -59,6 +62,7 @@
         /* Hero - Heavy Typography */
         .hero {
             height: 100vh;
+            height: 100dvh; /* Safari mobile height fix */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -74,18 +78,22 @@
             line-height: 0.85;
             letter-spacing: -4px;
             margin-bottom: 20px;
+            /* Safari Hardware Acceleration & smoothing */
+            transform: translateZ(0);
+            will-change: text-shadow;
         }
+
         @keyframes neon-pulse {
-    from {
-        text-shadow: 0 0 10px rgba(228, 30, 129, 0.2), 
-                     0 0 20px rgba(228, 30, 129, 0.2);
-    }
-    to {
-        text-shadow: 0 0 20px rgba(228, 30, 129, 0.6), 
-                     0 0 30px rgba(250, 206, 226, 0.4),
-                     0 0 40px rgba(228, 30, 129, 0.8);
-    }
-}
+            from {
+                /* Safari handles RGBA better than HEX for text-shadow interpolation */
+                text-shadow: 0 0 10px rgba(228, 30, 129, 0.4);
+            }
+            to {
+                /* Reduced shadow layers for cleaner Safari rendering */
+                text-shadow: 0 0 20px rgba(228, 30, 129, 0.8), 
+                             0 0 40px rgba(250, 206, 226, 0.3);
+            }
+        }
 
         .hero-sub {
             display: flex;
@@ -216,7 +224,7 @@
             
             /* Slight lift effect */
             transform: translateY(-1px);
-           
+            
             background-clip: text; /* Standard */
     -webkit-background-clip: text; /* Vendor prefix */
     -webkit-text-fill-color: transparent;
@@ -299,7 +307,6 @@
     z-index: 2000; /* Higher than the overlay */
 }
 
-/
 .menu-toggle.active span:nth-child(1) { 
     transform: rotate(45deg) translate(5px, 6px); 
     background: #e41e81; 
@@ -370,7 +377,7 @@
 
 .photo-area {
     width: 100%;
-    aspect-ratio: 1 / 1; /*  */
+    aspect-ratio: 1 / 1; /* */
     overflow: hidden;
     position: relative;
     background: #222;
@@ -613,8 +620,9 @@ function initCanvas() {
 }
 
 function draw() {
-   
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    // Safari Trail Fix: source-over and slightly heavier black alpha to prevent graying
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = "rgba(0, 0, 0, 0.15)"; 
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Font style
@@ -624,12 +632,18 @@ function draw() {
         // Randomly pick a keyword
         const text = keywords[Math.floor(Math.random() * keywords.length)];
         
-        
         const colors = ["#facee2", "#f3a6c9", "#e41e81"];
         ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
 
+     
+        ctx.shadowBlur = 5;
+        ctx.shadowColor = ctx.fillStyle;
+
         // Draw the text
         ctx.fillText(text, i * 60, drops[i] * fontSize);
+
+        // Reset shadow for next loop
+        ctx.shadowBlur = 0;
 
         // Reset drop to top randomly after it hits bottom
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
