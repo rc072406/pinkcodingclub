@@ -377,46 +377,7 @@
         .grid-item { margin: 0 !important; border-left: none; border-right: none; padding: 80px 6% 40px 6%; }
         .grid-item h2 { font-size: 2.2rem; }
     }
- /* ---  Locket Hearts --- */
-.heart-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
-}
 
-.y2k-locket {
-    position: absolute;
-    filter: drop-shadow(0 4px 10px rgba(228, 30, 129, 0.5)) brightness(1.1); 
-    user-select: none;
-    animation: locketFloat 8s ease-in-out infinite; /* Slower, graceful float */
-    opacity: 0;
-}
-
-@keyframes locketFloat {
-    0% {
-        transform: translateY(120vh) translateX(0) scale(0.6) rotate(5deg);
-        opacity: 0;
-    }
-    15% {
-        opacity: 1;
-        transform: translateY(90vh) translateX(25px) scale(1) rotate(-10deg);
-    }
-    50% {
-        transform: translateY(50vh) translateX(-25px) scale(1.1) rotate(10deg);
-    }
-    85% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-20vh) translateX(15px) scale(1.3) rotate(-15deg);
-        opacity: 0;
-    }
-}  
  /*  PREPARE GRID ITEM FOR OVERLAYS */
 .grid-item {
     overflow: hidden; /* This clips the scanner and burst so they stay inside the box */
@@ -493,6 +454,7 @@
 .grid-item:nth-child(4) .burst {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
 }
+
        
     </style>
 </head>
@@ -524,7 +486,7 @@
 
 
   <section class="manifesto-hero" style="position: relative; overflow: hidden; min-height: 80vh;">
-    <div class="heart-container" id="heart-container"></div>
+    
 
     <p style="font-size: 0.7rem; letter-spacing: 5px; margin-bottom: 10px; position: relative; z-index: 10;">Join // V.01</p>
     <h1 style="position: relative; z-index: 10;">Welcome to the Pink Coding Club</h1>
@@ -589,70 +551,7 @@ And if we're different, yeah, I want you to be true to you." So, you're a member
     document.querySelectorAll('.mobile-nav-links a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
-// --- Y2K Locket Generation Logic (NEW) ---
-const heartContainer = document.getElementById('heart-container');
 
-// A function to generate a random delay, making the sequence unpredictable
-const randomDelay = () => Math.random() * 2000;
-
-function createY2KLocket() {
-    const locket = document.createElement('div');
-    locket.classList.add('y2k-locket');
-
-    // Locket sizing (large, visible)
-    const size = Math.random() * 80 + 70; // Hearts between 70px and 150px
-    locket.style.width = `${size}px`;
-    locket.style.height = `${size}px`; // Keep it square to maintain aspect ratio
-    locket.style.left = Math.random() * 100 + "vw";
-    locket.style.animationDuration = Math.random() * 3 + 6 + "s"; // 6-9s float
-    locket.style.animationDelay = `${randomDelay()}ms`;
-
- 
-    locket.innerHTML = `
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="locketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#facee2;stop-opacity:1" /> 
-                    <stop offset="25%" style="stop-color:#f3a6c9;stop-opacity:1" /> 
-                    <stop offset="60%" style="stop-color:#e41e81;stop-opacity:1" /> 
-                    <stop offset="100%" style="stop-color:#9d0049;stop-opacity:1" /> 
-                </linearGradient>
-                
-                <path id="topTextPath" d="M20,48 Q50,25 80,48" /> 
-                <path id="bottomTextPath" d="M20,62 Q50,90 80,62" />
-            </defs>
-
-            <path d="M50,88 
-                     C 50,88 5,65 5,35 
-                     A 22,22 0 0 1 50,25 
-                     A 22,22 0 0 1 95,35 
-                     C 95,65 50,88 50,88 Z" 
-                fill="url(#locketGrad)" 
-                stroke="#ffb7d5" 
-                stroke-width="1.5" />
-
-            <text font-family="'Inter', sans-serif" font-weight="900" font-size="6.5" fill="black" text-anchor="middle" letter-spacing="0.5">
-                <textPath href="#topTextPath" startOffset="50%">I LOVE PINK</textPath>
-            </text>
-
-            <text font-family="'Inter', sans-serif" font-weight="900" font-size="6.5" fill="black" text-anchor="middle" letter-spacing="0.8">
-                <textPath href="#bottomTextPath" startOffset="50%">I LOVE 2 CODE</textPath>
-            </text>
-        </svg>
-    `;
-    heartContainer.appendChild(locket);
-
-    // Clean up DOM after animation
-    setTimeout(() => {
-        locket.remove();
-    }, 12000); // Wait longer than the max animation duration
-}
-
-// Spawn lockets periodically (slightly slower interval to prevent clutter)
-setInterval(createY2KLocket, 1500);
-
-// Spawn a few immediately on load
-for(let i=0; i<3; i++) { createY2KLocket(); }
 
 
 </script>
