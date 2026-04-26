@@ -77,7 +77,21 @@
         .manifesto-hero {
             padding: 180px 4% 60px 4%;
             border-bottom: 1px solid var(--border-gray);
+            animation: neon-pulse 2s infinite alternate;
         }
+          
+        
+        @keyframes neon-pulse {
+    from {
+        text-shadow: 0 0 10px rgba(228, 30, 129, 0.2), 
+                     0 0 20px rgba(228, 30, 129, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(228, 30, 129, 0.6), 
+                     0 0 30px rgba(250, 206, 226, 0.4),
+                     0 0 40px rgba(228, 30, 129, 0.8);
+    }
+}
 
         .manifesto-hero h1 {
             font-family: 'Archivo Black', sans-serif;
