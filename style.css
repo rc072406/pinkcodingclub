@@ -46,6 +46,12 @@
             letter-spacing: 2px;
             font-weight: 900;
         }
+ /* The "Active" State*/
+        .nav-links a.active {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         /* Hero - Heavy Typography */
         .hero {
