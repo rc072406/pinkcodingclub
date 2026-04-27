@@ -37,10 +37,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
         faqItem.classList.toggle('active');
     });
 });
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (isSafari) {
-        document.body.classList.add('is-safari');
-    }
+ 
      const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
 
