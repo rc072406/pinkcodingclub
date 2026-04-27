@@ -6,6 +6,7 @@
     <title>P.C.C. // PINK CODING CLUB</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-black: #000000;
@@ -313,125 +314,173 @@
     opacity: 0;
     pointer-events: none;
 }
-       /* --- CLEAN FOUNDER SECTION  --- */
+      /* ---  FOUNDER SECTION --- */
 .founder-section {
     padding: 120px 4%;
     background: #000;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
-.analog-container {
+.magazine-container {
     display: grid;
-    grid-template-columns: minmax(300px, 400px) 1fr;
-    gap: 100px;
+    grid-template-columns: 1.2fr 1fr; /* Image takes more weight */
+    gap: 60px;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1300px;
     width: 100%;
 }
 
-/* THE POLAROID  */
-.polaroid-wrapper {
+
+.magazine-cover {
     position: relative;
-    width: 100%; 
-    transform: rotate(-3deg);
-    transition: transform 0.4s ease;
-}
-
-.polaroid-frame {
-    background: #fdfdfd;
-    padding: 15px 15px 60px 15px; 
-    box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
-    border: 1px solid #ddd;
-}
-
-.photo-area {
     width: 100%;
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 3 / 4; /* Classic magazine ratio */
+    background: #111;
+    border: 1px solid var(--border-gray);
+    overflow: visible; /* To allow leaks to float outside */
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magazine-cover:hover {
+    transform: scale(1.02);
+}
+
+.cover-img-wrapper {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     position: relative;
-    background: #222;
 }
 
 .founder-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    filter: grayscale(20%) contrast(110%);
 }
 
-.polaroid-caption {
-    font-family: 'Reenie Beanie', cursive;
-    font-size: 1.8rem; 
-    color: #111;
-    margin-top: 15px;
-    text-transform: none; 
+
+
+  .masthead {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 900; 
+    font-size: 40px;
+    color: #facee2;
+    z-index: 2;
+    text-align: center;
+    line-height: 0.8;
+    letter-spacing: -0.05em; 
+    text-transform: uppercase;
+    mix-blend-mode: exclusion; 
+    pointer-events: none;
+    width: 100%;
 }
+
+.cover-date {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    color: #facee2;
+    z-index: 3; /* Keep it above the masthead */
+    background: var(--bg-black); 
+    padding: 2px 5px;
+}
+
+/* Mobile Specific Fix for the Clashing */
+@media (max-width: 600px) {
+    .cover-date {
+        top: auto;
+        bottom: 20px; /* Move it to the bottom on small screens */
+        right: 15px;
+        background: transparent;
+        border-right: 2px solid #e41e81;
+        padding-right: 8px;
+    }
+
+    .masthead {
+        top: 5%; 
+        font-size: clamp(2rem, 1vw, 2rem);
+    }
+
+    /* Adjust leaks so they don't fly off-screen on narrow phones */
+    .l1 { right: 5px; top: 40%; }
+    .l2 { left: 5px; bottom: 20%; }
+}
+/* LEAKS ??*/
+.leak {
+    position: absolute;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #e41e81;
+    opacity: 0;
+    transition: 0.4s ease;
+    z-index: 10;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 8px;
+    pointer-events: none;
+}
+
+.magazine-cover:hover .leak { opacity: 1; }
+.l1 { top: 20%; right: -30px; transform: rotate(5deg); }
+.l2 { bottom: 30%; left: -40px; transform: rotate(-90deg); }
+.l3 { bottom: -20px; right: 20px; }
 
 /* TEXT CONTENT */
+.editorial-header {
+    border-left: none;
+    padding-left: 30px;
+}
+
 .editorial-title {
     font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(3rem, 8vw, 5rem); 
-    line-height: 0.85;
-    margin-bottom: 25px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 0.9;
+    margin-bottom: 30px;
     color: #facee2;
 }
 
 .manifesto-snippet {
-    max-width: 500px;
     font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 30px;
+    line-height: 1.6;
+    margin-bottom: 40px;
     text-transform: none;
-    color:#ffffff;
+    color: #ffffff;
+    max-width: 450px;
 }
 
+.signature {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 2.5rem;
+    color: #facee2;
+    text-transform: none;
+}
 .founder-stats {
     font-size: 0.7rem;
     letter-spacing: 2px;
     color: #e41e81;
 }
-
-/* DECORATIONS (Tape & Leaks) */
-.tape {
-    position: absolute;
-    width: 100px;
-    height: 35px;
-    background: rgba(250, 206, 226, 0.4);
-    backdrop-filter: blur(2px);
-    z-index: 5;
-}
-.tape-tl { top: -10px; left: -30px; transform: rotate(-45deg); }
-.tape-br { bottom: -10px; right: -30px; transform: rotate(-45deg); }
-
-.leak {
-    position: absolute;
-    font-family: monospace;
-    font-size: 0.7rem;
-    color: #e41e81;
-    opacity: 0;
-    transition: 0.3s;
-}
-.polaroid-wrapper:hover .leak { opacity: 1; }
-.l1 { top: -30px; right: 0; }
-.l2 { bottom: 20%; left: -50px; transform: rotate(-90deg); }
-.l3 { bottom: -30px; left: 100px; }
-
-/* --- RESPONSIVE  --- */
-@media (max-width: 1024px) {
-    .analog-container { gap: 50px; }
-}
-
-@media (max-width: 768px) {
-    .founder-section { padding: 80px 4%; }
-    .analog-container {
-        grid-template-columns: 1fr; 
-        text-align: center;
-        gap: 60px;
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .magazine-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
-    .polaroid-wrapper {
-        max-width: 320px; 
-        margin: 0 auto; 
+    .magazine-cover {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .editorial-header {
+        padding-left: 0;
+        border-left: none;
+        text-align: center;
     }
     .manifesto-snippet {
         margin: 0 auto 30px auto;
@@ -491,35 +540,35 @@
         </div>
     </section>
 
-    <section class="founder-section">
-    <div class="analog-container">
-        <div class="polaroid-wrapper">
-            <div class="tape tape-tl"></div>
-            <div class="tape tape-br"></div>
+   <section class="founder-section">
+    <div class="magazine-container">
+        
+        <div class="magazine-cover">
+            <div class="masthead">love, rachel</div>
+            <div class="cover-date">ISSUE NO. 01 // RECODING FEMININITY</div>
             
-            <div class="leak l1">you're amazing()</div>
+            <div class="leak l1">import { amazing } from 'YOU'</div>
             <div class="leak l2">0x88FF22</div>
-            <div class="leak l3">&lt;be_yourself&gt;</div>
+            <div class="leak l3">&lt;style="be-yourself"&gt;</div>
 
-            <div class="polaroid-frame">
-                <div class="photo-area">
-                    <img src="images/10101.jpg" alt="Founder of the Pink Coding Club Rachel Chen" class="founder-img">
-                    <div class="glitch-overlay"></div>
-                </div>
-                <div class="polaroid-caption">Rachel Chen // Software Engineer</div>
+            <div class="cover-img-wrapper">
+                <img src="" alt="Rachel Chen" class="founder-img">
             </div>
         </div>
 
         <div class="founder-message">
-            <h2 class="editorial-title">MESSAGE<br>FROM THE<br>FOUNDER</h2>
-            <p class="manifesto-snippet">
-                "Coding is really an art form in my opinion, like painting or sketching out a dress. It's all about being able to create and problem solve, like any other art form. You can express yourself and tell a story with code too, similar to how artists, like <a link href="https://www.google.com/search?q=heart2art.design&sxsrf=ANbL-n7fN7Lww8sTeFCJuz5GxDTDz7EQKg%3A1777061730639" style="text-decoration:none; color:#facee2" target="_blank">Akina T.B.</a>, expresses her emotions or creates intense moments with her art. If you can design and create, why would you not be able to code? If you like fashion or even the packaging of makeup, you'd probably love coding. I'll show you how. Even if it doesn't seem to add up now, you'll understand soon."
-            </p>
-            <div class="founder-stats">
-                <span>&lt;h2 class="I-LOVE-PINK"&gt;LOVE, RACHEL &lt;/h2&gt;</span>
-                
+            <div class="editorial-header">
+                <h2 class="editorial-title">A NEEDED<br>PERSPECTIVE</h2>
+                <p class="manifesto-snippet">
+                    "Coding is really an art form in my opinion, like painting or sketching out a dress. It's all about being able to create and problem solve, like any other art form. You can express yourself and tell a story with code too, similar to how artists, like <a link href="https://www.google.com/search?q=heart2art.design&sxsrf=ANbL-n7fN7Lww8sTeFCJuz5GxDTDz7EQKg%3A1777061730639" style="text-decoration:none; color:#facee2" target="_blank">Akina T.B.</a>, expresses her emotions or creates intense moments with her art. If you can design and create, why would you not be able to code? If you like fashion or even the packaging of makeup, you'd probably love coding. I'll show you how. Even if it doesn't seem to add up now, you'll understand soon."
+                </p>
+                <div class="signature">Rachel Chen</div>
+                <div class="founder-stats" style="margin-top:10px;">
+                    <span>SOFTWARE ENGINEER & FOUNDER</span>
+                </div>
             </div>
         </div>
+
     </div>
 </section>
     <footer class="copyright-footer">
