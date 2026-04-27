@@ -344,12 +344,12 @@
 
   .masthead {
     position: absolute;
-    
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Bodoni Moda', serif;
     font-weight: 900; 
-    
+    font-size: 40px;
     color: #facee2;
     z-index: 2;
     text-align: center;
@@ -359,18 +359,16 @@
     mix-blend-mode: exclusion; 
     pointer-events: none;
     width: 100%;
-    top: 5%; 
-    font-size: clamp(2rem, 1vw, 2rem);
 }
 
 .cover-date {
     position: absolute;
-     bottom: 20px
-    right: 15px;
+    top: 20px;
+    right: 20px;
     font-size: 0.55rem;
     letter-spacing: 2px;
     color: #facee2;
-    z-index: 3; 
+    z-index: 3; /* Keep it above the masthead */
     background: var(--bg-black); 
     padding: 2px 5px;
 }
