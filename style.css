@@ -504,3 +504,38 @@
 .grid-item:nth-child(4) .burst {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
 }
+/* Container and Grid for curriculum */
+ .currgrid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            width: 100%;
+        }
+
+        .currgrid-item {
+            border-right: 1px solid var(--border-gray);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 40px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .currgrid-item h2 {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .currgrid-item .code-snip {
+            font-family: monospace;
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: none;
+        }
+
+
+.vacuum-seal-container {
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+}
