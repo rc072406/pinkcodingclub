@@ -457,3 +457,30 @@
     z-index: -1; /* Puts background behind text */
     pointer-events: none;
 }
+ .tagline {
+            font-size: 0.9rem;
+            max-width: 400px;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+
+        /* Updated Button - Pink Ombre Gradient */
+        .cta-btn {
+            background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+            background-size: 200% auto; 
+            color: black;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            transition: 0.5s ease;
+            border: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-position: right center; 
+            color: white;
+            box-shadow: 0 0 20px rgba(228, 30, 129, 0.4);
+            transform: scale(1.02);
+        }
