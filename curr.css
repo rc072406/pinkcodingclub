@@ -484,3 +484,7 @@
             box-shadow: 0 0 20px rgba(228, 30, 129, 0.4);
             transform: scale(1.02);
         }
+.hero h1, .hero-sub, .hero p {
+    position: relative;
+    z-index: 2; 
+}
