@@ -355,8 +355,6 @@
     text-align: center;
     line-height: 0.8;
     letter-spacing: -0.05em; 
-    text-transform: uppercase;
-    mix-blend-mode: exclusion; 
     pointer-events: none;
     width: 100%;
 
