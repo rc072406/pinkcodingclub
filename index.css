@@ -350,7 +350,7 @@
     font-family: 'Bodoni Moda', serif;
     font-weight: 900; 
     font-size: clamp(2rem, 8vw, 3.5rem);
-    color: #00827f ;
+    color: #008080 ;
     z-index: 2;
     text-align: center;
     line-height: 0.8;
