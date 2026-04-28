@@ -349,7 +349,7 @@
     transform: translateX(-50%);
     font-family: 'Bodoni Moda', serif;
     font-weight: 900; 
-    font-size: 40px;
+    font-size: clamp(2rem, 8vw, 3.5rem);
     color: #facee2;
     z-index: 2;
     text-align: center;
