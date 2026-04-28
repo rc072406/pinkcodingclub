@@ -344,7 +344,7 @@
 
   .masthead {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Bodoni Moda', serif;
@@ -359,18 +359,25 @@
     mix-blend-mode: exclusion; 
     pointer-events: none;
     width: 100%;
+
 }
 
 .cover-date {
     position: absolute;
-    top: 20px;
-    right: 20px;
+        
     font-size: 0.55rem;
     letter-spacing: 2px;
     color: #facee2;
-    z-index: 3; /* Keep it above the masthead */
-    background: var(--bg-black); 
+    z-index: 3; 
+  
     padding: 2px 5px;
+    top: auto;
+    bottom: 20px;     
+    right: 15px;
+    background: transparent;
+    border-right: 2px solid #e41e81;
+    padding-right: 8px;
+
 }
 
 /* Mobile Specific Fix for the Clashing */
