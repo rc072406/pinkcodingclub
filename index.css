@@ -357,6 +357,7 @@
     letter-spacing: -0.05em; 
     pointer-events: none;
     width: 100%;
+    text-transform: none;
 
 }
 
