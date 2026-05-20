@@ -1,0 +1,50 @@
+---
+// src/layouts/BaseLayout.astro
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import '../styles/global.css';
+
+const { title, version, isIndex = false } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <slot name="head" /> 
+</head>
+<body class={isIndex ? "index-page" : "sub-page"}>
+
+    <Navbar />
+    <Hero isIndex={isIndex} version={version}>
+        <slot name="hero-title" slot="hero-title" />
+    </Hero>
+
+
+    <main>
+        <slot />
+    </main>
+
+    <footer class="copyright-footer">
+        <div class="footer-left">© 2026 PINK CODING CLUB. ALL RIGHTS RESERVED.</div>
+        <div class="footer-right">
+            EST. 2026 // V.01 "RECODING FEMININITY"<br>
+            <a href="#" style="text-decoration:none; color: var(--border-gray);">DESIGN BY RACHEL CHEN</a>
+        </div>
+    </footer>
+
+    <div class="ticker">
+        <div class="ticker-wrap">
+            <span>✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+        <div class="ticker-wrap">
+            <span> I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦ I LOVE PINK ✦</span>
+        </div>
+    </div>
+
+</body>
+</html>
