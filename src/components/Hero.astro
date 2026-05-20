@@ -1,0 +1,140 @@
+---
+// src/components/Hero.astro
+const { isIndex = false, version = "V.01" } = Astro.props;
+
+---
+
+<section class=`hero ${isIndex ? 'index-hero' : 'sub-hero'}`>
+    <canvas id="hero-canvas"></canvas>
+    
+    <p class="version-tag">{version}</p>
+    
+    <div class="hero-container">
+        {isIndex ? (
+            <>
+                <h1>PINK<br>CODING<br>CLUB</h1>
+                <div class="hero-sub">
+                    <p class="tagline">Hyper-technical education for the girls and non-binary icons who lead the culture. No compromises.</p>
+                    <a href="/join" class="cta-btn">ENTER CLUB</a>
+                </div>
+            </>
+        ) : (
+            <h1><slot name="hero-title" /></h1>
+        )}
+    </div>
+</section>
+
+<script>
+    const initHeroCanvas = () => {
+        const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
+        const fontSize = 10; 
+        let columns;
+        let drops;
+
+        function initCanvas() {
+            const hero = canvas.parentElement;
+            if (!hero) return;
+            const rect = hero.getBoundingClientRect();
+            
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            
+            columns = Math.floor(canvas.width / 60); 
+            drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
+        }
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.font = "900 " + fontSize + "px 'Inter'";
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = keywords[Math.floor(Math.random() * keywords.length)];
+                const colors = ["#facee2", "#f3a6c9", "#e41e81"];
+                ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+
+                ctx.fillText(text, i * 60, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        initCanvas();
+        window.addEventListener('resize', initCanvas);
+        const interval = setInterval(draw, 50);
+
+        
+        document.addEventListener('astro:before-swap', () => clearInterval(interval), { once: true });
+    };
+
+    // Initialize
+    initHeroCanvas();
+    document.addEventListener('astro:after-swap', initHeroCanvas);
+</script>
+
+<style>
+    .hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 4%;
+        border-bottom: 1px solid var(--border-gray);
+        overflow: hidden;
+        background: black;
+    }
+
+    /* Common layer management */
+    #hero-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .hero-container, .version-tag {
+        position: relative;
+        z-index: 2;
+    }
+
+    .version-tag {
+        font-size: 0.7rem;
+        letter-spacing: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* Style variants handled via classes */
+    .index-hero {
+        height: 100vh;
+    }
+    .index-hero h1 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: clamp(4rem, 15vw, 12rem);
+        line-height: 0.85;
+        letter-spacing: -4px;
+        margin-bottom: 20px;
+    }
+
+    .sub-hero {
+        height: 100vh; 
+    }
+    .sub-hero h1 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: clamp(3rem, 10vw, 8rem);
+        line-height: 0.85;
+        letter-spacing: -4px;
+    }
+</style>
