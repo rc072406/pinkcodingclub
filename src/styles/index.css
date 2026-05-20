@@ -1,0 +1,46 @@
+
+
+        /* Hero - Heavy Typography */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4%;
+            border-bottom: 1px solid var(--border-gray);
+            
+        }
+
+       
+
+        .hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.85;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+        }
+
+        
+
+        .hero-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+      
+.hero h1, .hero-sub, .hero p {
+    position: relative;
+    z-index: 2; 
+}
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    pointer-events: none;
+}
