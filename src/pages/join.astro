@@ -1,0 +1,41 @@
+---
+// src/pages/join.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="JOIN // PINK CODING CLUB" isIndex={false} version="Join // V.01">
+  
+  <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
+
+  <span slot="hero-title">Become an Icon</span>
+
+  <div class="mgrid-section">
+    <div class="mgrid-item">
+      <span class="burst"></span> 
+      <h2>Philosophy</h2>
+      <p>
+        Just be kind to others, even if they are completely different from you. 
+        Sometimes, spaces that try to increase inclusivity and diversity often times miss the mark because they put other groups down to lift themselves up. 
+        That's not what we're doing here. The girly girl and the tomboy (and guys!) can coexist in the tech world and work together to create amazing innovations! 
+        <a href="https://www.youtube.com/watch?v=oxotxP8sP44" style="text-decoration:none; color:#facee2;" target="_blank">
+          Twilight Sparkle in the Equestria Girls Cafeteria Song
+        </a> 
+        said it best: "I'm gonna be myself, no matter what I do. And if we're different, yeah, I want you to be true to you." 
+        So, you're a member of the Pink Coding Club as long as you can stay true to yourself AND be kind to others!
+      </p>
+    </div>
+
+    <div class="mgrid-item">
+      <span class="burst"></span>
+      <h2>How to Join</h2>
+      <p>
+        No sign ups required! Just head on over to the 
+        <a href="/curriculum" style="text-decoration:none; color: #facee2;">curriculum</a> 
+        to join the Pink Coding Club revolution! You can start learning by choosing whichever course you would like to start with and follow the instructions once you get there! 
+        After you finish the certification projects and required learning documentation, you will get a free certificate with the Pink Coding Club.
+      </p>
+      <a href="/curriculum" class="cta-btn">Take me to Paradise</a>
+    </div>
+  </div>
+
+</BaseLayout>
