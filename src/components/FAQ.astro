@@ -1,0 +1,177 @@
+---
+// src/components/FAQ.astro
+---
+
+<section class="faq-section">
+    <div class="faq-header">
+        <p class="faq-subtitle">COMMON QUERIES // FAQ</p>
+        <h2>Questions & Answers</h2>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>01 // Is learning at P.C.C. free?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                  Of course! As much as Rachel would like to buy a <a link href="https://iamgia.com/collections/blare-set" style="color:#facee2; text-decoration:none;" target="_blank">Blare</a> or <a link href="https://us.louisvuitton.com/eng-us/products/beagle-bag-monogram-other-nvprod6740018v/M26982" style="color:#facee2; text-decoration:none;" target="_blank">beagle shaped Louis Vuitton bag</a>, she believes education should be free!
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>02 // Who is P.C.C. for?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>P.C.C. was made for ages 10-18 that identify as female or non-binary and have personal interests in stereotypically girly things like fashion, makeup, etc... Really, the youth who embrace their femininity.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>03 // Do "girly" hobbies actually have anything to do with coding?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Short answer: heck yeah! Anyone who says otherwise is honestly trying to gatekeep coding. You can be a girly girl and a software engineer and many parts of software engineering totally have everything to do with being a girly girl.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function setupFAQ() {
+        const questions = document.querySelectorAll('.faq-question');
+        
+        questions.forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+
+                // Toggle the clicked item
+                faqItem?.classList.toggle('active');
+            });
+        });
+    }
+
+    // Initialize on page load
+    setupFAQ();
+
+    // Re-initialize if you use Astro's View Transitions
+    document.addEventListener('astro:after-swap', setupFAQ);
+</script>
+
+<style>
+    .faq-section {
+        border-top: 1px solid var(--border-gray);
+        padding: 100px 0;
+        background: #000;
+    }
+
+    .faq-header {
+        padding: 0 4% 40px 4%;
+    }
+
+    .faq-subtitle {
+        font-size: 0.7rem; 
+        letter-spacing: 5px; 
+        margin-bottom: 10px;
+        color: #facee2;
+    }
+
+    .faq-header h2 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 3rem;
+        letter-spacing: -2px;
+        color: #ffffff;
+    }
+
+    .faq-container {
+        width: 100%;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid var(--border-gray);
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 30px 4%;
+        background: none;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        text-align: left;
+        color: #facee2;
+        font-family: 'Inter', sans-serif;
+        font-weight: 900;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background: rgba(250, 206, 226, 0.05);
+        color: #ffffff;
+    }
+
+    .faq-question .icon {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 1.5rem;
+        transition: transform 0.4s ease;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.85, 0, 0.15, 1);
+        padding: 0 4%;
+    }
+
+    .faq-answer p {
+        padding-bottom: 30px;
+        text-transform: none;
+        color: #ffffff;
+        opacity: 0.8;
+        line-height: 1.6;
+        max-width: 800px;
+    }
+
+    .faq-answer a {
+        color: #facee2;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border 0.3s ease;
+    }
+
+    .faq-answer a:hover {
+        border-bottom: 1px solid #facee2;
+    }
+
+    /* Active State */
+    .faq-item.active .faq-answer {
+        max-height: 400px; 
+    }
+
+    .faq-item.active .icon {
+        transform: rotate(45deg);
+        color: #e41e81;
+    }
+
+    @media (max-width: 768px) {
+        .faq-header h2 { font-size: 2rem; }
+        .faq-question { font-size: 0.9rem; }
+    }
+</style>
