@@ -1,6 +1,6 @@
 ---
 // src/components/Navbar.astro
-const base = import.meta.env./pinkcodingclub/;
+const base = import.meta.env.BASE_URL;
 const { currentPath } = Astro.props;
 ---
 
@@ -138,7 +138,8 @@ const { currentPath } = Astro.props;
     z-index: 2000; /* Higher than the overlay */
 }
 
-/
+/* REMOVED STRAY SLASH HERE */
+
 .menu-toggle.active span:nth-child(1) { 
     transform: rotate(45deg) translate(5px, 6px); 
     background: #e41e81; 
