@@ -1,0 +1,46 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="P.C.C. // PINK CODING CLUB" 
+  isIndex={true} 
+  version="V.01 // RECODING FEMININITY"
+>
+  
+  <link rel="stylesheet" href="/styles/index.css" slot="head" />
+
+  <section class="founder-section">
+    <div class="magazine-container">
+        
+        <div class="magazine-cover">
+            <div class="masthead">love, RACHEL</div>
+            <div class="cover-date">ISSUE NO. 01 // RECODING FEMININITY</div>
+            
+            <div class="leak l1">import &#123; amazing &#125; from 'YOU'</div>
+            <div class="leak l2">0x88FF22</div>
+            <div class="leak l3">&lt;style="be-yourself"&gt;</div>
+
+            <div class="cover-img-wrapper">
+                <img src="/images/1858353945477315 - Copy.jpg" alt="Rachel Chen" class="founder-img">
+            </div>
+        </div>
+
+        <div class="founder-message">
+            <div class="editorial-header">
+                <h2 class="editorial-title">A NEEDED<br>PERSPECTIVE</h2>
+                <p class="manifesto-snippet">
+                    "Coding is really an art form in my opinion, like painting or sketching out a dress. It's all about being able to create and problem solve, like any other art form. You can express yourself and tell a story with code too, similar to how artists express their emotions or creates intense moments with their art. If you can design and create, why would you not be able to code? If you like fashion or even the packaging of makeup, you'd probably love coding. I'll show you how. Even if it doesn't seem to add up now, you'll understand soon."
+                </p>
+                <div class="signature">Rachel Chen</div>
+                <div class="founder-stats" style="margin-top:10px;">
+                    <span>SOFTWARE ENGINEER & FOUNDER</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
