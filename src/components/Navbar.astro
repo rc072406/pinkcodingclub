@@ -1,12 +1,19 @@
 ---
 // src/components/Navbar.astro
 const base = import.meta.env.BASE_URL;
-const { currentPath } = Astro.props;
 const { pathname } = Astro.url; 
 
-const activePath = pathname
+
+const cleanPath = pathname
   .replace(base, "")
   .replace(/\/$/, "") || "";
+
+
+const isManifesto = cleanPath === 'manifesto';
+const isJoin = cleanPath === 'join';
+
+
+const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'webdesign';
 ---
 
 <nav>
@@ -14,9 +21,9 @@ const activePath = pathname
     <a href={base} style="text-decoration: none; color: inherit;">P.C.C.</a>
   </div>
   <div class="nav-links">
-  <a href={`${base}manifesto`} class={activePath === 'manifesto' ? 'active' : ''}>MANIFESTO</a>
-  <a href={`${base}curriculum`} class={activePath === 'curriculum' ? 'active' : ''}>CURRICULUM</a>
-  <a href={`${base}join`} class={activePath === 'join' ? 'active' : ''}>JOIN</a>
+  <a href={`${base}manifesto`} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
+  <a href={`${base}curriculum`} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
+  <a href={`${base}join`} class={isJoin ? 'active' : ''}>JOIN</a>
 </div>
 
   <div class="menu-toggle" id="mobile-menu-btn">
@@ -27,9 +34,9 @@ const activePath = pathname
 <div class="mobile-overlay" id="mobile-overlay">
   <div class="close-menu" id="close-menu-btn">CLOSE</div>
   <div class="mobile-nav-links">
-  <a href={`${base}manifesto`} class={activePath === 'manifesto' ? 'active' : ''}>MANIFESTO</a>
-  <a href={`${base}curriculum`} class={activePath === 'curriculum' ? 'active' : ''}>CURRICULUM</a>
-  <a href={`${base}join`} class={activePath === 'join' ? 'active' : ''}>JOIN</a>
+  <a href={`${base}manifesto`} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
+  <a href={`${base}curriculum`} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
+  <a href={`${base}join`} class={isJoin ? 'active' : ''}>JOIN</a>
 </div>
 </div>
 
