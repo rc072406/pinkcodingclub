@@ -1,0 +1,152 @@
+---
+// src/pages/webdesign.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lessons = [
+  {
+    step: "01",
+    title: "The Editorial Skeleton",
+    focus: "HTML5 & Semantic Structure",
+    desc: "Think of HTML as the pattern-making stage of a garment. We learn to structure content using tags that tell a story, moving far beyond basic 'Hello World' examples into magazine-style layouts."
+  },
+  {
+    step: "02",
+    title: "The Pink Palette & Typography",
+    focus: "CSS Fundamentals",
+    desc: "Color theory is tech theory. We dive into Hex codes, RGB, and Google Fonts to master the 'aesthetic' of the web. Learn how to use CSS variables to swap themes like a seasonal collection."
+  },
+  {
+    step: "03",
+    title: "Runway Flow",
+    focus: "Flexbox & Positioning",
+    desc: "Aligning elements with the precision of a runway show. Building navigation bars and image galleries that 'flow' across the screen"
+  },
+  {
+    step: "04",
+    title: "Couture Grids",
+    focus: "CSS Grid & Overlays",
+    desc: "Complex, overlapping layouts inspired by high-fashion posters. Learning to break the 'boring' box model"
+  }
+];
+---
+
+<BaseLayout title="CURRICULUM // FASHION FORWARD" isIndex={false} version="Syllabus // V.01">
+  
+  <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
+
+  <style>
+    .curriculum-container {
+        border-top: 1px solid var(--border-gray);
+        background: #000;
+    }
+
+    .curriculum-hero {
+        padding: 120px 4% 80px 4%;
+        max-width: 1000px;
+    }
+
+    .lesson-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        width: 100%;
+    }
+
+    .lesson-item {
+        border-right: 1px solid var(--border-gray);
+        border-bottom: 1px solid var(--border-gray);
+        padding: 60px 40px;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        transition: 0.4s ease;
+    }
+
+    .lesson-item:hover {
+        background: rgba(228, 30, 129, 0.03);
+    }
+
+    .lesson-meta {
+        font-family: monospace;
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+        color: #e41e81;
+    }
+
+    .lesson-item h3 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 2.5rem;
+        line-height: 1;
+        margin: 20px 0;
+        color: #facee2;
+    }
+
+    .lesson-item p {
+        text-transform: none;
+        color: #fff;
+        opacity: 0.8;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+
+    .project-cta {
+        padding: 100px 4%;
+        text-align: center;
+        border-bottom: 1px solid var(--border-gray);
+    }
+
+    .gold-box {
+        border: 2px solid #e41e81;
+        padding: 60px 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    @media (max-width: 768px) {
+        .lesson-grid { grid-template-columns: 1fr; }
+        .lesson-item { border-right: none; min-height: auto; }
+        .lesson-item h3 { font-size: 2rem; }
+    }
+  </style>
+
+  <section class="curriculum-hero">
+    <p class="founder-stats">THE EXCLUSIVE P.C.C. PROGRAM</p>
+    <h1 class="editorial-title">Fashion Forward<br>Responsive Web Design</h1>
+    <p class="manifesto-snippet">
+      A four part journey designed for the girly-girl who refuses to choose between her aesthetic and her ambition. 
+      Master the technical skills to bring your wildest dreams to life. Screw printing out "hello world." It's time to lead the culture. 
+    </p>
+  </section>
+
+  <div class="lesson-grid">
+    {lessons.map(lesson => (
+      <div class="lesson-item">
+        <span class="burst"></span>
+        <div class="top-meta">
+          <span class="lesson-meta">LEVEL // {lesson.step}</span>
+          <h3>{lesson.title}</h3>
+          <span class="view-btn" style="background: none; border-color: #333; color: #666; font-size: 0.5rem;">{lesson.focus}</span>
+        </div>
+        <p>{lesson.desc}</p>
+      </div>
+    ))}
+  </div>
+
+  <section class="project-cta">
+    <div class="gold-box shatter-container">
+        <div class="glass-shard-overlay">
+            <span class="shatter-text">UNLOCK CERTIFICATION</span>
+        </div>
+        <h2 style="font-family: 'Archivo Black'; font-size: 2.5rem; margin-bottom: 15px;">The Final Lookbook</h2>
+        <p style="text-transform: none; max-width: 600px; margin: 0 auto 30px auto; opacity: 0.9;">
+          To earn the <strong>Fashion Forward Web Design Certificate</strong>, students must build a fully responsive, 
+            multi-page personal lookbook and a landing page that passes the P.C.C. Design & Logic Philosophy.
+        </p>
+        <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank" class="cta-btn">ACCESS TEXTBOOK</a>
+    </div>
+  </section>
+
+</BaseLayout>
