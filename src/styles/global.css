@@ -501,7 +501,7 @@
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Bodoni Moda', serif;
+    font-family: 'Crimson Text', serif;
     font-weight: 900; 
     font-size: clamp(2rem, 8vw, 3.5rem);
     color: #49646F;
