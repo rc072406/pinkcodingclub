@@ -2,37 +2,52 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="LESSON 01 // PINK CODING CLUB" isIndex={false} version="L.01 // HTML FABRIC">
+<BaseLayout title="HTML FABRIC // P.C.C." isIndex={false} version="HTML // V.01">
   
   <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
 
+  <nav class="lesson-nav">
+    <a href="#intro">00</a>
+    <a href="#mission-1">01</a>
+    <a href="#mission-2">02</a>
+    <a href="#mission-3">03</a>
+    <div class="nav-line"></div>
+  </nav>
+
   <section class="lesson-container">
-    <div class="mgrid-item" data-meta="WELCOME">
+    
+    <div id="intro" class="mgrid-item" data-meta="WELCOME">
         <span class="burst"></span>
         <h2>Hello!</h2>
         <p>
-            Thank you for choosing this curriculum as maybe the start or even a part of your journey in tech. If you have coding experience- that's great! But if you don't, that's fine too! This course is for any level. Please keep in mind in order to earn your certificate you must take notes and send in your notes to us so that we make you completed the required learning documentation. You must use google docs. It makes the process easier and helps us give you your certificate in a timely fashion. 
+            Thank you for choosing this curriculum as maybe the start or even a part of your journey in tech. If you have coding experience- that's great! But if you don't, that's fine too! This course is for any level. 
+            <br/><br/>
+            Please keep in mind in order to earn your certificate you must take notes and send in your notes to us so that we make you completed the required learning documentation. You must use google docs. It makes the process easier and helps us give you your certificate in a timely fashion. 
         </p>
     </div>
 
-    <div class="mgrid-item" data-meta="MISSION_01">
+    <div id="mission-1" class="mgrid-item" data-meta="MISSION_01">
         <span class="burst"></span>
         <h2>Mission 1: Run Like a Girl</h2>
-        
         <div class="link-box">
              <a href="https://www.youtube.com/watch?v=qtDMyGjYlMg" target="_blank" class="view-btn">WATCH THE VIDEO ON YOUTUBE</a>
         </div>
-
         <p>
-            Start with this video. In this video, people are asked to "run like a girl." While adults often mimic a weak or silly run , young girls show exactly what it really means: running as fast as you can. Now you certainly don't run like that. And you might be wondering why I asked you to watch this video. Well, you may have heard that coding is a male dominated field and that the best ones are men. That's not true at all! The first ever computer scientist was Ada Lovelace and she taught herself to code only using what would theoretically work. She made history as the first ever computer scientist! Now if anything, I think coding was made for girls. When you code "like a girl," you are coding with the same power, precision, and history-making potential as the founder of the field itself. Who set the future? A girl. 
+            Start with this video. In this video, people are asked to "run like a girl." While adults often mimic a weak or silly run [00:19], young girls show exactly what it really means: running as fast as you can [01:00]. 
+            <br/><br/>
+            Now you certainly don't run like that. And you might be wondering why I asked you to watch this video. Well, you may have heard that coding is a male dominated field and that the best ones are men. That's not true at all! The first ever computer scientist was Ada Lovelace and she taught herself to code only using what would theoretically work. She made history as the first ever computer scientist! Now if anything, I think coding was made for girls. When you code "like a girl," you are coding with the same power, precision, and history-making potential as the founder of the field itself. Who set the future? A girl. 
         </p>
     </div>
 
-    <div class="mgrid-item" data-meta="MISSION_02">
+    <div id="mission-2" class="mgrid-item" data-meta="MISSION_02">
         <span class="burst"></span>
         <h2>Mission 2: Getting to Building</h2>
         <p>
-            Okay now time to get to building! You didn't come here to print out "hello world" ....and I certainly advertised no printing at all....but here's the thing- html is essentially the blueprint before the decoration. Those who love fashion, have you ever tried drawing out a dress and had to draw out maybe the collar or the hem? Did you work your way up? Now I was never a traditional artist but I used to like sewing. So did any of you fellow sewing enthusiasts start out by cutting the fabric out? Yeah?! Then that's what html is essentially!  Before you make a dress or pillow, you need to outline everything out first and that's essentially what html does before you add css and javascript. Maybe things look pretty bad without fancy stitches or intricate designs, but you have to start with learning to make outlines! But, in fashion, you don't start with the sequins; you start with the pattern and the cut. HTML (HyperText Markup Language) is the "fabric" of your website. It’s the raw outline before we add the "fancy stitches" of CSS. Now, please read the textbook sections below.
+            Okay now time to get to building! You didn't come here to print out "hello world" ....and I certainly advertised no printing at all....but here's the thing- html is essentially the blueprint before the decoration. 
+            <br/><br/>
+            Those who love fashion, have you ever tried drawing out a dress and had to draw out maybe the collar or the hem? Did you work your way up? Now I was never a traditional artist but I used to like sewing. So did any of you fellow sewing enthusiasts start out by cutting the fabric out? Yeah?! Then that's what html is essentially! Before you make a dress or pillow, you need to outline everything out first and that's essentially what html does before you add css and javascript. 
+            <br/><br/>
+            Maybe things look pretty bad without fancy stitches or intricate designs, but you have to start with learning to make outlines! But, in fashion, you don't start with the sequins; you start with the pattern and the cut. HTML (HyperText Markup Language) is the "fabric" of your website. It’s the raw outline before we add the "fancy stitches" of CSS. Now, please read the textbook sections and complete the exercises. 
         </p>
 
         <div class="resource-links">
@@ -43,7 +58,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
     </div>
 
-    <div class="mgrid-item" data-meta="MISSION_03">
+    <div id="mission-3" class="mgrid-item" data-meta="MISSION_03">
         <span class="burst"></span>
         <h2>Mission 3: Pinkify Your Textbook</h2>
         <p>
@@ -51,7 +66,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </p>
 
         <div class="photo-guide">
-            <img src="/images/pinkify-guide-1.jpg" alt="Step 1: Right click and Inspect" class="guide-img"/>
+            <div class="guide-placeholder">IMAGE_01: RIGHT_CLICK_INSPECT</div>
             <span class="guide-label">STEP_01: RIGHT CLICK > INSPECT</span>
         </div>
 
@@ -60,19 +75,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </p>
 
         <div class="photo-guide">
-            <img src="" alt="Step 2: Find the root variables" class="guide-img"/>
-            <span class="guide-label">STEP_02: LOCATE THE :ROOT VARIABLES</span>
+            <div class="guide-placeholder">IMAGE_02: LOCATE_ROOTS</div>
+            <span class="guide-label">STEP_02: FIND THE :ROOT COLOR VARIABLES</span>
         </div>
 
         <p>
             Now I think you see a ton of color options but it's all #fff or #anythingblahblahfollowedbyahashtag. You can just replace those with "pink" and you're all set. However, it might be a long time before you actually pinkify anything...but play around with it first. You're actually playing around with css and we'll get more into that later. But actually scroll down until you see "theme color." That's the one you wanna replace with "pink!" How did it go? This is what I have so far. 
         </p>
-
-        <div class="photo-guide">
-            <img src="" alt="Final Pink Result" class="guide-img result-border"/>
-            <span class="guide-label">FINAL_RESULT: P.C.C. THEMED TEXTBOOK</span>
-        </div>
     </div>
+
+    <div class="mgrid-item" data-meta="NEXT_STEPS">
+        <h2>More Coming Soon...</h2>
+        <p>Ready for the next piece of the pattern? Keep your notes ready.</p>
+    </div>
+
   </section>
 </BaseLayout>
 
@@ -80,52 +96,71 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .lesson-container {
         display: flex;
         flex-direction: column;
-        gap: 0; 
+        padding-left: 80px; 
     }
 
-    .link-box {
-        margin: 30px 0;
-    }
-
-    .resource-links {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    /* Sticky Side Nav */
+    .lesson-nav {
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
         gap: 20px;
-        margin-top: 40px;
+        z-index: 100;
     }
 
-   
+    .lesson-nav a {
+        color: #e41e81;
+        text-decoration: none;
+        font-family: monospace;
+        font-size: 0.8rem;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .lesson-nav a:hover {
+        color: #facee2;
+        text-shadow: 0 0 10px #e41e81;
+    }
+
+    /* Photo Guides */
     .photo-guide {
         margin: 40px 0;
-        border: 1px solid #e41e81;
+        border: 1px solid #333;
         padding: 10px;
-        background: rgba(228, 30, 129, 0.05);
-        position: relative;
     }
 
-    .guide-img {
+    .guide-placeholder {
         width: 100%;
-        height: auto;
-        display: block;
-        
-    }
-
-    .result-border {
-        border: 2px solid #facee2;
+        height: 300px;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-family: monospace;
+        border: 1px dashed #e41e81;
     }
 
     .guide-label {
         display: block;
-        font-family: monospace;
-        font-size: 0.7rem;
-        color: #e41e81;
+        font-size: 0.6rem;
         margin-top: 10px;
+        color: #e41e81;
         letter-spacing: 2px;
     }
 
+    .resource-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 40px 0;
+    }
+
     @media (max-width: 768px) {
-        .resource-links {
-            grid-template-columns: 1fr;
-        }
+        .lesson-container { padding-left: 0; }
+        .lesson-nav { display: none; } /* Hide sidebar on mobile */
     }
 </style>
