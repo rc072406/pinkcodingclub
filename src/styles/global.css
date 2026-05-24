@@ -496,70 +496,13 @@
 
 
 
-  .masthead {
-  position: absolute;
   
-    top: 2%; 
-    right: -5%; 
-    left: auto; 
-    
 
-    transform: rotate(-7deg); 
-    
- 
-    font-family: 'Crimson Text', serif;
-    font-weight: 900; 
-    font-size: clamp(2rem, 8vw, 5rem); 
-    color: #49646F;
-    z-index: 2;
-    text-align: right;
-    line-height: 0.8;
-    letter-spacing: -0.05em; 
-    pointer-events: none;
-    width: 120%; 
-    text-transform: none;
-    
-   
-    text-shadow: 10px 10px 20px rgba(0,0,0,0.3);
 
-}
-
-.cover-date {
-    position: absolute;
-        
-    font-size: 0.55rem;
-    letter-spacing: 2px;
-    color: #facee2;
-    z-index: 3; 
-  
-    padding: 2px 5px;
-    top: auto;
-    bottom: 20px;     
-    right: 15px;
-    background: transparent;
-    
-    padding-right: 8px;
-
-}
 
 /* Mobile Specific Fix for the Clashing */
 @media (max-width: 600px) {
-    .cover-date {
-        top: auto;
-        bottom: 20px; /* Move it to the bottom on small screens */
-        right: 15px;
-        background: transparent;
-    
-        padding-right: 8px;
-    }
-
-    .masthead {
-        top: 3%;
-        right: 0;
-        width: 100%;
-        font-size: 2.5rem;
-        transform: rotate(-4deg); /* Less aggressive tilt on mobile */
-    }
+  
 
     /* Adjust leaks so they don't fly off-screen on narrow phones */
     .l1 { right: 5px; top: 40%; }
