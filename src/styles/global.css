@@ -497,21 +497,30 @@
 
 
   .masthead {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  
+    top: 2%; 
+    right: -5%; 
+    left: auto; 
+    
+
+    transform: rotate(-7deg); 
+    
+ 
     font-family: 'Crimson Text', serif;
     font-weight: 900; 
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 5rem); 
     color: #49646F;
     z-index: 2;
-    text-align: center;
+    text-align: right;
     line-height: 0.8;
     letter-spacing: -0.05em; 
     pointer-events: none;
-    width: 100%;
+    width: 120%; 
     text-transform: none;
+    
+   
+    text-shadow: 10px 10px 20px rgba(0,0,0,0.3);
 
 }
 
@@ -545,8 +554,11 @@
     }
 
     .masthead {
-        top: 5%; 
-        font-size: clamp(2rem, 1vw, 2rem);
+        top: 3%;
+        right: 0;
+        width: 100%;
+        font-size: 2.5rem;
+        transform: rotate(-4deg); /* Less aggressive tilt on mobile */
     }
 
     /* Adjust leaks so they don't fly off-screen on narrow phones */
