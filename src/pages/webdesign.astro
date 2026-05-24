@@ -122,7 +122,7 @@ const lessons = [
  <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/" target="_blank" class="cta-btn">ACCESS TEXTBOOK</a>
   </section>
 
-  <div class="lesson-grid">
+ <div class="lesson-grid">
     {lessons.map(lesson => (
       <div class="lesson-item">
         <span class="burst"></span>
@@ -131,10 +131,25 @@ const lessons = [
           <h3>{lesson.title}</h3>
           <span class="view-btn" style="background: none; border-color: #333; color: #666; font-size: 0.5rem;">{lesson.focus}</span>
         </div>
+        
         <p>{lesson.desc}</p>
+
+       
+        {lesson.step === "01" && (
+          <a href="/htmllessons" class="view-btn" style="margin-top: 20px; text-align: center;">
+            ENTER HTML SECTION
+          </a>
+        )}
+        
+     
+        {lesson.step !== "01" && (
+          <span class="view-btn" style="margin-top: 20px; opacity: 0.3; pointer-events: none; text-align: center;">
+            STAY TUNED
+          </span>
+        )}
       </div>
     ))}
-  </div>
+</div>
 
   <section class="project-cta">
     <div class="gold-box shatter-container">
