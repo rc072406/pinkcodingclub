@@ -103,6 +103,7 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         height: 100%;
         z-index: 1;
         pointer-events: none;
+        object-fit: cover;
     }
 
     .hero-container, .version-tag {
@@ -119,6 +120,7 @@ const { isIndex = false, version = "V.01" } = Astro.props;
     /* Style variants handled via classes */
     .index-hero {
         height: 100vh;
+        height: 100svh;
     }
     .index-hero h1 {
         font-family: 'Archivo Black', sans-serif;
@@ -128,9 +130,10 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         margin-bottom: 20px;
     }
 
-    .sub-hero {
-        height: 100vh; 
-    }
+   .sub-hero {
+    height: 100vh; 
+    height: 100svh;
+}
     .sub-hero h1 {
         font-family: 'Archivo Black', sans-serif;
         font-size: clamp(3rem, 10vw, 8rem);
