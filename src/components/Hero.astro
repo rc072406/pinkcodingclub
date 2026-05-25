@@ -25,61 +25,61 @@ const { isIndex = false, version = "V.01" } = Astro.props;
 </section>
 
 <script>
-    const initHeroCanvas = () => {
-        const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
-        if (!canvas) return;
+const initHeroCanvas = () => {
+    const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
+    const fontSize = 10; 
+    let columns;
+    let drops;
+    let lastWidth = 0; 
+
+    function initCanvas() {
+        const hero = canvas.parentElement;
+        if (!hero) return;
+        const rect = hero.getBoundingClientRect();
         
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+     
+        if (Math.floor(rect.width) === lastWidth) return;
+        
+        lastWidth = Math.floor(rect.width);
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        
+        columns = Math.floor(canvas.width / 60); 
+        drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
+    }
 
-        const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
-        const fontSize = 10; 
-        let columns;
-        let drops;
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        function initCanvas() {
-            const hero = canvas.parentElement;
-            if (!hero) return;
-            const rect = hero.getBoundingClientRect();
-            
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-            
-            columns = Math.floor(canvas.width / 60); 
-            drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
-        }
+        ctx.font = "900 " + fontSize + "px 'Inter'";
+        
+        for (let i = 0; i < drops.length; i++) {
+            const text = keywords[Math.floor(Math.random() * keywords.length)];
+            const colors = ["#facee2", "#f3a6c9", "#e41e81"];
+            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
 
-        function draw() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillText(text, i * 60, drops[i] * fontSize);
 
-            ctx.font = "900 " + fontSize + "px 'Inter'";
-            
-            for (let i = 0; i < drops.length; i++) {
-                const text = keywords[Math.floor(Math.random() * keywords.length)];
-                const colors = ["#facee2", "#f3a6c9", "#e41e81"];
-                ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-
-                ctx.fillText(text, i * 60, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
             }
+            drops[i]++;
         }
+    }
 
-        initCanvas();
-        window.addEventListener('resize', initCanvas);
-        const interval = setInterval(draw, 50);
+    initCanvas();
+    window.addEventListener('resize', initCanvas);
+    const interval = setInterval(draw, 50);
 
-        
-        document.addEventListener('astro:before-swap', () => clearInterval(interval), { once: true });
-    };
-
-    // Initialize
-    initHeroCanvas();
-    document.addEventListener('astro:after-swap', initHeroCanvas);
+    document.addEventListener('astro:before-swap', () => clearInterval(interval), { once: true });
+};
 </script>
 
 <style>
@@ -92,6 +92,8 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         border-bottom: 1px solid var(--border-gray);
         overflow: hidden;
         background: black;
+       will-change: transform; 
+     -webkit-backface-visibility: hidden;
     }
 
     /* Common layer management */
