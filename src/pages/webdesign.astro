@@ -1,36 +1,42 @@
 ---
 // src/pages/webdesign.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { webDesignLessons } from '../data/curriculum';
 import LessonCard from '../components/LessonCard.astro';
-
+import { webDesignLessons } from '../data/curriculum';
 
 ---
 
-<BaseLayout title="CURRICULUM // FASHION FORWARD">
-   <div class="lesson-grid">
-    {webDesignLessons.map((lesson) => (
-      <div class="lesson-item">
-        <div class="top-meta">
-          <span class="lesson-meta">LEVEL // {lesson.step}</span>
-          <h3>{lesson.title}</h3>
-          <span class="view-btn" style="background: none; border-color: #333; color: #666; font-size: 0.5rem;">
-            {lesson.focus}
-          </span>
-        </div>
-        
-        <p>{lesson.desc}</p>
+<BaseLayout title="CURRICULUM // FASHION FORWARD" isIndex={false} version="Syllabus // V.01">
+  
+  <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
 
-        {!lesson.isLocked ? (
-          <a href={lesson.href} class="view-btn" style="margin-top: 20px; text-align: center;">
-            ENTER SECTION
-          </a>
-        ) : (
-          <span class="view-btn" style="margin-top: 20px; opacity: 0.3; pointer-events: none; text-align: center;">
-            STAY TUNED
-          </span>
-        )}
-      </div>
+
+  <section class="curriculum-hero">
+    <p class="founder-stats">THE EXCLUSIVE P.C.C. PROGRAM</p>
+    <h1 class="editorial-title">Fashion Forward<br>Responsive Web Design</h1>
+    <p class="manifesto-snippet">
+      A four-part journey designed for the girly-girl who refuses to choose between her aesthetic and her ambition. 
+      Master the technical skills to bring your wildest dreams to life. Screw printing out "hello world." It's time to lead the culture. 
+    </p>
+    <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/" target="_blank" class="cta-btn" style="margin-top: 40px; display: inline-block;">
+        ACCESS TEXTBOOK
+    </a>
+  </section>
+
+  <div class="lesson-grid">
+    {webDesignLessons.map((lesson) => (
+      <LessonCard {...lesson} />
     ))}
   </div>
+
+  <section class="project-cta">
+    <div class="gold-box">
+        <h2 style="font-family: 'Archivo Black'; font-size: 2.5rem; margin-bottom: 15px; color: #facee2;">THE SHOWROOM</h2>
+        <p style="text-transform: none; max-width: 600px; margin: 0 auto 30px auto; opacity: 0.9; color: #fff;">
+          To earn the <strong>Fashion Forward Responsive Web Design Certificate</strong>, students must build a fully responsive, 
+          multi-page personal lookbook and a landing page that passes the P.C.C. Design & Logic Philosophy.
+        </p>
+    </div>
+  </section>
+
 </BaseLayout>
