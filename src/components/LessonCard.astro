@@ -18,7 +18,7 @@ const { step, title, focus, desc, href, isLocked = false } = Astro.props;
 </div>
 
 <style>
-    .lesson-item {
+   .lesson-item {
         border-right: 1px solid var(--border-gray);
         border-bottom: 1px solid var(--border-gray);
         padding: 60px 40px;
@@ -26,6 +26,8 @@ const { step, title, focus, desc, href, isLocked = false } = Astro.props;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: relative;
+        overflow: hidden;
         transition: 0.4s ease;
     }
 
@@ -48,15 +50,36 @@ const { step, title, focus, desc, href, isLocked = false } = Astro.props;
         color: #facee2;
     }
 
+    .lesson-item p {
+        text-transform: none;
+        color: #fff;
+        opacity: 0.8;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+
     .focus-tag { 
+        background: none; 
         border: 1px solid #333; 
         color: #666; 
-        font-size: 0.5rem; 
+        font-size: 0.5rem;
         padding: 2px 8px;
     }
 
-    .view-btn.active { margin-top: 20px; text-align: center; }
-    .view-btn.locked { opacity: 0.3; pointer-events: none; text-align: center; margin-top: 20px; }
+    .view-btn.active { 
+        margin-top: 20px; 
+        text-align: center;
+        display: block;
+        
+    }
+
+    .view-btn.locked { 
+        margin-top: 20px; 
+        opacity: 0.3; 
+        pointer-events: none; 
+        text-align: center;
+        display: block;
+    }
 
     @media (max-width: 768px) {
         .lesson-item { border-right: none; min-height: auto; }
