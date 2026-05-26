@@ -9,7 +9,36 @@ import { webDesignLessons } from '../data/curriculum';
 <BaseLayout title="CURRICULUM // FASHION FORWARD" isIndex={false} version="Syllabus // V.01">
   
   <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
+<style>
+    .curriculum-hero {
+        padding: 120px 4% 80px 4%;
+        max-width: 1000px;
+    }
 
+    .lesson-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        width: 100%;
+        border-top: 1px solid var(--border-gray);
+    }
+
+    .project-cta {
+        padding: 100px 4%;
+        text-align: center;
+        border-bottom: 1px solid var(--border-gray);
+    }
+
+    .gold-box {
+        border: 2px solid #e41e81;
+        padding: 60px 20px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .lesson-grid { grid-template-columns: 1fr; }
+    }
+</style>
 
   <section class="curriculum-hero">
     <p class="founder-stats">THE EXCLUSIVE P.C.C. PROGRAM</p>
