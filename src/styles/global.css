@@ -471,11 +471,10 @@
 .magazine-cover {
     position: relative;
     width: 100%;
-    aspect-ratio: 3 / 4; /* Classic magazine ratio */
-    background: #111;
+
     border: 1px solid var(--border-gray);
     overflow: visible; /* To allow leaks to float outside */
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
 }
 
 
