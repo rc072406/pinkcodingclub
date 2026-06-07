@@ -3,17 +3,16 @@
 const base = import.meta.env.BASE_URL;
 const { pathname } = Astro.url; 
 
-
 const cleanPath = pathname
   .replace(base, "")
   .replace(/\/$/, "") || "";
 
-
 const isManifesto = cleanPath === 'manifesto';
 const isJoin = cleanPath === 'join';
-
-
 const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'webdesign';
+
+
+const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 ---
 
 <nav>
@@ -21,10 +20,10 @@ const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'webdesign';
     <a href={base} style="text-decoration: none; color: inherit;">P.C.C.</a>
   </div>
   <div class="nav-links">
-  <a href={`${base}manifesto`} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
-  <a href={`${base}curriculum`} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
-  <a href={`${base}join`} class={isJoin ? 'active' : ''}>JOIN</a>
-</div>
+    <a href={formatUrl('manifesto')} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
+    <a href={formatUrl('curriculum')} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
+    <a href={formatUrl('join')} class={isJoin ? 'active' : ''}>JOIN</a>
+  </div>
 
   <div class="menu-toggle" id="mobile-menu-btn">
     <span></span><span></span><span></span>
@@ -34,15 +33,15 @@ const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'webdesign';
 <div class="mobile-overlay" id="mobile-overlay">
   <div class="close-menu" id="close-menu-btn">CLOSE</div>
   <div class="mobile-nav-links">
-  <a href={`${base}manifesto`} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
-  <a href={`${base}curriculum`} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
-  <a href={`${base}join`} class={isJoin ? 'active' : ''}>JOIN</a>
-</div>
+    <a href={formatUrl('manifesto')} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
+    <a href={formatUrl('curriculum')} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
+    <a href={formatUrl('join')} class={isJoin ? 'active' : ''}>JOIN</a>
+  </div>
 </div>
 
 <script>
   /* --- ISLAND LOGIC --- */
- 
+  
   const initMenu = () => {
     const menuBtn = document.getElementById('mobile-menu-btn');
     const closeBtn = document.getElementById('close-menu-btn');
@@ -69,7 +68,6 @@ const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'webdesign';
 
   // Runs on initial load
   initMenu();
-
 
   document.addEventListener('astro:after-swap', initMenu);
 </script>
@@ -150,21 +148,6 @@ const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'webdesign';
     z-index: 2000; /* Higher than the overlay */
 }
 
-/* REMOVED STRAY SLASH HERE */
-
-.menu-toggle.active span:nth-child(1) { 
-    transform: rotate(45deg) translate(5px, 6px); 
-    background: #e41e81; 
-}
-
-.menu-toggle.active span:nth-child(2) { 
-    opacity: 0; 
-}
-
-.menu-toggle.active span:nth-child(3) { 
-    transform: rotate(-45deg) translate(5px, -7px); 
-    background: #e41e81; 
-}
 .close-menu {
     position: absolute;
     top: 25px;
@@ -181,7 +164,6 @@ const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'webdesign';
     color: #e41e81;
     transform: scale(1.1);
 }
-
 
 .menu-toggle.active {
     opacity: 0;
