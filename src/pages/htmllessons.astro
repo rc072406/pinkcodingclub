@@ -105,8 +105,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 4: Structural Integrity</h2>
         <p>
-            Every garment needs a proper fit. We'll start by debugging a pet page and then learn the "Boilerplate" (the invisible skeleton that holds every website together).
+            Every great gown needs structural integrity so it doesn't collapse on the runway! In web design, that unseen structure is called the Boilerplate. It’s like the internal lining, boning, and canvas framing of a garment. It is completely invisible to the person wearing it, but without it, the fabric has absolutely no shape!
+
         </p>
+<p>
+Every single HTML file starts with this exact code skeleton to tell the browser how to interpret your fabric. The &lt;!DOCTYPE html&gt; declaration at the very top tells the browser to use modern, standard rules. The &lt;html&gt; tag acts as the entire outfit, enclosing absolutely everything else. Inside, we split things into two main parts: the &lt;head&gt; section, which holds hidden metadata, title tags, and stylesheet connections (kind of like the garment tags and wash instructions), and the &lt;body&gt; section, which contains all the visible headers, paragraphs, and components that actually walk down the runway. Let’s practice handling this structure by fixing a pet adoption setup and outlining a custom recipe pattern!</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lab-debug-pet-adoption-page/lab-debug-pet-adoption-page" target="_blank" class="view-btn">05 // DEBUG PET ADOPTION</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-understanding-the-html-boilerplate/what-is-the-role-of-the-link-element-in-html" target="_blank" class="view-btn">06 // THE BOILERPLATE</a>
@@ -119,8 +122,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 5: The Fashion Palette (Media)</h2>
         <p>
-            A design comes alive with color and imagery. Here we learn how to handle images, icons, and that specific "Heart" embroidery that makes a site feel like P.C.C.
+           An all-white piece of plain muslin cloth is fine for practice, but we're here to add color, texture, and custom prints! This is where media comes into play. Think of images and SVGs as specific patches or custom lace embroidery patterns that you stitch directly into your core layout.
+
         </p>
+<p>To add images, we use the &lt;img&gt; tag. Notice something interesting about it? It’s a "self-closing" tag, meaning it doesn't need a secondary closing patch. It just needs the src attribute to find the image file and an alt attribute. The alt text is non-negotiable! It writes out a clear description of the graphic so that if a file doesn't load or if a visually impaired user is using a screen reader, the machine can accurately describe your design work. We will also look at SVGs, which are like mathematical vector embroidery paths that never get pixelated, and dive into &lt;audio&gt; and &lt;video&gt; layers to build a fully operational media showcase!</p>
+<p> Have fun with building out a heart! Just the thing for your design to be girly to the max!</p>
+
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-working-with-images-and-svgs/what-are-common-ways-to-optimize-media-assets" target="_blank" class="view-btn">09 // IMAGES & SVGS</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/workshop-build-a-heart-icon/step-1" target="_blank" class="view-btn">10 // BUILD A HEART ICON</a>
@@ -133,8 +140,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 6: Interactive Elements</h2>
         <p>
-            Links and iframes are the buttons and zippers of the web and they connect things together and show windows into other worlds.
+          A garment without functional fasteners is just a drape of cloth. Links and iframes are the zippers, buttons, and transparent pockets of the web world! They create connections and build windows out into entirely separate locations.
         </p>
+<p>
+The anchor tag &lt;a&gt; works like a classic metal snap hook, latching onto a target file pathway through the href attribute. If you're linking to an outside space and don't want people leaving your fashion showroom completely, make sure to add target="_blank" so it rolls open in an entirely separate browser panel. Meanwhile, the &lt;iframe&gt; element is total magic! It’s like stitching a clear plastic viewing pocket right onto your fabric that safely embeds an entirely independent webpage or live streaming clip right inside your custom environment!</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-understanding-html-attributes/working-with-links" target="_blank" class="view-btn">13 // WORKING WITH LINKS</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-understanding-html-attributes/working-with-the-iframe-element" target="_blank" class="view-btn">14 // THE IFRAME ELEMENT</a>
@@ -147,8 +156,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 7: Semantic Outlines</h2>
         <p>
-            Semantic HTML means giving your code meaning. Don't just use generic boxes; label your header, main, and footer clearly. Also, why make  beautiful designs if no one can find the show? SEO (Search Engine Optimization) is like the invitations and billboards for your site. It tells Google exactly what your "fabric" is made of. We'll also dive into the "Meta" tags that live in your <code>&lt;head&gt;</code> Or another way to think about it is thinking of it like a designer's label. SEO is like the label on the back of the dress. The customer (the user) might not see it, but the shopkeeper (Google or Duckduckgo) uses it to know exactly where to hang it in the store.
+           When you look at a garment pattern, it's explicitly broken down into standard panels: sleeves, collar, bodice, and hem. If you just labeled everything "piece of fabric," a tailor wouldn't know how to assemble it. That is exactly what semantic HTML solves! Instead of lazy web-building with generic, plain &lt;div&gt; boxes everywhere, we construct clean structural meaning using elements like &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, and &lt;footer&gt;.
         </p>
+<p>This clean structural system is essential for SEO (Search Engine Optimization). Think of search engine spiders from places like Google or DuckDuckGo as boutique shopkeeper. They use your semantic markup and internal &lt;meta&gt; context labels inside the &lt;head&gt; tag to instantly figure out what your webpage is selling, allowing them to hang your creative work on the perfect retail rack for matching search queries!</p>
+<p>So essentially, they are like a designer's label. SEO is like the label on the back of the dress. The customer (the user) might not see it, but the shopkeeper (Google or Duckduckgo) uses it to know exactly where to hang it in the store. </p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-importance-of-semantic-html/why-should-you-care-about-semantic-html" target="_blank" class="view-btn">17 // HTML FUNDAMENTALS</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/workshop-blog-page/step-1" target="_blank" class="view-btn">18 // CAT BLOG PAGE</a>
@@ -161,8 +172,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 8: Measurements (Forms)</h2>
         <p>
-            Just like a custom measurement form, your website needs to collect data. Learn how to build inputs and registration forms.
+           To create a gorgeous custom outfit, a tailor has to collect exact individual measurements. Web interactive forms work exactly the same way, they collect specific input data straight from the client! We set up our framework using the &lt;form&gt; element, which acts like our main data clipboard.
         </p>
+<p>Inside, we pin empty &lt;input&gt; slots. But remember: an input slot without a guide label is just a blank chalk line on a pattern piece! You must connect every input to an explicit &lt;label&gt; tag using matching id and for attributes so everyone knows what detail belongs where. You can choose from standard text areas, check boxes, or radio options (for choosing only one specific dress shade!). If your seams start getting slightly uneven, we’ll run everything through a specialized HTML code validator to check for loose markup threads.</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-working-with-forms/how-do-forms-labels-and-inputs-work-in-html" target="_blank" class="view-btn">21 // HOW TO BUILD A FORM</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/workshop-hotel-feedback-form/step-1" target="_blank" class="view-btn">22 // HOTEL FEEDBACK FORM</a>
@@ -175,8 +187,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 9: Advanced Accessibility</h2>
         <p>
-            Fashion is for everyone. Web design is the same. Accessibility ensures your "fabric" can be enjoyed by everyone, regardless of how they browse.
+            Fashion is for everyone. Web design is the same. Creating accessible code (often shortened to digital a11y) is just like introducing inclusive sizing or adaptive closures to a fashion line. It ensures your creation can be beautifully navigated and enjoyed by every single individual, no matter how they access the web. Girly girls don't gatekeep. 
         </p>
+<p>Sticking to strict semantic elements already gives screen readers and keyboard users a clean, logical pathway to browse your fabric layout. But when standard visual panels need an extra bit of contextual explanation, we apply specialized ARIA attributes (Accessible Rich Internet Applications). These work like tactile braille annotations woven into the seams, giving assistive technologies explicit structural context regarding what your dynamic components actually do behind the scenes!</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-importance-of-accessibility-and-good-html-structure/what-is-accessibility" target="_blank" class="view-btn">25 // WHAT IS ACCESSIBILITY?</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-introduction-to-aria/what-is-the-purpose-of-wai-aria" target="_blank" class="view-btn">26 // ARIA ATTRIBUTES</a>
@@ -189,8 +202,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 10: The Data Weave (Tables)</h2>
         <p>
-            Sometimes you need a grid to organize your inventory. Tables are the perfect way to display complex data in a clean, structured way.
+           Sometimes a dynamic pattern designer needs an organized interlaced pattern, like a perfect tartan or a gingham check weave to handle complex, dense structural information. HTML grids and tables provide the perfect structured weave to catalog inventory parameters or chart numbers without losing clean spacing!
         </p>
+<p>
+We spin up our custom structural grid out of an primary &lt;table&gt; element, sorting our alignment clean across linear row divisions using &lt;tr&gt;. Inside those rows, we split individual columns into top-tier category headers &lt;th&gt; and standard internal cell definitions &lt;td&gt;. Precision here is absolute! If you drop just one closing tag or skip an individual cell line item, your whole weave slips out of alignment (distorts your table format).</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-working-with-tables/what-are-html-tables-used-for" target="_blank" class="view-btn">29 // WHAT IS A TABLE?</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/workshop-final-exams-table/step-1" target="_blank" class="view-btn">31 // FINAL EXAMS TABLE</a>
@@ -203,8 +218,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 11: The Ultimate Review</h2>
         <p>
-            Before we move to CSS, let's make sure our HTML foundation is flawless. A final look back at the fundamentals.
+            Before we roll out our collections for the official runway and start adding pink dyes and decorative laces using CSS, we have to conduct a final technical inspection. It is time to look back at our basic structural stitches, clip away loose structural threads, and make sure everything is completely clean!
         </p>
+<p>This review mission is designed to consolidate all your markup knowledge. We'll track back to double check text formatting tags, audit file architecture connections, and look at general computer fundamentals. Having a solid understanding of how local directory folders pass paths to web browsers ensures your internal image pointers and link anchors stay perfectly connected!</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/review-html/review-html" target="_blank" class="view-btn">33 // BASIC HTML REVIEW</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/workshop-debug-coding-journey-blog-page/step-1" target="_blank" class="view-btn">34 // DEBUG A CODING JOURNEY BLOG PAGE</a>
@@ -217,8 +233,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 12: The First Runway</h2>
         <p>
-            The final fitting for HTML. Complete the projects below to prove you've mastered the HTML Fabric section of P.C.C. Note: these are not the final certifation projects for P.C.C.'s program, but they're great application and you can make it however you want. ALSO YOU ARE NOT EXPECTED TO KNOW EVERYTHING!!! Just play and dabble with the ideas! Once you are comfortable, you are free to move on to the next section! There's no need to actually FINISH each project here but again it's great practice and helps prove mastery to yourself so that you can build that self efficacy!
+            Welcome to your very first debut runway exhibition! You have officially mastered the complete HTML framework of the P.C.C. curriculum. Now, it’s time to put your skills to the test and construct complete independent web layouts. Note: these are not the final certifation projects for P.C.C.'s program, but they're great application and you can make it however you want. ALSO YOU ARE NOT EXPECTED TO KNOW EVERYTHING!!! Just play and dabble with the ideas! Once you are comfortable, you are free to move on to the next section! There's no need to actually FINISH each project here but again it's great practice and helps prove mastery to yourself so that you can build that self efficacy!
         </p>
+<p>I personally really suggest playing arround with the product landing page because that relates to your final project required to earn your P.C.C. certificate, but again just play around with it. You don't need to know it all! However, practice makes perfect.</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-tribute-page-project/build-a-tribute-page" target="_blank" class="view-btn">37 // TRIBUTE PAGE</a>
             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lab-survey-form/build-a-survey-form" target="_blank" class="view-btn">38 // SURVEY FORM REVISIT</a>
