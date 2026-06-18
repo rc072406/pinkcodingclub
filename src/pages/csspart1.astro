@@ -51,7 +51,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p>
             Before we can add the rhinestones, we need to know how to thread the needle. In CSS, we use <strong>selectors</strong> to tell the browser exactly <em>which</em> piece of HTML fabric we want to style. 
             <br/><br/>
-            Want to dye all the paragraphs pink? You select the `p` tag. Want to style just the collar of your dress? You give that specific HTML element a `class` (like `.collar`) or an `id` (like `#statement-collar`) and select it in your CSS file. You then open up some curly braces `{ }` and start writing your style rules inside. Time to build your first beautifully styled menu!
+            Want to dye all the paragraphs pink? You select the <strong>p</strong> tag. Want to style just the collar of your dress? You give that specific HTML element a <strong>class</strong> (like <strong>.collar</strong>) or an <strong>id</strong> (like <strong>#statement-collar</strong>) and select it in your CSS file. You then open up some curly braces {{ }} and start writing your style rules inside. Time to build your first beautifully styled menu!
         </p>
 
         <div class="resource-links">
@@ -63,9 +63,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="burst"></span>
         <h2>Mission 3: The Pink Palette (Color Theory)</h2>
         <p>
-            Color theory is tech theory, girls. We don't just type the word "pink" and call it a day—we are web designers! We use precise dye mixtures. 
+            Color theory is tech theory! We don't just type the word "pink" and call it a day. We are web designers! We use precise dye mixtures. 
             <br/><br/>
-            In CSS, you'll meet  <strong>Hex codes</strong> (like `#e41e81`, which is the gorgeous hot pink we use here at P.C.C.),  <strong>RGB</strong> (Red, Green, Blue mixtures), and  <strong>HSL</strong> (Hue, Saturation, Lightness). Knowing how to mix these digital dyes is what separates a basic website from a visually stunning digital editorial. Let's learn how to paint the web!
+            In CSS, you'll meet  <strong>Hex codes</strong> (like <strong>#e41e81</strong>, which is the gorgeous hot pink we use here at P.C.C.),  <strong>RGB</strong> (Red, Green, Blue mixtures), and  <strong>HSL</strong> (Hue, Saturation, Lightness). Knowing how to mix these digital dyes is what separates a basic website from a visually stunning digital editorial. Let's learn how to paint the web!
         </p>
 
         <div class="resource-links">
@@ -81,7 +81,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
   <br/><br/>
 <p>
-We link directly to  <strong>Google Fonts</strong> to import gorgeous, custom typefaces. You'll learn how to adjust the `font-family`, `font-size`, `font-weight` (how bold or delicate the text is), and line spacing so your text reads exactly like a professional magazine spread. Let's practice by styling a typography-heavy layout!
+We link directly to  <strong>Google Fonts</strong> to import gorgeous, custom typefaces. You'll learn how to adjust the <strong>font-family</strong>, <strong>font-size</strong>, <strong>font-weight</strong> (how bold or delicate the text is), and line spacing so your text reads exactly like a professional magazine spread. Let's practice by styling a typography-heavy layout!
 </p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-typography-by-building-a-nutrition-label/step-1" target="_blank" class="view-btn">03 // TYPOGRAPHY LAB</a>
@@ -115,7 +115,7 @@ Let's practice getting our padding and margins tailored to perfection.
            Back in the early days of the web, getting two pictures to sit nicely next to each other was a nightmare. Today, we have <strong>Flexbox</strong>. Flexbox is like the stage director of your fashion show.
         </p>
   <br/><br/>
-<p>By simply telling a parent container `display: flex;`, you instantly gain the power to align, space out, center, and wrap your HTML elements with absolute precision. No more messy floats or overlapping text. It's clean, responsive, and totally necessary for modern web design.</p>
+<p>By simply telling a parent container <strong>display: flex;</strong>, you instantly gain the power to align, space out, center, and wrap your HTML elements with absolute precision. No more messy floats or overlapping text. It's clean, responsive, and totally necessary for modern web design.</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-flexbox-by-building-a-photo-gallery/step-1" target="_blank" class="view-btn">05 // FLEXBOX GALLERY</a>
         </div>
@@ -128,7 +128,7 @@ Let's practice getting our padding and margins tailored to perfection.
             Sometimes you don't want an element to just "go with the flow" of the page. Sometimes you need a specific bow pinned *exactly* to the top right shoulder of your dress, no matter what. That is CSS Positioning.
         </p>
   <br/><br/>
-<p>Using properties like `position: absolute;`, `relative`, or `fixed;`, you can break the normal rules of the HTML document and stick things exactly where you want them on the screen. It can be tricky (just like draping fabric on a bias), but building this cat painting will give you the exact practice you need.</p>
+<p>Using properties like <strong>position: absolute;</strong>, <strong>relative</strong>, or <strong>fixed;</strong>, you can break the normal rules of the HTML document and stick things exactly where you want them on the screen. It can be tricky (just like draping fabric on a bias), but building this cat painting will give you the exact practice you need.</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-intermediate-css-by-building-a-cat-painting/step-1" target="_blank" class="view-btn">06 // CAT PAINTING</a>
         </div>
@@ -141,7 +141,7 @@ Let's practice getting our padding and margins tailored to perfection.
            Have you ever wanted to completely change your website's vibe from a "Spring Pastel Collection" to a "Dark Mode Winter Goth" look in just one click? That is where  <strong>CSS Variables</strong> come in. They are the ultimate wardrobe quick-change!
         </p>
   <br/><br/>
-<p>Instead of typing your favorite pink hex code (`#facee2`) fifty different times across your stylesheet, you save it as a variable in your `:root` selector. The `:root` is basically the master closet for your website.</p>
+<p>Instead of typing your favorite pink hex code (`#facee2`) fifty different times across your stylesheet, you save it as a variable in your <strong>:root</strong> selector. The <strong>:root</strong> is basically the master closet for your website.</p>
 <blockquote>
     <strong>Here is the secret to theme swapping:</strong><br/>
     First, declare your color in the master closet: <br/>
@@ -150,7 +150,7 @@ Let's practice getting our padding and margins tailored to perfection.
     <code>h1 &lcub; color: var(--main-brand-color); &rcub;</code>
   </blockquote>
 
-<p> If you ever want to change your entire website to a new color for a new season, you don't hunt down every single header and button. You just change the variable in the `:root` to a new hex code, and *boom*—the entire outfit changes instantly. It's coding magic.</p>
+<p> If you ever want to change your entire website to a new color for a new season, you don't hunt down every single header and button. You just change the variable in the <strong>:root</strong> to a new hex code, and *boom*—the entire outfit changes instantly. It's coding magic.</p>
 
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-variables-by-building-a-city-skyline/step-1" target="_blank" class="view-btn">07 // CSS VARIABLES LAB</a>
@@ -177,7 +177,7 @@ Let's practice getting our padding and margins tailored to perfection.
             We don't just want static mannequins; we want clothes that move! CSS Animations and Transforms are what bring your website to life.
         </p>
   <br/><br/>
-<p>You can use `@keyframes` to create a timeline of style changes (like having a button slowly pulse pink), or use `transform` to scale, rotate, and skew elements when a user hovers over them. It adds that buttery smooth, interactive polish that makes your site feel incredibly high-end.</p>
+<p>You can use <strong>@keyframes<strong> to create a timeline of style changes (like having a button slowly pulse pink), or use <strong>transform</strong> to scale, rotate, and skew elements when a user hovers over them. It adds that buttery smooth, interactive polish that makes your site feel incredibly high-end.</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-animation-by-building-a-ferris-wheel/step-1" target="_blank" class="view-btn">09 // FERRIS WHEEL</a>
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-transforms-by-building-a-penguin/step-1" target="_blank" class="view-btn">10 // HAPPY FLAPPY PENGUIN</a>
@@ -191,7 +191,7 @@ Let's practice getting our padding and margins tailored to perfection.
             In fashion, a beautiful garment should look stunning no matter the sizing. In tech, that means your website needs to look just as gorgeous on an iPhone as it does on a massive desktop monitor. This is called Responsive Design.
         </p>
   <br/><br/>
-<p>We achieve this using `@media` queries. They are basically conditional rules that say: "If the screen shrinks below 600px wide, change the layout from three columns down to one, and make the font a little smaller." It's how we scale haute couture down to ready-to-wear everyday sizing!</p>
+<p>We achieve this using <strong>@media</strong> queries. They are basically conditional rules that say: "If the screen shrinks below 600px wide, change the layout from three columns down to one, and make the font a little smaller." It's how we scale haute couture down to ready-to-wear everyday sizing!</p>
         <div class="resource-links">
             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-responsive-web-design-by-building-a-piano/step-1" target="_blank" class="view-btn">11 // RESPONSIVE PIANO</a>
         </div>
