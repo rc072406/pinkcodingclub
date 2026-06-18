@@ -21,7 +21,8 @@ export const webDesignLessons: Lesson[] = [
     title: "The Pink Palette & Typography",
     focus: "CSS Fundamentals",
     desc: "Color theory is tech theory. We dive into Hex codes, RGB, and Google Fonts to master the 'aesthetic' of the web. Learn how to use CSS variables to swap themes like a seasonal collection.",
-    isLocked: true
+    href: "/csspart1",
+    isLocked: false
   },
   {
     step: "03",
