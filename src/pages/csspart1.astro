@@ -142,13 +142,12 @@ Let's practice getting our padding and margins tailored to perfection.
         </p>
   <br/><br/>
 <p>Instead of typing your favorite pink hex code (`#facee2`) fifty different times across your stylesheet, you save it as a variable in your `:root` selector. The `:root` is basically the master closet for your website.</p>
-  
-  <blockquote>
+<blockquote>
     <strong>Here is the secret to theme swapping:</strong><br/>
     First, declare your color in the master closet: <br/>
-    <code>:root { --main-brand-color: #facee2; }</code><br/><br/>
+    <code>:root &lcub; --main-brand-color: #facee2; &rcub;</code><br/><br/>
     Then, apply it to your dresses (elements):<br/>
-    <code>h1 { color: var(--main-brand-color); }</code>
+    <code>h1 &lcub; color: var(--main-brand-color); &rcub;</code>
   </blockquote>
 
 <p> If you ever want to change your entire website to a new color for a new season, you don't hunt down every single header and button. You just change the variable in the `:root` to a new hex code, and *boom*—the entire outfit changes instantly. It's coding magic.</p>
