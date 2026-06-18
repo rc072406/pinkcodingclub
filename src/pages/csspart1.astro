@@ -59,7 +59,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
     </div>
 
-    <div id="mission-3" class="mgrid-item" >
+    <div id="mission-3" class="mgrid-item">
         <span class="burst"></span>
         <h2>Mission 3: The Pink Palette (Color Theory)</h2>
         <p>
@@ -221,85 +221,85 @@ Let's practice getting our padding and margins tailored to perfection.
   </section>
 </BaseLayout>
 <style>
+  .lesson-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 80px;
+  }
+
+  /* Sticky Side Nav */
+  .lesson-nav {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+  }
+
+  .lesson-nav a {
+    color: #e41e81;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .lesson-nav a:hover {
+    color: #facee2;
+    text-shadow: 0 0 10px #e41e81;
+  }
+
+  /* Photo Guides */
+  .photo-guide {
+    margin: 40px 0;
+    border: 1px solid #333;
+    padding: 10px;
+  }
+
+  .guide-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    background: #111;
+    display: block;
+    border: 1px dashed #e41e81;
+  }
+
+  .guide-label {
+    display: block;
+    font-size: 0.6rem;
+    margin-top: 10px;
+    color: #e41e81;
+    letter-spacing: 2px;
+  }
+
+  .resource-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 40px 0;
+  }
+
+  blockquote {
+    background-color: #1a1a1a;
+    border-left: 4px solid #e41e81;
+    padding: 15px;
+    margin: 20px 0;
+    font-family: monospace;
+    color: #facee2;
+  }
+
+  @media (max-width: 768px) {
     .lesson-container {
-        display: flex;
-        flex-direction: column;
-        padding-left: 80px; 
+      padding-left: 0;
     }
-
-   
     .lesson-nav {
-        position: fixed;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        z-index: 100;
+      display: none;
     }
-
-    .lesson-nav a {
-        color: #e41e81;
-        text-decoration: none;
-        font-family: monospace;
-        font-size: 0.8rem;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .lesson-nav a:hover {
-        color: #facee2;
-        text-shadow: 0 0 10px #e41e81;
-    }
-
-    /* Photo Guides */
-    .photo-guide {
-        margin: 40px 0;
-        border: 1px solid #333;
-        padding: 10px;
-    }
-
-    .guide-image {
-        width: 100%;
-        height: auto;
-        max-height: 400px;
-        object-fit: contain; 
-        background: #111; 
-        display: block;
-        border: 1px dashed #e41e81;
-    }
-
-    .guide-label {
-        display: block;
-        font-size: 0.6rem;
-        margin-top: 10px;
-        color: #e41e81;
-        letter-spacing: 2px;
-    }
-
-    .resource-links {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin: 40px 0;
-    }
-
-    blockquote {
-        background-color: #1a1a1a;
-        border-left: 4px solid #e41e81;
-        padding: 15px;
-        margin: 20px 0;
-        font-family: monospace;
-        color: #facee2;
-    }
-
-    @media (max-width: 768px) {
-        .lesson-container { 
-            padding-left: 0; 
-        }
-        .lesson-nav { 
-            display: none; 
-        } 
-    }
+  }
 </style>
