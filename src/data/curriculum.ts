@@ -29,7 +29,8 @@ export const webDesignLessons: Lesson[] = [
     title: "Runway Flow",
     focus: "Flexbox & Positioning",
     desc: "Aligning elements with the precision of a runway show. Building navigation bars and image galleries that 'flow' across the screen without breaking the grid.",
-    isLocked: true
+    href: "/csspart2",
+    isLocked: false
   },
   {
     step: "04",
