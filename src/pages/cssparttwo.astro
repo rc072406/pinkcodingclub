@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CSS: Runway Flow // P.C.C." isIndex={false} version="CSS: Runway Flow // V.01">
+  
+  <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
+
+<nav class="lesson-nav">
+    <a href="#intro">00</a>
+    <a href="#mission-1">01</a>
+    <a href="#mission-2">02</a>
+    <a href="#mission-3">03</a>
+    <a href="#mission-4">04</a>
+    <a href="#mission-5">05</a>
+    <a href="#mission-6">06</a>
+    <a href="#mission-7">07</a>
+    <a href="#mission-8">08</a>
+    <a href="#mission-9">09</a>
+    <a href="#mission-10">10</a>
+    <a href="#mission-11">11</a>
+    <a href="#mission-12">12</a>
+    <div class="nav-line"></div>
+  </nav>
+  <section class="lesson-container">
+    
+    <div id="intro" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Level 03: The Runway Flow</h2>
+        <p>
+            Welcome back, designer! In the last level, we learned how to dye our fabrics (colors), choose our voices (typography), and add a little gloss. But what happens when we need to arrange multiple pieces together? 
+            <br/><br/>
+            You can have the most gorgeous images and fonts in the world, but if they are just stacked on top of each other clumsily, it doesn't look like a magazine—it looks like a messy closet. This level is all about <strong>Layouts</strong>. We are going to learn how to choreograph our elements to flow across the screen with the precision of a Paris Fashion Week runway show!
+        </p>
+    </div>
+
+    <div id="mission-1" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 1: The Dress Form (The Box Model)</h2>
+        <p>
+            Before we can drape fabric, we need to understand the dress form beneath it. In web design, every single HTML element is actually a hidden rectangle. This is called the <strong>Box Model</strong>.
+            <br/><br/>
+            Understanding your element's <strong>padding</strong> (the breathing room inside), <strong>border</strong> (the seam), and <strong>margin</strong> (the personal space outside) is the absolute foundation of making things fit together nicely. If your website's layout is breaking, 99% of the time, it's a Box Model issue! Let's get our measurements right.
+        </p>
+
+       <div class="resource-links">
+             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-the-css-box-model-by-building-a-rothko-painting/step-1" target="_blank" class="view-btn">01 // THE ROTHKO PAINTING LAB</a>
+             <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" target="_blank" class="view-btn">02 // MDN: THE BOX MODEL</a>
+             <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/review-basic-css/review-margin-and-padding" target="_blank" class="view-btn">03 // MARGIN & PADDING</a>
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" target="_blank" class="view-btn">04 // MDN: BOX-SIZING</a>
+        </div>
+    </div>
+
+    <div id="mission-2" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 2: Pinning it Down (CSS Positioning)</h2>
+        <p>
+             Sometimes the "normal flow" of a webpage isn't enough. What if you want a sticky navigation bar that follows the user as they scroll? Or a decorative star pinned <em>exactly</em> to the top-right corner of an image?
+             <br/><br/>
+             This is where <strong>Positioning</strong> comes in. Using <code>relative</code>, <code>absolute</code>, <code>fixed</code>, and <code>sticky</code>, we can break items out of the normal document flow and tailor them precisely where we want them. It’s like pinning an appliqué perfectly onto a bodice!
+        </p>
+
+        <div class="resource-links">
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-understanding-how-to-work-with-floats-and-positioning-in-css/what-are-common-use-cases-for-using-floats" target="_blank" class="view-btn">05 // FLOATS AND POSITIONING</a>
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-intermediate-css-by-building-a-cat-painting/step-1" target="_blank" class="view-btn">06 // CAT PAINTING LAB</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning" target="_blank" class="view-btn">07 // MDN: POSITIONING</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/review-css-positioning/review-css-positioning" target="_blank" class="view-btn">08 // POSITIONING REVIEW</a>
+        </div>
+    </div>
+
+   <div id="mission-3" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 3: The Stretchy Fabric (Intro to Flexbox)</h2>
+        <p>
+            Welcome to the greatest layout tool ever invented: <strong>Flexbox</strong>. Think of Flexbox like a high-end, stretchy spandex fabric. It allows elements to shrink, grow, and align themselves perfectly in a single row or column, no matter what screen size you are on!
+        </p>
+  <br/><br/>
+<p>
+By simply declaring <code>display: flex;</code> on a parent container, all the items inside magically line up. You can then use properties like <code>flex-direction: column;</code> to stack them, or keep them as a <code>row</code> to create beautiful navigation menus and photo galleries. 
+</p>
+        <div class="resource-links">
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-flexbox-by-building-a-photo-gallery/step-1" target="_blank" class="view-btn">09 // BUILD A PHOTO GALLERY</a>
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" class="view-btn">10 // CSS TRICKS: FLEXBOX GUIDE</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank" class="view-btn">11 // MDN: FLEXBOX BASICS</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-working-with-css-flexbox/what-is-css-flexbox" target="_blank" class="view-btn">12 // FCC FLEXBOX LECTURE</a>
+        </div>
+    </div>
+
+    <div id="mission-4" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 4: Choreographing the Models (Flex Alignment)</h2>
+        <p>
+         Now that we have our stretchy flex container, we need to tell our elements how to pose! Should they all group together in the center? Should they spread out evenly with perfect negative space between them?
+        </p>
+  <br/><br/>
+<p>
+Properties like <code>justify-content</code> (which handles the main axis) and <code>align-items</code> (which handles the cross axis) are your directorial commands. This is how you perfectly center text inside a glossy button or spread out your website's header links!
+</p>
+        <div class="resource-links">
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" class="view-btn">13 // JUSTIFY CONTENT</a>
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items" target="_blank" class="view-btn">14 // ALIGN ITEMS</a>
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gap" target="_blank" class="view-btn">15 // THE GAP PROPERTY</a>
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap" target="_blank" class="view-btn">16 // FLEX WRAP</a>
+        </div>
+    </div>
+
+    <div id="mission-5" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 5: Flexbox Playtime (Gamified Learning)</h2>
+        <p>
+            Reading about Flexbox is great, but playing with it is how you truly master it! The tech community has built some incredibly fun, cute games to help you memorize how Flexbox works. 
+        </p>
+  <br/><br/>
+<p>Your assignment for this mission is purely to play games. Guide the frogs to their lilypads using <code>justify-content</code>, and defend your towers using alignments! Who said learning to code couldn't be literally playing around?</p>
+        <div class="resource-links">
+            <a href="https://flexboxfroggy.com/" target="_blank" class="view-btn">17 // FLEXBOX FROGGY</a>
+            <a href="http://www.flexboxdefense.com/" target="_blank" class="view-btn">18 // FLEXBOX DEFENSE</a>
+            <a href="https://mastery.games/flexboxzombies/" target="_blank" class="view-btn">19 // FLEXBOX ZOMBIES</a>
+            <a href="https://flukeout.github.io/" target="_blank" class="view-btn">20 // CSS DINER (BONUS: SELECTORS!)</a>
+        </div>
+    </div>
+
+    <div id="mission-6" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 6: Grid Couture (Intro to CSS Grid)</h2>
+        <p>
+            If Flexbox is a stretchy spandex row, <strong>CSS Grid</strong> is a highly structured, two-dimensional corset! Grid is what we use when we want to design complex, magazine-style layouts with explicit columns and rows.
+        </p>
+  <br/><br/>
+<p>With Grid, you act as the Editor-in-Chief. You declare exactly how many columns your page should have, and then you tell your images and text boxes exactly which zones to sit in. It gives you god-tier control over the layout of your site.</p>
+        <div class="resource-links">
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-grid-by-building-a-magazine/step-1" target="_blank" class="view-btn">21 // BUILD A MAGAZINE</a>
+            <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" class="view-btn">22 // CSS TRICKS: GRID GUIDE</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns" target="_blank" class="view-btn">23 // GRID TEMPLATE COLUMNS</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-working-with-css-grid/what-is-css-grid" target="_blank" class="view-btn">24 // FCC GRID LECTURE</a>
+        </div>
+    </div>
+
+    <div id="mission-7" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 7: Cultivating the Grid (Grid Games)</h2>
+        <p>
+            Just like with Flexbox, Grid has a slight learning curve. The best way to understand how to plant your content across rows and columns is to get your hands dirty in the garden!
+        </p>
+  <br/><br/>
+<p>Jump into CSS Grid Garden and practice watering your carrots using properties like <code>grid-column-start</code> and <code>grid-row-end</code>. This visualization is crucial for understanding how 2D layouts snap together perfectly.</p>
+        <div class="resource-links">
+            <a href="https://cssgridgarden.com/" target="_blank" class="view-btn">25 // CSS GRID GARDEN</a>
+            <a href="https://codingfantasy.com/games/css-grid-attack" target="_blank" class="view-btn">26 // CSS GRID ATTACK</a>
+            <a href="https://gridcritters.com/" target="_blank" class="view-btn">27 // GRID CRITTERS</a>
+            <a href="https://learncssgrid.com/" target="_blank" class="view-btn">28 // LEARN CSS GRID VISUALLY</a>
+        </div>
+    </div>
+
+    <div id="mission-8" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 8: The Layer Cake (Z-Index)</h2>
+        <p>
+           A true fashionista knows how to layer. A camisole under a sheer blouse, topped with a structured jacket. In CSS, our elements don't just sit side-by-side; they can stack on top of each other!
+        </p>
+  <br/><br/>
+<p>When you use positioning, elements might overlap. The <code>z-index</code> property is how we decide who goes in front and who goes in the back. A higher z-index brings an element closer to the viewer. Let's learn how to layer our digital garments flawlessly.</p>
+
+        <div class="resource-links">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index" target="_blank" class="view-btn">29 // MDN: Z-INDEX</a>
+            <a href="https://www.smashingmagazine.com/2021/02/css-z-index-large-projects/" target="_blank" class="view-btn">30 // MASTERING Z-INDEX</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context" target="_blank" class="view-btn">31 // THE STACKING CONTEXT</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/review-css-positioning/review-css-positioning" target="_blank" class="view-btn">32 // LAYERING REVIEW</a>
+        </div>
+    </div>
+
+    <div id="mission-9" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 9: Editorial Layout Inspiration</h2>
+        <p>
+            Now that you have the technical tools (Flexbox, Grid, Positioning), it's time to study the masters of layout. We aren't just stacking blocks; we are telling a story through spacing, alignment, and scale.
+        </p>
+  <br/><br/>
+<p>Look at how Harper's Bazaar overlaps text with imagery, or how W Magazine uses massive, multi-column grid layouts to draw the eye. Study these editorial layouts and think: <em>"Would I use Flexbox or Grid to build this?"</em></p>
+        <div class="resource-links">
+            <a href="https://www.harpersbazaar.com/" target="_blank" class="view-btn">33 // HARPER'S BAZAAR</a>
+            <a href="https://www.wmagazine.com/" target="_blank" class="view-btn">34 // W MAGAZINE</a>
+            <a href="https://www.awwwards.com/websites/editorial/" target="_blank" class="view-btn">35 // AWWWARDS: EDITORIAL</a>
+            <a href="https://godly.website/" target="_blank" class="view-btn">36 // GODLY: UI/UX INSPO</a>
+        </div>
+    </div>
+
+    <div id="mission-10" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 10: The Runway Strut (Transforms)</h2>
+        <p>
+            We've set the stage, now let's add some movement! You can alter the layout of an element dynamically using CSS <code>transform</code>. This doesn't permanently break the layout, but it allows for beautiful, interactive moments.
+        </p>
+  <br/><br/>
+<p>By adding a <code>hover</code> state, you can make an image subtly <code>scale()</code> up when a user mouses over it, or <code>translateY()</code> a button so it looks like it's being pressed down. It’s the final twirl at the end of the runway!</p>
+        <div class="resource-links">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank" class="view-btn">37 // CSS TRANSFORM</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank" class="view-btn">38 // CSS TRANSITIONS</a>
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-transforms-by-building-a-penguin/step-1" target="_blank" class="view-btn">39 // BUILD A PENGUIN LAB</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale" target="_blank" class="view-btn">40 // SCALE & HOVER</a>
+        </div>
+    </div>
+
+    <div id="mission-11" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 11: One Size Fits All (Responsive Layouts)</h2>
+        <p>
+            In fashion, a beautiful garment should look stunning no matter the sizing. In tech, that means your complex Grid or Flexbox layout needs to look just as gorgeous on a tiny iPhone as it does on a massive 4K monitor.
+        </p>
+  <br/><br/>
+<p>We achieve this using <strong>@media queries</strong>. They are conditional rules that let us re-tailor the layout on the fly: "If the screen shrinks below 600px, change our Flexbox row into a column!" It's how we scale haute couture down to ready-to-wear everyday sizing.</p>
+        <div class="resource-links">
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" class="view-btn">41 // RESPONSIVE DESIGN</a>
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-animation-by-building-a-ferris-wheel/step-1" target="_blank" class="view-btn">42 // FERRIS WHEEL LAB</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank" class="view-btn">43 // USING MEDIA QUERIES</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/quiz-responsive-web-design/quiz-responsive-web-design" target="_blank" class="view-btn">44 // RESPONSIVE QUIZ</a>
+        </div>
+    </div>
+
+    <div id="mission-12" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 12: The Final Collection (Product Landing Page)</h2>
+        <p>
+            You’ve learned the box model, flexed your alignment skills, cultivated your grid, layered your elements, and made it all responsive. You are officially ready to design a fully functioning webpage layout from scratch.
+        </p>
+  <br/><br/>
+<p>For your final certification project in this level, you will build a <strong>Product Landing Page</strong>. Imagine you are launching a new perfume, a luxury handbag line, or a chic tech gadget. You will need a sticky header (positioning), a feature section (grid), and a gorgeous hero image. Bring everything you've learned together and sell your aesthetic!</p>
+        <br/><br/>
+<div class="resource-links">
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-product-landing-page-project/build-a-product-landing-page" target="_blank" class="view-btn">45 // BUILD A PRODUCT LANDING PAGE</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/quiz-basic-css/quiz-basic-css" target="_blank" class="view-btn">46 // CSS LAYOUT QUIZ</a>
+            <a href="https://designingwomen.readymag.com/" target="_blank" class="view-btn">47 // DESIGNING WOMEN: INSPIRATION</a>
+            <a href="https://www.awwwards.com/websites/landing-page/" target="_blank" class="view-btn">48 // LANDING PAGE INSPIRATION</a>
+        </div>
+    </div>
+
+
+    <div class="mgrid-item" >
+        <h2>The Show is a Success!</h2>
+           <p>CONGRATS!! You've officially styled your way through the Runway Flow level! Your layouts are no longer rigid and clunky; they are flexible, responsive, and editorially stunning. You are building real, professional web pages now!</p>
+    </div>
+    </div>
+
+  </section>
+</BaseLayout>
+
+<style>
+    .lesson-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 80px; 
+    }
+
+    /* Sticky Side Nav */
+    .lesson-nav {
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 100;
+    }
+
+    .lesson-nav a {
+        color: #e41e81;
+        text-decoration: none;
+        font-family: monospace;
+        font-size: 0.8rem;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .lesson-nav a:hover {
+        color: #facee2;
+        text-shadow: 0 0 10px #e41e81;
+    }
+
+    /* Photo Guides */
+    .photo-guide {
+        margin: 40px 0;
+        border: 1px solid #333;
+        padding: 10px;
+    }
+
+ .guide-image {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain; 
+        background: #111; 
+        display: block;
+        border: 1px dashed #e41e81;
+    }
+
+    .guide-label {
+        display: block;
+        font-size: 0.6rem;
+        margin-top: 10px;
+        color: #e41e81;
+        letter-spacing: 2px;
+    }
+
+    .resource-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 40px 0;
+    }
+
+    blockquote {
+        background-color: #1a1a1a;
+        border-left: 4px solid #e41e81;
+        padding: 15px;
+        margin: 20px 0;
+        font-family: monospace;
+        color: #facee2;
+    }
+
+    @media (max-width: 768px) {
+        .lesson-container { padding-left: 0; }
+        .lesson-nav { display: none; } /* Hide sidebar on mobile */
+    }
+</style>
