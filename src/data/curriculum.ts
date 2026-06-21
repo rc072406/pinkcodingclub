@@ -37,6 +37,7 @@ export const webDesignLessons: Lesson[] = [
     title: "Couture Grids",
     focus: "CSS Grid & Overlays",
     desc: "Complex, overlapping layouts inspired by high-fashion posters. Learning to break the 'boring' box model and create high-impact visual hierarchies.",
-    isLocked: true
+     href: "/webdesignfinale",
+    isLocked: false
   }
 ];
