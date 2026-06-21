@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CSS: Couture Grids & Overlays // P.C.C." isIndex={false} version="CSS: Couture Grids & Overlays // V.01">
+  
+  <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
+
+<nav class="lesson-nav">
+    <a href="#intro">00</a>
+    <a href="#mission-1">01</a>
+    <a href="#mission-2">02</a>
+    <a href="#mission-3">03</a>
+    <a href="#mission-4">04</a>
+    <a href="#mission-5">05</a>
+    <a href="#mission-6">06</a>
+    <a href="#mission-7">07</a>
+    <a href="#mission-8">08</a>
+    <a href="#mission-9">09</a>
+    <a href="#mission-10">10</a>
+    <a href="#mission-11">11</a>
+    <a href="#mission-12">12</a>
+    <div class="nav-line"></div>
+  </nav>
+  <section class="lesson-container">
+    
+    <div id="intro" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Level 04: Couture Grids & Overlays</h2>
+        <p>
+            Welcome to the finale, designer. You know how to mix colors, set typography, and make a layout flow smoothly across any device. But what happens when you want to break the rules? 
+            <br/><br/>
+            High-fashion posters and editorial magazines do not conform to boring, rigid boxes. They feature massive text layered *behind* models, images bleeding off the edge of the page, and beautifully chaotic asymmetry. In this final level, we are going to learn how to break the standard Box Model safely, master CSS Grid for complex overlapping, and elevate our websites from "functional" to "haute couture." Let's create some high-impact visual hierarchies!
+        </p>
+    </div>
+
+    <div id="mission-1" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 1: The Dress Pattern (Grid Template Areas)</h2>
+        <p>
+            We used Grid previously, but now we are going to sketch with it. <code>grid-template-areas</code> allows you to literally draw your layout in your CSS using words. 
+            <br/><br/>
+            Imagine mapping out a dress pattern: you explicitly name your zones like <code>"header header"</code>, <code>"sidebar main"</code>, and <code>"footer footer"</code>. It is the most intuitive, visual way to structure a highly complex editorial page, making it incredibly easy to completely shuffle the layout on mobile devices!
+        </p>
+
+       <div class="resource-links">
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas" target="_blank" class="view-btn">01 // MDN: GRID TEMPLATE AREAS</a>
+             <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-grid-by-building-a-magazine/step-1" target="_blank" class="view-btn">02 // FCC: MAGAZINE LAB</a>
+             <a href="https://css-tricks.com/snippets/css/complete-guide-grid/#aa-grid-template-areas" target="_blank" class="view-btn">03 // CSS TRICKS: GRID AREAS</a>
+             <a href="https://cssgridgarden.com/" target="_blank" class="view-btn">04 // GRID GARDEN (LEVELS 20+)</a>
+        </div>
+    </div>
+
+    <div id="mission-2" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 2: The Editorial Overlap (Grid Layering)</h2>
+        <p>
+             Most people think you need <code>position: absolute</code> to make things overlap. Wrong! CSS Grid has a superpower: you can assign multiple items to the exact same grid cell.
+             <br/><br/>
+             By telling both an image and a text box to sit in <code>grid-column: 1 / -1;</code> and <code>grid-row: 1;</code>, they will stack on top of each other beautifully. This is how modern, responsive magazine layouts overlap massive typography with high-resolution editorial photography without breaking the layout.
+        </p>
+
+        <div class="resource-links">
+            <a href="https://www.smashingmagazine.com/2017/10/css-grid-overlap/" target="_blank" class="view-btn">05 // SMASHING MAG: GRID OVERLAP</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout" target="_blank" class="view-btn">06 // MDN: GRID ALIGNMENT</a>
+            <a href="https://www.freecodecamp.org/news/css-grid-tutorial-how-to-create-overlapping-layouts/" target="_blank" class="view-btn">07 // FCC: OVERLAPPING LAYOUTS</a>
+            <a href="https://gridbyexample.com/examples/" target="_blank" class="view-btn">08 // GRID BY EXAMPLE</a>
+        </div>
+    </div>
+
+   <div id="mission-3" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 3: Negative Space & Pulling Seams</h2>
+        <p>
+            Sometimes, elements need a little bit of tension. Using <strong>Negative Margins</strong> (e.g., <code>margin-top: -50px;</code>), you can pull an element slightly out of its container. 
+        </p>
+  <br/><br/>
+<p>
+This is an incredible design trick for making a beautifully styled text box slightly overlap the corner of a hero image. It breaks the "boxy" feel of standard web design and creates a dynamic, asymmetric look that feels highly customized.
+</p>
+        <div class="resource-links">
+            <a href="https://www.smashingmagazine.com/2009/07/the-definitive-guide-to-using-negative-margins/" target="_blank" class="view-btn">09 // GUIDE TO NEGATIVE MARGINS</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" target="_blank" class="view-btn">10 // MDN: MARGINS</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/review-basic-css/review-margin-and-padding" target="_blank" class="view-btn">11 // MARGIN REVIEW</a>
+            <a href="https://tympanus.net/codrops/css_reference/margin/" target="_blank" class="view-btn">12 // CODROPS: MARGINS</a>
+        </div>
+    </div>
+
+    <div id="mission-4" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 4: Sheer Fabrics (Glassmorphism & Opacity)</h2>
+        <p>
+         When you overlap text onto a busy photograph, it can become hard to read. Instead of slapping a boring, solid-color background behind the text, we can use <strong>Glassmorphism</strong>.
+        </p>
+  <br/><br/>
+<p>
+By combining semi-transparent background colors (<code>rgba(255, 255, 255, 0.2)</code>) with the <code>backdrop-filter: blur(10px);</code> property, you create a stunning, frosted-glass effect. The image beneath softly blurs out, making your typography perfectly readable while maintaining that chic, modern aesthetic.
+</p>
+        <div class="resource-links">
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter" target="_blank" class="view-btn">13 // MDN: BACKDROP FILTER</a>
+             <a href="https://css.glass/" target="_blank" class="view-btn">14 // GLASSMORPHISM GENERATOR</a>
+             <a href="https://www.freecodecamp.org/news/glassmorphism-design-effect-with-html-css/" target="_blank" class="view-btn">15 // FCC: BUILD GLASSMORPHISM</a>
+             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/opacity" target="_blank" class="view-btn">16 // MDN: OPACITY</a>
+        </div>
+    </div>
+
+    <div id="mission-5" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 5: Color Acetate (Mix-Blend-Mode)</h2>
+        <p>
+            Want to recreate that high-fashion look where a bold pink title overlays a black-and-white photograph, and the colors interact magically? Welcome to <strong>Blend Modes</strong>.
+        </p>
+  <br/><br/>
+<p>Using <code>mix-blend-mode: multiply;</code> or <code>screen;</code>, you tell your CSS to mathematically blend the color of your text or overlay with the image behind it. It looks like colored acetate film laid over a photo print. It is pure, digital editorial magic!</p>
+        <div class="resource-links">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode" target="_blank" class="view-btn">17 // MDN: MIX-BLEND-MODE</a>
+            <a href="https://css-tricks.com/almanac/properties/m/mix-blend-mode/" target="_blank" class="view-btn">18 // CSS TRICKS: BLEND MODES</a>
+            <a href="https://tympanus.net/codrops/css_reference/mix-blend-mode/" target="_blank" class="view-btn">19 // CODROPS: MIX BLEND MODE</a>
+            <a href="https://photoshoptrainingchannel.com/blending-modes-explained/" target="_blank" class="view-btn">20 // BLEND MODES EXPLAINED (VISUAL)</a>
+        </div>
+    </div>
+
+    <div id="mission-6" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 6: The P.C.C. Design & Logic Philosophy</h2>
+        <p>
+            At the Pink Coding Club, we don't just write code that works; we write code with purpose. Before you build your final projects, you must internalize the <strong>P.C.C. Design & Logic Philosophy</strong>. To pass our final review, your code must adhere to these four pillars:
+        </p>
+  <br/>
+<blockquote>
+    <strong>1. Aesthetic Serves Function (The Usability Rule):</strong> <br/>A gorgeous website is useless if a user can't navigate it. Never sacrifice legibility for a "cool effect." Ensure your contrast is high enough to read, and your buttons actually look like they can be clicked.<br/><br/>
+    <strong>2. Unapologetic Identity (The Pink Rule):</strong> <br/>Do not mute your colors or default to boring, corporate minimalism just because you think it looks "more professional." Bring your full self to the design. If it calls for sparkles, gradients, and hot pink, execute it flawlessly.<br/><br/>
+    <strong>3. Pixel-Perfect Tailoring (The Responsive Rule):</strong> <br/>A dress that only looks good from the front is poorly tailored. A website that only looks good on a desktop is poorly coded. Your grids and flexboxes must fluidly adapt to mobile and tablet screens without breaking.<br/><br/>
+    <strong>4. The "Gloss" Factor (The Polish Rule):</strong> <br/>Details matter. Adding a subtle 0.3s transition to your hover states, rounding your image borders slightly, and organizing your CSS files cleanly separates the amateurs from the true software engineers.
+</blockquote>
+        <div class="resource-links">
+            <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank" class="view-btn">21 // WCAG: COLOR CONTRAST</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/lecture-user-interface-design-fundamentals/what-are-common-design-terms-to-help-you-communicate-with-designers" target="_blank" class="view-btn">22 // FCC: UI/UX FUNDAMENTALS</a>
+            <a href="https://lawsofux.com/" target="_blank" class="view-btn">23 // LAWS OF UX</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" class="view-btn">24 // MDN: ACCESSIBILITY</a>
+        </div>
+    </div>
+
+    <div id="mission-7" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 7: The Scissors (Clip-Path)</h2>
+        <p>
+            Why does every image on the internet have to be a rectangle? In a scrapbook or a moodboard, you cut photos into circles, jagged polygons, or custom shapes. In CSS, our scissors are called <code>clip-path</code>.
+        </p>
+  <br/><br/>
+<p>You can use <code>clip-path: polygon(...)</code> to slice your HTML elements into striking geometric shapes, creating incredibly aggressive, high-fashion angles that break up the monotony of the standard web grid.</p>
+        <div class="resource-links">
+            <a href="https://bennettfeely.com/clippy/" target="_blank" class="view-btn">25 // CLIPPY: CLIP-PATH MAKER</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path" target="_blank" class="view-btn">26 // MDN: CLIP-PATH</a>
+            <a href="https://css-tricks.com/almanac/properties/c/clip-path/" target="_blank" class="view-btn">27 // CSS TRICKS: CLIP-PATH</a>
+            <a href="https://www.freecodecamp.org/news/css-clip-path-tutorial/" target="_blank" class="view-btn">28 // FCC: CLIP-PATH TUTORIAL</a>
+        </div>
+    </div>
+
+    <div id="mission-8" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 8: Fluid Couture (Advanced Responsiveness)</h2>
+        <p>
+           We've used Media Queries, but what if your typography could simply stretch and shrink *fluidly* based on the screen size, without needing breakpoints? 
+        </p>
+  <br/><br/>
+<p>By using CSS Math functions like <code>clamp(min, preferred, max)</code>, you can tell a font size to seamlessly grow and shrink depending on the user's browser window. Pair this with Grid's <code>repeat(auto-fit, minmax(...))</code>, and your layouts will organically reflow themselves without you writing a single media query!</p>
+
+        <div class="resource-links">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp" target="_blank" class="view-btn">29 // MDN: CLAMP()</a>
+            <a href="https://css-tricks.com/snippets/css/fluid-typography/" target="_blank" class="view-btn">30 // FLUID TYPOGRAPHY</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/minmax" target="_blank" class="view-btn">31 // MDN: MINMAX()</a>
+            <a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/" target="_blank" class="view-btn">32 // AUTO-FIT VS AUTO-FILL</a>
+        </div>
+    </div>
+
+    <div id="mission-9" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 9: High-Impact Visual Hierarchy</h2>
+        <p>
+            In a couture layout, not everything can be shouting at once. If your title is massive and bold, your supporting text must be delicate and airy. This is the concept of Visual Hierarchy.
+        </p>
+  <br/><br/>
+<p>We use scale (size), contrast (color weight), and positioning to tell the user's eye exactly where to look first, second, and third. A successful editorial layout directs the eye through the page like a carefully choreographed dance.</p>
+        <div class="resource-links">
+            <a href="https://readymag.com/design-almanac/typography/" target="_blank" class="view-btn">33 // READYMAG: TYPOGRAPHY</a>
+            <a href="https://www.freecodecamp.org/news/visual-hierarchy-in-design/" target="_blank" class="view-btn">34 // FCC: VISUAL HIERARCHY</a>
+            <a href="https://99designs.com/blog/tips/6-principles-of-visual-hierarchy/" target="_blank" class="view-btn">35 // 6 PRINCIPLES OF HIERARCHY</a>
+            <a href="https://fonts.google.com/knowledge" target="_blank" class="view-btn">36 // GOOGLE FONTS KNOWLEDGE</a>
+        </div>
+    </div>
+
+    <div id="mission-10" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 10: The Asymmetric Layout</h2>
+        <p>
+            Perfect symmetry can sometimes feel boring. Editorial design often utilizes staggering, where images and text blocks are intentionally misaligned to create movement and tension down the page.
+        </p>
+  <br/><br/>
+<p>You can achieve this by pushing elements around within a Flexbox using <code>align-self</code>, or by specifically skipping columns in your CSS Grid layout. Don't be afraid to leave large, beautiful chunks of empty "white space" (or pink space!) to let your design breathe.</p>
+        <div class="resource-links">
+            <a href="https://www.smashingmagazine.com/2020/01/understanding-css-grid-lines/" target="_blank" class="view-btn">37 // GRID LINES & ASYMMETRY</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self" target="_blank" class="view-btn">38 // MDN: ALIGN-SELF</a>
+            <a href="https://www.awwwards.com/websites/asymmetry/" target="_blank" class="view-btn">39 // AWWWARDS: ASYMMETRY INSPO</a>
+            <a href="https://readymag.com/design-almanac/layout/" target="_blank" class="view-btn">40 // READYMAG: LAYOUT DESIGN</a>
+        </div>
+    </div>
+
+    <div id="mission-11" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 11: The Ultimate Moodboard</h2>
+        <p>
+            Before you step into The Showroom for your final projects, it's time to gather your ultimate inspiration. Look at what developers are doing in the wild to blend code and high fashion.
+        </p>
+  <br/><br/>
+<p>Here is a beautiful Codepen created by Nicholas Greenwood that showcases exactly what is possible for a product landing page: <a href="https://codepen.io/nickrg/pen/emBGqbq" target="_blank" style="color:#facee2; text-decoration:underline;">View Codepen Here</a>. Notice the bold typography, the clean grid, and the striking visual balance!</p>
+<br/>
+<p>You can find even more breathtaking examples of editorial web design at Readymag. Study these layouts closely before you write your first line of HTML for the final.</p>
+        <div class="resource-links">
+            <a href="https://codepen.io/nickrg/pen/emBGqbq" target="_blank" class="view-btn">41 // GREENWOOD LANDING PAGE</a>
+            <a href="https://readymag.com/examples/editorial" target="_blank" class="view-btn">42 // READYMAG EDITORIAL EXAMPLES</a>
+            <a href="https://godly.website/" target="_blank" class="view-btn">43 // GODLY UI INSPIRATION</a>
+            <a href="https://www.awwwards.com/websites/fashion/" target="_blank" class="view-btn">44 // AWWWARDS FASHION WEBSITES</a>
+        </div>
+    </div>
+
+    <div id="mission-12" class="mgrid-item" >
+        <span class="burst"></span>
+        <h2>Mission 12: THE SHOWROOM</h2>
+        <p>
+            This is it. You have reached the pinnacle of the P.C.C. styling curriculum. It is time to prove that you can merge technical software engineering with hyper-feminine, editorial design.
+        </p>
+  <br/><br/>
+<p>To earn the <strong>Fashion Forward Responsive Web Design Certificate</strong>, you must build two final projects: <br/><br/>
+1. A fully responsive, multi-page <strong>Personal Lookbook (Portfolio)</strong>. <br/>
+2. A high-end <strong>Product Landing Page</strong>. <br/><br/>
+Both of these projects must pass the P.C.C. Design & Logic Philosophy (Mission 6). They must feature a custom pink palette, flawless typography, a complex CSS Grid or Flexbox layout, and seamless mobile responsiveness.</p>
+        <br/><br/>
+<p>Use the FreeCodeCamp certification requirements as your technical checklist, but use everything you've learned here to elevate the design. Good luck, designer. See you on the runway!</p>
+<div class="resource-links">
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-personal-portfolio-webpage-project/build-a-personal-portfolio-webpage" target="_blank" class="view-btn">45 // PROJECT 1: LOOKBOOK (PORTFOLIO)</a>
+            <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-product-landing-page-project/build-a-product-landing-page" target="_blank" class="view-btn">46 // PROJECT 2: PRODUCT LANDING PAGE</a>
+            <a href="#mission-6" class="view-btn">47 // REVIEW P.C.C. PHILOSOPHY</a>
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9/" target="_blank" class="view-btn">48 // CLAIM YOUR CERTIFICATE</a>
+        </div>
+    </div>
+
+
+    <div class="mgrid-item" >
+        <h2>Certificate Unlocked.</h2>
+           <p>CONGRATS!! You've officially finished the entire CSS curriculum at the Pink Coding Club! You are no longer just a coder; you are a digital designer. You have the skills to build any aesthetic you dream of. Now, go create something beautiful!</p>
+    </div>
+    </div>
+
+  </section>
+</BaseLayout>
+
+<style>
+    .lesson-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 80px; 
+    }
+
+    /* Sticky Side Nav */
+    .lesson-nav {
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 100;
+    }
+
+    .lesson-nav a {
+        color: #e41e81;
+        text-decoration: none;
+        font-family: monospace;
+        font-size: 0.8rem;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .lesson-nav a:hover {
+        color: #facee2;
+        text-shadow: 0 0 10px #e41e81;
+    }
+
+    /* Photo Guides */
+    .photo-guide {
+        margin: 40px 0;
+        border: 1px solid #333;
+        padding: 10px;
+    }
+
+ .guide-image {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain; 
+        background: #111; 
+        display: block;
+        border: 1px dashed #e41e81;
+    }
+
+    .guide-label {
+        display: block;
+        font-size: 0.6rem;
+        margin-top: 10px;
+        color: #e41e81;
+        letter-spacing: 2px;
+    }
+
+    .resource-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 40px 0;
+    }
+
+    blockquote {
+        background-color: #1a1a1a;
+        border-left: 4px solid #e41e81;
+        padding: 15px;
+        margin: 20px 0;
+        font-family: monospace;
+        color: #facee2;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .lesson-container { padding-left: 0; }
+        .lesson-nav { display: none; } /* Hide sidebar on mobile */
+    }
+</style>
