@@ -1,6 +1,7 @@
 ---
 // src/pages/join.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
+const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
 ---
 
 <BaseLayout title="CLAIM CERTIFICATE// PINK CODING CLUB" isIndex={false} version="CLAIM CERTIFICATE // V.01">
@@ -31,7 +32,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>TRANSMIT CREDENTIALS</h2>
       
       <form action="https://api.web3forms.com/submit" method="POST" class="pcc-form">
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    <input type="hidden" name="access_key" value={accessKey}>
         <input type="hidden" name="subject" value="New P.C.C. Certificate Claim Submission">
         <input type="checkbox" name="botcheck" class="hidden-bot" style="display: none;">
 
