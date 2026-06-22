@@ -26,6 +26,93 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
     
     </div>
+<div class="mgrid-item" style="grid-column: 1 / 5; margin-top: 20px;">
+      <span class="burst"></span>
+      <h2>TRANSMIT CREDENTIALS</h2>
+      
+      <form action="https://api.web3forms.com/submit" method="POST" class="pcc-form">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New P.C.C. Certificate Claim Submission">
+        <input type="checkbox" name="botcheck" class="hidden-bot" style="display: none;">
+
+        <div class="form-group">
+          <label for="name">FULL NAME (FOR CERTIFICATE)</label>
+          <input type="text" id="name" name="name" required placeholder="ENTER NAME..." />
+        </div>
+
+        <div class="form-group">
+          <label for="email">EMAIL ADDRESS</label>
+          <input type="email" id="email" name="email" required placeholder="ENTER EMAIL..." />
+        </div>
+
+        <div class="form-group">
+          <label for="codepen">CODEPEN PROJECT LINKS</label>
+          <textarea id="codepen" name="codepen_links" required placeholder="PASTE YOUR CODEPEN URLS HERE..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="documentation">LEARNING DOCUMENTATION (GOOGLE DOC LINK)</label>
+          <input type="url" id="documentation" name="documentation_link" required placeholder="https://docs.google.com/..." />
+        </div>
+
+        <button type="submit" class="cta-btn" style="margin-top: 20px; cursor: pointer; width: 100%; text-align: center;">
+          SUBMIT DATA STREAM
+        </button>
+      </form>
+    </div>
   </div>
 
 </BaseLayout>
+<style>
+ 
+  .pcc-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-transform: uppercase;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #e41e81;
+    font-weight: 900;
+  }
+
+  .form-group input, 
+  .form-group textarea {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid #333333;
+    padding: 15px;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus, 
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #e41e81;
+    box-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
+    background: rgba(0, 0, 0, 1);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: monospace;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #555555;
+  }
+</style>
