@@ -100,7 +100,7 @@ document.addEventListener('astro:after-swap', initHeroCanvas);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 100px 4% 0 4%;
+       padding: 100px 4% 60px 4%;
         border-bottom: 1px solid var(--border-gray);
         overflow: hidden;
         background: black;
@@ -136,10 +136,7 @@ document.addEventListener('astro:after-swap', initHeroCanvas);
     }
 
     /* Style variants handled via classes */
-    .index-hero {
-        height: 100vh;
-        height: 100svh;
-    }
+
     .index-hero h1 {
         font-family: 'Archivo Black', sans-serif;
         font-size: clamp(4rem, 15vw, 12rem);
@@ -148,10 +145,7 @@ document.addEventListener('astro:after-swap', initHeroCanvas);
         margin-bottom: 20px;
     }
 
-   .sub-hero {
-    height: 100vh; 
-    height: 100svh;
-}
+
     .sub-hero h1 {
         font-family: 'Archivo Black', sans-serif;
         font-size: clamp(3rem, 10vw, 8rem);
