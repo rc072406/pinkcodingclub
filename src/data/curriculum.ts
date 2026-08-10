@@ -20,7 +20,7 @@ export const webDesignLessons: Lesson[] = [
     step: "02",
     title: "The Pink Palette & Typography",
     focus: "CSS Fundamentals",
-    desc: "Color theory is tech theory. We dive into Hex codes, RGB, and Google Fonts to master the 'aesthetic' of the web. Learn how to use CSS variables to swap themes like a seasonal collection.",
+    desc: "Color theory is tech theory. We dive into Hex codes, RGB, and Google Fonts to master the "aesthetic" of the web. Learn how to use CSS variables to swap themes like a seasonal collection.",
     href: "/csspart1",
     isLocked: false
   },
@@ -28,7 +28,7 @@ export const webDesignLessons: Lesson[] = [
     step: "03",
     title: "Runway Flow",
     focus: "Flexbox & Positioning",
-    desc: "Aligning elements with the precision of a runway show. Building navigation bars and image galleries that 'flow' across the screen without breaking the grid.",
+    desc: "Aligning elements with the precision of a runway show. Building navigation bars and image galleries that "flow" across the screen without breaking the grid.",
     href: "/csspart2",
     isLocked: false
   },
@@ -36,7 +36,7 @@ export const webDesignLessons: Lesson[] = [
     step: "04",
     title: "Couture Grids",
     focus: "CSS Grid & Overlays",
-    desc: "Complex, overlapping layouts inspired by high-fashion posters. Learning to break the 'boring' box model and create high-impact visual hierarchies.",
+    desc: "Complex, overlapping layouts inspired by high-fashion posters. Learning to break the "boring" box model and create high-impact visual hierarchies.",
      href: "/webdesignfinale",
     isLocked: false
   }
