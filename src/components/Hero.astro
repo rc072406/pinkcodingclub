@@ -172,8 +172,9 @@ document.addEventListener('astro:after-swap', initHeroCanvas);
 @media (max-width: 768px) {
     .hero-cta {
         margin-top: 30px;
-        margin-left: 0; 
-        margin-right: auto;
+      margin-left: 0 !important;       
+        margin-right: auto !important;   
+        align-self: flex-start;
     }
 }
 </style>
