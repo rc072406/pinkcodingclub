@@ -419,11 +419,6 @@
     }
 }
  
- :root {
-            --bg-black: #000000;
-            --text-white: #ffffff;
-            --border-gray: #333333;
-        }
 
         * {
             margin: 0;
