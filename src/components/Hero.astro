@@ -15,7 +15,7 @@ const { isIndex = false, version = "V.01" } = Astro.props;
                 <h1>PINK<br>CODING<br>CLUB</h1>
                 <div class="hero-sub">
                     <p class="tagline">Hyper-technical education for the girls and non-binary icons who lead the culture. No compromises.</p>
-                  <a href="/join" class="cta-btn" style="display: block; margin-left: auto; width: fit-content;">ENTER CLUB</a>
+                  <a href="/join" class="cta-btn hero-cta" style="display: block; margin-left: auto; width: fit-content;">ENTER CLUB</a>
                 </div>
             </>
         ) : (
@@ -163,4 +163,17 @@ document.addEventListener('astro:after-swap', initHeroCanvas);
         line-height: 0.85;
         letter-spacing: -4px;
     }
+.hero-cta {
+    display: block;
+    margin-left: auto; 
+    width: fit-content;
+}
+
+@media (max-width: 768px) {
+    .hero-cta {
+        margin-top: 30px;
+        margin-left: 0; 
+        margin-right: auto;
+    }
+}
 </style>
