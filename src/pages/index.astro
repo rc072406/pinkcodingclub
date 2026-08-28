@@ -12,47 +12,18 @@ const base = import.meta.env.BASE_URL;
 >
   
   <link rel="stylesheet" href="/styles/index.css" slot="head" />
-<section class="love-pink-section">
-    <!-- Scrolling background ticker -->
-    <div class="ticker-wrap" aria-hidden="true">
-      <div class="ticker-move">
-        <span>STATEMENT 001 // STATEMENT 001 // STATEMENT 001 // STATEMENT 001 // </span>
-        <span>STATEMENT 001 // STATEMENT 001 // STATEMENT 001 // STATEMENT 001 // </span>
-      </div>
-    </div>
+<section class="love-pink-section shatter-container">
 
-    <!-- Frosted Glass Card Container -->
-    <div class="glass-statement-card">
-      <div class="card-meta">
-        <span class="meta-tag">P.C.C._OVERRIDE</span>
-        <span class="meta-tag">01 // ATTITUDE</span>
-      </div>
-      
-      <h2 class="pink-headline">I LOVE PINK</h2>
+  <div class="grid-content-wrapper">
+    <h2 class="pink-headline-single">I LOVE PINK</h2>
+  </div>
 
-      <div class="card-footer">
-        <span class="barcode-sub">[ 88-FF-22-PCC ]</span>
-        <span class="editorial-cross">+</span>
-      </div>
-    </div>
-  </section>
-  <section class="founder-section">
-    <div class="magazine-container">
-        
-        <div class="magazine-cover">
-            
-            
-            
-            <div class="leak l1">import &#123; amazing &#125; from 'YOU'</div>
-            <div class="leak l2">0x88FF22</div>
-            <div class="leak l3">&lt;style="be-yourself"&gt;</div>
 
-            <div class="cover-img-wrapper">
-              <img 
-      src={`${base}images/rachelchen.webp`} 
-      alt="Rachel Chen, Founder of the Pink Coding Club and software engineer" 
-      class="founder-img" 
-    />
+  <div class="glass-shard-overlay">
+    <span class="shatter-text">HOVER TO SHATTER</span>
+  </div>
+</section>
+
             </div>
         </div>
 
@@ -74,10 +45,10 @@ const base = import.meta.env.BASE_URL;
 
 </BaseLayout>
 <style>
-/* --- I LOVE PINK GLASS SECTION --- */
 .love-pink-section {
     position: relative;
-    padding: 140px 4% 100px 4%;
+    width: 100%;
+    padding: 100px 4%;
     background: var(--bg-black);
     display: flex;
     justify-content: center;
@@ -86,124 +57,22 @@ const base = import.meta.env.BASE_URL;
     border-bottom: 1px solid var(--border-gray);
 }
 
-/* Industrial Background Ticker */
-.ticker-wrap {
-    position: absolute;
-    top: 50%;
-    left: 0;
+/* Wrapper for the underlying text */
+.grid-content-wrapper {
     width: 100%;
-    transform: translateY(-50%) rotate(-2deg);
-    opacity: 0.12;
-    pointer-events: none;
-    white-space: nowrap;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.ticker-move {
-    display: inline-block;
-    animation: ticker 25s linear infinite;
-}
-
-.ticker-move span {
-    font-family: monospace;
-    font-size: 5rem;
-    font-weight: 900;
-    color: var(--pink-soft);
-    letter-spacing: 6px;
-}
-
-@keyframes ticker {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-
-.glass-statement-card {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1100px;
-    padding: 80px 60px;
-    
-
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    
-
-    border: 1px solid rgba(250, 206, 226, 0.2);
-    box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.8),
-        inset 0 0 40px rgba(228, 30, 129, 0.12);
-        
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-statement-card:hover {
-    border-color: var(--pink-hot);
-    box-shadow: 
-        0 30px 70px rgba(228, 30, 129, 0.2),
-        inset 0 0 50px rgba(228, 30, 129, 0.25);
-    transform: translateY(-4px);
-}
-
-
-.card-meta {
-    display: flex;
-    justify-content: space-between;
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--pink-hot);
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-}
-
-
-.pink-headline {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(3.5rem, 12vw, 9.5rem);
-    line-height: 0.85;
-    letter-spacing: -4px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Single-Line "I LOVE PINK" Typography */
+.pink-headline-single {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2.5rem, 9vw, 8rem); /* Guarantees single line across screen sizes */
     color: var(--pink-soft);
-    
-
-    text-shadow: 0 0 30px rgba(228, 30, 129, 0.3);
-    margin: 20px 0 40px 0;
-}
-
-
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    font-family: monospace;
-    font-size: 0.7rem;
-    color: var(--pink-soft);
-    opacity: 0.8;
-}
-
-.editorial-cross {
-    font-size: 1.2rem;
-    color: var(--pink-hot);
-}
-
-/* Responsive Scaling */
-@media (max-width: 768px) {
-    .love-pink-section {
-        padding: 80px 4% 60px 4%;
-    }
-
-    .glass-statement-card {
-        padding: 40px 24px;
-    }
-
-    .pink-headline {
-        letter-spacing: -2px;
-        margin: 15px 0 25px 0;
-    }
+    line-height: 1;
+    letter-spacing: -3px;
+    white-space: nowrap;
+    margin: 0;
+    text-transform: uppercase;
 }
 </style>
