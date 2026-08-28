@@ -26,32 +26,27 @@ const { isIndex = false, version = "V.01" } = Astro.props;
 
 <script>
 const initHeroCanvas = () => {
+    const hero = document.querySelector('.hero');
     const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
-    if (!canvas) return;
+    if (!canvas || !hero) return;
     
-    // { alpha: false } prevents Safari from washing out the compounding rgba layers
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
     const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
     const fontSize = 10; 
-    let columns;
-    let drops;
-    let resizeTimer;
-    let animationId;
+    let columns, drops, resizeTimer, animationId;
     let lastTime = 0;
+    let isVisible = true;
 
     function initCanvas() {
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(() => {
-            const hero = canvas.closest('section');
-            if (!hero) return;
+            // Scope dimensions strictly to the hero container, not the window
+            canvas.width = hero.offsetWidth;
+            canvas.height = hero.offsetHeight;
             
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            
-            // Set initial solid background so {alpha: false} starts black instead of white
             ctx.fillStyle = "black";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -61,9 +56,9 @@ const initHeroCanvas = () => {
     }
 
     function draw(timestamp) {
+        if (!isVisible) return; // Hard stop when off-screen
         animationId = requestAnimationFrame(draw);
 
-        // Throttle to approx 50ms to match  original speed
         if (timestamp - lastTime < 50) return;
         lastTime = timestamp;
 
@@ -84,13 +79,24 @@ const initHeroCanvas = () => {
         }
     }
 
+    // Intersection Observer prevents background battery drain
+    const observer = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+        if (isVisible) {
+            lastTime = performance.now();
+            draw(performance.now());
+        } else {
+            cancelAnimationFrame(animationId);
+        }
+    });
+
+    observer.observe(hero);
     initCanvas();
     window.addEventListener('resize', initCanvas);
     
-    // Kick off the animation loop
-    animationId = requestAnimationFrame(draw);
-
+    // Astro view transition cleanup
     document.addEventListener('astro:before-swap', () => {
+        observer.disconnect();
         cancelAnimationFrame(animationId);
         window.removeEventListener('resize', initCanvas);
     }, { once: true });
@@ -118,7 +124,7 @@ document.addEventListener('astro:after-swap', initHeroCanvas);
 
     /* Common layer management */
     #hero-canvas {
-     position: fixed; 
+     position: absolute; 
     top: 0;
     left: 0;
     width: 100vw;
