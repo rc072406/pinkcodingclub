@@ -12,19 +12,63 @@ const base = import.meta.env.BASE_URL;
 >
   
   <link rel="stylesheet" href="/styles/index.css" slot="head" />
-<section class="love-pink-section shatter-container">
-
-  <div class="grid-content-wrapper">
-    <h2 class="pink-headline-single">I LOVE PINK</h2>
+<!-- HISTORY SLIDER SECTION -->
+<section class="history-section">
+  <div class="history-header">
+    <span class="section-tag">// ARCHIVE 001</span>
+    <h2 class="history-title">A BRIEF HISTORY OF GIRLY TECH</h2>
+    <p class="history-subtitle">From misplaced stereotypes to genuine self-expression.</p>
   </div>
 
+  <!-- Horizontal Scroll Container -->
+  <div class="history-slider">
+    
+    <!-- Era 01 -->
+    <article class="history-card rough-start">
+      <div class="card-num">01 // 1990s</div>
+      <div class="card-status">ROUGH START</div>
+      <h3>PURPLE MOON & BRENDA LAUREL</h3>
+      <p>
+        The first major push to get girls on computers. While groundbreaking in recognizing a massive missing audience, early efforts often relied on narrow assumptions about what girls cared about—focusing heavily on gossip and social anxiety over creation.
+      </p>
+      <div class="card-footer-tag">THE 'GIRLS' GAMES' ERA</div>
+    </article>
 
-  <div class="glass-shard-overlay">
+    <!-- Era 02 -->
+    <article class="history-card rough-start">
+      <div class="card-num">02 // LATE 90s - 2000s</div>
+      <div class="card-status">ROUGH START</div>
+      <h3>THE "POWERBABE" ERA</h3>
+      <p>
+        Tech hardware went pink, but software often fell into the "pink it and shrink it" trap. Marketing created "Powerbabes"—a hyper-glossy, corporate version of femininity that aesthetics-wise was fun, but lacked real substance or creative tools. Similar to Brenda's games, Powerbabes was about gossip and stereotypes.
+      </p>
+      <div class="card-footer-tag">CORPORATE FEMININITY</div>
+    </article>
+
+    <!-- Era 03 -->
+    <article class="history-card positive-era">
+      <div class="card-num">03 // 2000s - 2010s</div>
+      <div class="card-status status-good">TURNING POINT</div>
+      <h3>CREATIVE PLAY</h3>
+      <p>
+        Online games on sites like Winx Club (Techna anyone?), Myscene, Barbie and online dress-up portals shifted the focus toward fashion as agency, customization, and world-building. Girls weren't just consumers; they were designing, styling, and navigating digital environments on their own terms.
+      </p>
+      <div class="card-footer-tag">FASHION AS AGENCY</div>
+    </article>
+
+    <!-- Era 04 -->
+    <article class="history-card positive-era highlight-card">
+      <div class="card-num">04 // NOW</div>
+      <div class="card-status status-good">THE RECODE</div>
+      <h3>PINK CODING CLUB</h3>
+      <p>
+        Taking the aesthetic joy of fashion, makeup, and design and reclaiming it as real engineering power. Code isn't just logic—it's the ultimate creative medium for modern storytelling.
+      </p>
+      <div class="card-footer-tag">SYSTEM OVERRIDE</div>
+    </article>
+
   </div>
 </section>
-
-            </div>
-        </div>
   <section class="founder-section">
     <div class="magazine-container">
         
@@ -62,34 +106,139 @@ const base = import.meta.env.BASE_URL;
 
 </BaseLayout>
 <style>
-.love-pink-section {
-    position: relative;
-    width: 100%;
+/* --- HISTORY SLIDER SECTION --- */
+.history-section {
     padding: 100px 4%;
     background: var(--bg-black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     border-bottom: 1px solid var(--border-gray);
 }
 
-/* Wrapper for the underlying text */
-.grid-content-wrapper {
-    width: 100%;
-    text-align: center;
-    transition: all 0.3s ease;
+.history-header {
+    margin-bottom: 40px;
 }
 
-/* Single-Line "I LOVE PINK" Typography */
-.pink-headline-single {
+.section-tag {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--pink-hot);
+    letter-spacing: 2px;
+}
+
+.history-title {
     font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(2.5rem, 9vw, 8rem); /* Guarantees single line across screen sizes */
+    font-size: clamp(2rem, 5vw, 4rem);
     color: var(--pink-soft);
-    line-height: 1;
-    letter-spacing: -3px;
-    white-space: nowrap;
-    margin: 0;
+    line-height: 0.95;
+    margin: 10px 0;
+}
+
+.history-subtitle {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: rgba(250, 206, 226, 0.7);
     text-transform: uppercase;
+}
+
+/* Horizontal Slider Container */
+.history-slider {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding-bottom: 30px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar */
+.history-slider::-webkit-scrollbar {
+    height: 4px;
+}
+
+.history-slider::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.history-slider::-webkit-scrollbar-thumb {
+    background: var(--pink-hot);
+}
+
+/* Individual History Cards */
+.history-card {
+    flex: 0 0 380px;
+    scroll-snap-align: start;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-gray);
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.3s ease;
+}
+
+.history-card:hover {
+    border-color: var(--pink-soft);
+}
+
+/* Card Header Meta */
+.card-num {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--pink-hot);
+    letter-spacing: 2px;
+}
+
+.card-status {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #888;
+    margin: 10px 0 20px 0;
+    width: fit-content;
+}
+
+.card-status.status-good {
+    background: rgba(228, 30, 129, 0.2);
+    color: var(--pink-soft);
+}
+
+.history-card h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem;
+    color: var(--pink-soft);
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.history-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(250, 206, 226, 0.8);
+    text-transform: none; 
+    margin-bottom: 30px;
+}
+
+.card-footer-tag {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: var(--pink-hot);
+    border-top: 1px dashed var(--border-gray);
+    padding-top: 15px;
+}
+
+/* Special Highlight for PCC Card */
+.history-card.highlight-card {
+    border: 1px solid var(--pink-hot);
+    background: linear-gradient(135deg, rgba(228, 30, 129, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .history-card {
+        flex: 0 0 300px;
+        padding: 25px;
+    }
 }
 </style>
