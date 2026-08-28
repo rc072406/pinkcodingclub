@@ -409,15 +409,7 @@
             z-index: 101;
         }
 
-        .ticker-wrap {
-            display: inline-block;
-            animation: ticker 30s linear infinite;
-        }
-
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+ 
 
         @media (max-width: 768px) {
     .copyright-footer { flex-direction: column; gap: 10px; text-align: center; }
