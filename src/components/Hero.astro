@@ -5,7 +5,11 @@ const { isIndex = false, version = "V.01" } = Astro.props;
 ---
 
 <section class=`hero ${isIndex ? 'index-hero' : 'sub-hero'}`>
-    
+    <div class="glass-layer">
+        <div class="glass-shard shard-1"></div>
+        <div class="glass-shard shard-2"></div>
+        <div class="glass-shard shard-3"></div>
+    </div>
     <p class="version-tag">{version}</p>
     
     <div class="hero-container">
