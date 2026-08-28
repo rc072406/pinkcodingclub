@@ -5,7 +5,6 @@ const { isIndex = false, version = "V.01" } = Astro.props;
 ---
 
 <section class=`hero ${isIndex ? 'index-hero' : 'sub-hero'}`>
-    <canvas id="hero-canvas"></canvas>
     
     <p class="version-tag">{version}</p>
     
@@ -15,7 +14,7 @@ const { isIndex = false, version = "V.01" } = Astro.props;
                 <h1>PINK<br>CODING<br>CLUB</h1>
                 <div class="hero-sub">
                     <p class="tagline">Hyper-technical education for the girls and non-binary icons who lead the culture. No compromises.</p>
-                  <a href="/join" class="cta-btn hero-cta" style="display: block; margin-left: auto; width: fit-content;">ENTER CLUB</a>
+                  <a href="/join" class="cta-btn hero-cta">ENTER CLUB</a>
                 </div>
             </>
         ) : (
@@ -24,87 +23,7 @@ const { isIndex = false, version = "V.01" } = Astro.props;
     </div>
 </section>
 
-<script>
-const initHeroCanvas = () => {
-    const hero = document.querySelector('.hero');
-    const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
-    if (!canvas || !hero) return;
-    
-    const ctx = canvas.getContext('2d', { alpha: false });
-    if (!ctx) return;
 
-    const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
-    const fontSize = 10; 
-    let columns, drops, resizeTimer, animationId;
-    let lastTime = 0;
-    let isVisible = true;
-
-    function initCanvas() {
-        clearTimeout(resizeTimer);
-
-        resizeTimer = setTimeout(() => {
-            // Scope dimensions strictly to the hero container, not the window
-            canvas.width = hero.offsetWidth;
-            canvas.height = hero.offsetHeight;
-            
-            ctx.fillStyle = "black";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            columns = Math.floor(canvas.width / 60); 
-            drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
-        }, 250); 
-    }
-
-    function draw(timestamp) {
-        if (!isVisible) return; // Hard stop when off-screen
-        animationId = requestAnimationFrame(draw);
-
-        if (timestamp - lastTime < 50) return;
-        lastTime = timestamp;
-
-        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.font = "900 " + fontSize + "px 'Inter'";
-        
-        for (let i = 0; i < drops.length; i++) {
-            const text = keywords[Math.floor(Math.random() * keywords.length)];
-            const colors = ["#facee2", "#f3a6c9", "#e41e81"];
-            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-            ctx.fillText(text, i * 60, drops[i] * fontSize);
-
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
-    }
-
-    // Intersection Observer prevents background battery drain
-    const observer = new IntersectionObserver((entries) => {
-        isVisible = entries[0].isIntersecting;
-        if (isVisible) {
-            lastTime = performance.now();
-            draw(performance.now());
-        } else {
-            cancelAnimationFrame(animationId);
-        }
-    });
-
-    observer.observe(hero);
-    initCanvas();
-    window.addEventListener('resize', initCanvas);
-    
-    // Astro view transition cleanup
-    document.addEventListener('astro:before-swap', () => {
-        observer.disconnect();
-        cancelAnimationFrame(animationId);
-        window.removeEventListener('resize', initCanvas);
-    }, { once: true });
-};
-
-initHeroCanvas();
-document.addEventListener('astro:after-swap', initHeroCanvas);
-</script>
 <style>
     .hero {
         position: relative;
@@ -122,18 +41,6 @@ document.addEventListener('astro:after-swap', initHeroCanvas);
       overscroll-behavior: none;
     }
 
-    /* Common layer management */
-    #hero-canvas {
-     position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: -webkit-fill-available; 
-    height: 100svh;
-    z-index: 1;
-    pointer-events: none;
-    object-fit: cover;
-    }
 
     .hero-container, .version-tag {
         position: relative;
