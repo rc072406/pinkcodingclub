@@ -29,40 +29,44 @@ const initHeroCanvas = () => {
     const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
     if (!canvas) return;
     
-    const ctx = canvas.getContext('2d');
+    // { alpha: false } prevents Safari from washing out the compounding rgba layers
+    const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
     const keywords = ["DESIGN", "EMPOWER", "V.01", "ICON", "P.C.C.", "CODE", "CREATE", "CHIC"];
     const fontSize = 10; 
     let columns;
     let drops;
-    let lastWidth = null; 
+    let resizeTimer;
+    let animationId;
+    let lastTime = 0;
 
-let resizeTimer;
+    function initCanvas() {
+        clearTimeout(resizeTimer);
 
-function initCanvas() {
-  
-    clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const hero = canvas.closest('section');
+            if (!hero) return;
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Set initial solid background so {alpha: false} starts black instead of white
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+            columns = Math.floor(canvas.width / 60); 
+            drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
+        }, 250); 
+    }
 
-    resizeTimer = setTimeout(() => {
-        const hero = canvas.closest('section');
-        if (!hero) return;
-        
-        const rect = hero.getBoundingClientRect();
-        
-       
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        columns = Math.floor(canvas.width / 60); 
-        drops = Array(columns).fill(0).map(() => Math.random() * canvas.height / fontSize);
-    }, 250); 
-}
+    function draw(timestamp) {
+        animationId = requestAnimationFrame(draw);
 
+        // Throttle to approx 50ms to match  original speed
+        if (timestamp - lastTime < 50) return;
+        lastTime = timestamp;
 
-
-    function draw() {
         ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.font = "900 " + fontSize + "px 'Inter'";
@@ -82,10 +86,12 @@ function initCanvas() {
 
     initCanvas();
     window.addEventListener('resize', initCanvas);
-    const interval = setInterval(draw, 50);
+    
+    // Kick off the animation loop
+    animationId = requestAnimationFrame(draw);
 
     document.addEventListener('astro:before-swap', () => {
-        clearInterval(interval);
+        cancelAnimationFrame(animationId);
         window.removeEventListener('resize', initCanvas);
     }, { once: true });
 };
@@ -93,7 +99,6 @@ function initCanvas() {
 initHeroCanvas();
 document.addEventListener('astro:after-swap', initHeroCanvas);
 </script>
-
 <style>
     .hero {
         position: relative;
