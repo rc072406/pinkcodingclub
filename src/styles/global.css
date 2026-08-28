@@ -404,7 +404,7 @@
             overflow: hidden;
             white-space: nowrap;
             display: flex;
-            position: fixed;
+            position: absolute;
             bottom: 0;
             z-index: 101;
         }
