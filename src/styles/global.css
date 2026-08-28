@@ -395,19 +395,7 @@
             background-color: var(--bg-black);
         }
 
-        /* Original Ticker Style */
-        .ticker {
-            width: 100%;
-            background: white;
-            color: black;
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            display: flex;
-            position: absolute;
-            bottom: 0;
-            z-index: 101;
-        }
+       
 
  
 
