@@ -5,6 +5,14 @@
             letter-spacing: 1px;
         }
 :root {
+--pink-hot: #e41e81;       /* Action / Structural Outlines / Glitches / Beams */
+    --pink-mid: #f3a6c9;       /* Gradient Bridge */
+    --pink-soft: #facee2;      /* Primary Editorial Text / Ambient Typography */
+    
+    /* Neutrals */
+    --bg-black: #000000;
+    --text-white: #ffffff;
+    --border-gray: #333333;
   font-family: Inter, sans-serif;
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
