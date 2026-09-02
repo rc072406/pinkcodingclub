@@ -6,14 +6,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <BaseLayout title="CLAIRE DAVISON // P.C.C. ARCHIVE">
   <article class="editorial-wrapper">
     
-    <!-- Hero Section -->
-    <header class="editorial-hero">
-    
-        <img src="/images/clairedavison.jpg" alt="Claire Davison" class="hero-img" />
-      </div>
-      
-
-    </header>
+  <!-- Hero Section -->
+<header class="editorial-hero">
+  <h1 class="hero-title">CLAIRE DAVISON</h1>
+  <img src="/images/clairedavison.jpg" alt="Claire Davison" class="hero-img" />
+</header>
 
     <!-- Story Content -->
     <section class="story-content">
@@ -93,26 +90,39 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
   }
 
 
-  .editorial-hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-gray, #333);
-  }
+.editorial-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-gray, #333);
+}
 
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
 
-
-  .hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+.hero-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  color: var(--pink-soft, #facee2);
+  text-align: center;
+  margin: 0;
+  padding: 0 20px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
 
 
 
