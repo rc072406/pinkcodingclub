@@ -1,1 +1,262 @@
-..
+---
+// src/pages/stories/claire-davison.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CLAIRE DAVISON // P.C.C. ARCHIVE">
+  <article class="editorial-wrapper">
+    
+    <!-- Hero Section -->
+    <header class="editorial-hero">
+      <div class="hero-image-container">
+        <img src="/images/clairedavison.jpg" alt="Claire Davison" class="hero-img" />
+      </div>
+      
+      <div class="hero-headline">
+        <div class="meta-tag">
+          <span class="barcode">||| | |||| | ||| |||</span>
+          <span class="file-id">FILE_ID: CD_01 // UNLOCKED</span>
+        </div>
+        <h1 class="title">CLAIRE<br/>DAVISON</h1>
+        <h2 class="subtitle">FROM THE ABT STAGE TO THE DIGITAL CANVAS</h2>
+      </div>
+    </header>
+
+    <!-- Story Content -->
+    <section class="story-content">
+      
+      <p class="lead-paragraph">
+        <span class="drop-cap">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+
+      <p>
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
+      </p>
+
+      <!-- Fashion / Cyber Pull Quote -->
+      <blockquote class="pull-quote">
+        <span class="quote-meta">[ EXCERPT // 01 ]</span>
+        <p>"I realized that choreographing a ballet and writing a script aren't so different. You're just telling the computer where to dance."</p>
+        <cite>— Claire Davison</cite>
+      </blockquote>
+
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      </p>
+
+      <p>
+        Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo.
+      </p>
+
+      <!-- Second Pull Quote -->
+      <blockquote class="pull-quote align-right">
+        <span class="quote-meta">[ EXCERPT // 02 ]</span>
+        <p>"dijweiewjid"</p>
+        <cite>— Claire Davison</cite>
+      </blockquote>
+
+      <p>
+        Suspendisse feugiat. Fusce commodo aliquam arcu. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa.
+      </p>
+      
+      <div class="end-mark">
+        <span class="barcode">||| | |||| | |||</span>
+        <p>// END OF FILE</p>
+      </div>
+      
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+
+  .editorial-wrapper {
+    background-color: var(--bg-black, #000);
+    color: var(--text-white, #fff);
+    min-height: 100vh;
+    padding-bottom: 100px;
+  }
+
+
+  .editorial-hero {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-gray, #333);
+  }
+
+  .hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6; 
+  }
+
+  .hero-headline {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .meta-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .barcode {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: var(--pink-hot, #e41e81);
+    letter-spacing: -2px;
+  }
+
+  .file-id {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--pink-soft, #facee2);
+    letter-spacing: 3px;
+    background: rgba(228, 30, 129, 0.1);
+    padding: 5px 15px;
+    border: 1px solid var(--pink-hot, #e41e81);
+  }
+
+  .title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.85;
+    color: #fff;
+    margin: 0;
+    text-shadow: 4px 4px 0px rgba(228, 30, 129, 0.5); 
+  }
+
+  .subtitle {
+    font-family: monospace;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    letter-spacing: 4px;
+    color: var(--pink-mid, #f3a6c9);
+    margin-top: 30px;
+  }
+
+
+  .story-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 4% 0 4%;
+  }
+
+  .story-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+    text-transform: none; 
+  }
+
+ 
+  .drop-cap {
+    float: left;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 5rem;
+    line-height: 0.8;
+    padding-top: 4px;
+    padding-right: 15px;
+    padding-left: 3px;
+    color: var(--pink-hot, #e41e81);
+  }
+
+  .lead-paragraph {
+    font-size: 1.3rem !important;
+    color: #fff !important;
+    font-weight: 300;
+  }
+
+
+  .pull-quote {
+    position: relative;
+    margin: 60px 0 60px -40px; 
+    padding: 30px 40px;
+    border-left: 4px solid var(--pink-hot, #e41e81);
+    background: linear-gradient(90deg, rgba(228, 30, 129, 0.05) 0%, transparent 100%);
+  }
+
+  .pull-quote.align-right {
+    margin: 60px -40px 60px 0;
+    border-left: none;
+    border-right: 4px solid var(--pink-hot, #e41e81);
+    background: linear-gradient(-90deg, rgba(228, 30, 129, 0.05) 0%, transparent 100%);
+    text-align: right;
+  }
+
+  .quote-meta {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--pink-soft, #facee2);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .pull-quote p {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  .pull-quote cite {
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--pink-hot, #e41e81);
+    letter-spacing: 1px;
+    font-style: normal;
+  }
+
+
+  .end-mark {
+    margin-top: 80px;
+    text-align: center;
+    border-top: 1px solid var(--border-gray, #333);
+    padding-top: 40px;
+  }
+
+  .end-mark p {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--pink-hot, #e41e81);
+    letter-spacing: 3px;
+    margin-top: 10px;
+  }
+
+
+  @media (max-width: 768px) {
+    .pull-quote, .pull-quote.align-right {
+      margin: 40px 0;
+      padding: 20px;
+      text-align: left;
+      border-right: none;
+      border-left: 4px solid var(--pink-hot, #e41e81);
+      background: linear-gradient(90deg, rgba(228, 30, 129, 0.05) 0%, transparent 100%);
+    }
+  }
+</style>
