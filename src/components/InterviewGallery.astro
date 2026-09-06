@@ -1,0 +1,190 @@
+---
+// src/components/InterviewGallery.astro
+
+---
+<section class="interview-gallery">
+  <div class="gallery-header">
+    <span class="section-tag">// ARCHIVES: THE INTERVIEWS</span>
+    <h2 class="gallery-title">ACCESS FILES</h2>
+  </div>
+
+  <div class="gallery-grid">
+    <!-- Naomi Carrigan Card (Unlocked) -->
+    <a href="/stories/naomi-carrigan" class="gallery-card">
+      <div class="card-visual">
+        <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="card-img" />
+      </div>
+      <div class="card-editorial">
+        <div class="file-meta">
+          <span class="barcode">||| | |||| | |||</span>
+          <span class="leak-tag">INTERVIEW WITH THE VAMPIRE</span>
+        </div>
+        <h3 class="card-name">NAOMI<br/>CARRIGAN</h3>
+        <p class="card-role">DEEPGRAM SOFTWARE ENGINEER</p>
+      </div>
+    </a>
+
+    <!-- Placeholder for Future Interview 2 (Uses Global Shatter Effect) -->
+    <a href="#" class="gallery-card shatter-container">
+      <div class="card-visual placeholder-visual">
+        <div class="glass-shard-overlay">
+          <span class="shatter-text">LOCKED</span>
+        </div>
+      </div>
+      <div class="card-editorial">
+        <div class="file-meta">
+          <span class="barcode">||| | |||| | |||</span>
+          <span class="leak-tag">PENDING</span>
+        </div>
+        <h3 class="card-name">SUBJECT<br/>REDACTED</h3>
+        <p class="card-role">CLASSIFIED</p>
+      </div>
+    </a>
+    
+
+    <a href="#" class="gallery-card shatter-container">
+      <div class="card-visual placeholder-visual">
+        <div class="glass-shard-overlay">
+          <span class="shatter-text">LOCKED</span>
+        </div>
+      </div>
+      <div class="card-editorial">
+        <div class="file-meta">
+          <span class="barcode">||| | |||| | |||</span>
+          <span class="leak-tag">PENDING</span>
+        </div>
+        <h3 class="card-name">SUBJECT<br/>REDACTED</h3>
+        <p class="card-role">CLASSIFIED</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .interview-gallery {
+    padding: 80px 4%;
+    background: var(--bg-black);
+    border-bottom: 1px solid var(--border-gray);
+  }
+
+  .gallery-header {
+    margin-bottom: 60px;
+    text-align: right;
+  }
+
+  .section-tag {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--pink-hot);
+    letter-spacing: 2px;
+  }
+
+  .gallery-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--pink-soft);
+    margin-top: 10px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .gallery-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-gray);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--pink-hot);
+  }
+
+  .card-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4; 
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-gray);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-card:hover .card-img {
+    transform: scale(1.03);
+  }
+
+  .placeholder-visual {
+    background: repeating-linear-gradient(
+      45deg,
+      #111,
+      #111 10px,
+      #000 10px,
+      #000 20px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-editorial {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: var(--bg-black);
+  }
+
+  .file-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+
+  .barcode {
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    color: var(--pink-soft);
+  }
+
+  .leak-tag {
+    font-family: monospace;
+    font-size: 0.65rem;
+    background: var(--pink-hot);
+    color: #000;
+    padding: 4px 6px;
+    font-weight: bold;
+  }
+
+  .card-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 0.9;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+  }
+
+  .card-role {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+  }
+</style>
