@@ -2,11 +2,13 @@
 // src/components/IconFeature.astro
 // Usage: <IconFeature name="Claire Davison" role="ABT Ballerina" image="/images/clairedavison.jpg" url="/stories/claire" />
 
+---
 const { 
   name = "CLAIRE DAVISON", 
   role = "ABT BALLERINA",
   image = "/images/clairedavison.jpg",
-  url = "/stories/claire-davison"
+  url = "/stories/claire-davison",
+  snippet = "Read all about her pilgrimage to discovering herself as an artist. From rediscovering her clown roots to creating whimsical designs on the web, her story is a raw look into the pain, the breakthrough, and the journey to finding her true love: storytelling."
 } = Astro.props;
 ---
 
@@ -32,9 +34,9 @@ const {
       <h2 class="icon-title">MEET<br/>{name}</h2>
       <h3 class="icon-role">{role}</h3>
       
-      <p class="icon-snippet">
-        Read all about her pilgrimage to discovering herself as an artist. From rediscovering her clown roots to creating whimsical designs on the web, her story is a raw look into the pain, the breakthrough, and the journey to finding her true love: storytelling.
-      </p>
+    <p class="icon-snippet">
+  {snippet}
+</p>
       
       <div class="action-row">
         <a href={url} class="cta-btn">READ THE STORY</a>
