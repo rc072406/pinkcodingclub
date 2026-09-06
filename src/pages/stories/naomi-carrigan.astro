@@ -15,7 +15,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <!-- Visual Side -->
       <div class="editorial-visual">
         <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="hero-img" />
-        <div class="photo-credit">IMG_REF: N.CARRIGAN // 01</div>
       </div>
 
       <!-- Typography & Copy Side -->
@@ -85,6 +84,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     border-bottom: 1px solid var(--border-gray);
     padding-bottom: 20px;
     margin-bottom: 60px;
+    margin-top: 60px;
   }
 
   .barcode {
@@ -132,14 +132,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     box-shadow: 15px 15px 0px rgba(228, 30, 129, 0.15);
   }
 
-  .photo-credit {
-    font-family: monospace;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 2px;
-    margin-top: 15px;
-    text-align: right;
-  }
 
   .editorial-content {
     display: flex;
@@ -157,13 +149,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .highlight {
-    color: var(--pink-hot);
+    color: var(--pink-soft);
   }
 
   .sub-headline {
     font-family: monospace;
     font-size: 1.2rem;
-    color: var(--pink-soft);
+    color: var(--pink-hot);
     letter-spacing: 4px;
     margin-bottom: 50px;
     border-bottom: 1px solid var(--border-gray);
@@ -172,7 +164,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .intro-block {
-    border-left: 2px solid var(--pink-hot);
     padding-left: 30px;
     margin-bottom: 60px;
   }
