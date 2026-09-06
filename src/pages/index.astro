@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 import IconFeature from '../components/IconFeature.astro';
+import InterviewGallery from '../components/InterviewGallery.astro';
 const base = import.meta.env.BASE_URL;
 
 ---
@@ -16,6 +17,7 @@ const base = import.meta.env.BASE_URL;
   <link rel="stylesheet" href="/styles/index.css" slot="head" />
 
 <IconFeature />
+<InterviewGallery />
 <!-- HISTORY SLIDER SECTION -->
 <section class="history-section">
   <div class="history-header">
