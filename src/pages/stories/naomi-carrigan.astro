@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <article class="interview-article">
+    <!-- Top Meta Bar -->
+    <div class="article-meta-bar">
+      <span class="barcode">||| | |||| | |||</span>
+      <span class="section-tag">// STATUS: UNSEALED</span>
+      <span class="leak-tag">FILE: VAMPIRE</span>
+    </div>
+
+    <div class="editorial-grid">
+      <!-- Visual Side -->
+      <div class="editorial-visual">
+        <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="hero-img" />
+        <div class="photo-credit">IMG_REF: N.CARRIGAN // 01</div>
+      </div>
+
+      <!-- Typography & Copy Side -->
+      <div class="editorial-content">
+        <h1 class="headline">
+          INTERVIEW<br/>
+          WITH THE<br/>
+          <span class="highlight">VAMPIRE</span>
+        </h1>
+        
+        <h2 class="sub-headline">FEAT. NAOMI CARRIGAN</h2>
+        
+        <div class="intro-block">
+          <p>
+            Naomi Carrigan is a transfemme software engineer committed to ethical technology development with a focus on inclusivity, sustainability, and community-driven innovation. She actively works to break down barriers in tech, support marginalized voices, and ensure her technologies respect user privacy while contributing positively to society. Her projects are open-source and community-centric.
+          </p>
+        </div>
+
+        <div class="scroll-prompt">
+          <span class="prompt-text">BEGIN TRANSCRIPT</span>
+          <div class="prompt-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interview Q&A Section -->
+    <section class="transcript-section">
+      <div class="transcript-container">
+        
+        <div class="qa-block">
+          <span class="speaker-q">Q: LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT?</span>
+          <p class="answer-a">
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+
+        <div class="qa-block">
+          <span class="speaker-q">Q: EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA?</span>
+          <p class="answer-a">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit.
+          </p>
+        </div>
+
+        <div class="qa-block">
+          <span class="speaker-q">Q: VIVAMUS VESIBULUM LIGULA NIBH, ET CURSUS USUT IN?</span>
+          <p class="answer-a">
+            Integer vulputate sem a nibh rutrum consequat. Maecenas lorem. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .interview-article {
+    background: var(--bg-black);
+    min-height: 100vh;
+    padding: 40px 4% 100px 4%;
+  }
+
+  .article-meta-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-gray);
+    padding-bottom: 20px;
+    margin-bottom: 60px;
+  }
+
+  .barcode {
+    font-size: 1.5rem;
+    letter-spacing: -2px;
+    color: var(--pink-soft);
+  }
+
+  .section-tag {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+  }
+
+  .leak-tag {
+    font-family: monospace;
+    font-size: 0.75rem;
+    background: var(--pink-hot);
+    color: #000;
+    padding: 6px 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .editorial-visual {
+    position: relative;
+    width: 100%;
+  }
+
+  .hero-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 1px solid var(--border-gray);
+    box-shadow: 15px 15px 0px rgba(228, 30, 129, 0.15);
+  }
+
+  .photo-credit {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    margin-top: 15px;
+    text-align: right;
+  }
+
+  .editorial-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .headline {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 0.85;
+    letter-spacing: -3px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .highlight {
+    color: var(--pink-hot);
+  }
+
+  .sub-headline {
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: var(--pink-soft);
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--border-gray);
+    padding-bottom: 20px;
+    display: inline-block;
+  }
+
+  .intro-block {
+    border-left: 2px solid var(--pink-hot);
+    padding-left: 30px;
+    margin-bottom: 60px;
+  }
+
+  .intro-block p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: none;
+    max-width: 600px;
+  }
+
+  .scroll-prompt {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .prompt-text {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--pink-hot);
+    letter-spacing: 2px;
+  }
+
+  .prompt-line {
+    height: 1px;
+    flex-grow: 1;
+    background: linear-gradient(90deg, var(--pink-hot) 0%, transparent 100%);
+    max-width: 200px;
+  }
+
+  /* Transcript Section Styles */
+  .transcript-section {
+    max-width: 1000px;
+    margin: 120px auto 0 auto;
+    border-top: 1px solid var(--border-gray);
+    padding-top: 80px;
+  }
+
+  .transcript-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .qa-block {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--border-gray);
+    padding: 40px;
+    position: relative;
+    transition: border-color 0.3s ease;
+  }
+
+  .qa-block:hover {
+    border-color: var(--pink-hot);
+  }
+
+  .speaker-q {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.2rem;
+    color: var(--pink-soft);
+    display: block;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  .answer-a {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: none;
+  }
+
+  /* Responsive Stacking */
+  @media (max-width: 1024px) {
+    .editorial-grid {
+      gap: 40px;
+    }
+    .headline {
+      font-size: clamp(3rem, 8vw, 5rem);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .article-meta-bar {
+      margin-bottom: 40px;
+    }
+    .section-tag {
+      display: none;
+    }
+    .editorial-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-img {
+      aspect-ratio: 1 / 1;
+    }
+    .intro-block p {
+      font-size: 1.1rem;
+    }
+    .qa-block {
+      padding: 25px;
+    }
+  }
+</style>
