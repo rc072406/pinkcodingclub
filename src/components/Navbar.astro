@@ -30,6 +30,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 </nav>
 
 <div class="mobile-overlay" id="mobile-overlay">
+  <div class="close-menu" id="close-menu-btn">CLOSE</div>
   <div class="mobile-nav-links">
     <a href={formatUrl('manifesto')} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
     <a href={formatUrl('curriculum')} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
@@ -43,9 +44,10 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 
   const initMenu = () => {
     const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
     const overlay = document.getElementById('mobile-overlay');
 
-    if (!menuBtn || !overlay) return;
+    if (!menuBtn || !overlay || !closeBtn) return;
 
     const toggleMenu = (state) => {
       const isActive = state !== undefined ? state : !overlay.classList.contains('active');
@@ -75,8 +77,12 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     // Prevent duplicate event listeners when Astro swaps pages
     const newMenuBtn = menuBtn.cloneNode(true);
     menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
+    
+    const newCloseBtn = closeBtn.cloneNode(true);
+    closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
 
     newMenuBtn.addEventListener('click', () => toggleMenu());
+    newCloseBtn.addEventListener('click', () => toggleMenu(false));
 
     // Close when clicking links
     document.querySelectorAll('.mobile-nav-links a').forEach(link => {
@@ -118,7 +124,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     lastScrollY = window.scrollY; 
   });
 
-  // Force unlock scrolling right before Astro leaves the page
+  // NEW FIX: Force unlock scrolling right before Astro leaves the page
   document.addEventListener('astro:before-preparation', () => {
     document.body.style.position = '';
     document.body.style.top = '';
@@ -134,7 +140,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-    z-index: 1003;
+    z-index: 1002;
     position: relative;
 }
 
@@ -203,6 +209,23 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     -webkit-text-fill-color: transparent;
 }
 
+.close-menu {
+    position: absolute;
+    top: max(25px, env(safe-area-inset-top) + 15px);
+    right: 4%;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #facee2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-menu:hover {
+    color: #e41e81;
+    transform: scale(1.1);
+}
+
 /* Show toggle on mobile */
 @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -237,7 +260,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* FIX: added vertical centering */
     padding: 20px 4%;
     padding-top: max(20px, env(safe-area-inset-top));
     border-bottom: 1px solid var(--border-gray);
@@ -246,9 +269,7 @@ nav {
     left: 0;
     right: 0;
     background: rgba(0,0,0,0.8);
-    
-    /* FIX: Boosted z-index so it sits above the mobile overlay (1001) */
-    z-index: 1002; 
+    z-index: 1000;
     
     /* Safari Fixes */
     backdrop-filter: blur(5px);
