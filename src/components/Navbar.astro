@@ -74,8 +74,15 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
       overlay.classList.toggle('active', isActive);
     };
 
-    menuBtn.addEventListener('click', () => toggleMenu());
-    closeBtn.addEventListener('click', () => toggleMenu(false));
+    // Prevent duplicate event listeners when Astro swaps pages
+    const newMenuBtn = menuBtn.cloneNode(true);
+    menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
+    
+    const newCloseBtn = closeBtn.cloneNode(true);
+    closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+
+    newMenuBtn.addEventListener('click', () => toggleMenu());
+    newCloseBtn.addEventListener('click', () => toggleMenu(false));
 
     // Close when clicking links
     document.querySelectorAll('.mobile-nav-links a').forEach(link => {
@@ -111,9 +118,18 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
   window.removeEventListener('scroll', handleScroll);
   window.addEventListener('scroll', handleScroll);
 
+  // Re-run setup after a page swap
   document.addEventListener('astro:after-swap', () => {
     initMenu();
     lastScrollY = window.scrollY; 
+  });
+
+  // NEW FIX: Force unlock scrolling right before Astro leaves the page
+  document.addEventListener('astro:before-preparation', () => {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
   });
 </script>
 
@@ -139,8 +155,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 /* Animation to 'X' */
 .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: #e41e81; }
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -7px); background: #e41e81; }
-.menu-toggle.active { opacity: 0; pointer-events: none; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background: #e41e81; }
 
 /* Overlay Styles - SAFARI COMPOSITOR FIX */
 .mobile-overlay {
@@ -245,6 +260,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center; /* FIX: added vertical centering */
     padding: 20px 4%;
     padding-top: max(20px, env(safe-area-inset-top));
     border-bottom: 1px solid var(--border-gray);
