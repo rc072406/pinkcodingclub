@@ -134,7 +134,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-    z-index: 1002;
+    z-index: 1003;
     position: relative;
 }
 
@@ -246,7 +246,9 @@ nav {
     left: 0;
     right: 0;
     background: rgba(0,0,0,0.8);
-    z-index: 1000;
+    
+    /* FIX: Boosted z-index so it sits above the mobile overlay (1001) */
+    z-index: 1002; 
     
     /* Safari Fixes */
     backdrop-filter: blur(5px);
