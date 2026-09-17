@@ -12,56 +12,76 @@
     <!-- Polaroid 1 (Unlocked) -->
     <a href="/stories/naomi-carrigan" class="polaroid p-1">
       <div class="tape"></div>
+      <div class="side-margin left-margin">
+        <span class="marker left-marker">01</span>
+      </div>
       <div class="card-visual">
         <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="card-img" />
       </div>
-      <span class="marker left-marker">01</span>
-      <span class="marker right-marker">NAOMI</span>
-      <span class="marker bottom-marker">DEEPGRAM ENG.</span>
+      <div class="side-margin right-margin">
+        <span class="marker right-marker">NAOMI</span>
+        <span class="marker sub-marker">DEEPGRAM ENG.</span>
+      </div>
     </a>
 
     <!-- Polaroid 2 (Locked) -->
     <a href="#" class="polaroid p-2 locked">
       <div class="tape"></div>
+      <div class="side-margin left-margin">
+        <span class="marker left-marker">02</span>
+      </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <span class="marker left-marker">02</span>
-      <span class="marker right-marker">REDACTED</span>
-      <span class="marker bottom-marker">CLASSIFIED</span>
+      <div class="side-margin right-margin">
+        <span class="marker right-marker">REDACTED</span>
+        <span class="marker sub-marker">CLASSIFIED</span>
+      </div>
     </a>
 
     <!-- Polaroid 3 (Locked) -->
     <a href="#" class="polaroid p-3 locked">
       <div class="tape"></div>
+      <div class="side-margin left-margin">
+        <span class="marker left-marker">03</span>
+      </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <span class="marker left-marker">03</span>
-      <span class="marker right-marker">REDACTED</span>
-      <span class="marker bottom-marker">PENDING</span>
+      <div class="side-margin right-margin">
+        <span class="marker right-marker">REDACTED</span>
+        <span class="marker sub-marker">PENDING</span>
+      </div>
     </a>
 
     <!-- Polaroid 4 (Locked) -->
     <a href="#" class="polaroid p-4 locked">
       <div class="tape"></div>
+      <div class="side-margin left-margin">
+        <span class="marker left-marker">04</span>
+      </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <span class="marker left-marker">04</span>
-      <span class="marker right-marker">REDACTED</span>
-      <span class="marker bottom-marker">CLASSIFIED</span>
+      <div class="side-margin right-margin">
+        <span class="marker right-marker">REDACTED</span>
+        <span class="marker sub-marker">CLASSIFIED</span>
+      </div>
     </a>
 
     <!-- Polaroid 5 (Locked) -->
     <a href="#" class="polaroid p-5 locked">
       <div class="tape"></div>
+      <div class="side-margin left-margin">
+        <span class="marker left-marker">05</span>
+      </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <span class="marker left-marker">05</span>
-      <span class="marker right-marker">REDACTED</span>
-      <span class="marker bottom-marker">PENDING</span>
+      <div class="side-margin right-margin">
+        <span class="marker right-marker">REDACTED</span>
+        <span class="marker sub-marker">PENDING</span>
+      </div>
     </a>
     
   </div>
@@ -102,18 +122,19 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 50px 40px;
+    gap: 40px 30px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
   }
 
+  /* Structural layout matching the reference photo exactly */
   .polaroid {
-    display: block;
+    display: grid;
+    grid-template-columns: 55px 180px 55px; /* Thick sides, specific center width */
     text-decoration: none;
-    background: #fcfbf9; 
-    padding: 14px 14px 65px 14px; 
-    width: 250px; 
+    background: #fcfbf9; /* Authentic warm photo paper white */
+    padding: 12px 0; /* Thin top and bottom margins */
     box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(0,0,0,0.1);
     position: relative;
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
@@ -130,9 +151,9 @@
     position: absolute;
     top: -12px;
     left: 50%;
-    width: 80px;
+    width: 60px;
     height: 25px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.35);
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     backdrop-filter: blur(2px);
     transform: translateX(-50%) rotate(-3deg);
@@ -141,7 +162,7 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
   }
 
-  /* The actual photo chemistry area */
+
   .card-visual {
     width: 100%;
     aspect-ratio: 3 / 4; 
@@ -189,49 +210,44 @@
     opacity: 0.7;
   }
 
-  /* Sharpie Markers Overlaying the Frame */
-  .marker {
-    position: absolute;
-    font-family: 'Reenie Beanie', cursive, sans-serif;
-    color: var(--pink-hot, #ff0055);
-    text-transform: uppercase;
-    white-space: nowrap;
-    z-index: 6;
+  /* Side Margins for Vertical Text */
+  .side-margin {
+    display: flex;
+    flex-direction: row; /* Runs columns side by side vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); /* Makes text read bottom-to-top */
   }
 
-  /* Side markers: Vertically written, overlapping the border slightly */
-  .left-marker, 
-  .right-marker {
-    font-size: 2rem;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    opacity: 0.85;
+  .marker {
+    font-family: 'Reenie Beanie', cursive, sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 1px;
   }
 
   .left-marker {
-    color: #222; /* Makes the number look like black sharpie */
-    left: -2px; /* Pulls slightly into the margin */
-    top: 30px;
+    font-size: 2.2rem;
+    color: #222; /* Black sharpie */
+    opacity: 0.85;
   }
 
   .right-marker {
-    right: -2px; 
-    bottom: 80px; 
-  }
-
-  /* Bottom marker: Sits comfortably in the thick border */
-  .bottom-marker {
-    font-size: 2.3rem;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-3deg);
-    width: 100%;
-    text-align: center;
+    font-size: 2.2rem;
+    color: var(--pink-hot, #ff0055);
     opacity: 0.95;
   }
 
-  .locked .bottom-marker,
-  .locked .right-marker {
+  .sub-marker {
+    font-size: 1.4rem;
+    color: #555;
+    opacity: 0.8;
+  }
+
+  .locked .right-marker,
+  .locked .sub-marker {
     color: #555; 
   }
 
