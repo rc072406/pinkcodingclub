@@ -7,83 +7,82 @@
     <h2 class="gallery-title">UNLOCK IT</h2>
   </div>
 
-  <div class="polaroid-board">
-    
-    <!-- Polaroid 1 (Unlocked) -->
-    <a href="/stories/naomi-carrigan" class="polaroid p-1">
-      <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">01</span>
-      </div>
-      <div class="card-visual">
-        <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="card-img" />
-      </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">NAOMI</span>
-        <span class="marker sub-marker">DEEPGRAM ENG.</span>
-      </div>
-    </a>
+  <div class="casting-board">
+    <!-- Top Row: Left Aligned (01, 02, 03) -->
+    <div class="board-row row-top">
+      <!-- Polaroid 1 (Unlocked) -->
+      <a href="/stories/naomi-carrigan" class="polaroid">
+        <div class="side-margin left-margin">
+          <span class="marker left-marker">01</span>
+        </div>
+        <div class="card-visual">
+          <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="card-img" />
+        </div>
+        <div class="side-margin right-margin">
+          <span class="marker right-marker">NAOMI</span>
+          <span class="marker sub-marker">DEEPGRAM ENG.</span>
+        </div>
+      </a>
 
-    <!-- Polaroid 2 (Locked) -->
-    <a href="#" class="polaroid p-2 locked">
-      <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">02</span>
-      </div>
-      <div class="card-visual placeholder-visual">
-        <div class="static-overlay"></div>
-      </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">CLASSIFIED</span>
-      </div>
-    </a>
+      <!-- Polaroid 2 (Locked) -->
+      <a href="#" class="polaroid locked">
+        <div class="side-margin left-margin">
+          <span class="marker left-marker">02</span>
+        </div>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
+        </div>
+        <div class="side-margin right-margin">
+          <span class="marker right-marker">REDACTED</span>
+          <span class="marker sub-marker">CLASSIFIED</span>
+        </div>
+      </a>
 
-    <!-- Polaroid 3 (Locked) -->
-    <a href="#" class="polaroid p-3 locked">
-      <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">03</span>
-      </div>
-      <div class="card-visual placeholder-visual">
-        <div class="static-overlay"></div>
-      </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">PENDING</span>
-      </div>
-    </a>
+      <!-- Polaroid 3 (Locked) -->
+      <a href="#" class="polaroid locked">
+        <div class="side-margin left-margin">
+          <span class="marker left-marker">03</span>
+        </div>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
+        </div>
+        <div class="side-margin right-margin">
+          <span class="marker right-marker">REDACTED</span>
+          <span class="marker sub-marker">PENDING</span>
+        </div>
+      </a>
+    </div>
 
-    <!-- Polaroid 4 (Locked) -->
-    <a href="#" class="polaroid p-4 locked">
-      <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">04</span>
-      </div>
-      <div class="card-visual placeholder-visual">
-        <div class="static-overlay"></div>
-      </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">CLASSIFIED</span>
-      </div>
-    </a>
+    <!-- Bottom Row: Right Aligned (04, 05) -->
+    <div class="board-row row-bottom">
+      <!-- Polaroid 4 (Locked) -->
+      <a href="#" class="polaroid locked">
+        <div class="side-margin left-margin">
+          <span class="marker left-marker">04</span>
+        </div>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
+        </div>
+        <div class="side-margin right-margin">
+          <span class="marker right-marker">REDACTED</span>
+          <span class="marker sub-marker">CLASSIFIED</span>
+        </div>
+      </a>
 
-    <!-- Polaroid 5 (Locked) -->
-    <a href="#" class="polaroid p-5 locked">
-      <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">05</span>
-      </div>
-      <div class="card-visual placeholder-visual">
-        <div class="static-overlay"></div>
-      </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">PENDING</span>
-      </div>
-    </a>
-    
+      <!-- Polaroid 5 (Locked) -->
+      <a href="#" class="polaroid locked">
+        <div class="side-margin left-margin">
+          <span class="marker left-marker">05</span>
+        </div>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
+        </div>
+        <div class="side-margin right-margin">
+          <span class="marker right-marker">REDACTED</span>
+          <span class="marker sub-marker">PENDING</span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -96,9 +95,9 @@
   }
 
   .gallery-header {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     text-align: right;
-    max-width: 1400px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -117,59 +116,59 @@
     margin-top: 10px;
   }
 
-  .polaroid-board {
+  /* Casting Board Grid Layout */
+  .casting-board {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px 30px;
+    flex-direction: column;
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
   }
 
-  /* Structural layout matching the reference photo exactly */
+  .board-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+  }
+
+  /* Alignment offsets for Desktop */
+  .row-top {
+    justify-content: flex-start;
+  }
+
+  .row-bottom {
+    justify-content: flex-end;
+  }
+
+  /* Clean Polaroid Card Styling */
   .polaroid {
     display: grid;
-    grid-template-columns: 55px 180px 55px; /* Thick sides, specific center width */
+    grid-template-columns: 55px 180px 55px;
     text-decoration: none;
-    background: #fcfbf9; /* Authentic warm photo paper white */
-    padding: 12px 0; /* Thin top and bottom margins */
-    box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(0,0,0,0.1);
+    background: #fcfbf9;
+    padding: 12px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 0 1px rgba(0, 0, 0, 0.1);
     position: relative;
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     cursor: pointer;
+    /* Straight alignment */
+    transform: rotate(0deg);
   }
 
   .polaroid:hover {
     z-index: 10;
-    box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 85, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7), 0 0 12px rgba(255, 0, 85, 0.25);
   }
-
-  /* Tape Effect */
-  .tape {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    width: 60px;
-    height: 25px;
-    background: rgba(255, 255, 255, 0.35);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    backdrop-filter: blur(2px);
-    transform: translateX(-50%) rotate(-3deg);
-    z-index: 5;
-    mask-image: repeating-linear-gradient(45deg, transparent, transparent 2px, black 2px, black 4px);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-  }
-
 
   .card-visual {
     width: 100%;
     aspect-ratio: 3 / 4; 
     overflow: hidden;
     background: var(--bg-black, #111);
-    border: 1px solid rgba(0,0,0,0.15);
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
   }
 
   .card-img {
@@ -177,12 +176,12 @@
     height: 100%;
     object-fit: cover;
     filter: contrast(1.1) saturate(0.9);
-    transition: filter 0.5s ease, transform 0.5s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
   }
 
   .polaroid:hover .card-img {
     filter: contrast(1.2) saturate(1.1);
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 
   /* Locked / Placeholder visuals */
@@ -213,12 +212,12 @@
   /* Side Margins for Vertical Text */
   .side-margin {
     display: flex;
-    flex-direction: row; /* Runs columns side by side vertically */
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 4px;
     writing-mode: vertical-rl;
-    transform: rotate(180deg); /* Makes text read bottom-to-top */
+    transform: rotate(180deg);
   }
 
   .marker {
@@ -230,7 +229,7 @@
 
   .left-marker {
     font-size: 2.2rem;
-    color: #222; /* Black sharpie */
+    color: #222;
     opacity: 0.85;
   }
 
@@ -251,19 +250,14 @@
     color: #555; 
   }
 
-  /* Messy Board Rotations & Hover specific overrides */
-  .p-1 { transform: rotate(-2deg) translateY(5px); }
-  .p-2 { transform: rotate(3deg) translateY(-10px); }
-  .p-3 { transform: rotate(-1deg) translateY(15px); }
-  .p-4 { transform: rotate(4deg) translateY(2px); }
-  .p-5 { transform: rotate(-4deg) translateY(-8px); }
+  /* Mobile Fallback: Center-align cards cleanly without offsets */
+  @media (max-width: 820px) {
+    .board-row {
+      justify-content: center;
+    }
 
-  .p-1:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
-  .p-2:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
-  .p-3:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
-  .p-4:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
-  .p-5:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
-  
-  .p-3 .tape { transform: translateX(-50%) rotate(4deg); }
-  .p-4 .tape { transform: translateX(-50%) rotate(-5deg); left: 40%; }
+    .casting-board {
+      gap: 30px;
+    }
+  }
 </style>
