@@ -12,75 +12,91 @@
     <!-- Polaroid 1 (Unlocked) -->
     <a href="/stories/naomi-carrigan" class="polaroid p-1">
       <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">01</span>
+      
+      <!-- Left Side Sharpie -->
+      <div class="side-text left-side">
+        <span class="marker black-marker">01</span>
       </div>
+
+      <!-- Center Photo -->
       <div class="card-visual">
         <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="card-img" />
       </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">NAOMI</span>
-        <span class="marker sub-marker">DEEPGRAM ENG.</span>
+
+      <!-- Right Side Sharpie -->
+      <div class="side-text right-side">
+        <div class="marker-group">
+          <span class="marker pink-marker">NAOMI</span>
+          <span class="marker sub-marker">DEEPGRAM ENG.</span>
+        </div>
       </div>
     </a>
 
     <!-- Polaroid 2 (Locked) -->
     <a href="#" class="polaroid p-2 locked">
       <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">02</span>
+      <div class="side-text left-side">
+        <span class="marker black-marker">02</span>
       </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">CLASSIFIED</span>
+      <div class="side-text right-side">
+        <div class="marker-group">
+          <span class="marker fade-marker">REDACTED</span>
+          <span class="marker sub-marker">CLASSIFIED</span>
+        </div>
       </div>
     </a>
 
     <!-- Polaroid 3 (Locked) -->
     <a href="#" class="polaroid p-3 locked">
       <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">03</span>
+      <div class="side-text left-side">
+        <span class="marker black-marker">03</span>
       </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">PENDING</span>
+      <div class="side-text right-side">
+        <div class="marker-group">
+          <span class="marker fade-marker">REDACTED</span>
+          <span class="marker sub-marker">PENDING</span>
+        </div>
       </div>
     </a>
 
     <!-- Polaroid 4 (Locked) -->
     <a href="#" class="polaroid p-4 locked">
       <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">04</span>
+      <div class="side-text left-side">
+        <span class="marker black-marker">04</span>
       </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">CLASSIFIED</span>
+      <div class="side-text right-side">
+        <div class="marker-group">
+          <span class="marker fade-marker">REDACTED</span>
+          <span class="marker sub-marker">CLASSIFIED</span>
+        </div>
       </div>
     </a>
 
     <!-- Polaroid 5 (Locked) -->
     <a href="#" class="polaroid p-5 locked">
       <div class="tape"></div>
-      <div class="side-margin left-margin">
-        <span class="marker left-marker">05</span>
+      <div class="side-text left-side">
+        <span class="marker black-marker">05</span>
       </div>
       <div class="card-visual placeholder-visual">
         <div class="static-overlay"></div>
       </div>
-      <div class="side-margin right-margin">
-        <span class="marker right-marker">REDACTED</span>
-        <span class="marker sub-marker">PENDING</span>
+      <div class="side-text right-side">
+        <div class="marker-group">
+          <span class="marker fade-marker">REDACTED</span>
+          <span class="marker sub-marker">PENDING</span>
+        </div>
       </div>
     </a>
     
@@ -128,15 +144,14 @@
     padding: 20px;
   }
 
-  /* Structural layout matching the reference photo exactly */
+
   .polaroid {
-    display: grid;
-    grid-template-columns: 55px 180px 55px; /* Thick sides, specific center width */
-    text-decoration: none;
-    background: #fcfbf9; /* Authentic warm photo paper white */
-    padding: 12px 0; /* Thin top and bottom margins */
-    box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(0,0,0,0.1);
+    display: block;
     position: relative;
+    text-decoration: none;
+    background: #fcfbf9;
+    padding: 12px 60px; 
+    box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(0,0,0,0.1);
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
     cursor: pointer;
   }
@@ -146,7 +161,6 @@
     box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 85, 0.3);
   }
 
-  /* Tape Effect */
   .tape {
     position: absolute;
     top: -12px;
@@ -162,14 +176,16 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
   }
 
-
+  /* The Photo - Fixed width ensures the card never stretches */
   .card-visual {
-    width: 100%;
+    width: 160px;
     aspect-ratio: 3 / 4; 
     overflow: hidden;
     background: var(--bg-black, #111);
     border: 1px solid rgba(0,0,0,0.15);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 2;
   }
 
   .card-img {
@@ -185,10 +201,8 @@
     transform: scale(1.03);
   }
 
-  /* Locked / Placeholder visuals */
   .placeholder-visual {
     background: #111;
-    position: relative;
   }
 
   .static-overlay {
@@ -210,15 +224,34 @@
     opacity: 0.7;
   }
 
-  /* Side Margins for Vertical Text */
-  .side-margin {
+
+  .side-text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
     display: flex;
-    flex-direction: row; /* Runs columns side by side vertically */
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    z-index: 3;
+    pointer-events: none; 
+  }
+
+  .left-side {
+    left: 0;
+  }
+
+  .right-side {
+    right: 0;
+  }
+
+  .marker-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
     writing-mode: vertical-rl;
-    transform: rotate(180deg); /* Makes text read bottom-to-top */
+    transform: rotate(180deg);
   }
 
   .marker {
@@ -228,30 +261,29 @@
     letter-spacing: 1px;
   }
 
-  .left-marker {
+  .black-marker {
     font-size: 2.2rem;
-    color: #222; /* Black sharpie */
-    opacity: 0.85;
+    color: #222;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
   }
 
-  .right-marker {
+  .pink-marker {
     font-size: 2.2rem;
     color: var(--pink-hot, #ff0055);
-    opacity: 0.95;
+  }
+
+  .fade-marker {
+    font-size: 2.2rem;
+    color: #666;
   }
 
   .sub-marker {
     font-size: 1.4rem;
-    color: #555;
-    opacity: 0.8;
+    color: #777;
   }
 
-  .locked .right-marker,
-  .locked .sub-marker {
-    color: #555; 
-  }
 
-  /* Messy Board Rotations & Hover specific overrides */
   .p-1 { transform: rotate(-2deg) translateY(5px); }
   .p-2 { transform: rotate(3deg) translateY(-10px); }
   .p-3 { transform: rotate(-1deg) translateY(15px); }
