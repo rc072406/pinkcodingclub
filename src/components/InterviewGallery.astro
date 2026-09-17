@@ -1,6 +1,5 @@
 ---
 // src/components/InterviewGallery.astro
-
 ---
 <section class="interview-gallery">
   <div class="gallery-header">
@@ -8,183 +7,270 @@
     <h2 class="gallery-title">UNLOCK IT</h2>
   </div>
 
-  <div class="gallery-grid">
-    <!-- Naomi Carrigan Card (Unlocked) -->
-    <a href="/stories/naomi-carrigan" class="gallery-card">
-      <div class="card-visual">
-        <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="card-img" />
-      </div>
-      <div class="card-editorial">
-        <div class="file-meta">
-          <span class="barcode">||| | |||| | |||</span>
-          <span class="leak-tag">INTERVIEW WITH THE VAMPIRE</span>
+  <div class="polaroid-board">
+    
+    <!-- Polaroid 1 (Unlocked) -->
+    <a href="/stories/naomi-carrigan" class="polaroid p-1">
+      <div class="tape"></div>
+      <div class="polaroid-frame">
+        <span class="side-marker left-marker">01</span>
+        <div class="card-visual">
+          <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" class="card-img" />
         </div>
-        <h3 class="card-name">NAOMI<br/>CARRIGAN</h3>
-        <p class="card-role">DEEPGRAM SOFTWARE ENGINEER</p>
+        <span class="side-marker right-marker">NAOMI</span>
+      </div>
+      <div class="polaroid-bottom">
+        <span class="bottom-marker">DEEPGRAM ENG.</span>
       </div>
     </a>
 
-    <!-- Placeholder for Future Interview 2 (Uses Global Shatter Effect) -->
-    <a href="#" class="gallery-card shatter-container">
-      <div class="card-visual placeholder-visual">
-        <div class="glass-shard-overlay">
-          <span class="shatter-text">LOCKED</span>
+    <!-- Polaroid 2 (Locked) -->
+    <a href="#" class="polaroid p-2 locked">
+      <div class="tape"></div>
+      <div class="polaroid-frame">
+        <span class="side-marker left-marker">02</span>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
         </div>
+        <span class="side-marker right-marker">REDACTED</span>
       </div>
-      <div class="card-editorial">
-        <div class="file-meta">
-          <span class="barcode">||| | |||| | |||</span>
-          <span class="leak-tag">PENDING</span>
+      <div class="polaroid-bottom">
+        <span class="bottom-marker">CLASSIFIED</span>
+      </div>
+    </a>
+
+    <!-- Polaroid 3 (Locked) -->
+    <a href="#" class="polaroid p-3 locked">
+      <div class="tape"></div>
+      <div class="polaroid-frame">
+        <span class="side-marker left-marker">03</span>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
         </div>
-        <h3 class="card-name">SUBJECT<br/>REDACTED</h3>
-        <p class="card-role">CLASSIFIED</p>
+        <span class="side-marker right-marker">REDACTED</span>
+      </div>
+      <div class="polaroid-bottom">
+        <span class="bottom-marker">PENDING</span>
+      </div>
+    </a>
+
+    <!-- Polaroid 4 (Locked) -->
+    <a href="#" class="polaroid p-4 locked">
+      <div class="tape"></div>
+      <div class="polaroid-frame">
+        <span class="side-marker left-marker">04</span>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
+        </div>
+        <span class="side-marker right-marker">REDACTED</span>
+      </div>
+      <div class="polaroid-bottom">
+        <span class="bottom-marker">CLASSIFIED</span>
+      </div>
+    </a>
+
+    <!-- Polaroid 5 (Locked) -->
+    <a href="#" class="polaroid p-5 locked">
+      <div class="tape"></div>
+      <div class="polaroid-frame">
+        <span class="side-marker left-marker">05</span>
+        <div class="card-visual placeholder-visual">
+          <div class="static-overlay"></div>
+        </div>
+        <span class="side-marker right-marker">REDACTED</span>
+      </div>
+      <div class="polaroid-bottom">
+        <span class="bottom-marker">PENDING</span>
       </div>
     </a>
     
-
-    <a href="#" class="gallery-card shatter-container">
-      <div class="card-visual placeholder-visual">
-        <div class="glass-shard-overlay">
-          <span class="shatter-text">LOCKED</span>
-        </div>
-      </div>
-      <div class="card-editorial">
-        <div class="file-meta">
-          <span class="barcode">||| | |||| | |||</span>
-          <span class="leak-tag">PENDING</span>
-        </div>
-        <h3 class="card-name">SUBJECT<br/>REDACTED</h3>
-        <p class="card-role">CLASSIFIED</p>
-      </div>
-    </a>
   </div>
 </section>
 
 <style>
   .interview-gallery {
     padding: 80px 4%;
-    background: var(--bg-black);
-    border-bottom: 1px solid var(--border-gray);
+    background: var(--bg-black, #0a0a0a);
+    border-bottom: 1px solid var(--border-gray, #333);
+    overflow: hidden;
   }
 
   .gallery-header {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     text-align: right;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .section-tag {
     font-family: monospace;
     font-size: 0.8rem;
-    color: var(--pink-hot);
+    color: var(--pink-hot, #ff0055);
     letter-spacing: 2px;
   }
 
   .gallery-title {
     font-family: 'Archivo Black', sans-serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--pink-soft);
+    color: var(--pink-soft, #ffb3c6);
     margin-top: 10px;
   }
 
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
+  .polaroid-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px 30px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
   }
 
-  .gallery-card {
+
+  .polaroid {
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-gray);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s;
+    background: #f4f4f4;
+    padding: 12px 12px 0 12px;
+    width: 260px;
+    box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 4px rgba(255,255,255,0.5);
     position: relative;
-    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+    cursor: pointer;
   }
 
-  .gallery-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--pink-hot);
+  .polaroid:hover {
+    z-index: 10;
+    box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 85, 0.3);
+  }
+
+
+  .tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 80px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    backdrop-filter: blur(2px);
+    transform: translateX(-50%) rotate(-3deg);
+    z-index: 5;
+   
+    mask-image: repeating-linear-gradient(45deg, transparent, transparent 2px, black 2px, black 4px);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .polaroid-frame {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #f4f4f4;
   }
 
   .card-visual {
-    position: relative;
     width: 100%;
     aspect-ratio: 3 / 4; 
     overflow: hidden;
-    border-bottom: 1px solid var(--border-gray);
+    background: var(--bg-black, #111);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
   }
 
   .card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    filter: contrast(1.1) saturate(0.9);
+    transition: filter 0.5s ease, transform 0.5s ease;
   }
 
-  .gallery-card:hover .card-img {
+  .polaroid:hover .card-img {
+    filter: contrast(1.2) saturate(1.1);
     transform: scale(1.03);
   }
 
+  /* Locked / Placeholder visuals */
   .placeholder-visual {
-    background: repeating-linear-gradient(
+    background: #111;
+    position: relative;
+  }
+
+  .static-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-radial-gradient(
+      circle at 0 0, 
+      transparent 0, 
+      var(--bg-black, #0a0a0a) 10px,
+      transparent 11px
+    ),
+    repeating-linear-gradient(
       45deg,
-      #111,
-      #111 10px,
-      #000 10px,
-      #000 20px
+      #1a1a1a,
+      #1a1a1a 5px,
+      #111 5px,
+      #111 10px
     );
+    opacity: 0.7;
+  }
+
+ 
+  .side-marker {
+    font-family: 'Reenie Beanie', cursive, sans-serif;
+    font-size: 2rem;
+    color: var(--pink-hot, #ff0055);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+
+  .left-marker {
+    color: #333; 
+  }
+
+  .polaroid-bottom {
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #f4f4f4;
   }
 
-  .card-editorial {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    background: var(--bg-black);
+  .bottom-marker {
+    font-family: 'Reenie Beanie', cursive, sans-serif;
+    font-size: 2.2rem;
+    color: var(--pink-hot, #ff0055);
+    text-transform: uppercase;
+    opacity: 0.9;
+    transform: rotate(-2deg); 
   }
 
-  .file-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 20px;
+  .locked .bottom-marker,
+  .locked .right-marker {
+    color: #555; 
   }
 
-  .barcode {
-    font-size: 1.2rem;
-    letter-spacing: -1px;
-    color: var(--pink-soft);
-  }
 
-  .leak-tag {
-    font-family: monospace;
-    font-size: 0.65rem;
-    background: var(--pink-hot);
-    color: #000;
-    padding: 4px 6px;
-    font-weight: bold;
-  }
+  .p-1 { transform: rotate(-2deg) translateY(5px); }
+  .p-2 { transform: rotate(3deg) translateY(-10px); }
+  .p-3 { transform: rotate(-1deg) translateY(15px); }
+  .p-4 { transform: rotate(4deg) translateY(2px); }
+  .p-5 { transform: rotate(-4deg) translateY(-8px); }
 
-  .card-name {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 1.8rem;
-    color: var(--pink-soft);
-    line-height: 0.9;
-    margin-bottom: 10px;
-    letter-spacing: -1px;
-  }
-
-  .card-role {
-    font-family: monospace;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 1px;
-  }
+  .p-1:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
+  .p-2:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
+  .p-3:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
+  .p-4:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
+  .p-5:hover { transform: rotate(0deg) scale(1.05) translateY(-5px); }
+  
+  .p-3 .tape { transform: translateX(-50%) rotate(4deg); }
+  .p-4 .tape { transform: translateX(-50%) rotate(-5deg); left: 40%; }
 </style>
