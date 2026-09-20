@@ -1,0 +1,151 @@
+---
+// src/components/FounderSection.astro
+---
+
+<section class="founder-section">
+  <div class="casting-sheet">
+    
+    <!-- Top Name -->
+    <h2 class="handwritten title-name">Rachel</h2>
+
+    <!-- Photo & Side Annotation Container -->
+    <div class="photo-wrapper">
+      <img 
+        src="/images/rachelchen.BSvJgRfL.webp" 
+        alt="Rachel Chen - Founder of Pink Coding Club" 
+        class="founder-img"
+      />
+
+
+      <div class="handwritten note-side">
+        xoxo,<br/>R.C.
+      </div>
+    </div>
+
+  
+    <div class="sheet-footer">
+      <div class="handwritten quote-text">
+        "A girl can do anything AND wear heels!"
+      </div>
+      <div class="handwritten role-tag">
+        founder of Pink Coding Club<br/>+ software developer
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.founder-section {
+  padding: 100px 4%;
+  background: var(--bg-black, #000);
+  border-bottom: 1px solid var(--border-gray, #222);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.casting-sheet {
+  background: #fcfcfc;
+  color: #111;
+  width: 100%;
+  max-width: 540px;
+  padding: 40px 35px;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(228, 30, 129, 0.12);
+  border-radius: 2px;
+}
+
+
+.handwritten {
+  font-family: 'Reenie Beanie', cursive;
+  color: #111111;
+  line-height: 0.95;
+  user-select: none;
+}
+
+/* Top Title - "Rachel" */
+.title-name {
+  font-size: clamp(3.8rem, 8vw, 5.5rem);
+  margin: 0 0 10px 5px;
+  font-weight: 400;
+  transform: rotate(-1.5deg);
+  letter-spacing: 1px;
+}
+
+/* Photo & Layout */
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.founder-img {
+  width: 85%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+
+.note-side {
+  position: absolute;
+  right: 0;
+  top: 15%;
+  font-size: clamp(2rem, 5vw, 3rem);
+  transform: rotate(5deg);
+  text-align: right;
+  line-height: 1;
+}
+
+
+.sheet-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.quote-text {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  transform: rotate(-1deg);
+  margin: 0;
+  word-break: break-word;
+}
+
+.role-tag {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  text-align: right;
+  transform: rotate(1.5deg);
+  color: #222;
+  line-height: 1.05;
+}
+
+/* Responsive tweaking */
+@media (max-width: 600px) {
+  .casting-sheet {
+    padding: 25px 20px 30px;
+  }
+  
+  .founder-img {
+    width: 100%;
+  }
+
+  .note-side {
+    position: relative;
+    right: auto;
+    top: auto;
+    text-align: left;
+    margin: 10px 0;
+    transform: rotate(2deg);
+  }
+
+  .role-tag {
+    text-align: left;
+  }
+}
+</style>
