@@ -75,6 +75,21 @@ const base = import.meta.env.BASE_URL;
 
   </div>
 
+<!-- FOUNDER SECTION -->
+<section class="founder-section">
+  <div class="founder-content">
+   
+    <img src="/rachelchen.BSvJgRfL.webp" alt="Rachel - Founder of PCC" class="founder-img" />
+    <div class="founder-text">
+      <p class="founder-quote">"A girl can do anything AND wear heels!"</p>
+      <p class="founder-signoff">
+        xoxo, Rachel<br>
+        <span class="founder-title">founder of Pink Coding Club and software developer</span>
+      </p>
+    </div>
+  </div>
+</section>
+
 
 </BaseLayout>
 <style>
@@ -205,12 +220,81 @@ const base = import.meta.env.BASE_URL;
     border: 1px solid var(--pink-hot);
     background: linear-gradient(135deg, rgba(228, 30, 129, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
 }
+/* --- FOUNDER SECTION --- */
+.founder-section {
+    padding: 80px 4%;
+    background: var(--bg-black);
+    border-bottom: 1px solid var(--border-gray);
+    display: flex;
+    justify-content: center;
+}
+
+.founder-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-gray);
+    padding: 40px;
+    transition: border-color 0.3s ease;
+}
+
+.founder-content:hover {
+    border-color: var(--pink-hot);
+}
+
+.founder-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(228, 30, 129, 0.2);
+}
+
+.founder-text {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.founder-quote {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 3.5rem;
+    color: var(--pink-hot);
+    line-height: 1;
+    margin: 0;
+}
+
+.founder-signoff {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 2.2rem;
+    color: var(--pink-hot);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.founder-title {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: rgba(250, 206, 226, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 5px;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .history-card {
         flex: 0 0 300px;
         padding: 25px;
+    }
+.founder-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
     }
 }
 </style>
