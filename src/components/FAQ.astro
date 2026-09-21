@@ -58,16 +58,15 @@
                     }
                 });
 
-                // Toggle the clicked item
+           
                 faqItem?.classList.toggle('active');
             });
         });
     }
 
-    // Initialize on page load
     setupFAQ();
 
-    // Re-initialize if you use Astro's View Transitions
+ 
     document.addEventListener('astro:after-swap', setupFAQ);
 </script>
 
