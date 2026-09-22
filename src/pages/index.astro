@@ -53,7 +53,7 @@ const base = import.meta.env.BASE_URL;
 
 </BaseLayout>
 <style>
-/* --- TICKER / MARQUEE SECTION --- */
+/* 1. Add translateZ(0) to the wrapper to fix the mask rendering bug */
 .ticker-wrapper {
   width: 100%;
   padding: 60px 0;
@@ -61,7 +61,6 @@ const base = import.meta.env.BASE_URL;
   overflow: hidden;
   border-bottom: 1px solid var(--border-gray);
   
-
   -webkit-mask-image: linear-gradient(
     to right, 
     transparent 0%, 
@@ -76,6 +75,10 @@ const base = import.meta.env.BASE_URL;
     black 85%, 
     transparent 100%
   );
+
+
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .ticker-track {
@@ -84,16 +87,16 @@ const base = import.meta.env.BASE_URL;
   user-select: none;
 }
 
+/* 2. Remove 'gap' and 'will-change' */
 .ticker-content {
   display: flex;
   flex-shrink: 0; 
   align-items: center;
-  gap: 4rem; 
-  padding-right: 4rem; 
+  /* Remove gap: 4rem; and padding-right: 4rem; here */
   animation: scroll-left 25s linear infinite;
-  will-change: transform;
   
-
+  /* Remove will-change: transform; (It overloads iOS memory) */
+  
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0); 
@@ -103,6 +106,7 @@ const base = import.meta.env.BASE_URL;
   animation-play-state: paused;
 }
 
+/* 3. Apply the gap via margin-right instead */
 .ticker-content a {
   font-family: 'Archivo Black', sans-serif;
   font-size: clamp(2rem, 5vw, 4rem);
@@ -112,45 +116,33 @@ const base = import.meta.env.BASE_URL;
   letter-spacing: -1px;
   transition: opacity 0.3s ease, transform 0.3s ease;
   
+  /* Replaces the parent gap/padding for better iOS flex math */
+  margin-right: 4rem; 
 
   display: inline-block;
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.ticker-content a.c-white {
-  color: #ffffff;
-}
-
-.ticker-content a.c-pink-soft {
-  color: var(--pink-soft);
-}
-
-.ticker-content a.c-pink-hot {
-  color: var(--pink-hot);
-}
-
+.ticker-content a.c-white { color: #ffffff; }
+.ticker-content a.c-pink-soft { color: var(--pink-soft); }
+.ticker-content a.c-pink-hot { color: var(--pink-hot); }
 
 .ticker-content a:hover {
   opacity: 0.4;
 }
 
 @keyframes scroll-left {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
 }
 
-/* Responsive speed check */
 @media (max-width: 768px) {
   .ticker-content {
-    gap: 2.5rem;
-    padding-right: 2.5rem;
     animation-duration: 18s; 
+  }
+  .ticker-content a {
+    margin-right: 2.5rem; 
   }
   .ticker-wrapper {
     padding: 35px 0;
