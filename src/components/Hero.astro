@@ -30,17 +30,16 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         display: flex;
         flex-direction: column;
         justify-content: center;
-       padding: 100px 4% 60px 4%;
+        padding: 100px 4% 60px 4%;
         border-bottom: 1px solid var(--border-gray);
         overflow: hidden;
         background: black;
-       will-change: transform; 
-     -webkit-backface-visibility: hidden;
-      min-height: 100vh;  
-       min-height: 100svh;
-      overscroll-behavior: none;
+        will-change: transform; 
+        -webkit-backface-visibility: hidden;
+        min-height: 100vh;  
+        min-height: 100svh;
+        overscroll-behavior: none;
     }
-
 
     .hero-container, .version-tag {
         position: relative;
@@ -53,43 +52,59 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         margin-bottom: 10px;
     }
 
-    /* Style variants handled via classes */
+ 
 
     .index-hero h1 {
         font-family: 'Archivo Black', sans-serif;
-        font-size: clamp(4rem, 15vw, 12rem);
-        line-height: 0.85;
-        letter-spacing: -4px;
-        margin-bottom: 20px;
+        font-size: clamp(4.8rem, 18vw, 15rem);
+        line-height: 0.81;
+        letter-spacing: -0.045em;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        text-transform: uppercase;
     }
-
 
     .sub-hero h1 {
         font-family: 'Archivo Black', sans-serif;
-        font-size: clamp(3rem, 10vw, 8rem);
-        line-height: 0.85;
-        letter-spacing: -4px;
+        font-size: clamp(3.5rem, 12vw, 9.5rem);
+        line-height: 0.82;
+        letter-spacing: -0.04em;
     }
-.hero-cta {
-    display: block;
-    margin-left: auto; 
-    width: fit-content;
-}
 
-@media (max-width: 768px) {
-.hero {
-       min-height: auto;
-        padding-top: calc(90px + env(safe-area-inset-top, 0px));
-        padding-bottom: 40px;
-        padding-left: 4%;
-        padding-right: 4%;
-        justify-content: flex-start;
-    }
     .hero-cta {
-        margin-top: 40px;
-      margin-left: 0 !important;       
-        margin-right: auto !important;   
-        align-self: flex-start;
+        display: block;
+        margin-left: auto; 
+        width: fit-content;
     }
-}
+
+    @media (max-width: 768px) {
+        .hero {
+            min-height: auto;
+            padding-top: calc(90px + env(safe-area-inset-top, 0px));
+            padding-bottom: 40px;
+            padding-left: 4%;
+            padding-right: 4%;
+            justify-content: flex-start;
+        }
+
+        .index-hero h1 {
+            font-size: clamp(4.2rem, 19.5vw, 8rem);
+            line-height: 0.82;
+            letter-spacing: -0.035em;
+            margin-bottom: 28px;
+        }
+
+        .sub-hero h1 {
+            font-size: clamp(3rem, 12vw, 6rem);
+            line-height: 0.83;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+            margin-left: 0 !important;        
+            margin-right: auto !important;    
+            align-self: flex-start;
+        }
+    }
 </style>
