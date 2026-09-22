@@ -20,27 +20,27 @@ const base = import.meta.env.BASE_URL;
 <IconFeature />
 <InterviewGallery />
 <FounderSection />
-
 <!-- Horizontal Scroll Container (The Rack) -->
   <div class="history-slider">
     
     <!-- Era 01 -->
     <article class="comp-card">
-      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
       <div class="card-top">
         <div class="era-portrait">
           <span class="era-num">01</span>
         </div>
         <div class="era-stats">
-          <div class="stat-box title"><h3>PURPLE MOON & BRENDA LAUREL</h3></div>
-          <div class="stat-box">Era : 1990s</div>
-          <div class="stat-box status">Status : ROUGH START</div>
+          <div class="stat-box title"><h3>PURPLE MOON // BRENDA LAUREL</h3></div>
+          <div class="stat-group">
+            <div class="stat-box">ERA: 1990s</div>
+            <div class="stat-box status">STATUS: ROUGH START</div>
+          </div>
         </div>
       </div>
       <div class="card-grid">
         <div class="look-box">
           <div class="look-num">LOOK 1</div>
-          <p>The first major push to get girls on computers. While groundbreaking, early efforts relied on narrow assumptions.</p>
+          <p>The first major push to get girls on computers. While groundbreaking in recognizing a missing audience, early efforts relied on narrow assumptions, focusing on gossip over creation.</p>
           <div class="look-footer">COMPUTERS ARE A GIRL'S BEST FRIEND?</div>
         </div>
       </div>
@@ -48,21 +48,22 @@ const base = import.meta.env.BASE_URL;
 
     <!-- Era 02 -->
     <article class="comp-card">
-      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
       <div class="card-top">
         <div class="era-portrait">
           <span class="era-num">02</span>
         </div>
         <div class="era-stats">
           <div class="stat-box title"><h3>PINK IT AND SHRINK IT</h3></div>
-          <div class="stat-box">Era : LATE 90s - 2000s</div>
-          <div class="stat-box status">Status : ROUGH START</div>
+          <div class="stat-group">
+            <div class="stat-box">ERA: LATE 90s - 00s</div>
+            <div class="stat-box status">STATUS: ROUGH START</div>
+          </div>
         </div>
       </div>
       <div class="card-grid">
         <div class="look-box">
           <div class="look-num">LOOK 2</div>
-          <p>Tech hardware went pink, but software lacked substance. Powerbabe focused heavily on gossip and stereotypes over creation.</p>
+          <p>Tech hardware went pink, but software lacked substance. Powerbabe focused heavily on gossip and stereotypes over real creation, complete with an awful reality TV gameshow tie-in.</p>
           <div class="look-footer">DEMONIZED FEMININITY</div>
         </div>
       </div>
@@ -70,21 +71,22 @@ const base = import.meta.env.BASE_URL;
 
     <!-- Era 03 -->
     <article class="comp-card">
-      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
       <div class="card-top">
         <div class="era-portrait">
           <span class="era-num">03</span>
         </div>
         <div class="era-stats">
           <div class="stat-box title"><h3>CREATIVE PLAY</h3></div>
-          <div class="stat-box">Era : 2000s - 2010s</div>
-          <div class="stat-box status good">Status : TURNING POINT</div>
+          <div class="stat-group">
+            <div class="stat-box">ERA: 2000s - 2010s</div>
+            <div class="stat-box status good">STATUS: TURNING POINT</div>
+          </div>
         </div>
       </div>
       <div class="card-grid">
         <div class="look-box">
           <div class="look-num">LOOK 3</div>
-          <p>Online portals shifted focus toward fashion as agency, customization, and world-building. Girls were navigating digital environments on their own terms.</p>
+          <p>Online portals shifted focus toward fashion as agency, customization, and world-building. Girls were designing, styling, and navigating digital environments on their own terms.</p>
           <div class="look-footer">FASHION AS AGENCY</div>
         </div>
       </div>
@@ -92,21 +94,22 @@ const base = import.meta.env.BASE_URL;
 
     <!-- Era 04 -->
     <article class="comp-card highlight">
-      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
       <div class="card-top">
         <div class="era-portrait">
           <span class="era-num">04</span>
         </div>
         <div class="era-stats">
           <div class="stat-box title"><h3>PINK CODING CLUB</h3></div>
-          <div class="stat-box">Era : NOW</div>
-          <div class="stat-box status good">Status : THE RECODE</div>
+          <div class="stat-group">
+            <div class="stat-box">ERA: NOW</div>
+            <div class="stat-box status good">STATUS: THE RECODE</div>
+          </div>
         </div>
       </div>
       <div class="card-grid">
         <div class="look-box">
           <div class="look-num">LOOK 4 // FINAL</div>
-          <p>Taking the aesthetic joy of fashion, makeup, and design and reclaiming it as real engineering power. Code is the ultimate creative medium.</p>
+          <p>Taking the aesthetic joy of fashion, makeup, and design and reclaiming it as real engineering power. Code isn't just logic—it's the ultimate creative medium for modern storytelling.</p>
           <div class="look-footer">SYSTEM OVERRIDE</div>
         </div>
       </div>
@@ -114,14 +117,16 @@ const base = import.meta.env.BASE_URL;
 
   </div>
 
+
 </BaseLayout>
 <style>
 
+/* Horizontal Slider Container */
 .history-slider {
     display: flex;
-    gap: 50px; 
+    gap: 40px;
     overflow-x: auto;
-    padding: 20px 0 60px 0;
+    padding: 40px 20px 80px 20px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 }
@@ -130,108 +135,86 @@ const base = import.meta.env.BASE_URL;
 .history-slider::-webkit-scrollbar-track { background: var(--bg-black); }
 .history-slider::-webkit-scrollbar-thumb { background: var(--pink-hot); }
 
-/* The Backstage Comp Card */
+/* The Modern Comp Card */
 .comp-card {
-    flex: 0 0 420px;
+    flex: 0 0 400px;
     scroll-snap-align: center;
-    background: #f4f4f4; /* Off-white paper look */
-    position: relative;
-    padding: 25px;
+    background: #ffffff; /* Crisp, modern white */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    color: #111; /* Stark black text */
-    /* Subtle shadow to separate from the black background */
-    box-shadow: 10px 10px 0px rgba(228, 30, 129, 0.2); 
-    transition: transform 0.3s ease;
+    color: #111;
+    border: 1px solid #e0e0e0;
+    /* Realistic physical card shadow */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(255,255,255,0.05) inset;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
 }
 
 .comp-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255,255,255,0.1) inset;
 }
 
-/* The Binder Clips */
-.clips {
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    pointer-events: none;
-}
-
-.clip {
-    width: 25px;
-    height: 35px;
-    background: #222;
-    border-radius: 2px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    position: relative;
-}
-.clip::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -5px;
-    right: -5px;
-    height: 2px;
-    background: #555; /* Metal wire illusion */
-}
-
-/* Card Header Structure (Headshot + Stats) */
+/* Card Header Structure */
 .card-top {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 10px;
-    margin-top: 10px;
+    grid-template-columns: 120px 1fr;
+    gap: 15px;
 }
 
 .era-portrait {
-    background: #ccc;
+    background: #f0f0f0;
     border: 1px solid #111;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 140px;
+    aspect-ratio: 3/4; /* Classic headshot ratio */
 }
 
 .era-num {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #fff;
     -webkit-text-stroke: 1px #111;
+    line-height: 1;
 }
 
 .era-stats {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+    justify-content: flex-end;
 }
 
 .stat-box {
-    border: 1px solid #111;
-    padding: 8px 12px;
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #111;
+    padding-bottom: 5px;
 }
 
 .stat-box.title {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    background: #111;
+    border: none;
+    padding: 0;
+    margin-bottom: auto;
 }
 
 .stat-box.title h3 {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 1.1rem;
-    color: #f4f4f4; 
+    font-size: 1.25rem;
+    color: #111;
     margin: 0;
-    line-height: 1;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.stat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 /* The Grid (The "Looks") */
@@ -243,7 +226,7 @@ const base = import.meta.env.BASE_URL;
 }
 
 .look-box {
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -251,41 +234,48 @@ const base = import.meta.env.BASE_URL;
 
 .look-num {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    line-height: 1;
 }
 
 .look-box p {
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
     flex-grow: 1;
+    margin: 0;
 }
 
 .look-footer {
     font-family: 'Inter', sans-serif;
-    font-style: italic;
+    font-weight: 600;
     font-size: 0.7rem;
+    letter-spacing: 1px;
     border-top: 1px solid #111;
-    padding-top: 8px;
-    margin-top: 15px;
+    padding-top: 12px;
+    margin-top: 20px;
+    text-align: right;
 }
 
 /* Special Highlight Card */
 .comp-card.highlight {
-    background: var(--pink-hot);
-    box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.1);
+    background: #111;
+    color: #fff;
+    border-color: #333;
 }
 
-.comp-card.highlight .era-portrait { background: #111; }
-.comp-card.highlight .era-num { color: var(--pink-hot); -webkit-text-stroke: 1px #111; }
-.comp-card.highlight .stat-box { border-color: #111; color: #111; }
-.comp-card.highlight .card-grid { border-color: #111; }
-.comp-card.highlight .look-footer { border-color: #111; }
+.comp-card.highlight .era-portrait { background: #222; border-color: var(--pink-hot); }
+.comp-card.highlight .era-num { color: #111; -webkit-text-stroke: 1px var(--pink-hot); }
+.comp-card.highlight .stat-box { border-color: #333; }
+.comp-card.highlight .stat-box.title h3 { color: var(--pink-hot); }
+.comp-card.highlight .card-grid { border-color: #333; }
+.comp-card.highlight .look-box p { color: #ccc; }
+.comp-card.highlight .look-footer { border-color: #333; color: var(--pink-hot); }
 
 @media (max-width: 768px) {
-    .comp-card { flex: 0 0 320px; }
-    .card-top { grid-template-columns: 1fr; }
-    .era-portrait { min-height: 100px; }
+    .comp-card { flex: 0 0 85vw; padding: 15px; }
+    .card-top { grid-template-columns: 100px 1fr; }
 }
 </style>
