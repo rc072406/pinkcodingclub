@@ -21,199 +21,271 @@ const base = import.meta.env.BASE_URL;
 <InterviewGallery />
 <FounderSection />
 
-<!-- HISTORY SLIDER SECTION -->
-<section class="history-section">
-  <div class="history-header">
-    <span class="section-tag">// THE PINK CHRONICLE</span>
-    <h2 class="history-title">A BRIEF HISTORY OF GIRLY TECH</h2>
-    <p class="history-subtitle">From misplaced stereotypes to genuine self-expression.</p>
-  </div>
-
-  <!-- Horizontal Scroll Container -->
+<!-- Horizontal Scroll Container (The Rack) -->
   <div class="history-slider">
     
     <!-- Era 01 -->
-    <article class="history-card rough-start">
-      <div class="card-num">01 // 1990s</div>
-      <div class="card-status">ROUGH START</div>
-      <h3>PURPLE MOON & BRENDA LAUREL</h3>
-      <p>
-        The first major push to get girls on computers. While groundbreaking in recognizing a massive missing audience, early efforts often relied on narrow assumptions about what girls cared about—focusing heavily on gossip and social climb over creation.
-      </p>
-      <div class="card-footer-tag">COMPUTERS ARE A GIRL'S BEST FRIEND?</div>
+    <article class="comp-card">
+      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
+      <div class="card-top">
+        <div class="era-portrait">
+          <span class="era-num">01</span>
+        </div>
+        <div class="era-stats">
+          <div class="stat-box title"><h3>PURPLE MOON & BRENDA LAUREL</h3></div>
+          <div class="stat-box">Era : 1990s</div>
+          <div class="stat-box status">Status : ROUGH START</div>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="look-box">
+          <div class="look-num">LOOK 1</div>
+          <p>The first major push to get girls on computers. While groundbreaking, early efforts relied on narrow assumptions.</p>
+          <div class="look-footer">COMPUTERS ARE A GIRL'S BEST FRIEND?</div>
+        </div>
+      </div>
     </article>
 
     <!-- Era 02 -->
-    <article class="history-card rough-start">
-      <div class="card-num">02 // LATE 90s - 2000s</div>
-      <div class="card-status">ROUGH START</div>
-      <h3>Pink it and Shrink it</h3>
-      <p>
-        Tech hardware went pink, but software often fell into the "pink it and shrink it" trap. Danish company Pinkfloor created Powerbabe, a video game that aesthetics-wise was fun, but lacked real substance. Similar to Brenda's games, Powerbabe was about gossip and stereotypes. They even created an awful reality TV type gameshow surrounding it.
-      </p>
-      <div class="card-footer-tag">DEMONIZED FEMININITY</div>
+    <article class="comp-card">
+      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
+      <div class="card-top">
+        <div class="era-portrait">
+          <span class="era-num">02</span>
+        </div>
+        <div class="era-stats">
+          <div class="stat-box title"><h3>PINK IT AND SHRINK IT</h3></div>
+          <div class="stat-box">Era : LATE 90s - 2000s</div>
+          <div class="stat-box status">Status : ROUGH START</div>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="look-box">
+          <div class="look-num">LOOK 2</div>
+          <p>Tech hardware went pink, but software lacked substance. Powerbabe focused heavily on gossip and stereotypes over creation.</p>
+          <div class="look-footer">DEMONIZED FEMININITY</div>
+        </div>
+      </div>
     </article>
 
     <!-- Era 03 -->
-    <article class="history-card positive-era">
-      <div class="card-num">03 // 2000s - 2010s</div>
-      <div class="card-status status-good">TURNING POINT</div>
-      <h3>CREATIVE PLAY</h3>
-      <p>
-        Online games on sites like Winx Club (Techna anyone?), Myscene, Barbie and online dress-up portals shifted the focus toward fashion as agency, customization, and world-building. Girls weren't just consumers; they were designing, styling, and navigating digital environments on their own terms.
-      </p>
-      <div class="card-footer-tag">FASHION AS AGENCY</div>
+    <article class="comp-card">
+      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
+      <div class="card-top">
+        <div class="era-portrait">
+          <span class="era-num">03</span>
+        </div>
+        <div class="era-stats">
+          <div class="stat-box title"><h3>CREATIVE PLAY</h3></div>
+          <div class="stat-box">Era : 2000s - 2010s</div>
+          <div class="stat-box status good">Status : TURNING POINT</div>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="look-box">
+          <div class="look-num">LOOK 3</div>
+          <p>Online portals shifted focus toward fashion as agency, customization, and world-building. Girls were navigating digital environments on their own terms.</p>
+          <div class="look-footer">FASHION AS AGENCY</div>
+        </div>
+      </div>
     </article>
 
     <!-- Era 04 -->
-    <article class="history-card positive-era highlight-card">
-      <div class="card-num">04 // NOW</div>
-      <div class="card-status status-good">THE RECODE</div>
-      <h3>PINK CODING CLUB</h3>
-      <p>
-        Taking the aesthetic joy of fashion, makeup, and design and reclaiming it as real engineering power. Code isn't just logic—it's the ultimate creative medium for modern storytelling.
-      </p>
-      <div class="card-footer-tag">SYSTEM OVERRIDE</div>
+    <article class="comp-card highlight">
+      <div class="clips"><div class="clip"></div><div class="clip"></div></div>
+      <div class="card-top">
+        <div class="era-portrait">
+          <span class="era-num">04</span>
+        </div>
+        <div class="era-stats">
+          <div class="stat-box title"><h3>PINK CODING CLUB</h3></div>
+          <div class="stat-box">Era : NOW</div>
+          <div class="stat-box status good">Status : THE RECODE</div>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="look-box">
+          <div class="look-num">LOOK 4 // FINAL</div>
+          <p>Taking the aesthetic joy of fashion, makeup, and design and reclaiming it as real engineering power. Code is the ultimate creative medium.</p>
+          <div class="look-footer">SYSTEM OVERRIDE</div>
+        </div>
+      </div>
     </article>
 
   </div>
 
-
 </BaseLayout>
 <style>
-/* --- HISTORY SLIDER SECTION --- */
-.history-section {
-    padding: 100px 4%;
-    background: var(--bg-black);
-    border-bottom: 1px solid var(--border-gray);
-}
 
-.history-header {
-    margin-bottom: 40px;
-}
-
-.section-tag {
-    font-family: monospace;
-    font-size: 0.8rem;
-    color: var(--pink-hot);
-    letter-spacing: 2px;
-}
-
-.history-title {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    color: var(--pink-soft);
-    line-height: 0.95;
-    margin: 10px 0;
-}
-
-.history-subtitle {
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: rgba(250, 206, 226, 0.7);
-    text-transform: uppercase;
-}
-
-/* Horizontal Slider Container */
 .history-slider {
     display: flex;
-    gap: 30px;
+    gap: 50px; 
     overflow-x: auto;
-    padding-bottom: 30px;
+    padding: 20px 0 60px 0;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 }
 
-/* Custom Scrollbar */
-.history-slider::-webkit-scrollbar {
-    height: 4px;
+.history-slider::-webkit-scrollbar { height: 4px; }
+.history-slider::-webkit-scrollbar-track { background: var(--bg-black); }
+.history-slider::-webkit-scrollbar-thumb { background: var(--pink-hot); }
+
+/* The Backstage Comp Card */
+.comp-card {
+    flex: 0 0 420px;
+    scroll-snap-align: center;
+    background: #f4f4f4; /* Off-white paper look */
+    position: relative;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #111; /* Stark black text */
+    /* Subtle shadow to separate from the black background */
+    box-shadow: 10px 10px 0px rgba(228, 30, 129, 0.2); 
+    transition: transform 0.3s ease;
 }
 
-.history-slider::-webkit-scrollbar-track {
+.comp-card:hover {
+    transform: translateY(-5px);
+}
+
+/* The Binder Clips */
+.clips {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    pointer-events: none;
+}
+
+.clip {
+    width: 25px;
+    height: 35px;
+    background: #222;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    position: relative;
+}
+.clip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    right: -5px;
+    height: 2px;
+    background: #555; /* Metal wire illusion */
+}
+
+/* Card Header Structure (Headshot + Stats) */
+.card-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.era-portrait {
+    background: #ccc;
+    border: 1px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+}
+
+.era-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 4rem;
+    color: #fff;
+    -webkit-text-stroke: 1px #111;
+}
+
+.era-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-box {
+    border: 1px solid #111;
+    padding: 8px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stat-box.title {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
     background: #111;
 }
 
-.history-slider::-webkit-scrollbar-thumb {
-    background: var(--pink-hot);
+.stat-box.title h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem;
+    color: #f4f4f4; 
+    margin: 0;
+    line-height: 1;
 }
 
-/* Individual History Cards */
-.history-card {
-    flex: 0 0 380px;
-    scroll-snap-align: start;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-gray);
-    padding: 35px;
+/* The Grid (The "Looks") */
+.card-grid {
+    border: 1px solid #111;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: border-color 0.3s ease;
 }
 
-.history-card:hover {
-    border-color: var(--pink-soft);
+.look-box {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-/* Card Header Meta */
-.card-num {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--pink-hot);
-    letter-spacing: 2px;
-}
-
-.card-status {
-    display: inline-block;
-    font-family: monospace;
-    font-size: 0.65rem;
-    padding: 2px 6px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #888;
-    margin: 10px 0 20px 0;
-    width: fit-content;
-}
-
-.card-status.status-good {
-    background: rgba(228, 30, 129, 0.2);
-    color: var(--pink-soft);
-}
-
-.history-card h3 {
+.look-num {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 1.4rem;
-    color: var(--pink-soft);
-    line-height: 1.1;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-.history-card p {
+.look-box p {
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
-    line-height: 1.6;
-    color: rgba(250, 206, 226, 0.8);
-    text-transform: none; 
-    margin-bottom: 30px;
+    line-height: 1.5;
+    flex-grow: 1;
 }
 
-.card-footer-tag {
-    font-family: monospace;
+.look-footer {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
     font-size: 0.7rem;
-    color: var(--pink-hot);
-    border-top: 1px dashed var(--border-gray);
-    padding-top: 15px;
+    border-top: 1px solid #111;
+    padding-top: 8px;
+    margin-top: 15px;
 }
 
-/* Special Highlight for PCC Card */
-.history-card.highlight-card {
-    border: 1px solid var(--pink-hot);
-    background: linear-gradient(135deg, rgba(228, 30, 129, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+/* Special Highlight Card */
+.comp-card.highlight {
+    background: var(--pink-hot);
+    box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive adjustments */
+.comp-card.highlight .era-portrait { background: #111; }
+.comp-card.highlight .era-num { color: var(--pink-hot); -webkit-text-stroke: 1px #111; }
+.comp-card.highlight .stat-box { border-color: #111; color: #111; }
+.comp-card.highlight .card-grid { border-color: #111; }
+.comp-card.highlight .look-footer { border-color: #111; }
+
 @media (max-width: 768px) {
-    .history-card {
-        flex: 0 0 300px;
-        padding: 25px;
-    }
+    .comp-card { flex: 0 0 320px; }
+    .card-top { grid-template-columns: 1fr; }
+    .era-portrait { min-height: 100px; }
 }
 </style>
