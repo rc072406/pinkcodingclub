@@ -86,18 +86,22 @@ const base = import.meta.env.BASE_URL;
 
 .ticker-content {
   display: flex;
+  flex-shrink: 0; 
   align-items: center;
-  gap: 4rem; /* Space between words */
-  padding-right: 4rem; /* Match gap for seamless loop */
+  gap: 4rem; 
+  padding-right: 4rem; 
   animation: scroll-left 25s linear infinite;
   will-change: transform;
-}
+  
 
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0); 
+}
 
 .ticker-wrapper:hover .ticker-content {
   animation-play-state: paused;
 }
-
 
 .ticker-content a {
   font-family: 'Archivo Black', sans-serif;
@@ -107,6 +111,11 @@ const base = import.meta.env.BASE_URL;
   white-space: nowrap;
   letter-spacing: -1px;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  
+
+  display: inline-block;
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -127,13 +136,12 @@ const base = import.meta.env.BASE_URL;
   opacity: 0.4;
 }
 
-/* Continuous Infinite Keyframe Loop */
 @keyframes scroll-left {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translate3d(-100%, 0, 0);
   }
 }
 
