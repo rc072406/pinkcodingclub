@@ -53,7 +53,7 @@ const base = import.meta.env.BASE_URL;
 
 </BaseLayout>
 <style>
-/* 1. Add translateZ(0) to the wrapper to fix the mask rendering bug */
+
 .ticker-wrapper {
   width: 100%;
   padding: 60px 0;
@@ -87,26 +87,21 @@ const base = import.meta.env.BASE_URL;
   user-select: none;
 }
 
-/* 2. Remove 'gap' and 'will-change' */
 .ticker-content {
   display: flex;
   flex-shrink: 0; 
   align-items: center;
-  /* Remove gap: 4rem; and padding-right: 4rem; here */
   animation: scroll-left 25s linear infinite;
-  
-  /* Remove will-change: transform; (It overloads iOS memory) */
   
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0); 
+  
+  /* 1. Tell Safari to maintain 3D rendering for its children */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
-.ticker-wrapper:hover .ticker-content {
-  animation-play-state: paused;
-}
-
-/* 3. Apply the gap via margin-right instead */
 .ticker-content a {
   font-family: 'Archivo Black', sans-serif;
   font-size: clamp(2rem, 5vw, 4rem);
@@ -116,12 +111,17 @@ const base = import.meta.env.BASE_URL;
   letter-spacing: -1px;
   transition: opacity 0.3s ease, transform 0.3s ease;
   
-  /* Replaces the parent gap/padding for better iOS flex math */
   margin-right: 4rem; 
-
   display: inline-block;
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale;
+
+  /* 2. Force each word into its own hardware layer */
+  /* This prevents the single giant texture from exceeding iOS limits */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .ticker-content a.c-white { color: #ffffff; }
