@@ -78,9 +78,12 @@ const { isIndex = false, version = "V.01" } = Astro.props;
 
 @media (max-width: 768px) {
 .hero {
-        min-height: auto; 
-        padding: 70px 4% 40px 4%; 
-        justify-content: flex-start; 
+       min-height: auto;
+        padding-top: calc(90px + env(safe-area-inset-top, 0px));
+        padding-bottom: 40px;
+        padding-left: 4%;
+        padding-right: 4%;
+        justify-content: flex-start;
     }
     .hero-cta {
         margin-top: 40px;
