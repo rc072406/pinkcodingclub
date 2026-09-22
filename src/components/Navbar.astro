@@ -198,9 +198,9 @@ nav.nav-hidden {
     letter-spacing: -1px;
 }
 
-/* Universal Premium Hamburger Toggle */
+
 .menu-toggle {
-    display: flex; /* Now visible on all screens */
+    display: flex; 
     cursor: pointer;
     z-index: 1002;
     position: relative;
@@ -321,12 +321,14 @@ nav.nav-hidden {
     transition: all 0.4s ease;
 }
 
-.overlay-nav-links a:nth-child(1) { color: #8A2222; }
-.overlay-nav-links a:nth-child(2) { color: #D5B980; }
+.overlay-nav-links a:nth-child(1) { color: #e41e81 ; }
+.overlay-nav-links a:nth-child(2) { color: #facee2; }
 .overlay-nav-links a:nth-child(3) { color: var(--text-white, #fff); }
 
 .overlay-nav-links a:hover, .overlay-nav-links a.active {
-    color: var(--pink-hot, #ff69b4);
+    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     transform: translateX(-10px);
 }
 
