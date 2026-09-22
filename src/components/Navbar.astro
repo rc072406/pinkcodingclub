@@ -25,16 +25,43 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
   </div>
 
   <div class="menu-toggle" id="mobile-menu-btn">
-    <span></span><span></span><span></span>
+    <div class="hamburger-lines">
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </nav>
 
 <div class="mobile-overlay" id="mobile-overlay">
-  <div class="close-menu" id="close-menu-btn">CLOSE</div>
-  <div class="mobile-nav-links">
-    <a href={formatUrl('manifesto')} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
-    <a href={formatUrl('curriculum')} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
-    <a href={formatUrl('join')} class={isJoin ? 'active' : ''}>JOIN</a>
+  <div class="overlay-container">
+    <div class="close-menu" id="close-menu-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+        <path d="M18 6L6 18M6 6l12 12"></path>
+      </svg>
+    </div>
+    
+    <div class="overlay-content">
+      <!-- Left side: Secondary info -->
+      <div class="overlay-secondary">
+        <div class="secondary-group">
+          <p>PRIMARY</p>
+          <p>INDEX</p>
+          <p>PORTAL</p>
+        </div>
+        <div class="secondary-group bottom">
+          <p>ABOUT</p>
+          <p>BUSINESS</p>
+          <p>CONTACT</p>
+        </div>
+      </div>
+
+      <!-- Right side: Massive primary links -->
+      <div class="mobile-nav-links">
+        <a href={formatUrl('manifesto')} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
+        <a href={formatUrl('curriculum')} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
+        <a href={formatUrl('join')} class={isJoin ? 'active' : ''}>JOIN</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -74,7 +101,6 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
       overlay.classList.toggle('active', isActive);
     };
 
-    // Prevent duplicate event listeners when Astro swaps pages
     const newMenuBtn = menuBtn.cloneNode(true);
     menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
     
@@ -84,7 +110,6 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     newMenuBtn.addEventListener('click', () => toggleMenu());
     newCloseBtn.addEventListener('click', () => toggleMenu(false));
 
-    // Close when clicking links
     document.querySelectorAll('.mobile-nav-links a').forEach(link => {
       link.addEventListener('click', () => toggleMenu(false));
     });
@@ -98,8 +123,6 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     const overlay = document.getElementById('mobile-overlay');
     
     if (!nav) return;
-    
-    // Do not hide navbar if mobile menu is open
     if (overlay && overlay.classList.contains('active')) return;
 
     const currentScrollY = window.scrollY;
@@ -113,18 +136,15 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     lastScrollY = currentScrollY;
   };
 
-  // Initial setup
   initMenu();
   window.removeEventListener('scroll', handleScroll);
   window.addEventListener('scroll', handleScroll);
 
-  // Re-run setup after a page swap
   document.addEventListener('astro:after-swap', () => {
     initMenu();
     lastScrollY = window.scrollY; 
   });
 
-  // NEW FIX: Force unlock scrolling right before Astro leaves the page
   document.addEventListener('astro:before-preparation', () => {
     document.body.style.position = '';
     document.body.style.top = '';
@@ -134,51 +154,72 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 </script>
 
 <style>
-/* Mobile Toggle Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--bg-black);
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--pink-soft);
+    text-transform: uppercase;
+}
+
+/* Premium Hamburger Toggle */
 .menu-toggle {
     display: none;
-    flex-direction: column;
-    gap: 6px;
     cursor: pointer;
     z-index: 1002;
     position: relative;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.menu-toggle span {
+.hamburger-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: flex-end;
+}
+
+.hamburger-lines span {
     display: block;
-    width: 25px;
-    height: 2px;
-    background: #facee2;
-    transition: 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+    height: 1.5px;
+    background: var(--pink-soft);
+    transition: all 0.4s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
-/* Animation to 'X' */
-.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: #e41e81; }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background: #e41e81; }
+.hamburger-lines span:nth-child(1) { width: 100%; }
+.hamburger-lines span:nth-child(2) { width: 60%; }
 
-/* Overlay Styles - SAFARI COMPOSITOR FIX */
+.menu-toggle:hover .hamburger-lines span:nth-child(2) {
+    width: 100%;
+}
+
+.menu-toggle.active { opacity: 0; pointer-events: none; }
+
+/* Overlay Layout */
 .mobile-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    inset: 0;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: var(--bg-black);
     z-index: 1001;
-    
-    /* Reveal overlay using clip-path instead of moving layer coordinates */
     clip-path: inset(0 0 100% 0);
     visibility: hidden;
     pointer-events: none;
-    transition: clip-path 0.5s cubic-bezier(0.85, 0, 0.15, 1), visibility 0.5s;
+    transition: clip-path 0.7s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.7s;
 }
 
 .mobile-overlay.active {
@@ -187,72 +228,78 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     pointer-events: auto;
 }
 
+.overlay-container {
+    padding: max(30px, env(safe-area-inset-top)) 4% 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-menu {
+    align-self: flex-start;
+    color: var(--pink-soft);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 10px;
+    margin-left: -10px;
+}
+
+.close-menu:hover {
+    color: var(--pink-hot);
+    transform: rotate(90deg);
+}
+
+.overlay-content {
+    display: flex;
+    flex: 1;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.overlay-secondary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-bottom: 20px;
+}
+
+.secondary-group p {
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.secondary-group p:hover { color: var(--text-white); }
+
 .mobile-nav-links {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    text-align: center;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+    width: 100%;
 }
 
 .mobile-nav-links a {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 3rem;
-    color: #facee2;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+    color: var(--pink-soft);
     text-decoration: none;
     letter-spacing: -2px;
+    text-align: right;
+    transition: all 0.4s ease;
 }
 
-/* Gradient Effect on Hover */
+.mobile-nav-links a:nth-child(1) { color: #8A2222; }
+.mobile-nav-links a:nth-child(2) { color: #D5B980; }
+.mobile-nav-links a:nth-child(3) { color: var(--text-white); }
+
 .mobile-nav-links a:hover, .mobile-nav-links a.active {
-    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.close-menu {
-    position: absolute;
-    top: max(25px, env(safe-area-inset-top) + 15px);
-    right: 4%;
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 2px;
-    color: #facee2;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.close-menu:hover {
-    color: #e41e81;
-    transform: scale(1.1);
-}
-
-/* Show toggle on mobile */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .menu-toggle { display: flex; }
-}
- 
-:root {
-    --bg-black: #000000;
-    --text-white: #ffffff;
-    --border-gray: #333333;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    background-color: #000000; /* Safari status bar color fallback */
-}
-
-body {
-    background-color: var(--bg-black);
-    color: #facee2;
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
+    color: var(--pink-hot);
+    transform: translateX(-10px);
 }
 
 /* Navigation - Minimal & Wide */
@@ -260,7 +307,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* FIX: added vertical centering */
+    align-items: center;
     padding: 20px 4%;
     padding-top: max(20px, env(safe-area-inset-top));
     border-bottom: 1px solid var(--border-gray);
@@ -270,16 +317,11 @@ nav {
     right: 0;
     background: rgba(0,0,0,0.8);
     z-index: 1000;
-    
-    /* Safari Fixes */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    
-    /* Scroll Animation */
     transition: transform 0.4s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
-/* Class applied by JS to hide navbar */
 nav.nav-hidden {
     transform: translateY(-100%);
 }
@@ -290,30 +332,34 @@ nav.nav-hidden {
     letter-spacing: -1px;
 }
 
-/* Navbar Links & Hovers */
+.nav-links {
+    display: flex;
+}
+
 .nav-links a {
-    color: #facee2;
+    color: var(--pink-soft);
     text-decoration: none;
     font-size: 0.7rem;
     margin-left: 30px;
     letter-spacing: 2px;
     font-weight: 900;
     transition: all 0.4s ease;
-    display: inline-block;
 }
 
-.nav-links a:hover {
-    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
+.nav-links a:hover, .nav-links a.active {
+    background: linear-gradient(90deg, var(--pink-soft) 0%, var(--pink-mid) 50%, var(--pink-hot) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transform: translateY(-1px);
-    text-shadow: 0 0 10px rgba(228, 30, 129, 0.2);
 }
 
-.nav-links a.active {
-    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 900;
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
+    
+    .mobile-nav-links a {
+        font-size: clamp(3rem, 15vw, 6rem);
+        letter-spacing: -1px;
+    }
 }
 </style>
