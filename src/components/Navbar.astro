@@ -38,19 +38,20 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     </div>
     
     <div class="overlay-content">
-      <!-- Left side: Secondary info -->
-      <div class="overlay-secondary">
-        <div class="secondary-group">
-          <p>PRIMARY</p>
-          <p>INDEX</p>
-          <p>PORTAL</p>
-        </div>
-        <div class="secondary-group bottom">
-          <p>ABOUT</p>
-          <p>BUSINESS</p>
-          <p>CONTACT</p>
-        </div>
-      </div>
+<!-- Left side: Secondary info -->
+<div class="overlay-secondary">
+  <div class="secondary-group">
+    <p>PRIMARY</p>
+    <p>INDEX</p>
+    <p>PORTAL</p>
+  </div>
+  <div class="secondary-group bottom">
+    <!-- Updated to anchor links pointing to the about page IDs -->
+    <a href={formatUrl('about#about')}>ABOUT</a>
+    <a href={formatUrl('about#business')}>BUSINESS</a>
+    <a href={formatUrl('about#contact')}>CONTACT</a>
+  </div>
+</div>
 
       <!-- Right side: Massive primary links -->
       <div class="overlay-nav-links">
@@ -98,7 +99,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
       overlay.classList.toggle('active', isActive);
     };
 
-    // Clean up old event listeners when Astro swaps pages
+// Clean up old event listeners when Astro swaps pages
     const newMenuBtn = menuBtn.cloneNode(true);
     menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
     
@@ -108,7 +109,8 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     newMenuBtn.addEventListener('click', () => toggleMenu());
     newCloseBtn.addEventListener('click', () => toggleMenu(false));
 
-    document.querySelectorAll('.overlay-nav-links a').forEach(link => {
+
+    document.querySelectorAll('.overlay-content a').forEach(link => {
       link.addEventListener('click', () => toggleMenu(false));
     });
   };
@@ -294,12 +296,20 @@ nav.nav-hidden {
     padding-bottom: 20px;
 }
 
-.secondary-group p {
+.secondary-group p,
+.secondary-group a {
+    display: block;
     margin-bottom: 12px;
     cursor: pointer;
     transition: color 0.2s;
+    text-decoration: none; 
+    color: inherit;        
 }
-.secondary-group p:hover { color: var(--text-white, #fff); }
+
+.secondary-group p:hover,
+.secondary-group a:hover { 
+    color: var(--text-white, #fff); 
+}
 
 .overlay-nav-links {
     display: flex;
