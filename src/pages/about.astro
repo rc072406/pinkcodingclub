@@ -136,6 +136,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </script>
 
 <style>
+  /* FIX: Ensures padding is calculated inward, preventing containers from breaking past 100% width */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   .page-container {
     display: flex;
     max-width: 1400px;
@@ -178,6 +183,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-grow: 1;
     max-width: 900px;
     padding-left: 2rem;
+    min-width: 0; /* FIX: Prevents this flex child from forcing horizontal scrolling */
   }
 
   .content-section {
@@ -248,6 +254,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem; /* FIX: Safe space so text never squishes the plus icon */
     padding: 1.5rem 0;
     font-weight: 600;
     cursor: pointer;
@@ -267,6 +274,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .plus {
     font-size: 1.2rem;
     transition: transform 0.3s ease;
+    flex-shrink: 0; /* FIX: Prevents the plus icon from resizing if the text gets long */
   }
 
   .faq-item[open] .plus {
@@ -307,6 +315,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #ffffff;
     text-decoration: underline;
     text-underline-offset: 4px;
+    word-break: break-word; /* FIX: Forces the long email address to wrap on small screens */
   }
 
   .mt-8 {
