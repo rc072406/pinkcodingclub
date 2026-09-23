@@ -8,7 +8,7 @@ const cleanPath = pathname
   .replace(/\/$/, "") || "";
 
 const isManifesto = cleanPath === 'manifesto';
-const isthe-club = cleanPath === 'the-club';
+const isJoin = cleanPath === 'join';
 const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'web-design';
 
 const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
@@ -57,7 +57,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
       <div class="overlay-nav-links">
         <a href={formatUrl('manifesto')} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
         <a href={formatUrl('curriculum')} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
-        <a href={formatUrl('the-club')} class={isthe-club ? 'active' : ''}>THE CLUB</a>
+        <a href={formatUrl('the-club')} class={isJoin ? 'active' : ''}>THE CLUB</a>
       </div>
     </div>
   </div>
@@ -335,12 +335,7 @@ nav.nav-hidden {
 .overlay-nav-links a:nth-child(2) { color: #facee2; }
 .overlay-nav-links a:nth-child(3) { color: var(--text-white, #fff); }
 
-.overlay-nav-links a:hover, .overlay-nav-links a.active {
-    background: linear-gradient(90deg, #facee2 0%, #f3a6c9 50%, #e41e81 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: translateX(-10px);
-}
+
 
 /* Mobile Adjustments for the Overlay */
 @media (max-width: 768px) {
