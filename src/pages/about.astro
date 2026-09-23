@@ -34,7 +34,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <ul class="principles-list">
           <li><strong>Individuality</strong> — We celebrate the unique ideas, backgrounds, and strengths of every member.</li>
           <li><strong>Innovation</strong> — We develop original ideas, solve problems creatively, and collaborate with people around the world.</li>
-          <li><strong>Trauma-Informed Design</strong> — Like the Hippocratic oath in medicine, we strive to do no harm, protect users, respect their privacy, and take responsibility for the technology we create.</li>
+          <li><strong>Trauma-Informed Design</strong> — We strive to do no harm, protect users, respect their privacy, and take responsibility for the technology we create.</li>
           <li><strong>Respect</strong> — We respect different ideas, identities, experiences, and ways of learning.</li>
           <li><strong>Integrity</strong> — When something is inaccurate, unsafe, or harmful, we take responsibility and work diligently to fix it.</li>
         </ul>
@@ -252,7 +252,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 600;
     cursor: pointer;
     transition: color 0.2s ease;
-    list-style: none; /* Hide standard marker */
+    list-style: none; 
+    text-transform: none;
   }
 
   .faq-summary::-webkit-details-marker {
@@ -278,6 +279,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #a0a0a0;
     line-height: 1.6;
     font-size: 0.95rem;
+    text-transform: none;
   }
 
   /* Contact Section Styling */
