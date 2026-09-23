@@ -26,56 +26,77 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p>But after hearing many personal anecdotes where women stripped themselves of their femineity to feel accepted by the tech community, Rachel knew there was something awry with the current culture. So then, disillusioned by the education system and tech industry, Rachel created the Pink Coding Club to counter the hyper-masculine and uninviting world of tech. Pink Coding Club does not only educate through art and fashion, but empowers the "girly girl" and helps her remember that she does have a place in technology whether others like it or not. </p>
           <br>
           <p>The hyper-feminine perspective in technology is valuable not only for its impeccable design, but for its insights in representation, accessibility, and trauma-minded design. Every single one of her designs is not only made with love, but pure passion as well. This perspective changes the game and goes beyond simply creating trends. </p>
-       <br>
-<p>Transcending far beyond just education, P.C.C. marks itself as rebellion in the industry, carving a path for the next generation of girls. Unapologetically herself, a P.C.C. member is not only an innovator, but defines the future of technology. She can design. She can create. She can do anything. She leads the culture.</p>
+        <br>
+        <p>Transcending far beyond just education, P.C.C. marks itself as rebellion in the industry, carving a path for the next generation of girls. Unapologetically herself, a P.C.C. member is not only an innovator, but defines the future of technology. She can design. She can create. She can do anything. She leads the culture.</p>
+        </div>
 
-
-</div>
-
- <h2 class="sub-title">Our Principles</h2>
+        <h2 class="sub-title">Our Principles</h2>
         <ul class="principles-list">
-          <li><strong>Originality</strong> — Do not plagiarize another's wor</li>
-          <li><strong>Credit</strong> — We clearly attribute every contributor: photographers, stylists and more.</li>
-          <li><strong>Transparency</strong> — Sponsored or advertising content is clearly distinguished from editorial.</li>
-          <li><strong>Accuracy</strong> — For celebrity and news coverage we verify sources and correct errors promptly.</li>
-          <li><strong>Image rights</strong> — We respect image rights and their scope of use.</li>
+          <li><strong>Individuality</strong> — We celebrate the unique ideas, backgrounds, and strengths of every member.</li>
+          <li><strong>Innovation</strong> — We develop original ideas, solve problems creatively, and collaborate with people around the world.</li>
+          <li><strong>Trauma-Informed Design</strong> — Like the Hippocratic oath in medicine, we strive to do no harm, protect users, respect their privacy, and take responsibility for the technology we create.</li>
+          <li><strong>Respect</strong> — We respect different ideas, identities, experiences, and ways of learning.</li>
+          <li><strong>Integrity</strong> — When something is inaccurate, unsafe, or harmful, we take responsibility and work diligently to fix it.</li>
         </ul>
 
         <h3 class="faq-title">FREQUENTLY ASKED QUESTIONS</h3>
         <div class="faq-list">
-          <div class="faq-item"><span>What is Pink Coding Club?</span> <span class="plus">+</span></div>
-          <div class="faq-item"><span>Is learning at Pink Coding Club free?</span> <span class="plus">+</span></div>
-          <div class="faq-item"><span>Do I need to attend weekly classes?</span> <span class="plus">+</span></div>
-         
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>What is Pink Coding Club?</span>
+              <span class="plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Is learning at Pink Coding Club free?</span>
+              <span class="plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Do I need to attend weekly classes?</span>
+              <span class="plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </details>
         </div>
       </section>
 
       <!-- BUSINESS SECTION -->
       <section id="business" class="content-section">
         <h1 class="pink-title">BUSINESS</h1>
-
-    <div class="contact-grid">
-          <div class="contact-col">
-            <h4></h4>
-            <p><br></p>
-            
-            <h4 class="mt-8"></h4>
-            <p><br></p>
-          </div>
-       
       </section>
 
       <!-- CONTACT SECTION -->
       <section id="contact" class="content-section">
         <h1 class="pink-title">CONTACT</h1>
         
-      
+        <div class="contact-grid">
+          <div class="contact-col">
+            <h4>OFFICE</h4>
+            <p>Somewhere,<br>Over the Rainbow</p>
+          </div>
           
           <div class="contact-col">
             <h4>EMAIL</h4>
-            <p><a href="" class="email-link">Soon to come</a></p>
+            <p><a href="mailto:soontocome@pinkcodingclub.com" class="email-link">soontocome@pinkcodingclub.com</a></p>
             
-           
+            <h4 class="mt-8">Where to Find Us</h4>
+            <div class="media-kit-buttons">
+              <button class="outline-btn">Instagram</button>
+              <button class="outline-btn">TikTok</button>
+            </div>
           </div>
         </div>
       </section>
@@ -85,7 +106,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
-
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".content-section");
     const navLinks = document.querySelectorAll(".nav-link");
@@ -116,14 +136,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </script>
 
 <style>
-.page-container {
-  display: flex;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 120px 2rem 4rem 2rem; /* 120px top padding clears the navbar */
-  font-family: 'Inter', sans-serif;
-}
-
+  .page-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 2rem 4rem 2rem;
+    font-family: 'Inter', sans-serif;
+  }
 
   /* Sidebar Styling */
   .sidebar {
@@ -139,16 +158,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 3rem;
   }
 
- .nav-link {
-  writing-mode: vertical-rl;
-  color: #555555;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  transition: color 0.3s ease;
-  text-transform: uppercase;
-}
+  .nav-link {
+    writing-mode: vertical-rl;
+    color: #555555;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+  }
 
   .nav-link:hover, .nav-link.active {
     color: #ffffff;
@@ -161,12 +180,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-left: 2rem;
   }
 
-.content-section {
-  padding-bottom: 8rem;
-  min-height: 80vh;
-  scroll-margin-top: 120px; 
-}
-
+  .content-section {
+    padding-bottom: 8rem;
+    min-height: 80vh;
+    scroll-margin-top: 120px; 
+  }
 
   .pink-title {
     font-family: 'Archivo Black', sans-serif;
@@ -183,7 +201,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #d1d1d1;
     text-transform: none; 
   }
-
 
   .sub-title {
     font-size: 2rem;
@@ -210,6 +227,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #ffffff;
   }
 
+  /* FAQ Accordion Styling */
   .faq-title {
     font-size: 0.9rem;
     letter-spacing: 0.2em;
@@ -223,18 +241,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .faq-item {
+    border-bottom: 1px solid #222;
+  }
+
+  .faq-summary {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1.5rem 0;
-    border-bottom: 1px solid #222;
     font-weight: 600;
     cursor: pointer;
-    transition: color 0.2s;
-    text-transform: none;
+    transition: color 0.2s ease;
+    list-style: none; /* Hide standard marker */
   }
-  
-  .faq-item:hover {
+
+  .faq-summary::-webkit-details-marker {
+    display: none; /* Hide WebKit marker */
+  }
+
+  .faq-summary:hover {
     color: #facee2;
+  }
+
+  .plus {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .plus {
+    transform: rotate(45px); /* Rotates '+' into an 'x' on open */
+    color: #facee2;
+  }
+
+  .faq-answer {
+    padding-bottom: 1.5rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    font-size: 0.95rem;
   }
 
   /* Contact Section Styling */
@@ -291,73 +334,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* Mobile Responsiveness */
   @media (max-width: 768px) {
-/* 1. Page Container (Added top padding so content doesn't sit under fixed navbar) */
-.page-container {
-  display: flex;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 120px 2rem 4rem 2rem; /* 120px top padding clears the navbar */
-  font-family: 'Inter', sans-serif;
-}
+    .page-container {
+      padding: 100px 1rem 2rem 1rem; 
+    }
 
-/* 2. Nav Link (Removed text-orientation: upright so words rotate sideways) */
-.nav-link {
-  writing-mode: vertical-rl; /* Rotates the whole word 90 degrees */
-  color: #555555;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  transition: color 0.3s ease;
-  text-transform: uppercase;
-}
+    .sidebar {
+      width: 30px;
+    }
 
-.nav-link:hover, .nav-link.active {
-  color: #ffffff;
-}
+    .side-nav {
+      top: 90px;
+      gap: 2rem;
+    }
 
+    .nav-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+    }
 
-.content-section {
-  padding-bottom: 8rem;
-  min-height: 80vh;
-  scroll-margin-top: 120px; 
-}
+    .content-wrapper {
+      padding-left: 1rem;
+    }
 
-/* 4. Mobile Adjustments */
-@media (max-width: 768px) {
-  .page-container {
-    padding: 100px 1rem 2rem 1rem; 
+    .content-section {
+      scroll-margin-top: 90px;
+    }
+
+    .pink-title {
+      font-size: 3rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
   }
-
-  .sidebar {
-    width: 30px;
-  }
-
-  .side-nav {
-    top: 90px;
-    gap: 2rem;
-  }
-
-  .nav-link {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-  }
-
-  .content-wrapper {
-    padding-left: 1rem;
-  }
-
-  .content-section {
-    scroll-margin-top: 90px;
-  }
-
-  .pink-title {
-    font-size: 3rem;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
 </style>
