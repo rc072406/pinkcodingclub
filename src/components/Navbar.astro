@@ -3,13 +3,8 @@
 const base = import.meta.env.BASE_URL;
 const { pathname } = Astro.url; 
 
-const cleanPath = pathname
-  .replace(base, "")
-  .replace(/\/$/, "") || "";
 
-const isManifesto = cleanPath === 'manifesto';
-const isJoin = cleanPath === 'join';
-const isCurriculum = cleanPath === 'curriculum' || cleanPath === 'web-design';
+
 
 const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 ---
@@ -55,9 +50,9 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 
       <!-- Right side: Massive primary links -->
       <div class="overlay-nav-links">
-        <a href={formatUrl('manifesto')} class={isManifesto ? 'active' : ''}>MANIFESTO</a>
-        <a href={formatUrl('curriculum')} class={isCurriculum ? 'active' : ''}>CURRICULUM</a>
-        <a href={formatUrl('the-club')} class={isJoin ? 'active' : ''}>THE CLUB</a>
+     <a href={formatUrl('manifesto')}>MANIFESTO</a>
+<a href={formatUrl('curriculum')}>CURRICULUM</a>
+<a href={formatUrl('the-club')}>THE CLUB</a>
       </div>
     </div>
   </div>
