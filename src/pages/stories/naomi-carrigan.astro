@@ -2,7 +2,32 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout>
+<BaseLayout 
+  title="Naomi Carrigan | Software Engineer & Ethical Tech Advocate"
+  description="Read our interview with Naomi Carrigan, a transfemme software engineer shaping the freeCodeCamp curriculum and building inclusive, community-driven technology."
+>
+
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Naomi Carrigan | Software Engineer & Ethical Tech Advocate",
+        "description": "Read our interview with Naomi Carrigan, a transfemme software engineer shaping the freeCodeCamp curriculum and building inclusive, community-driven technology.",
+        "image": "https://cdn.nhcarrigan.com/profile.png",
+        "author": {
+          "@type": "Person",
+          "name": "Rachel Chen"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Pink Coding Club"
+        },
+        "datePublished": "2026-09-24",
+        "mainEntityOfPage": "https://pinkcodingclub.com/stories/naomi-carrigan"
+      }
+    </script>
+  </Fragment>
   <article class="interview-article">
  
 
