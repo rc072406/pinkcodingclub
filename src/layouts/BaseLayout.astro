@@ -4,7 +4,14 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import '../styles/global.css';
 
-const { title, version, isIndex = false, showHero = false } = Astro.props;
+
+const { 
+  title = "Pink Coding Club | Free Creative Tech & Coding Camps for Girls", 
+  description = "Pink Coding Club (P.C.C.) blends computer science with art, fashion, and design. 100% free coding programs empowering girls and non-binary youth.",
+  version, 
+  isIndex = false, 
+  showHero = false 
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -13,6 +20,40 @@ const { title, version, isIndex = false, showHero = false } = Astro.props;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    
+    <!-- Core SEO -->
+    <meta name="description" content={description}>
+    <meta name="keywords" content="free coding camp for girls, non-binary coding programs, aesthetic coding, fashion tech, free STEM camps">
+    
+    <!-- Open Graph (Discord, iMessage, LinkedIn, Facebook) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Google JSON-LD Schema: Tells search engines exactly what P.C.C. is -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Pink Coding Club",
+        "url": "https://pinkcodingclub.com",
+        "description": "Free coding camps and creative tech programs for girls and non-binary youth, blending computer science with art, fashion, and trauma-informed design.",
+        "isAccessibleForFree": true,
+        "teaches": "Computer Science, Creative Tech, Web Development",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Girls and non-binary youth"
+        }
+      }
+    </script>
+
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Crimson+Text:ital,wght@0,700;1,700&family=Reenie+Beanie&display=swap&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
