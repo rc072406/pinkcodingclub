@@ -3,7 +3,32 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="CLAIRE DAVISON // P.C.C. ARCHIVE">
+<BaseLayout 
+  title="Claire Davison | ABT Ballerina, Clown & Web Designer"
+  description="Discover the story of Claire Davison: how an American Ballet Theatre (ABT) ballerina became an award-winning clown, choreographer, and web designer."
+>
+
+<Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Claire Davison | ABT Ballerina, Clown & Web Designer",
+        "description": "How an American Ballet Theatre ballerina became an award-winning clown, choreographer, and web designer.",
+        "image": "https://pinkcodingclub.com/images/clairedavison.jpg",
+        "author": {
+          "@type": "Person",
+          "name": "Rachel Chen"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Pink Coding Club"
+        },
+        "datePublished": "2026-09-24",
+        "mainEntityOfPage": "https://pinkcodingclub.com/stories/claire-davison"
+      }
+    </script>
+  </Fragment>
   <article class="editorial-wrapper">
     
   <!-- Hero Section -->
