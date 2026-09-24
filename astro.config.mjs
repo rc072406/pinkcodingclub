@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare'; 
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://pinkcodingclub.pages.dev',
+  site: 'https://pinkcodingclub.com/',
+  integrations: [sitemap()],
   base: '/', 
   output: 'static', 
   adapter: cloudflare(), 
