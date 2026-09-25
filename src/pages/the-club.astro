@@ -8,29 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 isIndex={false} 
 version="Join // V.01">
 
-  <section class="hero-section">
-    <div class="hero-row">
-      <div class="marquee">
-        <div class="track">
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="hero-row ghost-row">
-      <div class="marquee reverse">
-        <div class="track">
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
 <section class="chaos-footer">
     <div class="stack-container">
@@ -47,90 +25,7 @@ version="Join // V.01">
 
 <style>
 
-/* --- HERO SECTION STYLES --- */
-.hero-section {
-    padding: 100px 0; 
-    display: flex;
-    flex-direction: column;
-    gap: 0; 
-    overflow: hidden;
-    cursor: crosshair;
-}
 
-.hero-row {
-    position: relative;
-    width: 100vw;
-    z-index: 10;
-}
-
-.marquee {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-
-}
-
-.track {
-    display: flex;
-    animation: scroll-left 20s linear infinite;
-    width: max-content; 
-   -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
-    will-change: transform;
-}
-
-.hero-row span {
-    font-family: var(--inter); 
-    font-weight: 900;
-    font-size: clamp(4rem, 12vw, 10rem);
-    line-height: 0.8;
-    color: #fff;
-    padding-right: 20px;
-    transition: all 0.4s ease;
-    flex-shrink: 0;
-    -webkit-transform: translateZ(0);
-}
-
-
-.ghost-row span {
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
-    margin-top: -20px; 
-}
-
-/* --- ANIMATIONS --- */
-@keyframes scroll-left {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
-.reverse .track {
-    animation-direction: reverse;
-}
-
-/* --- HOVER INTERACTION --- */
-
-.hero-section:hover .hero-row span {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--pink-hot);
-}
-
-.hero-section:hover .ghost-row span {
-    color: #fff;
-    -webkit-text-stroke: 0px transparent;
-    text-shadow: 0 0 20px rgba(255,255,255,0.2);
-}
-
-
-.hero-section:hover .track {
-    animation-duration: 5s; /* Speeds up on hover */
-}
 .chaos-footer {
     background: transparent !important; 
     padding: 100px 0;
@@ -163,7 +58,7 @@ version="Join // V.01">
 }
 
 .stack-text.solid-overlap {
-    color: #fff;
+    color: var(--pink-soft);
     z-index: 8;
     margin-left: -5%; 
 }
