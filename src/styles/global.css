@@ -394,6 +394,7 @@
 
     /* Original Copyright Footer Style */
         .copyright-footer {
+            margin-top: auto;
             display: flex;
             justify-content: space-between;
             padding: 20px 4% 80px 4%;
@@ -434,4 +435,7 @@
             color: #facee2;
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
+            min-height: 100vh;
+    display: flex;
+    flex-direction: column;
         }
