@@ -3,89 +3,125 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="JOIN // PINK CODING CLUB" 
- description="Join the exclusive Pink Coding Club. We'll talk fashion, the latest technology frameworks, and all things fun!."
-isIndex={false} 
-version="Join // V.01">
+<BaseLayout 
+  title="JOIN // PINK CODING CLUB" 
+  description="Join the exclusive Pink Coding Club. We'll talk fashion, the latest technology frameworks, and all things fun!."
+  isIndex={false} 
+  version="Join // V.01"
+>
 
-  
-
-<section class="chaos-footer">
-    <div class="stack-container">
-        <h2 class="stack-text outline slide-left">EXCLUSIVE CIRCLE COMING SOON</h2>
-        <h2 class="stack-text solid">// EXCLUSIVE CIRCLE COMING</h2>
-        <h2 class="stack-text outline-faded slide-right">SOON // EXCLUSIVE CIRCLE //</h2>
-        <h2 class="stack-text solid-overlap">COMING SOON // EXCLUSIVE //</h2>
-        <h2 class="stack-text outline-bold">CIRCLE COMING SOON // //</h2>
+  <div class="locked-container">
+    <div class="content-wrapper">
+      <h1 class="title">The Exclusive Club</h1>
+      <p class="subtitle">coming soon</p>
+      
+      <!-- The form doesn't submit anywhere yet, it just prevents default reload -->
+      <form class="password-form" onsubmit="event.preventDefault();">
+        <input 
+          type="password" 
+          placeholder="ENTER PASSWORD" 
+          class="password-input" 
+          autocomplete="off"
+        />
+        <button type="submit" class="submit-btn" aria-label="Submit Password">
+          &rarr;
+        </button>
+      </form>
     </div>
-</section>
-  
+  </div>
 
 </BaseLayout>
 
 <style>
 
-
-.chaos-footer {
-    background: transparent !important; 
-    padding: 100px 0;
-    overflow: hidden;
+  
+  .locked-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-height: 75vh; 
     width: 100%;
-    z-index: 2000 !important;
-}
+    padding: 2rem;
+  }
 
-.stack-container {
+  .content-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the stack generally */
-}
+    align-items: center;
+    text-align: center;
+  }
 
-.stack-text {
-    font-family: var(--inter);
-    font-weight: 900;
-    font-size: clamp(3rem, 12vw, 10rem);
-    line-height: 0.75; 
-    margin-top: -0.3em; 
-    white-space: nowrap;
+
+  .title {
+     font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem); 
+    font-weight: 300; 
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    transition: all 0.3s ease;
-     margin-top: -0.1em; 
-}
+    margin: 0;
+
+   
+  }
 
 
-.stack-text.solid {
-    color: #fff;
-    z-index: 10;
-}
-
-.stack-text.solid-overlap {
-    color: var(--pink-soft);
-    z-index: 8;
-    margin-left: -5%; 
-}
-
-.stack-text.outline {
-    color: transparent;
-    -webkit-text-stroke: 1.5px #fff;
-    z-index: 5;
-}
-
-.stack-text.outline-faded {
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-    z-index: 2;
-}
-
-.stack-text.outline-bold {
-    color: transparent;
-    -webkit-text-stroke: 2px #fff ;
-    z-index: 1;
-}
+  .subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    text-transform: lowercase;
+    opacity: 0.35;
+    margin-top: 1rem;
+    font-weight: 400;
+  }
 
 
-.slide-left { transform: translateX(-10%); }
-.slide-right { transform: translateX(10%); }
+  .password-form {
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+    border-bottom: 1px solid rgba(150, 150, 150, 0.4);
+    padding-bottom: 0.5rem;
+    transition: border-color 0.4s ease;
+  }
 
 
+  .password-form:focus-within {
+    border-bottom-color: #ff69b4; 
+  }
 
-<style>
+  .password-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: currentColor;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-align: center;
+    width: 250px;
+    padding: 0.5rem;
+    font-weight: 300;
+  }
+
+  .password-input::placeholder {
+    color: currentColor;
+    opacity: 0.3;
+  }
+
+
+  .submit-btn {
+    background: transparent;
+    border: none;
+    color: currentColor;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.4s ease, color 0.4s ease, transform 0.4s ease;
+    padding: 0 0.5rem;
+  }
+
+  .submit-btn:hover {
+    opacity: 1;
+    color: #ff69b4;
+    transform: translateX(4px); 
+  }
+</style>
