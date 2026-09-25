@@ -8,120 +8,191 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 isIndex={false} 
 version="Join // V.01">
 
-  <span slot="hero-title">Become an Icon</span>
-
-  <section class="police-tape-wrapper">
-    <div class="tape tape-1">
-      <div class="tape-track">
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
+  <section class="hero-section">
+    <div class="hero-row">
+      <div class="marquee">
+        <div class="track">
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+        </div>
       </div>
     </div>
-
-    <div class="tape tape-2">
-      <div class="tape-track">
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
-      </div>
-    </div>
-
-    <div class="tape tape-3">
-      <div class="tape-track">
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
-      </div>
-    </div>
-
-    <div class="tape tape-4">
-      <div class="tape-track">
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
-        <span>EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// EXCLUSIVE CIRCLE COMING SOON /// </span>
+    
+    <div class="hero-row ghost-row">
+      <div class="marquee reverse">
+        <div class="track">
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+          <span>EXCLUSIVE CIRCLE COMING SOON // </span>
+        </div>
       </div>
     </div>
   </section>
 
+<section class="chaos-footer">
+    <div class="stack-container">
+        <h2 class="stack-text outline slide-left">EXCLUSIVE CIRCLE COMING SOON</h2>
+        <h2 class="stack-text solid">// EXCLUSIVE CIRCLE COMING</h2>
+        <h2 class="stack-text outline-faded slide-right">SOON // EXCLUSIVE CIRCLE //</h2>
+        <h2 class="stack-text solid-overlap">COMING SOON // EXCLUSIVE //</h2>
+        <h2 class="stack-text outline-bold">CIRCLE COMING SOON // //</h2>
+    </div>
+</section>
+  
+
 </BaseLayout>
 
 <style>
-  .police-tape-wrapper {
-    position: relative;
-    width: 100%;
-    min-height: 65vh;
-    background: #000000;
+
+/* --- HERO SECTION STYLES --- */
+.hero-section {
+    padding: 100px 0; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 0; 
     overflow: hidden;
-    padding: 80px 0;
-    gap: 35px;
-    border-bottom: 1px solid var(--border-gray, #222);
-  }
+    cursor: crosshair;
+}
 
-  .tape {
-    width: 130vw;
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(1.2rem, 3.5vw, 2.5rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    padding: 12px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    user-select: none;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.9);
-  }
+.hero-row {
+    position: relative;
+    width: 100vw;
+    z-index: 10;
+}
 
-  .tape-track {
+.marquee {
     display: flex;
-    width: max-content;
-  
-  }
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 
+}
 
+.track {
+    display: flex;
+    animation: scroll-left 20s linear infinite;
+    width: max-content; 
+   -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    will-change: transform;
+}
 
-  .tape-track span {
+.hero-row span {
+    font-family: var(--inter); 
+    font-weight: 900;
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.8;
+    color: #fff;
     padding-right: 20px;
-    letter-spacing: 2px;
-  }
-
-  /* Color & Rotation Variations */
-
-  .tape-1 {
-    background: #FF007A; 
-    color: #000000;
-    transform: rotate(-3deg);
-  }
-
-  .tape-2 {
-    background: #FFE600; 
-    color: #000000;
-    transform: rotate(2.5deg);
-  }
-
-  .tape-3 {
-    background: #FF007A;
-    color: #000000;
-    transform: rotate(-2deg);
-  }
-
-  .tape-4 {
-    background: #FFE600;
-    color: #000000;
-    transform: rotate(4deg);
-  }
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+    -webkit-transform: translateZ(0);
+}
 
 
+.ghost-row span {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    margin-top: -20px; 
+}
 
-  @media (max-width: 768px) {
-    .police-tape-wrapper {
-      min-height: 55vh;
-      padding: 60px 0;
-      gap: 25px;
-    }
+/* --- ANIMATIONS --- */
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
 
-    .tape {
-      width: 160vw;
-      padding: 10px 0;
-    }
-  }
-</style>
+.reverse .track {
+    animation-direction: reverse;
+}
+
+/* --- HOVER INTERACTION --- */
+
+.hero-section:hover .hero-row span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent);
+}
+
+.hero-section:hover .ghost-row span {
+    color: #fff;
+    -webkit-text-stroke: 0px transparent;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+
+.hero-section:hover .track {
+    animation-duration: 5s; /* Speeds up on hover */
+}
+.chaos-footer {
+    background: transparent !important; 
+    padding: 100px 0;
+    overflow: hidden;
+    width: 100%;
+    z-index: 2000 !important;
+}
+
+.stack-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the stack generally */
+}
+
+.stack-text {
+    font-family: var(--inter);
+    font-weight: 900;
+    font-size: clamp(3rem, 12vw, 10rem);
+    line-height: 0.75; 
+    margin-top: -0.3em; 
+    white-space: nowrap;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+
+.stack-text.solid {
+    color: #fff;
+    z-index: 10;
+}
+
+.stack-text.solid-overlap {
+    color: #fff;
+    z-index: 8;
+    margin-left: -5%; 
+}
+
+.stack-text.outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #fff;
+    z-index: 5;
+}
+
+.stack-text.outline-faded {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    z-index: 2;
+}
+
+.stack-text.outline-bold {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--pink-hot);
+    z-index: 1;
+}
+
+
+.slide-left { transform: translateX(-10%); }
+.slide-right { transform: translateX(10%); }
+
+
+.stack-container:hover .stack-text {
+    margin-top: -0.1em; 
+    -webkit-text-stroke: 1px #fff;
+}
+<style>
