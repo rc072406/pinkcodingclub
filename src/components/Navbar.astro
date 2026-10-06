@@ -38,7 +38,6 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
   <div class="secondary-group">
     <a href={base}>INDEX</a>
     <p>PRESS</p>
-    <p>FRIEND OF THE HOUSE</p>
   </div>
   <div class="secondary-group bottom">
     <!-- Updated to anchor links pointing to the about page IDs -->
@@ -53,6 +52,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
      <a href={formatUrl('pcc-world')}>P.C.C. WORLD</a>
 <a href={formatUrl('curriculum')}>CURRICULUM</a>
 <a href={formatUrl('the-club')}>THE CLUB</a>
+<span class="nav-sub-label">FRIEND OF THE HOUSE</span>
       </div>
     </div>
   </div>
@@ -334,7 +334,16 @@ nav.nav-hidden {
 .overlay-nav-links a:hover {
    opacity: 0.4;
 }
-
+.nav-sub-label {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  letter-spacing: 2px;
+  color: var(--pink-soft, #fff);
+  opacity: 0.4;
+  margin-top: 20px;
+  text-align: right;
+  text-transform: uppercase;
+}
 
 /* Mobile Adjustments for the Overlay */
 @media (max-width: 768px) {
