@@ -344,11 +344,14 @@ nav.nav-hidden {
   text-align: right;
   text-transform: uppercase;
 }
+.nav-sub-label:hover {
+  opacity: 1;
+}
 
 /* Mobile Adjustments for the Overlay */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .overlay-content {
-        flex-direction: column-reverse; /* Puts large links on top, secondary stuff on bottom */
+        flex-direction: column-reverse; 
         justify-content: flex-end;
         gap: 40px;
     }
