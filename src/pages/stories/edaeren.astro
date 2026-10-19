@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import '../../styles/interview.css';
+---
+
+<BaseLayout 
+  title="The Poet in the Code: A Conversation with Eda Eren | Pink Coding Club"
+  description="From English literature to Rust libraries, Eda Eren discusses the intersection of humanities and hardware, the beauty of precision, and why empathy is the most critical tool in a developer's kit."
+>
+ 
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Poet in the Code: A Conversation with Eda Eren",
+        "description": "From English literature to Rust libraries, Eda Eren discusses the intersection of humanities and hardware, the beauty of precision, and why empathy is the most critical tool in a developer's kit.",
+        "image": "https://pinkcodingclub.com/images/edaeren.jpeg",
+        "author": {
+          "@type": "Person",
+          "name": "Rachel Chen"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Pink Coding Club"
+        },
+        "datePublished": "2026-10-13",
+        "mainEntityOfPage": "https://pinkcodingclub.com/stories/eda-eren"
+      }
+    </script>
+  </Fragment>
+  <article class="interview-article">
+ 
+
+
+    <div class="editorial-grid">
+      <!-- Visual Side -->
+      <div class="editorial-visual">
+        <img src="/images/edaeren.jpeg" alt="Eda Eren" class="hero-img" />
+      </div>
+
+      <!-- Typography & Copy Side -->
+      <div class="editorial-content">
+        <h1 class="headline">
+          THE <br/>
+          DA VINCI<br/>
+
+          <span>CODE</span>
+        </h1>
+        
+        
+        
+        <div class="intro-block">
+          <p>
+           Eda Eren is a self-taught developer with wide-ranging interests across web technologies and software development. She's come to tech from a humanities background, bringing with her a keen interest in language (both human and programming), how we learn, and how we shape language to communicate our ideas. She believes in technology's potential for good and shares her passion through writing. In her free time, she enjoys nature, surrealist art, and (mostly heavy) music.
+          </p>
+        </div>
+
+        <div class="scroll-prompt">
+          <span class="prompt-text">BEGIN TRANSCRIPT</span>
+          <div class="prompt-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interview Q&A Section -->
+    <section class="transcript-section">
+      <div class="transcript-container">
+        
+        <div class="qa-block">
+          <span class="speaker-q">Q: How did you first come about coding, especially as someone with a background in English literature? When did you realize your love for coding?</span>
+          <p class="answer-a">
+          My first exposure to tech and programming in general was thanks to a myriad of online resources! I've always been curious and loved reading and learning about everything I can get my hands on. There is an online computer science course called CS50 offered by Harvard University, where you get a free certificate when you complete problem sets and a final project. I was really intrigued by this and decided to take on the challenge. I really fell in love with Professor David Malan's teaching style and found the topic itself very fascinating, and after finishing the course, I just continued learning.
+          </p>
+
+        </div>
+
+        <div class="qa-block">
+          <span class="speaker-q">Q: Did you find your background in English useful during the process of learning to code? Do you think it helped you become a better programmer?</span>
+          <p class="answer-a">
+        I really do think it helps. Critical thinking is helpful in almost all disciplines, but things like literary analysis and close reading are skills that can be applied to reading code - which is essential for expanding your skills as a programmer. Also, I don't think studying literature and studying programming are two very extremely different things - you do some investigating in both! The same way you might analyze a text or a poem, you analyze code, and you still need to look at a problem from different perspectives to have different approaches to solutions, which I think is definitely a much-needed skill, especially these days with all the AI coding tools and whatnot.
+          </p>
+
+        </div>
+
+        <div class="qa-block">
+          <span class="speaker-q">Q: Karl Theodor Wilhelm Weierstrass said "It is true that a <b>mathematician</b> who is not somewhat of a <b>poet</b>, will never be a perfect <b>mathematician</b>." Now let's replace "mathematician" with "programmer". Do you believe the quote rings true? How is language in coding like human language?</span>
+          <p class="answer-a">
+         This is a very beautiful quote and a good question! Programming languages are in many ways similar and not-so-similar to human languages. Starting with the obvious non-similarity, a human language is ambiguous, but a programming language is not. Programming languages need precision (just like mathematics), but I think there's beauty in that. There's beauty in precision. Mathematicians sometimes talk about aesthetics, and it's true for code too. Code is also a way of expression (I'm pretty sure it's even considered speech protected by the First Amendment, you can look it up!). With code or with language, there are so many ways to express ourselves. We can choose different phrases or words to express something in the same way that we can choose to write a task or a function in different ways. Probably the most basic example is adding some numbers in an array: you can write a for loop to do it, you can write a while loop with a count variable, you can use a reduce function, or you can use something like a .sum() method if the language has it built-in.
+          </p>
+<br/>
+ <p class="answer-a">
+Also, in the same way that we can create fictional languages for fun (Elvish, Klingon...), there are some esoteric languages that exist purely as an exercise, just for fun!
+</p>
+
+        </div>
+  <div class="qa-block">
+          <span class="speaker-q">Q: Could you explain how you think the humanities and particularly empathy could help address the ethical and social problems currently facing the tech industry? Could you give an example of a technology-related tragedy or failure that you believe might have been prevented through a stronger perspective based in humanities?</span>
+          <p class="answer-a">
+        I think a lot of the trouble with tech is based on a lack of or a weak foundation of understanding what humanities as a discipline cherish, especially empathy. A tech product or a tool doesn't exist in isolation, it's not always just an innovation that's solely for innovation's sake. The tech industry has very strong effects on society and humanity in general. It can create so many opportunities, and an obvious example is the World Wide Web itself. We have the world's knowledge literally in the palm of our hands, we can connect to anyone anywhere anytime on this planet. This is incredible. It's so incredible in fact that we forget how insane this is and sometimes blame the Internet for everything getting worse. But what has been largely making <em>everything worse</em> is the people benefiting from companies that have a large stake in distracting and dividing populations. If believing in and respecting the dignity of all humans was a principle they held, we could have less polarization and more equitable access and a better world, I'm sure of that. Also, with great power comes great responsibility, so as people in tech, we should be aware of this responsibility. Granted, a humanities education certainly doesn't guarantee that a person holds such values to heart - sometimes it leads to elitism - but what it can offer is some more awareness of the humane side of the tools we build. A proper humanities education can help us contemplate the true consequences of things we're building. With even a little introspection and awareness of responsibility, things can go the right way.
+          </p>
+
+
+        </div>
+       <div class="qa-block">
+          <span class="speaker-q">Q: What do you think tech companies most often misunderstand about human behavior or society?</span>
+          <p class="answer-a">
+        Oh, that's easy: they completely forget that humans are complex beings. Big tech companies often reduce human behavior to data points. But behind every data point is a person. It might be convenient to just label every person and put them into a box, but there's so much more to humanity than that. And to deny it is to completely ignore the agency and dignity of every human being.
+          </p>
+
+        </div>
+       <div class="qa-block">
+          <span class="speaker-q">Q: What specific changes would you make to the way technology is designed or governed (as you believe that a lack of humanities and empathy is contributing to the industry’s current problems)?</span>
+          <p class="answer-a">
+         From a design standpoint, the very first thing that comes to mind is interoperability. For example, we should be able to have the option to not use a facebook-related product and still be in touch with loved ones. I remember a good example that Cory Doctorow gave: a cereal brand doesn't tell you which milk to use, or a shoe company doesn't force you to wear a specific brand of socks with the shoe. Or, switching phone companies doesn't prevent us from using the same phone number. In a similar way, we should be able to have a way of self-determination and be free to choose the tools we use, and not just be locked inside walled gardens.
+          </p>
+<br/>
+<p class="answer-a">
+I tend to be a bit more pessimistic on the governance side when it comes to things like oversight, but there are things that can be done, it's not that we have zero solutions.
+</p>
+
+        </div>
+
+  <div class="qa-block">
+          <span class="speaker-q">Q: Leonardo Da Vinci already showed the importance between connecting the arts and STEM! Why do you think there is still a hard line dividing the two today?</span>
+          <p class="answer-a">
+        Information overload! Having everything at your fingertips is both a blessing and a curse, and with too much distraction and everyone being inside algorithmic silos nowadays, it's much harder to get outside of the bubble and look around and discover new things and the interconnectedness of different disciplines. Also, another thing is that there is less investment for liberal arts education because some people see it as much less important than STEM, which is a shame.
+          </p>
+
+        </div>
+
+ <div class="qa-block">
+          <span class="speaker-q">Q: You seem to love learning in public a lot! Why do you advocate for learning in public so much? What are the benefits and what advice do you have for anyone a bit scared to get out of their comfort zone?</span>
+          <p class="answer-a">
+         Oh, that is a good question and something I've been pondering on lately! Getting out of your comfort zone is surely a scary thing and learning in public can be very uncomfortable and a bit of a vulnerable thing. However, I think the benefits outweigh the uncomfortableness. You get true feedback from lots of different people, you keep notes to yourself that you can come back to anytime, and most importantly you're able to see your growth over time, which is an amazing thing.
+          </p>
+<br/>
+<p class="answer-a">
+Also, if learning in public is not for you, you don't need to publish everything! What I've found helpful personally is keeping an engineering journal (or, whatever it is that you're learning/practicing). You can note down what solution you've had for a specific problem, note down the date, and forget about it...until you need to look at it again!
+</p>
+
+        </div>
+ <div class="qa-block">
+          <span class="speaker-q">Q: What advice do you have for someone who has a humanities background and wants to be a part of tech, but is intimidated by the coldness and stereotypes surrounding the world of software?</span>
+          <p class="answer-a">
+      I would say that despite all the stereotypes there are, tech is still a wonderful (and a beautifully weird) place, and there are people who still truly care about the work they do. There are also so many online and in-person communities that you can be a part of! If there are conferences that you can attend, that's even better! I'm pretty sure there will be lots of people that you can connect with. Also, I should say that the tech world is <em>still</em> very diverse, so there are folks from all backgrounds that care about the things you and I care about.
+          </p>
+
+        </div>
+
+ <div class="qa-block">
+          <span class="speaker-q">Q: What has been your favorite project to ever work on to date?</span>
+          <p class="answer-a">
+     It's a difficult question! I've been focusing on some tiny Rust projects lately (one of them is a small library to search for colors based on color names), and it's been my favorite language so far, so probably those! Most of my projects are open source, and I keep a list of them on my website edaeren.com.
+          </p>
+
+
+        </div>
+
+ <div class="qa-block">
+          <span class="speaker-q">Q: What are your absolute favorite reads and the perfect drink while coding or reading?!</span>
+          <p class="answer-a">
+   Oh, the perfect drink is absolutely black coffee, there's no denying that
+
+</p>
+<br/>
+<p class="answer-a">
+When it comes to reading - oh gosh, I don't know where to start. For non-tech reads, I'm a huge fan of William Blake, Jorge Luis Borges, Emerson and Thoreau. When it comes to fiction, I love reading horror, especially Shirley Jackson. I've also recently finished Piranesi by Susanna Clarke, and it was pretty good.
+</p>
+<br/>
+<p class="answer-a">
+For technical reads, I think No Starch Press has so many quality books on almost any topic.
+</p>
+<br/>
+<p class="answer-a"
+The good thing about tech is that there are so many open access resources that you can find. I keep a Rust specific learning resources list at github.com/rivea0/rust-learning-resources, but there are so many to find online! It's a never-ending to-be-read list!
+</p>
+
+        </div>
+      </div>
+    </section>
+  <div class="archive-label" style="max-width: 400px;">
+                <p style="font-size: 0.6rem; font-weight: bold;">WHERE TO FIND // EDA</p>
+                <p style="font-size: 1.2rem; font-weight: 900; margin: 5px 0;"><a href="https://edaeren.com/" target="blank_">edaeren.com</a></p>
+                <p style="font-size: 0.6rem;">Instagram<br><a href="" target="blank_">....</a></p>
+                <span class="barcode">|||| || ||||| ||| || |||</span>
+            </div>
+  </article>
+</BaseLayout>
