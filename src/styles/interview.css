@@ -25,17 +25,48 @@
     margin-top: 60px;
   }
 
+
   .editorial-visual {
     position: relative;
     width: 100%;
+    max-width: 520px; 
+    margin: 0 auto;
   }
 
-  .hero-img {
+  .editorial-polaroid {
+    display: grid;
+    grid-template-columns: 45px 1fr 75px;
+    text-decoration: none;
+    background: #fcfbf9;
+    padding: 16px 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 1px rgba(0, 0, 0, 0.1);
+    position: relative;
     width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border: 1px solid var(--border-gray);
-    box-shadow: 15px 15px 0px rgba(228, 30, 129, 0.15);
+    transform: rotate(0deg);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .editorial-polaroid:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 85, 0.25);
+  }
+
+
+  .editorial-polaroid .left-marker {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    color: #222;
+    opacity: 0.85;
+  }
+
+  .editorial-polaroid .right-marker {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    color: var(--pink-hot, #ff0055);
+    opacity: 0.95;
+  }
+
+  .editorial-polaroid .sub-marker {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    color: #222;
   }
 
 
