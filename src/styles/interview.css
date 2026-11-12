@@ -176,11 +176,8 @@
   }
 
   .qa-block {
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid var(--border-gray);
     padding: 40px;
     position: relative;
-    transition: border-color 0.3s ease;
   }
 
 
