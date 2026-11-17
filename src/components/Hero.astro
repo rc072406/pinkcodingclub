@@ -1,10 +1,9 @@
 ---
 // src/components/Hero.astro
 const { isIndex = false, version = "V.01" } = Astro.props;
-
 ---
 
-<section class=`hero ${isIndex ? 'index-hero' : 'sub-hero'}`>
+<section class={`hero ${isIndex ? 'index-hero' : 'sub-hero'}`}>
     
     <p class="version-tag">{version}</p>
     
@@ -14,7 +13,9 @@ const { isIndex = false, version = "V.01" } = Astro.props;
                 <h1>PINK<br>CODING<br>CLUB</h1>
                 <div class="hero-sub">
                     <p class="tagline">Hyper-technical education for the girls and non-binary icons who lead the culture. No compromises.</p>
-                  <a href="/the-club" class="cta-btn hero-cta">ENTER CLUB</a>
+                    <a href="/the-club" class="typewriter-cta hero-cta" data-text="ENTER CLUB">
+                        <span class="typewriter-text"></span><span class="cursor"></span>
+                    </a>
                 </div>
             </>
         ) : (
@@ -22,7 +23,6 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         )}
     </div>
 </section>
-
 
 <style>
     .hero {
@@ -52,8 +52,6 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         margin-bottom: 10px;
     }
 
- 
-
     .index-hero h1 {
         font-family: 'Archivo Black', sans-serif;
         font-size: clamp(4rem, 15vw, 12rem);
@@ -69,6 +67,41 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         font-size: clamp(3.5rem, 12vw, 9.5rem);
         line-height: 0.82;
         letter-spacing: -0.04em;
+    }
+
+
+    .typewriter-cta {
+        display: inline-flex;
+        align-items: center;
+        font-family: monospace, monospace;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        color: #fff;
+        text-decoration: none;
+        background: transparent;
+        padding: 4px 0;
+        width: fit-content;
+    }
+
+    .typewriter-cta::before {
+        content: "▶";
+        margin-right: 8px;
+        font-size: 0.85em;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1em;
+        background-color: #fff;
+        margin-left: 2px;
+        animation: blink 1s infinite;
+        vertical-align: middle;
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        50.1%, 100% { opacity: 0; }
     }
 
     .hero-cta {
@@ -108,3 +141,34 @@ const { isIndex = false, version = "V.01" } = Astro.props;
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cta = document.querySelector(".typewriter-cta");
+        if (!cta) return;
+
+        const textSpan = cta.querySelector(".typewriter-text");
+        const fullText = cta.getAttribute("data-text") || "";
+        let charIndex = 0;
+        let isTyping = false;
+
+        function typeWriter() {
+            if (charIndex < fullText.length) {
+                textSpan.textContent += fullText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 80); // Speed of typing per letter (ms)
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !isTyping) {
+                    isTyping = true;
+                    typeWriter();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(cta);
+    });
+</script>
