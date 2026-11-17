@@ -1,33 +1,146 @@
 ---
-
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-
 ---
 
 <BaseLayout title="P.C.C. WORLD" isIndex={false} showHero={false}>
-  
   <link rel="stylesheet" href="/styles/manifesto.css" slot="head" />
 
-
-<div class="shatter-box">
-        <div class="glass-shard-overlay">
-            <div class="shatter-text">UNLOCK THE ALLURING FORBIDDEN WORLD OF P.C.C.</div>
-        </div>
-        </div>
-       
-
-
-
-
-
+  <section class="hero index-hero">
+      
+      <div class="hero-container">
+          <div class="hero-sub">
+              <p class="tagline">Unlock the alluring forbidden world of P.C.C.</p>
+              <a href="" class="typewriter-cta hero-cta" data-text="Discover">
+                  <span class="typewriter-text"></span><span class="cursor"></span>
+              </a>
+          </div>
+      </div>
+  </section>
 </BaseLayout>
-<style>
 
-.shatter-box {
- position: relative;
-    overflow: hidden;
-    min-height: 100vh;
-  
-}
+<style>
+    .hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 4% 60px 4%;
+        border-bottom: 1px solid var(--border-gray);
+        overflow: hidden;
+        background: black;
+        will-change: transform; 
+        -webkit-backface-visibility: hidden;
+        min-height: 100vh;  
+        min-height: 100svh;
+        overscroll-behavior: none;
+    }
+
+    .hero-container,{
+        position: relative;
+        z-index: 2;
+    }
+
+
+
+    .tagline {
+        color: var(--soft-pink);
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+
+    .typewriter-cta {
+        display: inline-flex;
+        align-items: center;
+        font-family: monospace, monospace;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        color: #fff;
+        text-decoration: none;
+        background: transparent;
+        padding: 4px 0;
+        width: fit-content;
+    }
+
+    .typewriter-cta::before {
+        content: "▶";
+        margin-right: 8px;
+        font-size: 0.85em;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1em;
+        background-color: #fff;
+        margin-left: 2px;
+        animation: blink 1s infinite;
+        vertical-align: middle;
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        50.1%, 100% { opacity: 0; }
+    }
+
+    .hero-cta {
+        display: block;
+        margin-left: auto; 
+        width: fit-content;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            min-height: auto;
+            padding-top: calc(90px + env(safe-area-inset-top, 0px));
+            padding-bottom: 40px;
+            padding-left: 4%;
+            padding-right: 4%;
+            justify-content: flex-start;
+        }
+
+        .index-hero h1 {
+            font-size: clamp(4.2rem, 19.5vw, 8rem);
+            line-height: 0.82;
+            letter-spacing: -0.035em;
+            margin-bottom: 28px;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+            margin-left: 0 !important;        
+            margin-right: auto !important;    
+            align-self: flex-start;
+        }
+    }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cta = document.querySelector(".typewriter-cta");
+        if (!cta) return;
+
+        const textSpan = cta.querySelector(".typewriter-text");
+        const fullText = cta.getAttribute("data-text") || "";
+        let charIndex = 0;
+        let isTyping = false;
+
+        function typeWriter() {
+            if (charIndex < fullText.length) {
+                textSpan.textContent += fullText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 80); // Speed of typing per letter (ms)
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !isTyping) {
+                    isTyping = true;
+                    typeWriter();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(cta);
+    });
+</script>
