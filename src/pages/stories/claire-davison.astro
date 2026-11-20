@@ -102,12 +102,24 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
       </div>
       
     </section>
-  <div class="archive-label" style="max-width: 400px; margin-left:20px;">
-                <p style="font-size: 0.6rem; font-weight: bold;">WHERE TO FIND // CLAIRE</p>
-                <p style="font-size: 1.2rem; font-weight: 900; margin: 5px 0;"><a href="https://clairevdavison.com/" target="blank_">clairevdavison.com</a></p>
-                <p style="font-size: 0.6rem;">Instagram<br><a href="https://www.instagram.com/clairevictoriadavison/" target="blank_">@clairevictoriadavison</a></p>
-                <span class="barcode">|||| || ||||| ||| || |||</span>
-            </div>
+<div class="archival-container">
+  <div class="archival-heading">
+    <span>◆</span> More material
+  </div>
+  
+  <p class="archival-description">
+    The complete documentation and archives can be accessed globally through Claire's digital portfolio and networks.
+  </p>
+
+  <div>
+    <a href="https://clairevdavison.com/" target="_blank" rel="noopener noreferrer" class="archival-action-link">
+      <span>▶</span> ACCESS PORTFOLIO 
+    </a>
+  <a href="https://www.instagram.com/clairevictoriadavison/" target="_blank" rel="noopener noreferrer" class="archival-action-link">
+      <span>▶</span> ACCESS INSTAGRAM
+    </a>
+  </div>
+</div>
   </article>
 </BaseLayout>
 
@@ -153,13 +165,6 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
 
 
 
-  .barcode {
-    font-family: monospace;
-    font-size: 1.5rem;
-    color: var(--pink-hot, #e41e81);
-    letter-spacing: -2px;
-  }
-
 
 
   .title {
@@ -170,7 +175,55 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
     margin: 0;
     text-shadow: 4px 4px 0px rgba(228, 30, 129, 0.5); 
   }
+/* --- Socials Section --- */
+.archival-container {
+  max-width: 800px;
+  margin: 80px auto 0 auto;
+  padding: 40px 4% 0 4%;
+  border-top: 1px solid var(--border-gray, #333);
+  text-align: left; /* Aligned to the left */
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.05em;
+}
 
+.archival-heading {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 0.15em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.archival-description {
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  text-transform: none;
+}
+
+.archival-action-link {
+  font-family: monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.1em;
+  transition: opacity 0.2s ease;
+}
+
+.archival-action-link:hover {
+  opacity: 0.6;
+  text-decoration: none;
+}
 
 
 
