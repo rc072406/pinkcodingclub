@@ -203,11 +203,6 @@ display: inline-block;
     color: #222;
   }
 
-  .editorial-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 
 
 
