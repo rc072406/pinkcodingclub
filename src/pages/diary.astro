@@ -134,74 +134,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".content-section");
     const navLinks = document.querySelectorAll(".nav-link");
-    let isManualScrolling = false;
-    let scrollTimeout;
 
-    const setActiveLink = (targetId) => {
-      navLinks.forEach((link) => {
-        if (link.dataset.target === targetId) {
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
-        }
-      });
-    };
-
-  
     const observerOptions = {
       root: null,
-      rootMargin: "-10% 0px -75% 0px",
+      // Focuses the trigger on the top-middle 30% of the viewport
+      rootMargin: "-20% 0px -50% 0px",
       threshold: 0
     };
 
     const observer = new IntersectionObserver((entries) => {
-      if (isManualScrolling) return;
-
       entries.forEach((entry) => {
+        const link = document.querySelector(`.nav-link[data-target="${entry.target.id}"]`);
+        
+        if (!link) return;
+
         if (entry.isIntersecting) {
-          setActiveLink(entry.target.id);
+          // Clear 'active' from all links first so only ONE can ever be active
+          navLinks.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        } else {
+          // Explicitly remove 'active' when this section leaves view
+          link.classList.remove("active");
         }
       });
     }, observerOptions);
 
     sections.forEach((section) => observer.observe(section));
-
-   
-    navLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const targetId = link.dataset.target;
-        setActiveLink(targetId);
-
-        isManualScrolling = true;
-        clearTimeout(scrollTimeout);
-
-      
-        scrollTimeout = setTimeout(() => {
-          isManualScrolling = false;
-        }, 1000);
-      });
-    });
-
-  
-    let scrollEndTimer;
-    window.addEventListener("scroll", () => {
-      if (isManualScrolling) return;
-      
-      clearTimeout(scrollEndTimer);
-      scrollEndTimer = setTimeout(() => {
-        let currentSectionId = "";
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-      
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            currentSectionId = section.id;
-          }
-        });
-        if (currentSectionId) {
-          setActiveLink(currentSectionId);
-        }
-      }, 150);
-    }, { passive: true });
   });
 </script>
 
