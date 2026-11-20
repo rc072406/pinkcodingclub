@@ -1,3 +1,37 @@
+/* --- Typewriter Header Styles --- */
+.typewriter-header-wrap {
+  margin-bottom: 40px;
+}
+
+.typewriter-sub-label {
+  font-family: monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.typewriter-header-wrap .typewriter-cta {
+  font-family: 'Archivo Black', sans-serif; 
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--pink-soft);
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.typewriter-header-wrap .typewriter-cta::before {
+  content: "▶";
+  margin-right: 12px;
+  font-size: 0.6em;
+  color: var(--pink-hot);
+}
 /* --- Socials Section --- */
 .archival-container {
   max-width: 800px;
@@ -163,14 +197,6 @@
     justify-content: center;
   }
 
-  .headline {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(3rem, 7vw, 6.5rem);
-    line-height: 0.85;
-    letter-spacing: -3px;
-     color: var(--pink-soft);
-    margin-bottom: 20px;
-  }
 
 
 
@@ -189,26 +215,7 @@
     max-width: 600px;
   }
 
-  .scroll-prompt {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-  }
 
-  .prompt-text {
-    font-family: monospace;
-    font-size: 0.8rem;
-    color: var(--pink-hot);
-    letter-spacing: 2px;
-  }
-
-  .prompt-line {
-    height: 1px;
-    flex-grow: 1;
-    background: linear-gradient(90deg, var(--pink-hot) 0%, transparent 100%);
-    max-width: 200px;
-  }
 
   /* Transcript Section Styles */
   .transcript-section {
