@@ -1,3 +1,52 @@
+/* --- Socials Section --- */
+.archival-container {
+  max-width: 800px;
+  margin: 80px auto 0 auto;
+  padding: 40px 4% 0 4%;
+  border-top: 1px solid var(--border-gray, #333);
+  text-align: left; /* Aligned to the left */
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.05em;
+}
+
+.archival-heading {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 0.15em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.archival-description {
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  text-transform: none;
+}
+
+.archival-action-link {
+  font-family: monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.1em;
+  transition: opacity 0.2s ease;
+}
+
+.archival-action-link:hover {
+  opacity: 0.6;
+  text-decoration: none;
+}
 .interview-article {
     background: var(--bg-black);
     min-height: 100vh;
