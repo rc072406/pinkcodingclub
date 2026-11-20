@@ -153,9 +153,9 @@ display: inline-block;
     width: 100%;
     aspect-ratio: 3 / 4; 
     overflow: hidden;
-    background: var(--bg-black, #111);
+ 
     border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+
   }
 
   .editorial-polaroid .card-img {
