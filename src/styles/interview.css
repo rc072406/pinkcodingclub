@@ -14,7 +14,21 @@
   align-items: center;
   gap: 8px;
 }
+/* --- Typewriter Cursor Style --- */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background-color: #fff;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
 
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.1%, 100% { opacity: 0; }
+}
 .typewriter-header-wrap .typewriter-cta {
   font-family: 'Archivo Black', sans-serif; 
   font-size: clamp(2rem, 4.5vw, 4rem);
