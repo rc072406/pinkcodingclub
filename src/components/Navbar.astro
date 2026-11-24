@@ -59,6 +59,8 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 
 <script>
   /* --- ISLAND LOGIC --- */
+  let scrollPosition = 0;
+
   const initMenu = () => {
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-menu-btn');
@@ -70,12 +72,19 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
       const isActive = state !== undefined ? state : !overlay.classList.contains('active');
 
       if (isActive) {
-        document.documentElement.style.overflow = 'hidden';
+        scrollPosition = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
         document.body.style.overflow = 'hidden';
+
         document.querySelector('nav')?.classList.remove('nav-hidden');
       } else {
-        document.documentElement.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
         document.body.style.overflow = '';
+        window.scrollTo(0, scrollPosition);
       }
 
       menuBtn.classList.toggle('active', isActive);
@@ -127,7 +136,9 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
   });
 
   document.addEventListener('astro:before-preparation', () => {
-    document.documentElement.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
     document.body.style.overflow = '';
   });
 </script>
@@ -217,9 +228,11 @@ nav.nav-hidden {
 /* Overlay Layout */
 .nav-overlay {
     position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     background: var(--bg-black, #000);
     z-index: 1001;
     clip-path: inset(0 0 100% 0);
