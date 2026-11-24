@@ -3,9 +3,6 @@
 const base = import.meta.env.BASE_URL;
 const { pathname } = Astro.url; 
 
-
-
-
 const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 ---
 
@@ -26,35 +23,39 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 <!-- Universal Full-Screen Overlay -->
 <div class="nav-overlay" id="nav-overlay">
   <div class="overlay-container">
-    <div class="close-menu" id="close-menu-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-        <path d="M18 6L6 18M6 6l12 12"></path>
-      </svg>
+    <div class="overlay-top-bar">
+      <div class="logo">
+        <a href={base} style="text-decoration: none; color: inherit;">P.C.C.</a>
+      </div>
+      <div class="close-menu" id="close-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </div>
     </div>
     
     <div class="overlay-content">
-<!-- Left side: Secondary info -->
-<div class="overlay-secondary">
-  <div class="secondary-group">
-    <a href={base}>INDEX</a>
-    <p>PRESS</p>
-    <p>CASTING</p>
-    
-  </div>
-  <div class="secondary-group bottom">
-    <!-- Updated to anchor links pointing to the about page IDs -->
-    <a href={formatUrl('diary#diary')}>DIARY</a>
-    <a href={formatUrl('diary#business')}>BUSINESS</a>
-    <a href={formatUrl('diary#contact')}>CONTACT</a>
-  </div>
-</div>
-
-      <!-- Right side: Massive primary links -->
+      <!-- Left side: Massive primary links -->
       <div class="overlay-nav-links">
-     <a href={formatUrl('pcc-world')}>P.C.C. WORLD</a>
-<a href={formatUrl('curriculum')}>CURRICULUM</a>
-<a href={formatUrl('the-club')}>THE CLUB</a>
-<span class="nav-sub-label">FRIEND OF THE HOUSE</span>
+        <a href={formatUrl('pcc-world')}>P.C.C. WORLD</a>
+        <a href={formatUrl('curriculum')}>CURRICULUM</a>
+        <a href={formatUrl('the-club')}>THE CLUB</a>
+        <span class="nav-sub-label">FRIEND OF THE HOUSE</span>
+      </div>
+
+      <!-- Right side: Secondary info -->
+      <div class="overlay-secondary">
+        <div class="secondary-group">
+          <a href={base}>INDEX</a>
+          <p>PRESS</p>
+          <p>CASTING</p>
+        </div>
+        <div class="secondary-group bottom">
+          <!-- Updated to anchor links pointing to the about page IDs -->
+          <a href={formatUrl('diary#diary')}>DIARY</a>
+          <a href={formatUrl('diary#business')}>BUSINESS</a>
+          <a href={formatUrl('diary#contact')}>CONTACT</a>
+        </div>
       </div>
     </div>
   </div>
@@ -96,7 +97,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
       overlay.classList.toggle('active', isActive);
     };
 
-// Clean up old event listeners when Astro swaps pages
+    // Clean up old event listeners when Astro swaps pages
     const newMenuBtn = menuBtn.cloneNode(true);
     menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
     
@@ -105,7 +106,6 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 
     newMenuBtn.addEventListener('click', () => toggleMenu());
     newCloseBtn.addEventListener('click', () => toggleMenu(false));
-
 
     document.querySelectorAll('.overlay-content a').forEach(link => {
       link.addEventListener('click', () => toggleMenu(false));
@@ -197,7 +197,6 @@ nav.nav-hidden {
     letter-spacing: -1px;
 }
 
-
 .menu-toggle {
     display: flex; 
     cursor: pointer;
@@ -262,13 +261,23 @@ nav.nav-hidden {
     flex-direction: column;
 }
 
+.overlay-top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .close-menu {
-    align-self: flex-start;
-    color: var(--pink-soft, #fff);
     cursor: pointer;
     transition: transform 0.3s ease, color 0.3s ease;
-    padding: 10px;
-    margin-left: -10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--pink-soft, #fff);
 }
 
 .close-menu:hover {
@@ -291,7 +300,16 @@ nav.nav-hidden {
     font-weight: 700;
     letter-spacing: 1px;
     padding-bottom: 20px;
-   flex: 0 0 220px;
+    flex: 0 0 220px;
+    text-align: right;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;
+}
+
+.nav-overlay.active .overlay-secondary {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .secondary-group p,
@@ -313,10 +331,22 @@ nav.nav-hidden {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 15px;
     width: 100%;
 }
+
+.overlay-nav-links a,
+.overlay-nav-links .nav-sub-label {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+}
+
+.nav-overlay.active .overlay-nav-links a:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.nav-overlay.active .overlay-nav-links a:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.nav-overlay.active .overlay-nav-links a:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.nav-overlay.active .overlay-nav-links .nav-sub-label  { opacity: 0.4; transform: translateY(0); transition-delay: 0.5s; }
 
 .overlay-nav-links a {
     font-family: 'Archivo Black', sans-serif;
@@ -325,36 +355,38 @@ nav.nav-hidden {
     color: var(--pink-soft, #fff);
     text-decoration: none;
     letter-spacing: -2px;
-    text-align: right;
-    transition: all 0.4s ease;
+    text-align: left;
 }
 
-.overlay-nav-links a:nth-child(1) { color: #e41e81 ; }
+.overlay-nav-links a:nth-child(1) { color: #e41e81; }
 .overlay-nav-links a:nth-child(2) { color: #facee2; }
 .overlay-nav-links a:nth-child(3) { color: var(--text-white, #fff); }
 
 .overlay-nav-links a:hover {
-   opacity: 0.4;
+    transform: translateX(15px);
+    opacity: 0.7;
 }
+
 .nav-sub-label {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(0.9rem, 2vw, 1.4rem);
-  letter-spacing: 2px;
-  color: var(--pink-soft, #fff);
-  opacity: 0.4;
-  margin-top: 20px;
-  text-align: right;
-  text-transform: uppercase;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.4rem);
+    letter-spacing: 2px;
+    color: var(--pink-soft, #fff);
+    opacity: 0.4;
+    margin-top: 20px;
+    text-align: left;
+    text-transform: uppercase;
 }
+
 .nav-sub-label:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* Mobile Adjustments for the Overlay */
 @media (max-width: 834px) {
     .overlay-content {
-        flex-direction: column-reverse; 
-        justify-content: flex-end;
+        flex-direction: column; 
+        justify-content: flex-start;
         gap: 40px;
     }
     
@@ -363,6 +395,7 @@ nav.nav-hidden {
         border-top: 1px solid rgba(255,255,255,0.1);
         padding-top: 30px;
         padding-bottom: 0;
+        text-align: left;
     }
 
     .overlay-nav-links a {
