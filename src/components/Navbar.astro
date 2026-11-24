@@ -11,8 +11,8 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     <a href={base} style="text-decoration: none; color: inherit;">P.C.C.</a>
   </div>
 
-
-  <div class="menu-toggle" id="menu-btn" aria-label="Toggle Menu">
+  <!-- Universal Hamburger Menu -->
+  <div class="menu-toggle" id="menu-btn">
     <div class="hamburger-lines">
       <span></span>
       <span></span>
@@ -20,9 +20,15 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
   </div>
 </nav>
 
-
+<!-- Universal Full-Screen Overlay -->
 <div class="nav-overlay" id="nav-overlay">
   <div class="overlay-container">
+    <div class="close-menu" id="close-menu-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
+        <path d="M18 6L6 18M6 6l12 12"></path>
+      </svg>
+    </div>
+    
     <div class="overlay-content">
       <!-- Left side: Massive primary links -->
       <div class="overlay-nav-links">
@@ -40,6 +46,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
           <p>CASTING</p>
         </div>
         <div class="secondary-group bottom">
+          <!-- Updated to anchor links pointing to the about page IDs -->
           <a href={formatUrl('diary#diary')}>DIARY</a>
           <a href={formatUrl('diary#business')}>BUSINESS</a>
           <a href={formatUrl('diary#contact')}>CONTACT</a>
@@ -55,9 +62,10 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 
   const initMenu = () => {
     const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
     const overlay = document.getElementById('nav-overlay');
 
-    if (!menuBtn || !overlay) return;
+    if (!menuBtn || !overlay || !closeBtn) return;
 
     const toggleMenu = (state) => {
       const isActive = state !== undefined ? state : !overlay.classList.contains('active');
@@ -87,8 +95,12 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
     // Clean up old event listeners when Astro swaps pages
     const newMenuBtn = menuBtn.cloneNode(true);
     menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
+    
+    const newCloseBtn = closeBtn.cloneNode(true);
+    closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
 
     newMenuBtn.addEventListener('click', () => toggleMenu());
+    newCloseBtn.addEventListener('click', () => toggleMenu(false));
 
     document.querySelectorAll('.overlay-content a').forEach(link => {
       link.addEventListener('click', () => toggleMenu(false));
@@ -164,22 +176,10 @@ nav {
     left: 0;
     right: 0;
     background: rgba(0,0,0,0.8);
-    z-index: 2000;
+    z-index: 1000;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     transition: transform 0.4s cubic-bezier(0.85, 0, 0.15, 1);
-    animation: navEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes navEntrance {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 nav.nav-hidden {
@@ -192,83 +192,40 @@ nav.nav-hidden {
     letter-spacing: -1px;
 }
 
-/* Morph-to-X Menu Toggle Button with Refined Animation */
 .menu-toggle {
     display: flex; 
     cursor: pointer;
-    z-index: 2002;
+    z-index: 1002;
     position: relative;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     align-items: center;
-    justify-content: center;
-    opacity: 1;
-    transform: scale(1);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-}
-
-.menu-toggle:hover {
-    transform: scale(1.08);
+    justify-content: flex-end;
 }
 
 .hamburger-lines {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 22px;
-    height: 12px;
-    position: relative;
+    gap: 8px;
+    width: 100%;
+    align-items: flex-end;
 }
 
 .hamburger-lines span {
     display: block;
     height: 1.5px;
     background: var(--pink-soft, #fff);
-    position: absolute;
-    left: 0;
-    border-radius: 2px;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 0.4s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
-.hamburger-lines span:nth-child(1) { 
-    width: 100%; 
-    top: 0;
-    transform-origin: center;
-}
-.hamburger-lines span:nth-child(2) { 
-    width: 60%; 
-    bottom: 0;
-    transform-origin: center;
-}
+.hamburger-lines span:nth-child(1) { width: 100%; }
+.hamburger-lines span:nth-child(2) { width: 60%; }
 
 .menu-toggle:hover .hamburger-lines span:nth-child(2) {
     width: 100%;
 }
 
-/* Active Morph State: Elegant Smooth X transformation */
-.menu-toggle.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: rotate(90deg);
-}
-
-.menu-toggle.active .hamburger-lines span:nth-child(1) {
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    background: var(--pink-soft, #fff);
-}
-
-.menu-toggle.active .hamburger-lines span:nth-child(2) {
-    width: 100%;
-    bottom: 50%;
-    transform: translateY(50%) rotate(-45deg);
-    background: var(--pink-soft, #fff);
-}
-
-.menu-toggle.active:hover .hamburger-lines span {
-    background: var(--pink-hot, #ff69b4);
-}
+.menu-toggle.active { opacity: 0; pointer-events: none; }
 
 /* Overlay Layout */
 .nav-overlay {
@@ -297,15 +254,27 @@ nav.nav-hidden {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+.close-menu {
+    align-self: flex-start;
+    color: var(--pink-soft, #fff);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 10px;
+    margin-left: -10px;
+}
+
+.close-menu:hover {
+    color: var(--pink-hot, #ff69b4);
+    transform: rotate(90deg);
 }
 
 .overlay-content {
     display: flex;
     flex: 1;
-    margin-top: 20px;
+    margin-top: 40px;
     justify-content: space-between;
-    align-items: center;
 }
 
 .overlay-secondary {
