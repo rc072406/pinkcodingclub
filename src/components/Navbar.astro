@@ -59,8 +59,6 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
 
 <script>
   /* --- ISLAND LOGIC --- */
-  let scrollPosition = 0;
-
   const initMenu = () => {
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-menu-btn');
@@ -72,19 +70,12 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
       const isActive = state !== undefined ? state : !overlay.classList.contains('active');
 
       if (isActive) {
-        scrollPosition = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
-
         document.querySelector('nav')?.classList.remove('nav-hidden');
       } else {
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
-        window.scrollTo(0, scrollPosition);
       }
 
       menuBtn.classList.toggle('active', isActive);
@@ -136,9 +127,7 @@ const formatUrl = (path) => `${base.replace(/\/$/, '')}/${path}`;
   });
 
   document.addEventListener('astro:before-preparation', () => {
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
   });
 </script>
@@ -230,9 +219,9 @@ nav.nav-hidden {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100vw;
-    height: 100vh;
-    height: 100dvh;
     background: var(--bg-black, #000);
     z-index: 1001;
     clip-path: inset(0 0 100% 0);
@@ -371,7 +360,6 @@ nav.nav-hidden {
 }
 
 .nav-overlay.active .overlay-nav-links .nav-sub-label:hover {
-
     opacity: 1; 
 }
 
@@ -380,8 +368,6 @@ nav.nav-hidden {
     transform: translateX(-15px);
     opacity: 0.7;
 }
-
-
 
 /* Mobile Adjustments for the Overlay */
 @media (max-width: 834px) {
