@@ -369,16 +369,19 @@ nav.nav-hidden {
     text-transform: uppercase;
     cursor: pointer; 
 }
-.nav-sub-label:hover{
-opacity: 0.1;
+
+.nav-overlay.active .overlay-nav-links .nav-sub-label:hover {
+    transform: translateX(-15px);
+    opacity: 1; 
 }
 
-
-.nav-overlay.active .overlay-nav-links a:hover,
-.nav-overlay.active .overlay-nav-links  {
+/* Primary Links Hover */
+.nav-overlay.active .overlay-nav-links a:hover {
     transform: translateX(-15px);
     opacity: 0.7;
 }
+
+
 
 /* Mobile Adjustments for the Overlay */
 @media (max-width: 834px) {
