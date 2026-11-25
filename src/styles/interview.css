@@ -316,4 +316,10 @@ a, u {
   .qa-block {
     padding: 25px;
   }
+  .sticky-note {
+ 
+  transform: rotate(2.7deg);
+
+}
+
 }
