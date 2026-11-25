@@ -214,17 +214,7 @@
   border: 1px solid #f2c2ce;
 }
 
-.tape-strip {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 45px;
-  height: 16px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(1px);
-}
+
 
 .model-name {
   font-family: 'Reenie Beanie', cursive;
