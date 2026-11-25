@@ -1,0 +1,325 @@
+---
+// src/pages/article.astro or src/components/ArticleLayout.astro
+
+interface SideInterview {
+  date: string;
+  title: string;
+  summary: string;
+  image?: string;
+  link?: string;
+}
+
+const mainArticle = {
+  category: "INTERVIEW / FEATURE",
+  byline: "BY THE ICON ARCHIVE",
+  title: "The Strange Case of Claire Davison",
+  excerpt: "From clowning roots to creating whimsical digital art, read all about her pilgrimage to discovering herself as an artist.",
+  images: [
+    "/images/clairedavison.jpg",
+    "/images/clairedavison2.jpeg",
+    "/images/clairedavison3.jpeg"
+  ],
+  link: "/stories/claire-davison"
+};
+
+const sideInterviews: SideInterview[] = [
+  {
+    date: "OCTOBER 28, 2026",
+    title: "Naomi Carrigan on Engineering & Identity",
+    summary: "Reflecting on code as a medium for creative storytelling and personal expression.",
+    image: "https://cdn.nhcarrigan.com/profile.png",
+    link: "/stories/naomi-carrigan"
+  },
+  {
+    date: "OCTOBER 14, 2026",
+    title: "Akina T.B. Launches New Digital Gallery",
+    summary: "Exploring color harmony, digital canvas dynamics, and raw artistic freedom.",
+    image: "/images/akinatb.webp",
+    link: "/stories/akina-tb"
+  },
+  {
+    date: "OCTOBER 02, 2026",
+    title: "Jessica Wilkins: Building for the Web",
+    summary: "A conversation on full-stack architecture, music, and finding creative rhythm.",
+    image: "https://jessicawilkins.dev/static/media/jw-profile.242e079bf384501000b3.webp",
+    link: "/stories/jessica-wilkins"
+  }
+];
+---
+
+<layout class="editorial-page">
+  <main class="editorial-container">
+    <!-- LEFT MAIN ARTICLE -->
+    <article class="main-feature">
+      <a href={mainArticle.link} class="feature-link">
+        <div class="image-slideshow" id="slideshow">
+          {mainArticle.images.map((src, index) => (
+            <img 
+              src={src} 
+              alt={`${mainArticle.title} - photo ${index + 1}`} 
+              class={`slide-img ${index === 0 ? 'active' : ''}`}
+            />
+          ))}
+        </div>
+      </a>
+
+      <header class="feature-header">
+        <div class="meta-tag">
+          <span>{mainArticle.category}</span>
+          <span>{mainArticle.byline}</span>
+        </div>
+        <h1 class="feature-title">
+          <a href={mainArticle.link}>{mainArticle.title}</a>
+        </h1>
+        <p class="feature-excerpt">{mainArticle.excerpt}</p>
+      </header>
+    </article>
+
+    <!-- RIGHT SIDEBAR INTERVIEWS -->
+    <aside class="sidebar-feed">
+      {sideInterviews.map((item) => (
+        <article class="sidebar-item">
+          <div class="sidebar-meta">
+            <span class="date">{item.date}</span>
+          </div>
+          <div class="sidebar-body">
+            <h2 class="sidebar-title">
+              <a href={item.link || "#"}>{item.title}</a>
+            </h2>
+            <p class="sidebar-summary">{item.summary}</p>
+            {item.image && (
+              <a href={item.link || "#"} class="sidebar-thumb-wrapper">
+                <img src={item.image} alt={item.title} class="sidebar-thumb" />
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </aside>
+  </main>
+</layout>
+
+<script>
+
+  function initSlideshow() {
+    const slides = document.querySelectorAll<HTMLImageElement>('.slide-img');
+    if (slides.length <= 1) return;
+
+    let currentIndex = 0;
+    const intervalTime = 2500; // Switches every 2.5 seconds (steady editorial pace)
+
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, intervalTime);
+  }
+
+  // Execute slideshow script on load
+  document.addEventListener('DOMContentLoaded', initSlideshow);
+</script>
+
+<style>
+  :root {
+    --bg-black: #000000;
+    --text-white: #ffffff;
+    --pink-soft: #facee2;
+    --border-subtle: #222222;
+    --text-muted: #888888;
+  }
+
+  .editorial-page {
+    display: block;
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    min-height: 100vh;
+font-family: 'Inter', sans-serif;
+  }
+
+  .editorial-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 48px;
+  }
+
+  /* --- LEFT MAIN ARTICLE --- */
+  .main-feature {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  .image-slideshow {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-color: #111;
+    overflow: hidden;
+  }
+
+  .slide-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .slide-img.active {
+    opacity: 1;
+  }
+
+  .feature-header {
+    margin-top: 24px;
+  }
+
+  .meta-tag {
+    display: flex;
+    gap: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .feature-title {
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px 0;
+  }
+
+  .feature-title a {
+    color: var(--pink-soft);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .feature-title a:hover {
+    opacity: 0.85;
+  }
+
+  .feature-excerpt {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--text-white);
+    max-width: 800px;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  /* --- RIGHT SIDEBAR FEED --- */
+  .sidebar-feed {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-subtle);
+    padding-left: 32px;
+  }
+
+  .sidebar-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .sidebar-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .sidebar-meta .date {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1.3;
+    display: block;
+  }
+
+  .sidebar-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+  }
+
+  .sidebar-title a {
+    color: var(--text-white);
+    text-decoration: none;
+  }
+
+  .sidebar-title a:hover {
+    color: var(--pink-soft);
+  }
+
+  .sidebar-summary {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    margin: 0 0 16px 0;
+  }
+
+  .sidebar-thumb-wrapper {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #111;
+  }
+
+  .sidebar-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-thumb-wrapper:hover .sidebar-thumb {
+    transform: scale(1.04);
+  }
+
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 960px) {
+    .editorial-container {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    .sidebar-feed {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 40px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .sidebar-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>
