@@ -180,23 +180,24 @@
 .dot-yellow { background: #ffc107; }
 
 
-  .card-num {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: #ffffff;
-    color: #111111;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    padding: 4px 10px 3px 8px;
-    border-top: 1px solid #dcd8cf;
-    border-right: 1px solid #dcd8cf;
-    box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.08);
-    z-index: 6;
-    letter-spacing: -0.5px;
-    line-height: 1;
-  }
+.card-num {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #ffffff;
+  color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: clamp(0.9rem, 1.5vw + 0.4rem, 1.3rem);
+  font-weight: 800;
+  padding: 6px 12px 5px 10px; 
+  border-top: 1px solid #dcd8cf;
+  border-right: 1px solid #dcd8cf;
+  box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.08);
+  z-index: 6;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
 
 /* Sharpie Sticky Note Overlay */
 .sticky-note {
