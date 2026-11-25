@@ -187,9 +187,10 @@
   background: #ffffff;
   color: #111111;
   font-family: Arial, Helvetica, sans-serif;
-font-size: clamp(0.95rem, 4vw - 0.1rem, 2rem);
+  font-size: clamp(1.15rem, 2.5vw + 0.6rem, 1.55rem);
   font-weight: 800;
-  padding: clamp(4px, 1.5vw, 9px) clamp(8px, 3vw, 20px) clamp(3px, 1.2vw, 8px) clamp(7px, 2.5vw, 16px);
+  padding: 6px 14px 5px 12px;
+  
   border-top: 1px solid #dcd8cf;
   border-right: 1px solid #dcd8cf;
   box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.08);
@@ -322,5 +323,11 @@ a, u {
 @media (max-width: 420px) {
   .sticky-note {
     right: 0;
+  }
+}
+@media (min-width: 428px) {
+  .card-num {
+    font-size: 1.85rem; 
+    padding: 8px 18px 6px 14px; 
   }
 }
