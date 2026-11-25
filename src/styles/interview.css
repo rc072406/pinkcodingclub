@@ -122,10 +122,6 @@
   align-items: center;
 }
 
-/* ==========================================
-   UPDATED EDITORIAL CASTING CARD HERO STYLES
-   ========================================== */
-
 .editorial-visual {
   position: relative;
   width: 100%;
@@ -133,105 +129,11 @@
   margin: 0 auto;
 }
 
-/* Backstage Casting Card Frame */
-.editorial-polaroid {
-  position: relative;
+.editorial-visual .card-img {
   width: 100%;
-  background: #ffffff;
-  padding: 10px 10px 16px 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
-  border: 1px solid #e2ded6;
-  display: block;
-}
-
-
-
-/* Photo Frame Container */
-.editorial-polaroid .card-visual {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  background: #eae8e1;
-  border: 1px solid #dedad1;
-}
-
-.editorial-polaroid .card-img {
-  width: 100%;
-  height: 100%;
+  height: auto; 
   object-fit: cover;
   display: block;
-  filter: contrast(104%);
-}
-
-/* Casting Sticker Dots */
-.casting-dot {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  z-index: 2;
-}
-
-.dot-green { background: #28a745; }
-.dot-yellow { background: #ffc107; }
-
-
-.card-num {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #ffffff;
-  color: #111111;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(1.15rem, 2.5vw + 0.6rem, 1.55rem);
-  font-weight: 800;
-  padding: 6px 14px 5px 12px;
-  
-  border-top: 1px solid #dcd8cf;
-  border-right: 1px solid #dcd8cf;
-  box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.08);
-  z-index: 6;
-  letter-spacing: -0.5px;
-  line-height: 1;
-}
-
-/* Sharpie Sticky Note Overlay */
-.sticky-note {
-  position: absolute;
-  bottom: -25px;
-  right: -20px;
-  width: 150px;
-  background: #ffd6df; /* Soft backstage pink */
-  padding: 12px 10px 10px;
-  box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.25);
-  transform: rotate(3deg);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #f2c2ce;
-}
-
-
-
-.model-name {
-  font-family: 'Reenie Beanie', cursive;
-  font-weight: 700;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  color: #111111;
-  line-height: 0.9;
-}
-
-.model-role {
-  font-family: 'Reenie Beanie', cursive;
-  font-size: 1.15rem;
-  text-transform: uppercase;
-  color: #333333;
-  margin-top: 2px;
 }
 
 /* --- Article Details --- */
