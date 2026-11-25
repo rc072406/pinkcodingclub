@@ -10,8 +10,8 @@ interface SideInterview {
 }
 
 const mainArticle = {
-  category: "INTERVIEW / FEATURE",
-  byline: "BY THE ICON ARCHIVE",
+  category: "Interview / Feature",
+  byline: "By The Icon Archive",
   title: "The Strange Case of Claire Davison",
   excerpt: "From clowning roots to creating whimsical digital art, read all about her pilgrimage to discovering herself as an artist.",
   images: [
@@ -24,21 +24,21 @@ const mainArticle = {
 
 const sideInterviews: SideInterview[] = [
   {
-    date: "OCTOBER 28, 2026",
+    date: "October 28, 2026",
     title: "Naomi Carrigan on Engineering & Identity",
     summary: "Reflecting on code as a medium for creative storytelling and personal expression.",
     image: "https://cdn.nhcarrigan.com/profile.png",
     link: "/stories/naomi-carrigan"
   },
   {
-    date: "OCTOBER 14, 2026",
+    date: "October 14, 2026",
     title: "Akina T.B. Launches New Digital Gallery",
     summary: "Exploring color harmony, digital canvas dynamics, and raw artistic freedom.",
     image: "/images/akinatb.webp",
     link: "/stories/akina-tb"
   },
   {
-    date: "OCTOBER 02, 2026",
+    date: "October 02, 2026",
     title: "Jessica Wilkins: Building for the Web",
     summary: "A conversation on full-stack architecture, music, and finding creative rhythm.",
     image: "https://jessicawilkins.dev/static/media/jw-profile.242e079bf384501000b3.webp",
@@ -100,13 +100,12 @@ const sideInterviews: SideInterview[] = [
 </layout>
 
 <script>
-
   function initSlideshow() {
     const slides = document.querySelectorAll<HTMLImageElement>('.slide-img');
     if (slides.length <= 1) return;
 
     let currentIndex = 0;
-    const intervalTime = 2500; // Switches every 2.5 seconds (steady editorial pace)
+    const intervalTime = 2500; // Switches every 2.5 seconds
 
     setInterval(() => {
       slides[currentIndex].classList.remove('active');
@@ -115,7 +114,6 @@ const sideInterviews: SideInterview[] = [
     }, intervalTime);
   }
 
-  // Execute slideshow script on load
   document.addEventListener('DOMContentLoaded', initSlideshow);
 </script>
 
@@ -133,7 +131,7 @@ const sideInterviews: SideInterview[] = [
     background-color: var(--bg-black);
     color: var(--text-white);
     min-height: 100vh;
-font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .editorial-container {
@@ -160,7 +158,7 @@ font-family: 'Inter', sans-serif;
   .image-slideshow {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 5; /* Taller editorial photo aspect ratio */
     background-color: #111;
     overflow: hidden;
   }
@@ -186,17 +184,16 @@ font-family: 'Inter', sans-serif;
   .meta-tag {
     display: flex;
     gap: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     color: var(--text-muted);
     margin-bottom: 12px;
   }
 
   .feature-title {
     font-size: clamp(2.2rem, 4vw, 3.8rem);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.02em;
     margin: 0 0 16px 0;
@@ -231,7 +228,7 @@ font-family: 'Inter', sans-serif;
 
   .sidebar-item {
     display: grid;
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 110px 1fr;
     gap: 16px;
     padding-bottom: 36px;
     margin-bottom: 36px;
@@ -245,11 +242,9 @@ font-family: 'Inter', sans-serif;
   }
 
   .sidebar-meta .date {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    font-weight: 500;
     color: var(--text-muted);
-    text-transform: uppercase;
     line-height: 1.3;
     display: block;
   }
@@ -261,7 +256,7 @@ font-family: 'Inter', sans-serif;
 
   .sidebar-title {
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.25;
     margin: 0 0 8px 0;
   }
