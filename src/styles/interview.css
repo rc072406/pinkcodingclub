@@ -144,22 +144,7 @@
   display: block;
 }
 
-/* Optional Top Push Pin */
-.push-pin {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  z-index: 10;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), inset -2px -2px 3px rgba(0, 0, 0, 0.25);
-}
 
-.pin-green { background: #1b8a41; }
-.pin-yellow { background: #e5b300; }
-.pin-red { background: #c9182b; }
 
 /* Photo Frame Container */
 .editorial-polaroid .card-visual {
