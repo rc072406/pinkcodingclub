@@ -1,11 +1,24 @@
 ---
-// src/pages/stories/claire-davison.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const images = [
+  "/images/clairedavison.jpg",
+  "/images/clairedavison2.jpeg",
+  "/images/clairedavison3.jpeg"
+];
+
+const mainArticle = {
+  category: "Interview / Feature",
+  byline: "By Rachel Chen",
+  title: "Claire Davison | ABT Ballerina, Clown & Web Designer",
+  excerpt: "How an American Ballet Theatre ballerina became an award-winning clown, choreographer, and web designer.",
+  datePublished: "2026-09-24"
+};
 ---
 
 <BaseLayout 
-  title="Claire Davison | ABT Ballerina, Clown & Web Designer"
-  description="Discover the story of Claire Davison: how an American Ballet Theatre (ABT) ballerina became an award-winning clown, choreographer, and web designer."
+  title={mainArticle.title}
+  description={mainArticle.excerpt}
 >
 
 <Fragment slot="head">
@@ -29,13 +42,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       }
     </script>
   </Fragment>
+
   <article class="editorial-wrapper">
     
-  <!-- Hero Section -->
-<header class="editorial-hero">
+  <!-- Hero Section (Side-by-Side Layout) -->
+  <header class="editorial-hero">
+    <div class="image-slideshow" id="slideshow">
+      {images.map((src, index) => (
+        <img 
+          src={src} 
+          alt={`Claire Davison - photo ${index + 1}`} 
+          class={`slide-img ${index === 0 ? 'active' : ''}`}
+        />
+      ))}
+    </div>
 
-  <img src="/images/clairedavison.jpg" alt="Claire Davison" class="hero-img" />
-</header>
+    <div class="hero-info-panel">
+      <div class="meta-tag">
+        <span>{mainArticle.category}</span>
+        <span>{mainArticle.byline}</span>
+      </div>
+      <h1 class="hero-title">{mainArticle.title}</h1>
+      <p class="hero-excerpt">{mainArticle.excerpt}</p>
+    </div>
+  </header>
 
     <!-- Story Content -->
     <section class="story-content">
@@ -48,52 +78,44 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       You may be wondering how Claire could be a ballerina, the pinnacle of elegance by day, and a clown, the epitome of silliness by night. To answer that succinctly, Claire grew up in a world nurtured by those two opposing forces, her mother a ballerina and her father a juggler. The unique and distinctive worlds collided for Claire, and planted the seeds for the multi-disciplinary artist she is today. 
       </p>
 
-<p>There really is no place like home as Dorothy from <cite>The Wizard of Oz</cite> says, and Claire's home was the ballet studio run by her parents. As the ballet studio was engineered by two opposing forces, you guessed it: they taught physical theater at the studio as well. This is where Claire became a chimera of the arts, learning the connection between the different forms of storytelling and the crucial differences that also separate them. 
-</p>
+      <p>There really is no place like home as Dorothy from <cite>The Wizard of Oz</cite> says, and Claire's home was the ballet studio run by her parents. As the ballet studio was engineered by two opposing forces, you guessed it: they taught physical theater at the studio as well. This is where Claire became a chimera of the arts, learning the connection between the different forms of storytelling and the crucial differences that also separate them. 
+      </p>
 
-<p>At the young age of 10, Claire decided that she wanted to be in a ballet company. She set out to do that. After rigorous training, dedication to her craft, and participating in major ballet competitions, she made it to New York at 15. Only two years later at the age of 17, she joined ABT, The American Ballet Theatre. After joining one of the most prestigious ballet companies in the world, Claire felt overwhelmed. The harsh world of professional ballet terrified Claire and she became lost going down the tunnel. She felt as if the one thing she knew her whole life was slipping through her fingers. Ballet did not belong to her anymore. 
-</p>
+      <p>At the young age of 10, Claire decided that she wanted to be in a ballet company. She set out to do that. After rigorous training, dedication to her craft, and participating in major ballet competitions, she made it to New York at 15. Only two years later at the age of 17, she joined ABT, The American Ballet Theatre. After joining one of the most prestigious ballet companies in the world, Claire felt overwhelmed. The harsh world of professional ballet terrified Claire and she became lost going down the tunnel. She felt as if the one thing she knew her whole life was slipping through her fingers. Ballet did not belong to her anymore. 
+      </p>
 
-<p>On the quest to find herself again and remember why she was even doing it all, Claire took acting classes. The acting classes were a pilgrimage, allowing Claire to discover her true love: storytelling. This shoehorned into acquiring more acting roles at ABT. Claire writes that she “found some footholds where [she'd] been slipping through cracks” and this gave her clarity on her earlier struggles. This pilgrimage gave Claire confidence, which was something she found in herself all along. 
-</p>
-
+      <p>On the quest to find herself again and remember why she was even doing it all, Claire took acting classes. The acting classes were a pilgrimage, allowing Claire to discover her true love: storytelling. This shoehorned into acquiring more acting roles at ABT. Claire writes that she “found some footholds where [she'd] been slipping through cracks” and this gave her clarity on her earlier struggles. This pilgrimage gave Claire confidence, which was something she found in herself all along. 
+      </p>
      
       <blockquote class="pull-quote">
-   
         <p>"The acting classes started snowballing into intensives and any extension I could get my hands on. Improv comedy, film, voice… voice— suddenly I had one again. In re-finding my voice I wanted to tell my own stories."</p>
-   
       </blockquote>
 
       <p>
        After finding her voice, Claire went on to choreograph and create award winning shows. Her one-woman show, <cite>Crash Test Dummy</cite>, won the Bindlestiff Family Cirkus "First of May” award. But before that, she started with creating ballets, one of which being a Fleetwood Mac Ballet and another about a mission to Pluto. Her creativity had no bounds. Claire could compose a ballet about anything—even the inanimate. She even created an evening piece entirely about the Frankfurt Kitchen, a compact standardized kitchen for a social housing project in 1920s Frankfurt, Germany. With the special ability to give voices to things that lack sentience, Claire also created a piece about a beach towel! <cite>Cast Away</cite>, anyone? Jokes aside, Claire found herself again and her pilgrimage led to her the grand realization that she loved storytelling. The “why” for doing it all? Storytelling. 
       </p>
 
-  
       <blockquote class="pull-quote align-right">
-  
         <p>"There was always some humor involved and even when they were about the solar system, they were deeply human."</p>
-      
       </blockquote>
 
       <p>
        The creative process reminded Claire of her love for physical theatre, so she went back to studying clown again. Clowning was different from ballet, because clowns interact with the audience, while ballet creates a 4th wall that cannot be broken. Always the “class clown” and lifting others up with good humor, Claire was now in actual clown class! She studied with every teacher in NYC she could and when the Covid 19 Pandemic hit, she learned from everybody not in NYC over Zoom. In true Claire fashion, she was dedicated to the craft. 
       </p>
       <p>
-The Clown world was the other half she was raised in, but she just had to rediscover her roots again. Claire's pilgrimage to finding herself again ends where she left off as a child— fully submerged in both worlds. She was finally home again. 
-</p>
-    <blockquote class="pull-quote">
+      The Clown world was the other half she was raised in, but she just had to rediscover her roots again. Claire's pilgrimage to finding herself again ends where she left off as a child— fully submerged in both worlds. She was finally home again. 
+      </p>
 
+      <blockquote class="pull-quote">
         <p>"Now, much like when I was a kid, I am very much part of both worlds. And it took me 30 years but I feel comfortable accepting all these facets. I still don’t know where to put them all the time, or how to balance it all, but I am proud of myself for continuing to follow my curiosity above all else."</p>
-    
       </blockquote>
-<p>
-Claire’s storytelling does not stop at the stage. Alongside choreographing ballets and creating clown performances, she also brings her artistic sensibility to the web through design. She learned the trade from her father, the juggler who first introduced her to the clown world. In that sense, web design becomes another space where Claire combines playfulness, structure, and visual storytelling. If Claire's creating anything, you can bet it's in true Claire fashion. 
-</p>
 
-    <blockquote class="pull-quote align-right">
-    
+      <p>
+      Claire’s storytelling does not stop at the stage. Alongside choreographing ballets and creating clown performances, she also brings her artistic sensibility to the web through design. She learned the trade from her father, the juggler who first introduced her to the clown world. In that sense, web design becomes another space where Claire combines playfulness, structure, and visual storytelling. If Claire's creating anything, you can bet it's in true Claire fashion. 
+      </p>
+
+      <blockquote class="pull-quote align-right">
         <p>"I’m not the best at updating my website, which feels very clown, but plan on doing so asap! I also wanted to make a site that felt sort of whimsical and approachable, like I hope my art to be."</p>
-      
       </blockquote>
 
       <div class="end-mark">
@@ -102,112 +124,176 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
       </div>
       
     </section>
-<div class="archival-container">
-  <div class="archival-heading">
-    <span>◆</span> More material
-  </div>
-  
-  <p class="archival-description">
-    The complete documentation and archives can be accessed globally through Claire's digital portfolio and networks.
-  </p>
 
-  <div>
-    <a href="https://clairevdavison.com/" target="_blank" rel="noopener noreferrer" class="archival-action-link">
-      <span>▶</span> ACCESS PORTFOLIO 
-    </a>
-  <a href="https://www.instagram.com/clairevictoriadavison/" target="_blank" rel="noopener noreferrer" class="archival-action-link">
-      <span>▶</span> ACCESS INSTAGRAM
-    </a>
-  </div>
-</div>
+    <div class="archival-container">
+      <div class="archival-heading">
+        <span>◆</span> More material
+      </div>
+      
+      <p class="archival-description">
+        The complete documentation and archives can be accessed globally through Claire's digital portfolio and networks.
+      </p>
+
+      <div>
+        <a href="https://clairevdavison.com/" target="_blank" rel="noopener noreferrer" class="archival-action-link">
+          <span>▶</span> ACCESS PORTFOLIO 
+        </a>
+        <a href="https://www.instagram.com/clairevictoriadavison/" target="_blank" rel="noopener noreferrer" class="archival-action-link">
+          <span>▶</span> ACCESS INSTAGRAM
+        </a>
+      </div>
+    </div>
   </article>
 </BaseLayout>
 
-<style>
+<script>
+  function initSlideshow() {
+    const slides = document.querySelectorAll<HTMLImageElement>('.slide-img');
+    if (slides.length <= 1) return;
 
-  .editorial-wrapper {
+    let currentIndex = 0;
+    const intervalTime = 2500; // Switches every 2.5 seconds
+
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, intervalTime);
+  }
+
+  document.addEventListener('DOMContentLoaded', initSlideshow);
+</script>
+
+<style>
+ .editorial-wrapper {
     background-color: var(--bg-black, #000);
     color: var(--text-white, #fff);
     min-height: 100vh;
     padding-bottom: 100px;
   }
 
+  /* --- Hero Side-by-Side Layout --- */
+  .editorial-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-height: 85vh;
+    border-bottom: 1px solid var(--border-gray, #333);
+  }
 
-.editorial-hero {
-  width: 100%;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  padding-top: 70px; 
-  border-bottom: 1px solid var(--border-gray, #333);
-}
+  .image-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    background-color: #000;
+    overflow: hidden;
+  }
 
+  .slide-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
 
+  .slide-img.active {
+    opacity: 1;
+  }
 
-.hero-img {
-  width: 100%;
-  height: 100%; 
-  object-fit: cover;
-  object-position: top center; 
-  display: block;
-}
+  .hero-info-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 8%;
+    background-color: var(--bg-black, #000);
+  }
 
+  .meta-tag {
+    display: flex;
+    gap: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
 
+  .hero-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px 0;
+    color: var(--pink-soft, #facee2);
+    text-transform: none;
+  }
 
+  .hero-excerpt {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+  }
 
+  /* --- Socials Section --- */
+  .archival-container {
+    max-width: 800px;
+    margin: 80px auto 0 auto;
+    padding: 40px 4% 0 4%;
+    border-top: 1px solid var(--border-gray, #333);
+    text-align: left;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.05em;
+  }
 
+  .archival-heading {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 0.15em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-/* --- Socials Section --- */
-.archival-container {
-  max-width: 800px;
-  margin: 80px auto 0 auto;
-  padding: 40px 4% 0 4%;
-  border-top: 1px solid var(--border-gray, #333);
-  text-align: left; /* Aligned to the left */
-  font-family: monospace;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.05em;
-}
+  .archival-description {
+    font-family: monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    text-transform: none;
+  }
 
-.archival-heading {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 20px;
-  letter-spacing: 0.15em;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
+  .archival-action-link {
+    font-family: monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.1em;
+    transition: opacity 0.2s ease;
+    margin-right: 24px;
+  }
 
-.archival-description {
-  font-family: monospace;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 30px;
-  text-transform: none;
-}
-
-.archival-action-link {
-  font-family: monospace;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  letter-spacing: 0.1em;
-  transition: opacity 0.2s ease;
-}
-
-.archival-action-link:hover {
-  opacity: 0.6;
-  text-decoration: none;
-}
-
-
+  .archival-action-link:hover {
+    opacity: 0.6;
+    text-decoration: none;
+  }
 
   .story-content {
     max-width: 800px;
@@ -224,7 +310,6 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
     text-transform: none; 
   }
 
- 
   .drop-cap {
     float: left;
     font-family: 'Archivo Black', sans-serif;
@@ -242,7 +327,6 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
     font-weight: 300;
   }
 
-
   .pull-quote {
     position: relative;
     margin: 60px 0 60px -40px; 
@@ -257,8 +341,6 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
     text-align: right;
   }
 
-
-
   .pull-quote p {
     font-family: 'Archivo Black', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -267,9 +349,6 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
     margin-bottom: 15px;
     text-transform: uppercase;
   }
-
-
-
 
   .end-mark {
     margin-top: 80px;
@@ -285,19 +364,35 @@ Claire’s storytelling does not stop at the stage. Alongside choreographing bal
     letter-spacing: 3px;
     margin-top: 10px;
   }
-a, u{
-  text-decoration: none;
-color:black;
-}
 
+  a, u {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 960px) {
+    .editorial-hero {
+      display: flex;
+      flex-direction: column-reverse; 
+    }
+    
+    .hero-info-panel {
+      padding: 50px 24px;
+    }
+
+    .image-slideshow {
+      min-height: 450px;
+    }
+  }
 
   @media (max-width: 768px) {
     .pull-quote, .pull-quote.align-right {
       margin: 40px 0;
       padding: 20px;
       text-align: left;
-      border-right: none;
       background: linear-gradient(90deg, rgba(228, 30, 129, 0.05) 0%, transparent 100%);
     }
   }
+</style>
 </style>
