@@ -7,45 +7,44 @@ const images = [
   "/images/clairedavison3.jpeg"
 ];
 
-const mainArticle = {
-  category: "Interview / Feature",
-  byline: "By Rachel Chen",
-  title: "Claire Davison | ABT Ballerina, Clown & Web Designer",
-  excerpt: "How an American Ballet Theatre ballerina became an award-winning clown, choreographer, and web designer.",
-  datePublished: "2026-09-24"
-};
+
+const pageTitle = "The Strange Case of Claire Davison";
+const pageDescription = "A raw look into an American Ballet Theatre ballerina's pain, breakthrough, and pilgrimage to finding her true love: storytelling.";
+
+
+const category = "Interview / Feature";
+const byline = "By The Icon Archive";
+const datePublished = "2026-09-24";
 ---
 
 <BaseLayout 
-  title={mainArticle.title}
-  description={mainArticle.excerpt}
+  title={pageTitle}
+  description={pageDescription}
 >
 
 <Fragment slot="head">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Claire Davison | ABT Ballerina, Clown & Web Designer",
-        "description": "How an American Ballet Theatre ballerina became an award-winning clown, choreographer, and web designer.",
-        "image": "https://pinkcodingclub.com/images/clairedavison.jpg",
-        "author": {
-          "@type": "Person",
-          "name": "Rachel Chen"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Pink Coding Club"
-        },
-        "datePublished": "2026-09-24",
-        "mainEntityOfPage": "https://pinkcodingclub.com/stories/claire-davison"
-      }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": pageTitle,
+      "description": pageDescription,
+      "image": "https://pinkcodingclub.com/images/clairedavison.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Rachel Chen"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Pink Coding Club"
+      },
+      "datePublished": datePublished,
+      "mainEntityOfPage": "https://pinkcodingclub.com/stories/claire-davison"
+    })} />
   </Fragment>
 
   <article class="editorial-wrapper">
     
-  <!-- Hero Section (Side-by-Side Layout) -->
+  <!-- Hero Section -->
   <header class="editorial-hero">
     <div class="image-slideshow" id="slideshow">
       {images.map((src, index) => (
@@ -59,11 +58,11 @@ const mainArticle = {
 
     <div class="hero-info-panel">
       <div class="meta-tag">
-        <span>{mainArticle.category}</span>
-        <span>{mainArticle.byline}</span>
+        <span>{category}</span>
+        <span>{byline}</span>
       </div>
-      <h1 class="hero-title">{mainArticle.title}</h1>
-      <p class="hero-excerpt">{mainArticle.excerpt}</p>
+      <h1 class="hero-title">{pageTitle}</h1>
+      <p class="hero-excerpt">{pageDescription}</p>
     </div>
   </header>
 
@@ -179,6 +178,7 @@ const mainArticle = {
     width: 100%;
     min-height: 85vh;
     border-bottom: 1px solid var(--border-gray, #333);
+    padding-top: 70px;
   }
 
   .image-slideshow {
@@ -222,7 +222,7 @@ const mainArticle = {
     letter-spacing: 0.5px;
     color: #888;
     margin-bottom: 16px;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   .hero-title {
